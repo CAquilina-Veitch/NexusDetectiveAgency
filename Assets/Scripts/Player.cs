@@ -14,5 +14,4 @@ public class Player : MonoBehaviour
         cam.enabled = to;
     }
 
-
 }

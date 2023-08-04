@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float acceleration = 10;
     [SerializeField] Rigidbody rb;
 
+    [SerializeField] Vector3 dimensionalDiffPosition = new Vector3(-10,0,0);
     public void Toggle(bool to)
     {
         Cursor.lockState = to ? CursorLockMode.Locked : CursorLockMode.None;
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         switchDimension(0);
+        players[0].transform.position = dimensionalDiffPosition;
+        players[1].transform.position = -dimensionalDiffPosition;
     }
     private void OnDisable()
     {
