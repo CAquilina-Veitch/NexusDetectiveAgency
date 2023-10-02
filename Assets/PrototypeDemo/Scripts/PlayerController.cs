@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,25 +23,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 moveInput;
     [SerializeField] float speed = 8;
     [SerializeField] float acceleration = 10;
+
     [SerializeField] Rigidbody rb;
+/*    ref Rigidbody rb
+    {
+        get { return ref rigidbodys[currentPlayerDimension]; }
+    }*/
 
     [SerializeField] Vector3 dimensionalDiffPosition = new Vector3(-10,0,0);
+
     public void Toggle(bool to)
     {
         Cursor.lockState = to ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !to;
     }
-
-    private void OnEnable()
+    void OnDrawGizmos()
     {
-        Toggle(true);
-        yaw = transform.eulerAngles.y;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(dimensionalDiffPosition, 1);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawSphere(-dimensionalDiffPosition, 1);
     }
+
     private void Awake()
     {
         switchDimension(0);
         players[0].transform.position = dimensionalDiffPosition;
         players[1].transform.position = -dimensionalDiffPosition;
+    }
+    private void OnEnable()
+    {
+        Toggle(true);
+        yaw = transform.eulerAngles.y;
     }
     private void OnDisable()
     {
@@ -55,11 +69,7 @@ public class PlayerController : MonoBehaviour
 
     public void switchDimension()
     {
-        currentPlayerDimension = currentPlayerDimension == 1 ? 0 : 1;
-        for(int i = 0; i < 2; i++)
-        {
-            players[i].SwitchTo(i == currentPlayerDimension);
-        }
+        switchDimension(currentPlayerDimension == 1 ? 0 : 1);
     }
     void switchDimension(int to)
     {
@@ -67,7 +77,9 @@ public class PlayerController : MonoBehaviour
         for(int i = 0; i < 2; i++)
         {
             players[i].SwitchTo(i == currentPlayerDimension);
+            //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
         }
+
     }
 
     void Update()

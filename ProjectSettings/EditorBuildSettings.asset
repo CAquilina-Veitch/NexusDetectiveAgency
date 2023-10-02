@@ -6,30 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/PrototypeDemo.unity
+    path: Assets/Scenes/PrototypeDemo.unity
     guid: fd28a7dcb55dafc4c8d0918f2bf3db87
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Structure/Players.unity
+    path: Assets/Scenes/Structure/Players.unity
     guid: a6dd25cb811bead4f853b59f48e5283b
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Structure/UI.unity
+    path: Assets/Scenes/Structure/UI.unity
     guid: 576185ee835f6b14090d0eb7f71caf2d
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Structure/Main Menu.unity
+    path: Assets/Scenes/Structure/Main Menu.unity
     guid: c866bdec34163484a96c00a60c09f6cc
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Segments/Segment 0.unity
+    path: Assets/Scenes/Segments/Segment 0.unity
     guid: 1d08e5d4ac921884ca71260f866db4c8
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Segments/Segment 1.unity
+    path: Assets/Scenes/Segments/Segment 1.unity
     guid: ce369cb380e7f9f459b64e8b839d187b
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Segments/Segment 2.unity
+    path: Assets/Scenes/Segments/Segment 2.unity
     guid: dcf1a87d0bc5faa45ab87eb89e3d583b
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Segments/Segment 3.unity
+    path: Assets/Scenes/Segments/Segment 3.unity
     guid: 17217b14750b70542bc238b9ccff3a7d
   - enabled: 1
-    path: Assets/PrototypeDemo/Scene/Segments/Segment 4.unity
+    path: Assets/Scenes/Segments/Segment 4.unity
     guid: 38ca4d88599f4f949a489998917c363c
   m_configObjects: {}
