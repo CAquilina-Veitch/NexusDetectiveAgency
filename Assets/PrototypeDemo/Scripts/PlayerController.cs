@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    
+    [Space(20)]
+    [Header("Dependencies")]
+    [Space(10)]
+
+    [SerializeField] Rigidbody rb;
+    
+    
     [SerializeField] Player[] players = new Player[2];
     ref Player currentPlayer
     {
@@ -14,23 +22,41 @@ public class PlayerController : MonoBehaviour
             return ref players[currentPlayerDimension];
         }
     }
+
+
+    [Space(20)]
+    [Header("Mechanisms")]
+    [Space(10)]
+
+    float pitch, yaw;
+   
+    [Space(10)]
     public int currentPlayerDimension;
+    [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
+    
+    [Space(20)]
+    [Header("Controls")]
+    [Space(10)]
 
     [SerializeField] Vector2 mouseInput;
     [SerializeField] float sensitivity = 1;
-    float pitch, yaw;
+
+    [Space(20)]
+    [Header("Movement")]
+    [Space(10)]
+
 
     [SerializeField] Vector2 moveInput;
     [SerializeField] float speed = 8;
     [SerializeField] float acceleration = 10;
+    float isGrounded;
 
-    [SerializeField] Rigidbody rb;
-/*    ref Rigidbody rb
-    {
-        get { return ref rigidbodys[currentPlayerDimension]; }
-    }*/
+    [Space(10)]
+    public Ledge currentLedge;
+    [SerializeField] float maxVaultAngle = 45;
 
-    [SerializeField] Vector3 dimensionalDiffPosition = new Vector3(-10,0,0);
+
+
 
     public void Toggle(bool to)
     {
@@ -48,8 +74,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         switchDimension(0);
-        players[0].transform.position = dimensionalDiffPosition;
-        players[1].transform.position = -dimensionalDiffPosition;
+
+        TransformPlayerParent(transform.position);
     }
     private void OnEnable()
     {
@@ -82,12 +108,90 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Movement
+
+    bool Vault()
+    {
+        Vector3 playerLookDirection = currentPlayer.camTransform.forward;
+        Vector3 desiredDirection = currentLedge.direction;
+        float angle = Vector3.Angle(playerLookDirection, desiredDirection);
+
+        if (angle<maxVaultAngle)   //facing right way
+        {
+            StartCoroutine(LerpVault(currentLedge.transform.position + Vector3.up * 2));
+            return true;
+        }
+        return false;
+        
+    }
+    void Jump()
+    {
+        if (isGrounded==0)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 7, rb.velocity.z);
+        }
+    }
+
+    IEnumerator LerpVault(Vector3 targetPos)
+    {
+        Vector3 targetPosParent = targetPos.PlayerPosToOwner(this);
+        float duration = 1;
+        float time = 0;
+        Vector3 startPosition = transform.position;
+        Debug.Log($"from {startPosition} to {targetPosParent}");
+        while (time < duration)
+        {
+            TransformPlayerParent(Vector3.Lerp(startPosition, targetPosParent, time / duration));
+            time += Time.deltaTime;
+            yield return null;
+        }
+        TransformPlayerParent(targetPosParent);
+    }
+
+    //Abilities
+
+    void TransformPlayerParent(Vector3 to)
+    {
+        transform.position = to;
+        for(int i = 0; i < 2; i++)
+        {
+            players[i].transform.position = to.OwnerPosToPlayer(this)[i];
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             switchDimension();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (currentLedge == null)
+            {
+                Jump();
+            }
+            else
+            {
+                if (!Vault())
+                {
+                    Jump();
+                }
+            }
+            
+        }
+
+
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
         pitch += mouseInput.y;
         yaw += mouseInput.x;
@@ -101,10 +205,6 @@ public class PlayerController : MonoBehaviour
         Vector3 movementCalc = Vector3.Lerp(rb.velocity, currentPlayer.transform.forward * speed * moveInput.y + currentPlayer.transform.right * speed * moveInput.x, Time.deltaTime * acceleration);
         movementCalc.y = rb.velocity.y;
         rb.velocity = movementCalc;
-        //Debug.Log(Time.deltaTime * acceleration);
-
-
-
-
     }
+
 }
