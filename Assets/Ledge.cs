@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Windows;
 
 [AddComponentMenu("Nexus Detective Agency Components/ Ledge")]
+[RequireComponent(typeof(BoxCollider))]
 public class Ledge : MonoBehaviour
 {
-    [SerializeField] BoxCollider collisionBox;
+
+
+    [Tooltip("Represents the direction that the player needs to be looking, is normalised.")]
     [SerializeField] public Vector2 direction;
 
+    [Space(30)]
+    [Header("Dependencies")]
+    [SerializeField] BoxCollider collisionBox;
 
     void OnDrawGizmos()
     {

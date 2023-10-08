@@ -15,10 +15,10 @@ public static class GlobalFunctions
 
     public static Vector3 PlayerPosToOwner(this Vector3 playerPos, PlayerController controller)
     {
-        int currentPlayer = controller.currentPlayerDimension;
+        Dimension currentPlayer = controller.currentPlayerDimension;
         Vector3 diff = controller.dimensionalDiffPosition;
         Vector3 temp = playerPos;
-        temp = currentPlayer==0? temp - diff:temp+diff;
+        temp = currentPlayer == Dimension.Cyberpunk ? temp - diff : temp + diff;
 
         return temp;
     }

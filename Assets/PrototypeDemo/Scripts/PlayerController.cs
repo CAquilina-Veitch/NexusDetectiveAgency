@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.UI;
+
+
+public enum Dimension { Cyberpunk, Steampunk, Noir}
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,9 +21,20 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return ref players[currentPlayerDimension];
+            return ref players[(int)currentPlayerDimension];
         }
     }
+
+
+    [Space(20)]
+    [Header("Keybinds")]
+    [Space(10)]
+
+    [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] KeyCode abilityOneKey = KeyCode.E;
+    [SerializeField] KeyCode abilityTwoKey = KeyCode.Q;
+    [SerializeField] KeyCode abilityThreeKey = KeyCode.F;
+
 
 
     [Space(20)]
@@ -31,7 +44,7 @@ public class PlayerController : MonoBehaviour
     float pitch, yaw;
    
     [Space(10)]
-    public int currentPlayerDimension;
+    public Dimension currentPlayerDimension;
     [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
     
     [Space(20)]
@@ -39,7 +52,7 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
 
     [SerializeField] Vector2 mouseInput;
-    [SerializeField] float sensitivity = 1;
+    [SerializeField,Range(0,10)] float sensitivity = 1;
 
     [Space(20)]
     [Header("Movement")]
@@ -47,15 +60,17 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] Vector2 moveInput;
-    [SerializeField] float speed = 8;
-    [SerializeField] float acceleration = 10;
+    [SerializeField,Min(0.01f)] float speed = 8;
+    [SerializeField, Min(0.01f)] float acceleration = 10;
     float isGrounded;
 
     [Space(10)]
-    public Ledge currentLedge;
-    [SerializeField] float maxVaultAngle = 45;
-
-
+    [HideInInspector] public Ledge currentLedge;
+    [SerializeField, Min(0f)] float maxVaultAngle = 45;
+    [Space(20)]
+    [Header("Abilities")]
+    [Space(10)]
+    [SerializeField] GameObject dronePlatformPrefab;
 
 
     public void Toggle(bool to)
@@ -93,16 +108,16 @@ public class PlayerController : MonoBehaviour
         Toggle(!to);
     }
 
-    public void switchDimension()
+/*    public void switchDimension()
     {
-        switchDimension(currentPlayerDimension == 1 ? 0 : 1);
-    }
-    void switchDimension(int to)
+        switchDimension(currentPlayerDimension == (Dimension)1 ? 0 : 1);
+    }*/
+    void switchDimension(Dimension to)
     {
         currentPlayerDimension = to;
         for(int i = 0; i < 2; i++)
         {
-            players[i].SwitchTo(i == currentPlayerDimension);
+            players[i].SwitchTo(i == (int)currentPlayerDimension);
             //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
         }
 
@@ -150,10 +165,46 @@ public class PlayerController : MonoBehaviour
 
     //Abilities
 
+
+
+
+
+
+
+    bool dronePlatformActive;
+    bool dronePlatformDrafting;
+    [Range(0, 20)] float dronePlatformDistance;
+
+
+    void DirectDrone()
+    {
+        dronePlatformDrafting = !dronePlatformDrafting;
+        if (dronePlatformDrafting)
+        {
+
+        }
+        else
+        {
+
+        }
+        
+    }
+
+
+
+
+    void newDronePositionSet()
+    {
+
+    }
+
+    ///////////////////////////////////////////////////
+    
+
     void TransformPlayerParent(Vector3 to)
     {
         transform.position = to;
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
         {
             players[i].transform.position = to.OwnerPosToPlayer(this)[i];
         }
@@ -165,17 +216,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
-
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            switchDimension();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(jumpKey))
         {
             if (currentLedge == null)
             {
@@ -190,7 +234,34 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+        if (currentPlayerDimension == Dimension.Cyberpunk)
+        {
+            if (Input.GetKeyDown(abilityOneKey))
+            {
+                switchDimension(Dimension.Steampunk);
+            }            
+            
+            if (Input.GetKeyDown(abilityTwoKey))
+            {
 
+            }
+
+        }
+        else if (currentPlayerDimension == Dimension.Steampunk)
+        {
+            if (Input.GetKeyDown(abilityOneKey))
+            {
+                switchDimension(Dimension.Cyberpunk);
+            }
+            if (Input.GetKeyDown(abilityTwoKey))
+            {
+
+            }
+        }
+        else
+        {
+
+        }
 
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
         pitch += mouseInput.y;
