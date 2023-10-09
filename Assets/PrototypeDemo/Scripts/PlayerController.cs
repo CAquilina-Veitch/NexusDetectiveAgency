@@ -179,6 +179,7 @@ public class PlayerController : MonoBehaviour
     void DirectDrone()
     {
         dronePlatformDrafting = !dronePlatformDrafting;
+
         if (dronePlatformDrafting)
         {
 
@@ -243,7 +244,7 @@ public class PlayerController : MonoBehaviour
             
             if (Input.GetKeyDown(abilityTwoKey))
             {
-
+                DirectDrone();
             }
 
         }
