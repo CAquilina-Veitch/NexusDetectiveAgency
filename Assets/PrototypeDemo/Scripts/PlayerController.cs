@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode abilityOneKey = KeyCode.E;
     [SerializeField] KeyCode abilityTwoKey = KeyCode.Q;
     [SerializeField] KeyCode abilityThreeKey = KeyCode.F;
+    [SerializeField] KeyCode grabHoldableKey = KeyCode.LeftShift;
 
 
 
@@ -67,10 +68,18 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
     [HideInInspector] public Ledge currentLedge;
     [SerializeField, Min(0f)] float maxVaultAngle = 45;
+
+    [Space(10)]
+    public Holdable currentHeldItem;
+    [SerializeField] float grabHoldableReach = 4;
+    [SerializeField] float heldItemArmLength = 3;
+
+
     [Space(20)]
     [Header("Abilities")]
     [Space(10)]
     [SerializeField] GameObject dronePlatformPrefab;
+    [SerializeField] GameObject droneDraft;
 
 
     public void Toggle(bool to)
@@ -120,6 +129,7 @@ public class PlayerController : MonoBehaviour
             players[i].SwitchTo(i == (int)currentPlayerDimension);
             //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
         }
+        ChangeGrabParent();
 
     }
 
@@ -163,6 +173,43 @@ public class PlayerController : MonoBehaviour
         TransformPlayerParent(targetPosParent);
     }
 
+    void GrabHoldableItem()
+    {
+        if (currentHeldItem == null)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, grabHoldableReach))
+            {
+                Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward* hit.distance, Color.yellow);
+                Debug.Log($"Did Hit {hit.collider.gameObject.name}");
+                if(hit.collider.GetComponent<Holdable>() != null )
+                {
+                    currentHeldItem = hit.collider.GetComponent<Holdable>();
+                    currentHeldItem.ToggleGhost(true);
+                    ChangeGrabParent();
+                }
+            }
+        }
+        else
+        {
+            currentHeldItem.transform.parent = null;
+            currentHeldItem.ToggleGhost(false);
+            currentHeldItem = null;
+        }
+    }
+
+    void ChangeGrabParent()
+    {
+        if (currentHeldItem != null)
+        {
+            currentHeldItem.transform.parent = currentPlayer.cam.transform;
+            currentHeldItem.transform.position = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * heldItemArmLength;
+        }
+        
+    }
+
+
+
     //Abilities
 
 
@@ -173,7 +220,8 @@ public class PlayerController : MonoBehaviour
 
     bool dronePlatformActive;
     bool dronePlatformDrafting;
-    [Range(0, 20)] float dronePlatformDistance;
+    [Range(0, 20)] public float dronePlatformDistance;
+    GameObject currentDronePlatformPrefab;
 
 
     void DirectDrone()
@@ -182,11 +230,11 @@ public class PlayerController : MonoBehaviour
 
         if (dronePlatformDrafting)
         {
-
+            ShowDraft(true);
         }
         else
         {
-
+            NewDronePositionSet();
         }
         
     }
@@ -194,10 +242,30 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void newDronePositionSet()
+    void NewDronePositionSet()
     {
+        ShowDraft(false);
+        Destroy(currentDronePlatformPrefab);
 
     }
+
+    void ShowDraft(bool showDraft)
+    {
+        dronePlatformDrafting = showDraft;
+
+        droneDraft.SetActive(showDraft);
+
+        dronePlatformDistance = 5;
+        if (showDraft)
+        {
+
+        }
+        else
+        {
+            dronePlatformDistance = 5;
+        }
+    }
+
 
     ///////////////////////////////////////////////////
     
@@ -212,7 +280,30 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void FixedUpdate()
+    {
+        if (currentHeldItem != null)
+        {
+            
+            Vector3 grabPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * heldItemArmLength;
 
+            // Calculate the object's size
+            Bounds objectBounds = currentHeldItem.cldrBounds;
+            float objectSize = Mathf.Max(objectBounds.size.x, objectBounds.size.y, objectBounds.size.z);
+            
+            RaycastHit obstacleHit;
+            // Check for obstacles between the camera and the grab position
+            if(Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, heldItemArmLength + objectSize))
+            {
+                // Calculate a new grab position considering the object's size
+                float adjustedArmLength = Mathf.Max(Vector3.Distance(currentPlayer.cam.transform.position, obstacleHit.point) - objectSize, 0f);
+                //adjustedArmLength -= objectSize;
+                grabPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * adjustedArmLength;
+            }
+
+            currentHeldItem.transform.position = grabPosition;
+        }
+    }
 
 
 
@@ -235,6 +326,12 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+        if(Input.GetKeyDown(grabHoldableKey))
+        {
+            GrabHoldableItem();
+        }
+
+
         if (currentPlayerDimension == Dimension.Cyberpunk)
         {
             if (Input.GetKeyDown(abilityOneKey))
