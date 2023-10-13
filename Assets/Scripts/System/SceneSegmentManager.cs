@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSegmentManager : MonoBehaviour
 {
     public List<Object> StructureScenes;
+    public Object detectiveScene;
     public List<Object> segmentScenes; // List of scene names for your segments
     public int segmentsToLoadAtOnce = 2 ;
 

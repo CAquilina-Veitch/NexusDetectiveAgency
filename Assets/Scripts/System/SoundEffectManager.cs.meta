@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 5accc06a3a214c94e95d9cebe624288e
+guid: 909f2c7e9176a2c46a04f8c3d3c38ef4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sfxPrefab: {fileID: 5795389021107064261, guid: 63def94f60a215d488cfe33070d49fc1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

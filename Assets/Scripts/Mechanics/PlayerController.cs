@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] KeyCode abilityOneKey = KeyCode.E;
     [SerializeField] KeyCode abilityTwoKey = KeyCode.Q;
     [SerializeField] KeyCode abilityThreeKey = KeyCode.F;
-    [SerializeField] KeyCode grabHoldableKey = KeyCode.LeftShift;
+    [SerializeField] KeyCode grabHoldableKey = KeyCode.Mouse0;
+    [SerializeField] KeyCode buttonPressKey = KeyCode.Mouse1;
 
 
 
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     [Space(10)]
     public Holdable currentHeldItem;
-    [SerializeField] float grabHoldableReach = 4;
+    [SerializeField] float armReach = 4;
     [SerializeField] float heldItemArmLength = 3;
 
 
@@ -80,6 +81,14 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
     [SerializeField] GameObject dronePlatformPrefab;
     [SerializeField] GameObject droneDraft;
+    bool dronePlatformActive;
+    bool dronePlatformDrafting;
+    [HideInInspector] public float dronePlatformDistance;
+    GameObject currentDronePlatformPrefab;
+
+    [Space(10)]
+    public List<Button> CollectedButtons = new List<Button>();
+
 
 
     public void Toggle(bool to)
@@ -117,10 +126,8 @@ public class PlayerController : MonoBehaviour
         Toggle(!to);
     }
 
-/*    public void switchDimension()
-    {
-        switchDimension(currentPlayerDimension == (Dimension)1 ? 0 : 1);
-    }*/
+
+
     void switchDimension(Dimension to)
     {
         currentPlayerDimension = to;
@@ -178,10 +185,10 @@ public class PlayerController : MonoBehaviour
         if (currentHeldItem == null)
         {
             RaycastHit hit;
-            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, grabHoldableReach))
+            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
             {
-                Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward* hit.distance, Color.yellow);
-                Debug.Log($"Did Hit {hit.collider.gameObject.name}");
+                Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward* hit.distance, Color.yellow,5);
+                Debug.Log($"Did Hit Grabbable {hit.collider.gameObject.name}");
                 if(hit.collider.GetComponent<Holdable>() != null )
                 {
                     currentHeldItem = hit.collider.GetComponent<Holdable>();
@@ -208,6 +215,20 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    void PressButton()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
+        {
+            Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan,5);
+            Debug.Log($"Did Hit Button {hit.collider.gameObject.name}");
+            if (hit.collider.GetComponent<Button>() != null)
+            {
+                hit.collider.GetComponent<Button>().Trigger();
+            }
+        }
+    }
+
 
 
     //Abilities
@@ -218,10 +239,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    bool dronePlatformActive;
-    bool dronePlatformDrafting;
-    [Range(0, 20)] public float dronePlatformDistance;
-    GameObject currentDronePlatformPrefab;
+
 
 
     void DirectDrone()
@@ -265,6 +283,25 @@ public class PlayerController : MonoBehaviour
             dronePlatformDistance = 5;
         }
     }
+
+
+
+
+    //showWheel;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     ///////////////////////////////////////////////////
@@ -329,6 +366,12 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(grabHoldableKey))
         {
             GrabHoldableItem();
+        }
+        
+        
+        if(Input.GetKeyDown(buttonPressKey))
+        {
+            PressButton();
         }
 
 

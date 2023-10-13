@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[AddComponentMenu("Nexus Detective Agency Components/ Holdable Object")]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 
 public class Holdable : MonoBehaviour
 {
     Collider cldr;
     Rigidbody rb;
 
-    public Bounds cldrBounds;
+    [HideInInspector] public Bounds cldrBounds;
+
+
+    [TextArea]
+    [Tooltip("Doesn't do anything. Just comments shown in inspector")]
+    [SerializeField] string Note = "This component will need a collider to operate; can be any type.";
 
     private void Awake()
     {

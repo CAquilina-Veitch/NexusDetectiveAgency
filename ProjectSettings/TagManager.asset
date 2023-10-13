@@ -7,6 +7,8 @@ TagManager:
   - SceneManager
   - SFXManager
   - Sound
+  - PlayerController
+  - UIManager
   layers:
   - Default
   - TransparentFX

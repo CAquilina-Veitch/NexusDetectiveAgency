@@ -7,13 +7,13 @@ public class DronePlatform : MonoBehaviour
 
     [SerializeField] Transform playerCam;
     [SerializeField] PlayerController playerControls;
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] LayerMask groundLayerMask;
     [SerializeField] float verticalHeight;
 
     private void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, groundLayerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Debug.Log("Did Hit");

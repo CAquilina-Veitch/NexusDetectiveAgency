@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class DimensionSwap : Interactable
+public class RemoteInteraction : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] UnityEvent Activate;
     void Start()
     {
         
@@ -16,9 +14,5 @@ public class DimensionSwap : Interactable
     void Update()
     {
         
-    }
-    protected override void Interact()
-    {
-        Activate.Invoke();
     }
 }
