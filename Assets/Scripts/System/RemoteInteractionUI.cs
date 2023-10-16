@@ -10,11 +10,15 @@ public class RemoteInteractionUI : MonoBehaviour
 
     [SerializeField] GameObject segmentPrefab;
 
-    List<GameObject> children;
+    List<GameObject> children = new List<GameObject>();
+
+    float pixelScale = 200;
+
+
 
     private void OnEnable()
     {
-        
+        controller = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
         UpdateUI();
 
 
@@ -38,12 +42,19 @@ public class RemoteInteractionUI : MonoBehaviour
             GameObject temp = Instantiate(segmentPrefab, transform);
             children.Add(temp);
 
-            temp.GetComponent<Image>().fillAmount = (i + 1) * angle;
-            temp.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            temp.GetComponent<Image>().fillAmount =  angle/360;
+            temp.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (i + 1) * angle));
+            temp.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+            Debug.Log(temp.transform.rotation.ToString());
 
             if(collectedButtons.Count > 1)
             {
-                temp.GetComponentInChildren<Image>().GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+                temp.transform.GetChild(0).transform.localPosition = new Vector2(pixelScale * Mathf.Sin((2 *angle * Mathf.Deg2Rad)), pixelScale * Mathf.Cos((2*angle * Mathf.Deg2Rad)));
+                Debug.Log($"{pixelScale * Mathf.Sin((angle * Mathf.Deg2Rad))}, { pixelScale * Mathf.Cos(( angle * Mathf.Deg2Rad))}");
+                Debug.Log($"{pixelScale} * Mathf.Sin(( {angle} * {Mathf.Deg2Rad})), {pixelScale} * Mathf.Cos(({angle} * {Mathf.Deg2Rad})))");
+                Debug.Log($"{pixelScale} * {Mathf.Sin((angle * Mathf.Deg2Rad))}, {pixelScale} * {Mathf.Cos((angle * Mathf.Deg2Rad))}");
+
             }
             else
             {
@@ -56,6 +67,9 @@ public class RemoteInteractionUI : MonoBehaviour
 
 
     }
+
+    
+
 
 
 }

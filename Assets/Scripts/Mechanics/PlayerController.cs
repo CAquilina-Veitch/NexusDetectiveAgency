@@ -24,7 +24,18 @@ public class PlayerController : MonoBehaviour
             return ref players[(int)currentPlayerDimension];
         }
     }
-
+    public UIManager UIM
+    {
+        get
+        {
+            if (uiManager == null)
+            {
+                uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+            }
+            return uiManager;
+        }
+    }
+    UIManager uiManager;
 
     [Space(20)]
     [Header("Keybinds")]
@@ -114,6 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         Toggle(true);
         yaw = transform.eulerAngles.y;
+        
     }
     private void OnDisable()
     {
@@ -290,12 +302,49 @@ public class PlayerController : MonoBehaviour
     //showWheel;
 
 
+    void ShowWheel()
+    {
+        UIM.ToggleUI("Remote Interaction", true);
+        ShowMouse(true);
+
+    }
+
+    void HideWheel()
+    {
+        Debug.LogError(GetMouseOverNumber());
+        UIM.ToggleUI("Remote Interaction", false);
+        ShowMouse(false);
+
+    }
+
+    float GetMouseOverNumber()
+    {
+        Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 direction = screenCenter - mousePosition;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        
+        angle -= 90f;
+        angle = 360 - angle;
+
+        if (angle < 0)
+        {
+            angle += 360f;
+        }
+
+        // Add 90 degrees to the angle to make 0 point down and increase clockwise
 
 
+        if (angle >= 360f)
+        {
+            angle -= 360f;
+        }
 
-
-
-
+        int num = CollectedButtons.Count == 0 ? 1 : CollectedButtons.Count;
+        int fitCount = Mathf.FloorToInt(angle / num);
+        return fitCount;
+    }
 
 
 
@@ -305,7 +354,7 @@ public class PlayerController : MonoBehaviour
 
 
     ///////////////////////////////////////////////////
-    
+
 
     void TransformPlayerParent(Vector3 to)
     {
@@ -396,7 +445,11 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyDown(abilityTwoKey))
             {
-
+                ShowWheel();
+            }            
+            if (Input.GetKeyUp(abilityTwoKey))
+            {
+                HideWheel();
             }
         }
         else
