@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
-using System.Linq; // Include the Linq library for the Find method
+using System.Linq;
 
 [Serializable]
 public class UIElement

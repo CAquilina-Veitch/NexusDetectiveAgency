@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     GameObject currentDronePlatformPrefab;
 
     [Space(10)]
-    public List<Button> CollectedButtons = new List<Button>();
+    public List<TriggerInput> CollectedActions = new List<TriggerInput>();
 
 
 
@@ -236,7 +236,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Did Hit Button {hit.collider.gameObject.name}");
             if (hit.collider.GetComponent<Button>() != null)
             {
-                hit.collider.GetComponent<Button>().Trigger();
+                hit.collider.GetComponent<Button>().Activate();
             }
         }
     }
@@ -341,7 +341,7 @@ public class PlayerController : MonoBehaviour
             angle -= 360f;
         }
 
-        int num = CollectedButtons.Count == 0 ? 1 : CollectedButtons.Count;
+        int num = CollectedActions.Count == 0 ? 1 : CollectedActions.Count;
         int fitCount = Mathf.FloorToInt(angle / num);
         return fitCount;
     }

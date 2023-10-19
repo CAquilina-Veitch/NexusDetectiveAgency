@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RemoteInteractionUI : MonoBehaviour
 {
     PlayerController controller;
-    List<Button> collectedButtons = new List<Button>();
+    List<TriggerInput> CollectedActions = new List<TriggerInput>();
 
     [SerializeField] GameObject segmentPrefab;
 
@@ -28,16 +28,16 @@ public class RemoteInteractionUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        collectedButtons = controller.CollectedButtons;
+        CollectedActions = controller.CollectedActions;
 
         foreach (GameObject child in children)
         {
             Destroy(child);
         }
 
-        for(int i = 0; i < collectedButtons.Count; i++)
+        for(int i = 0; i < CollectedActions.Count; i++)
         {
-            float angle = 360 / collectedButtons.Count;
+            float angle = 360 / CollectedActions.Count;
 
             GameObject temp = Instantiate(segmentPrefab, transform);
             children.Add(temp);
@@ -48,7 +48,7 @@ public class RemoteInteractionUI : MonoBehaviour
 
             Debug.Log(temp.transform.rotation.ToString());
 
-            if(collectedButtons.Count > 1)
+            if(CollectedActions.Count > 1)
             {
                 temp.transform.GetChild(0).transform.localPosition = new Vector2(pixelScale * Mathf.Sin((2 *angle * Mathf.Deg2Rad)), pixelScale * Mathf.Cos((2*angle * Mathf.Deg2Rad)));
                 Debug.Log($"{pixelScale * Mathf.Sin((angle * Mathf.Deg2Rad))}, { pixelScale * Mathf.Cos(( angle * Mathf.Deg2Rad))}");
