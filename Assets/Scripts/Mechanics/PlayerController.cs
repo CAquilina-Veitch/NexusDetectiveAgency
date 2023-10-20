@@ -96,9 +96,11 @@ public class PlayerController : MonoBehaviour
     bool dronePlatformDrafting;
     [HideInInspector] public float dronePlatformDistance;
     GameObject currentDronePlatformPrefab;
+    public bool hasFuse;
+
 
     [Space(10)]
-    public List<TriggerInput> CollectedActions = new List<TriggerInput>();
+    public List<TriggerableObject> CollectedActions = new List<TriggerableObject>();
 
 
 
@@ -246,7 +248,19 @@ public class PlayerController : MonoBehaviour
     //Abilities
 
 
-
+    void Repair()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
+        {
+            Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
+            Debug.Log($"Did Hit Fuse {hit.collider.gameObject.name}");
+            if (hit.collider.GetComponent<Repairable>() != null)
+            {
+                hit.collider.GetComponent<Repairable>().TryRepair(this);
+            }
+        }
+    }
 
 
 
@@ -421,6 +435,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(buttonPressKey))
         {
             PressButton();
+            Repair();
         }
 
 
