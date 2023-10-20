@@ -106,8 +106,20 @@ public class TriggerInput : MonoBehaviour
     }    
     public void Toggle(bool to)
     {
-        if (isRepaired() || !to) 
+        if (to)
         {
+            if (isRepaired())
+            {
+                currentlyPowered = true;
+                foreach (var trigger in connectedTriggerables)
+                {
+                    trigger.Toggled(currentlyPowered);
+                }
+            }
+        }
+        else
+        {
+            currentlyPowered = false;
             foreach (var trigger in connectedTriggerables)
             {
                 trigger.Toggled(currentlyPowered);

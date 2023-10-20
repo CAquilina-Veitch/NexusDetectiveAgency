@@ -60,6 +60,8 @@ public class TriggerableObject : MonoBehaviour
             else
             {
                 triggerOffActions.Invoke();
+                state = false;
+                Debug.Log(61);
             }
         }
         else
@@ -67,9 +69,11 @@ public class TriggerableObject : MonoBehaviour
             if (to)
             {
                 StartCoroutine(ToggleDelay(true));
+                Debug.Log(62);
             }
             else
             {
+                
                 Debug.LogError("Off to off");
             }
         }
@@ -77,10 +81,10 @@ public class TriggerableObject : MonoBehaviour
 
     IEnumerator ToggleDelay(bool toOn)
     {
-        state = true;
+        state = toOn;
         triggerOnActions.Invoke();
         yield return new WaitForSeconds(pulseLength);
-        if(state)
+        if(!state)
         {
             triggerOffActions.Invoke();
         }

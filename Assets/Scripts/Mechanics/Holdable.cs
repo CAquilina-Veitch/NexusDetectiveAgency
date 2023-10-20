@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[AddComponentMenu("Nexus Detective Agency Components/ Holdable Object")]
+[AddComponentMenu("Nexus Detective Agency Components/ Properties/ Holdable Object")]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 

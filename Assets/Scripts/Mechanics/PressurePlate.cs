@@ -22,7 +22,7 @@ public class PressurePlate : MonoBehaviour
     public List<Weight> weights = new List<Weight>();
     bool isPressed;
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider  collision)
     {
         if(collision.gameObject.GetComponent<Weight>() != null)
         {
@@ -53,7 +53,7 @@ public class PressurePlate : MonoBehaviour
             if(weights.Count == 0)
             {
                 isPressed = false;
-                trigger.Toggle(isPressed);
+                trigger.Toggle(false);
             }
         }
         else
