@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RemoteInteractionUI : MonoBehaviour
 {
     PlayerController controller;
-    List<TriggerInput> CollectedActions = new List<TriggerInput>();
+    List<TriggerableObject> CollectedActions = new List<TriggerableObject>();
 
     [SerializeField] GameObject segmentPrefab;
 

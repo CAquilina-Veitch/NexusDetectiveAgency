@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,7 +60,8 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
     public Dimension currentPlayerDimension;
     [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
-    
+    [SerializeField] LayerMask groundMask;
+
     [Space(20)]
     [Header("Controls")]
     [Space(10)]
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField,Min(0.01f)] float speed = 8;
     [SerializeField, Min(0.01f)] float acceleration = 10;
     float isGrounded;
+
 
     [Space(10)]
     [HideInInspector] public Ledge currentLedge;
@@ -96,9 +99,11 @@ public class PlayerController : MonoBehaviour
     bool dronePlatformDrafting;
     [HideInInspector] public float dronePlatformDistance;
     GameObject currentDronePlatformPrefab;
+    public bool hasFuse;
+
 
     [Space(10)]
-    public List<TriggerInput> CollectedActions = new List<TriggerInput>();
+    public List<TriggerableObject> CollectedActions = new List<TriggerableObject>();
 
 
 
@@ -246,7 +251,19 @@ public class PlayerController : MonoBehaviour
     //Abilities
 
 
-
+    void Repair()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
+        {
+            Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
+            Debug.Log($"Did Hit Fuse {hit.collider.gameObject.name}");
+            if (hit.collider.GetComponent<Repairable>() != null)
+            {
+                hit.collider.GetComponent<Repairable>().TryRepair(this);
+            }
+        }
+    }
 
 
 
@@ -379,7 +396,7 @@ public class PlayerController : MonoBehaviour
             
             RaycastHit obstacleHit;
             // Check for obstacles between the camera and the grab position
-            if(Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, heldItemArmLength + objectSize))
+            if(Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, heldItemArmLength + objectSize,groundMask))
             {
                 // Calculate a new grab position considering the object's size
                 float adjustedArmLength = Mathf.Max(Vector3.Distance(currentPlayer.cam.transform.position, obstacleHit.point) - objectSize, 0f);
@@ -421,6 +438,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(buttonPressKey))
         {
             PressButton();
+            Repair();
         }
 
 

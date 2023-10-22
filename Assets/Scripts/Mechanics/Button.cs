@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[AddComponentMenu("Nexus Detective Agency Components/ Pressable Button")]
+[AddComponentMenu("Nexus Detective Agency Components/ Triggers/ Pressable Button")]
 
 
 public class Button : MonoBehaviour

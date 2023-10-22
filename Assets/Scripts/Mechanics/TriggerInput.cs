@@ -4,8 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+[AddComponentMenu("Nexus Detective Agency Components/ Triggers/ Trigger Input Manager")]
+
+
 public class TriggerInput : MonoBehaviour
 {
+    [TextArea(1, 20)]
+    [Tooltip("Doesn't do anything. Just comments shown in inspector")]
+    public string Note = "This component is needed for a button or pressure plate to interface with a triggerable object. \r\nThis component contains those inputs, and is in charge of checking for repairs, and allowing remote activation of the connected actions. \r\n\r\nCan be attached to anything, but each trigger input component should be a unique set of actions";
+
+
+
     [Space(15)]
     [Header("Inputs.")]
 
@@ -23,25 +33,31 @@ public class TriggerInput : MonoBehaviour
     [Header("Required repaired cables to operate.")]
     public List<Repairable> requiredRepairs = new List<Repairable>();
 
-    [Space(15)]
-    [Header("Can be remotely activated")]
-    [SerializeField] bool canBeRemotelyActivated;
-    bool ownedRemotely;
     
     
-    [Space(15)]
-    [Header("Delay before next press accepted.")]
-    [SerializeField] float delayBetweenPresses;
-    bool isBusy = false;
 
 
+
+    bool currentlyPowered;
 
 
 
     [Space(7)]
     public Sprite uiIcon;
 
-
+    public void updateRepairs()
+    {
+        if (currentlyPowered)
+        {
+            if (!isRepaired())
+            {
+                foreach (TriggerableObject triggerable in connectedTriggerables)
+                {
+                    triggerable.UnRepair();
+                }
+            }
+        }
+    }
     bool isRepaired()
     {
         foreach (Repairable rpr in requiredRepairs)
@@ -63,50 +79,66 @@ public class TriggerInput : MonoBehaviour
 
         foreach (Button button in buttons)
         {
-            if (button.trigger==null)
+            if (button.trigger == null) 
             {
-                button.trigger=this;
+                button.trigger = this;
             }
 
         }
-
-
-    }
-    private void OnEnable()
-    {
-        isBusy = false;
-    }
-    public void Trigger()
-    {
-        if (canBeRemotelyActivated && !ownedRemotely)
+        foreach(Repairable rep in requiredRepairs)
         {
-            ownedRemotely = true;
-            GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().CollectedActions.Add(this);
-
+            rep.trigger = this;
         }
 
 
+    }
+
+
+    public void Toggle()
+    {
         if (isRepaired())
         {
-            if (!isBusy)
+            foreach (var trigger in connectedTriggerables)
             {
-                isBusy = true;
+                trigger.Toggled(currentlyPowered);
+            }
+        }
+    }    
+    public void Toggle(bool to)
+    {
+        if (to)
+        {
+            if (isRepaired())
+            {
+                currentlyPowered = true;
                 foreach (var trigger in connectedTriggerables)
                 {
-                    trigger.Triggered();
+                    trigger.Toggled(currentlyPowered);
                 }
-                StartCoroutine(delay());
             }
+        }
+        else
+        {
+            currentlyPowered = false;
+            foreach (var trigger in connectedTriggerables)
+            {
+                trigger.Toggled(currentlyPowered);
+            }
+        }
+    }
+
+
+    public void Trigger()
+    {
+        if (isRepaired())
+        {
+            foreach (var trigger in connectedTriggerables)
+            {
+                trigger.Triggered();
+            }
+
         }
 
     }
 
-
-
-
-    IEnumerator delay()
-    {
-        yield return delayBetweenPresses;
-        isBusy = false;
-    }
 }
