@@ -1,0 +1,10 @@
+# MTL
+
+newmtl Layer_1_mtl
+	map_Kd light tri_Layer_1.png
+
+
+newmtl Layer_2_mtl
+	map_Kd light tri_Layer_2.png
+
+
