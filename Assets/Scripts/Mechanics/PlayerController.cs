@@ -85,7 +85,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 moveInput;
     [SerializeField,Min(0.01f)] float speed = 8;
     [SerializeField, Min(0.01f)] float acceleration = 10;
-    float isGrounded;
+    bool isGrounded
+    {
+        get
+        {
+            RaycastHit hit;
+
+            Vector3 capsuleCenter = currentPlayer.bodyCollider.center;
+            float capsuleRadius = currentPlayer.bodyCollider.radius;
+            float capsuleHeight = currentPlayer.bodyCollider.height / 2; // Divide by 2 because height is usually the full height, but we need half.
+
+            if (Physics.CapsuleCast(capsuleCenter, capsuleCenter - new Vector3(0, capsuleHeight * 2, 0), capsuleRadius, Vector3.down, out hit, 0.1f, groundMask))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    [SerializeField] float jumpCheckLength;
 
 
     [Space(10)]
@@ -204,7 +224,7 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        if (isGrounded==0)
+        if (isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 7, rb.velocity.z);
         }
