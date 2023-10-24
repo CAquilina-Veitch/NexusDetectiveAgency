@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
     [SerializeField] public Vector3 startingPos = new Vector3(31.3f, 1, 74.5f);
     [SerializeField] LayerMask groundMask;
+    [SerializeField] LayerMask isntPlayerMask;
 
     [Space(20)]
     [Header("Controls")]
@@ -149,10 +150,21 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        switchDimension(0);
+        ForceDimension(0);
 
         TransformPlayerParent(startingPos);
     }
+
+    public void ResetPlayer()
+    {
+        ForceDimension(0);
+
+        TransformPlayerParent(startingPos);
+        Toggle(true);
+        yaw = transform.eulerAngles.y;
+    }
+
+
     private void OnEnable()
     {
         Toggle(true);
@@ -202,6 +214,22 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    void ForceDimension(Dimension to)
+    {
+        //check valid Position
+        currentPlayerDimension = to;
+        for (int i = 0; i < 2; i++)
+        {
+            players[i].SwitchTo(i == (int)currentPlayerDimension);
+            //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
+        }
+        ChangeGrabParent();
+       
+
+
+
+
+    }
 
     //Movement
 
@@ -210,7 +238,7 @@ public class PlayerController : MonoBehaviour
         Vector3 playerLookDirection = currentPlayer.camTransform.forward;
         Vector3 desiredDirection = currentLedge.direction;
         float angle = Vector3.Angle(playerLookDirection, desiredDirection);
-
+        Debug.LogWarning(angle);
         if (angle<maxVaultAngle)   //facing right way
         {
             StartCoroutine(LerpVault(currentLedge.transform.position + Vector3.up * 2));
@@ -224,7 +252,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 7, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, 4, rb.velocity.z);
         }
     }
 
@@ -249,7 +277,7 @@ public class PlayerController : MonoBehaviour
         if (currentHeldItem == null)
         {
             RaycastHit hit;
-            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
+            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach,isntPlayerMask))
             {
                 Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward* hit.distance, Color.yellow,5);
                 Debug.Log($"Did Hit Grabbable {hit.collider.gameObject.name}");
@@ -287,7 +315,7 @@ public class PlayerController : MonoBehaviour
     void PressButton()
     {
         RaycastHit hit;
-        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
         {
             Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan,5);
             Debug.Log($"Did Hit Button {hit.collider.gameObject.name}");
@@ -306,7 +334,7 @@ public class PlayerController : MonoBehaviour
     void Repair()
     {
         RaycastHit hit;
-        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach))
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
         {
             Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
             Debug.Log($"Did Hit Fuse {hit.collider.gameObject.name}");
@@ -365,7 +393,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public void Teleport(Vector3 pos)
+    {
+        transform.position = pos.PlayerPosToOwner(this);
+    }
 
 
     //showWheel;
@@ -381,7 +412,12 @@ public class PlayerController : MonoBehaviour
 
     void HideWheel()
     {
-        Debug.LogError(GetMouseOverNumber());
+        int selectedNum = GetMouseOverNumber();
+        if (selectedNum!=-1)
+        {
+            CollectedActions[selectedNum].Triggered();
+        }
+
         UIM.ToggleUI("Remote Interaction", false);
         ShowMouse(false);
         currentPlayer.anim.SetTrigger("HoverDown");
@@ -389,7 +425,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    float GetMouseOverNumber()
+    int GetMouseOverNumber()
     {
         Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
         Vector3 mousePosition = Input.mousePosition;
@@ -413,8 +449,13 @@ public class PlayerController : MonoBehaviour
             angle -= 360f;
         }
 
-        int num = CollectedActions.Count == 0 ? 1 : CollectedActions.Count;
-        int fitCount = Mathf.FloorToInt(angle / num);
+        if (CollectedActions.Count == 0)
+        {
+            return -1;
+        }
+        int num = CollectedActions.Count;
+        //Debug.LogWarning($"{angle} / {num}");
+        int fitCount = Mathf.FloorToInt(angle / (360/ num));
         return fitCount;
     }
 
@@ -461,8 +502,14 @@ public class PlayerController : MonoBehaviour
 
             currentHeldItem.transform.position = grabPosition;
         }
-    }
 
+        if(Input.GetKeyDown(KeyCode.R)||transform.position.y<-20)
+        {
+            ResetPlayer();
+        }
+
+    }
+    
 
 
 
@@ -502,12 +549,16 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(abilityOneKey))
             {
                 switchDimension(Dimension.Steampunk);
-            }            
-            
+            }
             if (Input.GetKeyDown(abilityTwoKey))
             {
-                DirectDrone();
+                ShowWheel();
             }
+            if (Input.GetKeyUp(abilityTwoKey))
+            {
+                HideWheel();
+            }
+
 
         }
         else if (currentPlayerDimension == Dimension.Steampunk)
@@ -516,13 +567,10 @@ public class PlayerController : MonoBehaviour
             {
                 switchDimension(Dimension.Cyberpunk);
             }
+
             if (Input.GetKeyDown(abilityTwoKey))
             {
-                ShowWheel();
-            }            
-            if (Input.GetKeyUp(abilityTwoKey))
-            {
-                HideWheel();
+                DirectDrone();
             }
         }
         else

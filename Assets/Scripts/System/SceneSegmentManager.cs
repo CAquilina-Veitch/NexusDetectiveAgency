@@ -92,5 +92,12 @@ public class SceneSegmentManager : MonoBehaviour
         loadSegment(0);
         LoadStructure(2);
     }
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.P))
+        {
+            PlaytestDemoStart();
+        }
+    }
 
 }

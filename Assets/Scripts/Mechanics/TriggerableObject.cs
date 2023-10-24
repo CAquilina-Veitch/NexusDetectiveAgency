@@ -30,6 +30,8 @@ public class TriggerableObject : MonoBehaviour
     bool ownedRemotely;
 
 
+    [Space(7)]
+    public Sprite uiIcon;
 
 
     public void Triggered()
@@ -130,6 +132,9 @@ public class TriggerableObject : MonoBehaviour
         if (canBeRemotelyActivated && !ownedRemotely)
         {
             ownedRemotely = true;
+            Debug.Log(GameObject.FindGameObjectWithTag("PlayerController"));
+            Debug.Log(GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>());
+            Debug.Log(GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().CollectedActions);
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().CollectedActions.Add(this);
 
         }

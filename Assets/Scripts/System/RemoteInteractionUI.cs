@@ -45,6 +45,7 @@ public class RemoteInteractionUI : MonoBehaviour
             temp.GetComponent<Image>().fillAmount =  angle/360;
             temp.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (i + 1) * angle));
             temp.transform.GetChild(0).transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            temp.transform.GetChild(0).GetComponent<Image>().sprite = CollectedActions[i].uiIcon;
 
             Debug.Log(temp.transform.rotation.ToString());
 

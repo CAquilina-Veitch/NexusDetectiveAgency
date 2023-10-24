@@ -42,8 +42,6 @@ public class TriggerInput : MonoBehaviour
 
 
 
-    [Space(7)]
-    public Sprite uiIcon;
 
     public void updateRepairs()
     {
