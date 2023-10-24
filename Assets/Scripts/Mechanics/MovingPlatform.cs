@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("Nexus Detective Agency Components/ Moving Platform")]
+
 public class MovingPlatform : MonoBehaviour
 {
     public Transform movingPlatform;   // The child platform to move
@@ -41,6 +43,7 @@ public class MovingPlatform : MonoBehaviour
 
     IEnumerator MovePlatform()
     {
+        movingPlatform.position = pathPoints[0].position;
         isMoving = true;
         while (currentPointIndex < pathPoints.Count)
         {
@@ -58,5 +61,6 @@ public class MovingPlatform : MonoBehaviour
         }
 
         isMoving = false;
+        movingPlatform.position = pathPoints[pathPoints.Count-1].position;
     }
 }
