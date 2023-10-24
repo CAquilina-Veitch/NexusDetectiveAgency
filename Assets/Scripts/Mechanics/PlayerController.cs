@@ -99,6 +99,8 @@ public class PlayerController : MonoBehaviour
     bool dronePlatformDrafting;
     [HideInInspector] public float dronePlatformDistance;
     GameObject currentDronePlatformPrefab;
+
+
     public bool hasFuse;
 
 

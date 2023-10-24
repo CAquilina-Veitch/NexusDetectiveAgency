@@ -9,12 +9,12 @@ public class SimpleColliderEvent : MonoBehaviour
     [SerializeField] UnityEvent ColliderExit;
 
     // Update is called once per frame
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         ColliderEnter.Invoke();
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         ColliderExit.Invoke();
     }

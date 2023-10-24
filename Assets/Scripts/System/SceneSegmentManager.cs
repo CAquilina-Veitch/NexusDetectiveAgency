@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneSegmentManager : MonoBehaviour
 {
     public List<Object> StructureScenes;
-    public Object detectiveScene;
     public List<Object> segmentScenes; // List of scene names for your segments
     public int segmentsToLoadAtOnce = 2 ;
 
@@ -16,6 +15,7 @@ public class SceneSegmentManager : MonoBehaviour
     {
         for (int i = currentSegmentIndex; i < Mathf.Min(currentSegmentIndex + segmentsToLoadAtOnce, segmentScenes.Count); i++)
         {
+            Debug.Log(i);
             string sceneName = segmentScenes[i].name;
             if (!SceneManager.GetSceneByName(sceneName).isLoaded)
             {
@@ -70,12 +70,27 @@ public class SceneSegmentManager : MonoBehaviour
     {
         LoadStructure(1);
         UnloadStructure(0);
+        UnloadStructure(3);
         loadSegment(0);
         LoadStructure(2);
     }
     public void Awake()
     {
         LoadStructure(0);
+    }
+
+    public void DetectiveAgency()
+    {
+        UnloadStructure(0);
+        LoadStructure(3);
+    }
+    public void PlaytestDemoStart()
+    {
+        LoadStructure(1);
+        UnloadStructure(0);
+        UnloadStructure(3);
+        loadSegment(0);
+        LoadStructure(2);
     }
 
 }

@@ -6,6 +6,13 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGameButton()
     {
-        GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().StartGame();
+        GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().DetectiveAgency();
     }
+
+    public void ExitGameButton()
+    {
+        Application.Quit();
+    }
+
+
 }

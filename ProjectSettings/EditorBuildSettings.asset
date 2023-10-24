@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PrototypeDemo.unity
+    path: Assets/Scenes/MainScene.unity
     guid: fd28a7dcb55dafc4c8d0918f2bf3db87
   - enabled: 1
     path: Assets/Scenes/Structure/Players.unity
@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Segments/Segment 4.unity
     guid: 38ca4d88599f4f949a489998917c363c
+  - enabled: 1
+    path: Assets/Daniel/Testing/ScenesDB/TestSceneDB.unity
+    guid: e7906ab12372827488dd9d0fc3ac1c69
+  - enabled: 1
+    path: Assets/Scenes/Segments/Detective Agency.unity
+    guid: 81ae5785042bf4d42b52869aa5e0bc4c
   m_configObjects: {}
