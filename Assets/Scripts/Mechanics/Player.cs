@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public CapsuleCollider bodyCollider;
     public Camera cam;
     public Transform camTransform;
+    public Animator anim;
 
     public void SwitchTo(bool to)
     {

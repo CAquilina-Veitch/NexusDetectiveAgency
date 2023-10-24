@@ -142,9 +142,9 @@ public class PlayerController : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(dimensionalDiffPosition+transform.position, 1);
+        Gizmos.DrawSphere(dimensionalDiffPosition+transform.position, 0.2f);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(-dimensionalDiffPosition + transform.position, 1);
+        Gizmos.DrawSphere(-dimensionalDiffPosition + transform.position, 0.2f);
     }
 
     private void Awake()
@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour
         if (angle<maxVaultAngle)   //facing right way
         {
             StartCoroutine(LerpVault(currentLedge.transform.position + Vector3.up * 2));
+            currentPlayer.anim.SetTrigger("Vault");
             return true;
         }
         return false;
@@ -254,6 +255,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log($"Did Hit Grabbable {hit.collider.gameObject.name}");
                 if(hit.collider.GetComponent<Holdable>() != null )
                 {
+                    currentPlayer.anim.SetTrigger("Grab");
                     currentHeldItem = hit.collider.GetComponent<Holdable>();
                     currentHeldItem.ToggleGhost(true);
                     ChangeGrabParent();
@@ -373,6 +375,7 @@ public class PlayerController : MonoBehaviour
     {
         UIM.ToggleUI("Remote Interaction", true);
         ShowMouse(true);
+        currentPlayer.anim.SetTrigger("HoverHand");
 
     }
 
@@ -381,6 +384,8 @@ public class PlayerController : MonoBehaviour
         Debug.LogError(GetMouseOverNumber());
         UIM.ToggleUI("Remote Interaction", false);
         ShowMouse(false);
+        currentPlayer.anim.SetTrigger("HoverDown");
+
 
     }
 
