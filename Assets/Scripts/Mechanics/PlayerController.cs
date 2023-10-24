@@ -89,18 +89,15 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            RaycastHit hit;
-
-            Vector3 capsuleCenter = currentPlayer.bodyCollider.center;
-            float capsuleRadius = currentPlayer.bodyCollider.radius;
-            float capsuleHeight = currentPlayer.bodyCollider.height / 2; // Divide by 2 because height is usually the full height, but we need half.
-
-            if (Physics.CapsuleCast(capsuleCenter, capsuleCenter - new Vector3(0, capsuleHeight * 2, 0), capsuleRadius, Vector3.down, out hit, 0.1f, groundMask))
+            Debug.DrawRay(currentPlayer.transform.position, Vector3.down * jumpCheckLength, Color.cyan, 5.0f);
+            if (Physics.Raycast(currentPlayer.transform.position,Vector3.down,jumpCheckLength, groundMask))
             {
+                Debug.Log("EEE");
                 return true;
             }
             else
             {
+                Debug.Log("DDD");
                 return false;
             }
         }
