@@ -21,7 +21,6 @@ public class MovingPlatform : MonoBehaviour
         {
             movingPlatform.position = pathPoints[currentPointIndex].position;
         }
-        StartMovingPlatform();
     }
 
     public void StartMovingPlatform()
