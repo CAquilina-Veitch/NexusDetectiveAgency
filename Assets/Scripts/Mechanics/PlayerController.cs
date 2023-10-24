@@ -25,6 +25,13 @@ public class PlayerController : MonoBehaviour
             return ref players[(int)currentPlayerDimension];
         }
     }
+    ref Player otherPlayer
+    {
+        get
+        {
+            return ref players[1-(int)currentPlayerDimension];
+        }
+    }
     public UIManager UIM
     {
         get
@@ -60,6 +67,7 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
     public Dimension currentPlayerDimension;
     [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
+    [SerializeField] public Vector3 startingPos = new Vector3(31.3f, 1, 74.5f);
     [SerializeField] LayerMask groundMask;
 
     [Space(20)]
@@ -117,16 +125,16 @@ public class PlayerController : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(dimensionalDiffPosition, 1);
+        Gizmos.DrawSphere(dimensionalDiffPosition+transform.position, 1);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(-dimensionalDiffPosition, 1);
+        Gizmos.DrawSphere(-dimensionalDiffPosition + transform.position, 1);
     }
 
     private void Awake()
     {
         switchDimension(0);
 
-        TransformPlayerParent(transform.position);
+        TransformPlayerParent(startingPos);
     }
     private void OnEnable()
     {
@@ -149,13 +157,32 @@ public class PlayerController : MonoBehaviour
 
     void switchDimension(Dimension to)
     {
-        currentPlayerDimension = to;
-        for(int i = 0; i < 2; i++)
+        //check valid Position
+
+        RaycastHit hit;
+        if (Physics.Raycast(otherPlayer.transform.position, Vector3.down, out hit, Mathf.Infinity,groundMask))
         {
-            players[i].SwitchTo(i == (int)currentPlayerDimension);
-            //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
+            Debug.Log($"Did Hit Floor {hit.collider.gameObject.name}, distance is {hit.distance}");
+            //there is floor somewhere there
+
+            if (hit.distance > 0.1f)
+            {
+                //player head would not be directly inside an object
+
+                currentPlayerDimension = to;
+                for (int i = 0; i < 2; i++)
+                {
+                    players[i].SwitchTo(i == (int)currentPlayerDimension);
+                    //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
+                }
+                ChangeGrabParent();
+
+            }
+
         }
-        ChangeGrabParent();
+
+
+
 
     }
 
@@ -213,6 +240,10 @@ public class PlayerController : MonoBehaviour
                     currentHeldItem = hit.collider.GetComponent<Holdable>();
                     currentHeldItem.ToggleGhost(true);
                     ChangeGrabParent();
+                    if (hit.collider.GetComponent<Weight>() != null)
+                    {
+                        hit.collider.GetComponent<Weight>().IsGrabbed();
+                    }
                 }
             }
         }

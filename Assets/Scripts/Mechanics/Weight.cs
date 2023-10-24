@@ -7,5 +7,16 @@ using UnityEngine;
 
 public class Weight : MonoBehaviour
 {
+    public PressurePlate currentPlate;
+
+    public void IsGrabbed()
+    {
+        if(currentPlate != null)
+        {
+            currentPlate.WeightGrabbed(this);
+            currentPlate = null;
+        }
+
+    }
 
 }

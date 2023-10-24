@@ -29,6 +29,7 @@ public class PressurePlate : MonoBehaviour
             if (!weights.Contains(collision.gameObject.GetComponent<Weight>()))
             {
                 weights.Add(collision.gameObject.GetComponent<Weight>());
+                collision.gameObject.GetComponent<Weight>().currentPlate = this;
             }
         }
         updateWeight();
@@ -41,6 +42,7 @@ public class PressurePlate : MonoBehaviour
             if (weights.Contains(collision.gameObject.GetComponent<Weight>()))
             {
                 weights.Remove(collision.gameObject.GetComponent<Weight>());
+                collision.gameObject.GetComponent<Weight>().currentPlate = null;
             }
         }
         updateWeight();
@@ -69,7 +71,14 @@ public class PressurePlate : MonoBehaviour
     }
 
 
-
+    public void WeightGrabbed(Weight weight)
+    {
+        if (weights.Contains(weight))
+        {
+            weights.Remove(weight);
+        }
+        updateWeight();
+    }
 
 
 

@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437678210348834820}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7227344110514562167}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6664361023589209989
 Camera:
@@ -238,6 +238,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346451205447295651}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -246,7 +247,6 @@ Transform:
   - {fileID: 7227344110514562167}
   - {fileID: 8774731651002955604}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2775375196102379664
 MonoBehaviour:
@@ -260,18 +260,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bda58f7c2659e4781f50d0593f8bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 4575853808168147207}
   players:
   - {fileID: 6494794453523625754}
   - {fileID: 1131133904999337331}
-  currentLedge: {fileID: 0}
+  jumpKey: 32
+  abilityOneKey: 101
+  abilityTwoKey: 113
+  abilityThreeKey: 102
+  grabHoldableKey: 323
+  buttonPressKey: 324
   currentPlayerDimension: 0
+  dimensionalDiffPosition: {x: -10, y: 0, z: 0}
+  startingPos: {x: 31.3, y: 1, z: 74.5}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
   mouseInput: {x: 0, y: 0}
   sensitivity: 1
   moveInput: {x: 0, y: 0}
   speed: 8
   acceleration: 10
-  rb: {fileID: 4575853808168147207}
-  dimensionalDiffPosition: {x: -10, y: 0, z: 0}
+  currentLedge: {fileID: 0}
+  maxVaultAngle: 45
+  currentHeldItem: {fileID: 0}
+  armReach: 4
+  heldItemArmLength: 3
+  dronePlatformPrefab: {fileID: 0}
+  droneDraft: {fileID: 0}
+  dronePlatformDistance: 0
+  hasFuse: 0
+  CollectedActions: []
 --- !u!54 &4575853808168147207
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -312,6 +331,7 @@ GameObject:
   - component: {fileID: 3038490288197123369}
   - component: {fileID: 7353362983545407102}
   - component: {fileID: 6494794453523625754}
+  - component: {fileID: 6000608410271985347}
   m_Layer: 0
   m_Name: MaxCyberpunk
   m_TagString: Player
@@ -326,6 +346,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835250373644365107}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -334,7 +355,6 @@ Transform:
   - {fileID: 7135480950717209092}
   - {fileID: 3888120578056840834}
   m_Father: {fileID: 722763665282694011}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7021999981503977979
 MeshFilter:
@@ -425,6 +445,18 @@ MonoBehaviour:
   bodyCollider: {fileID: 7353362983545407102}
   cam: {fileID: 6664361023589209989}
   camTransform: {fileID: 7135480950717209092}
+--- !u!114 &6000608410271985347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835250373644365107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6134646171906742116
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,13 +481,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6134646171906742116}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7227344110514562167}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7235583073390231987
 CapsuleCollider:
@@ -505,13 +537,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8174458357282690107}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8774731651002955604}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2035666572181372775
 Camera:
@@ -706,6 +738,7 @@ GameObject:
   - component: {fileID: 1519462658487412985}
   - component: {fileID: 1151499263282176861}
   - component: {fileID: 1131133904999337331}
+  - component: {fileID: 8581157958839660927}
   m_Layer: 0
   m_Name: MaxSteampunk
   m_TagString: Player
@@ -720,6 +753,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8810849275972759539}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -728,7 +762,6 @@ Transform:
   - {fileID: 4021940973688502124}
   - {fileID: 7935276385353688340}
   m_Father: {fileID: 722763665282694011}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5629491618671960083
 MeshFilter:
@@ -819,6 +852,18 @@ MonoBehaviour:
   bodyCollider: {fileID: 1151499263282176861}
   cam: {fileID: 2035666572181372775}
   camTransform: {fileID: 4021940973688502124}
+--- !u!114 &8581157958839660927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810849275972759539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9090822405333927120
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,13 +888,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9090822405333927120}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8774731651002955604}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7612384387418912612
 CapsuleCollider:
