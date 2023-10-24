@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 1346451205447295651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 31.3, y: 1, z: 74.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -271,16 +271,17 @@ MonoBehaviour:
   grabHoldableKey: 323
   buttonPressKey: 324
   currentPlayerDimension: 0
-  dimensionalDiffPosition: {x: -10, y: 0, z: 0}
+  dimensionalDiffPosition: {x: 0, y: 0, z: -78}
   startingPos: {x: 31.3, y: 1, z: 74.5}
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   mouseInput: {x: 0, y: 0}
   sensitivity: 1
   moveInput: {x: 0, y: 0}
   speed: 8
   acceleration: 10
+  jumpCheckLength: 1.2
   currentLedge: {fileID: 0}
   maxVaultAngle: 45
   currentHeldItem: {fileID: 0}
@@ -457,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlate: {fileID: 0}
 --- !u!1 &6134646171906742116
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlate: {fileID: 0}
 --- !u!1 &9090822405333927120
 GameObject:
   m_ObjectHideFlags: 0
