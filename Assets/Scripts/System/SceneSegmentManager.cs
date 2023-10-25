@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneSegmentManager : MonoBehaviour
 {
     public List<Object> StructureScenes;
+    public List<int> StructureScenIds;
     public List<Object> segmentScenes; // List of scene names for your segments
+    public List<int> segmentSceneIds; // List of scene names for your segments
     public int segmentsToLoadAtOnce = 2 ;
 
     private int currentSegmentIndex = 0;
@@ -19,7 +21,7 @@ public class SceneSegmentManager : MonoBehaviour
             string sceneName = segmentScenes[i].name;
             if (!SceneManager.GetSceneByName(sceneName).isLoaded)
             {
-                SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             }
         }
     }

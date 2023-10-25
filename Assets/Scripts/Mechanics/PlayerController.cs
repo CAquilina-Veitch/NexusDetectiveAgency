@@ -570,10 +570,10 @@ public class PlayerController : MonoBehaviour
                 switchDimension(Dimension.Cyberpunk);
             }
 
-            if (Input.GetKeyDown(abilityTwoKey))
+/*            if (Input.GetKeyDown(abilityTwoKey))
             {
                 DirectDrone();
-            }
+            }*/
         }
         else
         {
