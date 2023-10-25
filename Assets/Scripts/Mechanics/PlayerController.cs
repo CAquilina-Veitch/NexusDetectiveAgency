@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void DirectDrone()
+   /*void DirectDrone()
     {
         dronePlatformDrafting = !dronePlatformDrafting;
 
@@ -363,8 +363,8 @@ public class PlayerController : MonoBehaviour
         {
             dronePlatformDistance = 5;
         }
-    }
-
+    }*/
+   
 
 
 
@@ -499,16 +499,19 @@ public class PlayerController : MonoBehaviour
 
         if (currentPlayerDimension == Dimension.Cyberpunk)
         {
+
             if (Input.GetKeyDown(abilityOneKey))
             {
                 switchDimension(Dimension.Steampunk);
-            }            
-            
+            }
             if (Input.GetKeyDown(abilityTwoKey))
             {
-                DirectDrone();
+                ShowWheel();
             }
-
+            if (Input.GetKeyUp(abilityTwoKey))
+            {
+                HideWheel();
+            }
         }
         else if (currentPlayerDimension == Dimension.Steampunk)
         {
@@ -516,14 +519,11 @@ public class PlayerController : MonoBehaviour
             {
                 switchDimension(Dimension.Cyberpunk);
             }
-            if (Input.GetKeyDown(abilityTwoKey))
+
+            /*if (Input.GetKeyDown(abilityTwoKey))
             {
-                ShowWheel();
-            }            
-            if (Input.GetKeyUp(abilityTwoKey))
-            {
-                HideWheel();
-            }
+                DirectDrone();
+            }*/
         }
         else
         {
