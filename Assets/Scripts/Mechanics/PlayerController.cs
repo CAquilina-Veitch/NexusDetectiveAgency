@@ -351,7 +351,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void DirectDrone()
+   /*void DirectDrone()
     {
         dronePlatformDrafting = !dronePlatformDrafting;
 
@@ -391,7 +391,8 @@ public class PlayerController : MonoBehaviour
         {
             dronePlatformDistance = 5;
         }
-    }
+    }*/
+   
 
     public void Teleport(Vector3 pos)
     {
@@ -546,6 +547,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentPlayerDimension == Dimension.Cyberpunk)
         {
+
             if (Input.GetKeyDown(abilityOneKey))
             {
                 switchDimension(Dimension.Steampunk);
@@ -562,7 +564,7 @@ public class PlayerController : MonoBehaviour
 
         }
         else if (currentPlayerDimension == Dimension.Steampunk)
-        {
+        {
             if (Input.GetKeyDown(abilityOneKey))
             {
                 switchDimension(Dimension.Cyberpunk);
