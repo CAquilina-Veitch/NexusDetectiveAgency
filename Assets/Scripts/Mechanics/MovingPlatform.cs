@@ -12,7 +12,6 @@ public class MovingPlatform : MonoBehaviour
 
     private int currentPointIndex = 0;
     private bool isMoving = false;
-    private Coroutine movementCoroutine;
 
     private void Start()
     {
@@ -25,17 +24,21 @@ public class MovingPlatform : MonoBehaviour
 
     public void StartMovingPlatform()
     {
-        if (movingPlatform != null && pathPoints.Count > 0 && !isMoving)
+        Debug.Log("STart platform");
+        if (movingPlatform != null && pathPoints.Count > 0)
         {
-            movementCoroutine = StartCoroutine(MovePlatform());
+            StopMovingPlatform();
+
+
+            StartCoroutine(MovePlatform());
         }
     }
 
     public void StopMovingPlatform()
     {
-        if (isMoving && movementCoroutine != null)
+        if (isMoving)
         {
-            StopCoroutine(movementCoroutine);
+            StopCoroutine(MovePlatform());
             isMoving = false;
         }
     }
@@ -44,6 +47,7 @@ public class MovingPlatform : MonoBehaviour
     {
         movingPlatform.position = pathPoints[0].position;
         isMoving = true;
+        currentPointIndex = 0;
         while (currentPointIndex < pathPoints.Count)
         {
             Vector3 targetPosition = pathPoints[currentPointIndex].position;
