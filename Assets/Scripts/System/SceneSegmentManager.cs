@@ -17,17 +17,18 @@ public class SceneSegmentManager : MonoBehaviour
     {
         for (int i = currentSegmentIndex; i < Mathf.Min(currentSegmentIndex + segmentsToLoadAtOnce, segmentScenes.Count); i++)
         {
-            Debug.Log(i);
-            string sceneName = segmentScenes[i].name;
-            if (!SceneManager.GetSceneByName(sceneName).isLoaded)
+            /*Debug.Log(i);
+            string sceneName = segmentScenes[i].name;*/
+            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[0]).isLoaded)
             {
                 SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync(segmentSceneIds[0], LoadSceneMode.Additive);
             }
         }
     }
 
     private void UnloadPastSegments()
-    {
+    {/*
         for (int i = 0; i < currentSegmentIndex; i++)
         {
             string sceneName = segmentScenes[i].name;
@@ -35,23 +36,23 @@ public class SceneSegmentManager : MonoBehaviour
             {
                 SceneManager.UnloadSceneAsync(sceneName);
             }
-        }
+        }*/
     }
 
     private void LoadStructure(int i)
     {
-        string sceneName = StructureScenes[i].name;
-        if (!SceneManager.GetSceneByName(sceneName).isLoaded)
+        //string sceneName = StructureScenes[i].name;
+        if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            SceneManager.LoadScene(StructureScenIds[i], LoadSceneMode.Additive);
         }
     }
     void UnloadStructure(int i)
     {
-        string sceneName = StructureScenes[i].name;
-        if (SceneManager.GetSceneByName(sceneName).isLoaded)
+        //string sceneName = StructureScenes[i].name;
+        if (SceneManager.GetSceneByBuildIndex(StructureScenIds[i]).isLoaded)
         {
-            SceneManager.UnloadSceneAsync(sceneName);
+            SceneManager.UnloadSceneAsync(StructureScenIds[i]);
         }
     }
 

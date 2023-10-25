@@ -209,8 +209,10 @@ MonoBehaviour:
   - {fileID: 102900000, guid: 576185ee835f6b14090d0eb7f71caf2d, type: 3}
   - {fileID: 102900000, guid: a6dd25cb811bead4f853b59f48e5283b, type: 3}
   - {fileID: 102900000, guid: 81ae5785042bf4d42b52869aa5e0bc4c, type: 3}
+  StructureScenIds: 03000000020000000100000005000000
   segmentScenes:
   - {fileID: 102900000, guid: e7906ab12372827488dd9d0fc3ac1c69, type: 3}
+  segmentSceneIds: 04000000
   segmentsToLoadAtOnce: 3
 --- !u!4 &1911966461
 Transform:
