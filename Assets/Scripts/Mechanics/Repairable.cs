@@ -9,7 +9,7 @@ public class Repairable : MonoBehaviour
 {
     public bool hasFuse;
 
-    [HideInInspector] public TriggerInput trigger;
+    [HideInInspector] public TriggerableObject trigger;
     [SerializeField] GameObject fuseObj;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class Repairable : MonoBehaviour
                 pC.hasFuse = true;
                 if(trigger != null)
                 {
-                    trigger.updateRepairs();
+                    trigger.UpdateRepairs();
                 }
 
                 fuseObj.SetActive(false);
@@ -48,6 +48,10 @@ public class Repairable : MonoBehaviour
                 pC.hasFuse = false;
                 hasFuse = true;
                 fuseObj.SetActive(true);
+                if (trigger != null)
+                {
+                    trigger.UpdateRepairs();
+                }
                 //Repair();
                 Debug.Log(3);
             }

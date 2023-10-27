@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    public TriggerInput trigger;
+    public TriggerableObject trigger;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class Button : MonoBehaviour
 
     public void Activate()
     {
-        trigger.Trigger();
+        trigger.Triggered();
     }
 
 

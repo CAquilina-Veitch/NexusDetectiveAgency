@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11.625176, g: 7.430291, b: 5.470597, a: 1}
+  m_IndirectSpecularColor: {r: 10.7119875, g: 6.4212694, b: 3.983521, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -350,7 +350,6 @@ GameObject:
   - component: {fileID: 186696883}
   - component: {fileID: 186696882}
   - component: {fileID: 186696881}
-  - component: {fileID: 186696887}
   - component: {fileID: 186696886}
   - component: {fileID: 186696885}
   m_Layer: 0
@@ -518,10 +517,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33a95cb14591444f86279b1579a5ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 186696887}
   Note: "if the mode is set to pulse, the button will do the on action every press,
     then off after pulselength, but toggle will do on then off then on etc. \n\nPressure
     plates use toggle, with leaving the plate being the off,  pulselength is "
+  buttons: []
+  pressurePlates: []
+  mode: 0
+  requiredRepairs: []
   pulseLength: 0
   triggerOnActions:
     m_PersistentCalls:
@@ -554,32 +556,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   canBeRemotelyActivated: 0
---- !u!114 &186696887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186696880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1373c477fd075044586bc56a90d40714, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Note: "This component is needed for a button or pressure plate to interface with
-    a triggerable object. \nThis component contains those inputs, and is in charge
-    of checking for repairs, and allowing remote activation of the connected actions.
-    \n\nCan be attached to anything, but each trigger input component should be a
-    unique set of actions"
-  buttons:
-  - {fileID: 1565132463}
-  - {fileID: 1736685917}
-  - {fileID: 643359335}
-  pressurePlates: []
-  connectedTriggerables:
-  - {fileID: 186696886}
-  requiredRepairs:
-  - {fileID: 1006267375}
   uiIcon: {fileID: 0}
 --- !u!1 &193879547
 GameObject:
@@ -745,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlate: {fileID: 0}
 --- !u!1 &210253146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,10 +1493,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33a95cb14591444f86279b1579a5ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 748021959}
   Note: "if the mode is set to pulse, the button will do the on action every press,
     then off after pulselength, but toggle will do on then off then on etc. \r\n\r\nPressure
     plates use toggle, with leaving the plate being the off,  pulselength is "
+  buttons: []
+  pressurePlates: []
+  mode: 0
+  requiredRepairs: []
   pulseLength: 0
   triggerOnActions:
     m_PersistentCalls:
@@ -1552,6 +1532,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   canBeRemotelyActivated: 0
+  uiIcon: {fileID: 0}
 --- !u!1 &394819626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,6 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlate: {fileID: 0}
 --- !u!1 &643359330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,7 +2042,7 @@ MonoBehaviour:
   - {fileID: 372199403}
   requiredRepairs:
   - {fileID: 1006267375}
-  uiIcon: {fileID: 0}
+  currentlyPowered: 0
 --- !u!114 &784013447 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
@@ -2951,6 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4effd75809c387e4eb4b3084432a89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlate: {fileID: 0}
 --- !u!1 &2055467291
 GameObject:
   m_ObjectHideFlags: 0

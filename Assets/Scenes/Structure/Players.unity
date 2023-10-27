@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
+  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,41 +252,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 31.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 74.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -304,11 +269,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerOwner
-      objectReference: {fileID: 0}
-    - target: {fileID: 7935276385353688340, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

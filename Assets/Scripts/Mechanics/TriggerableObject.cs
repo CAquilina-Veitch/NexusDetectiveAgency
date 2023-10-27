@@ -6,22 +6,52 @@ using UnityEngine.Events;
 
 [AddComponentMenu("Nexus Detective Agency Components/ Triggers/ Affectable Object")]
 
+[Serializable]
+public enum InputMode
+{
+    Permanent, Trigger, Toggle
+}
+
 public class TriggerableObject : MonoBehaviour
 {
-    public TriggerInput trigger;
 
     [TextArea(1, 20)]
     [Tooltip("Doesn't do anything. Just comments shown in inspector")]
     public string Note = "if the mode is set to pulse, the button will do the on action every press, then off after pulselength, but toggle will do on then off then on etc. \r\n\r\nPressure plates use toggle, with leaving the plate being the off,  pulselength is ";
-    
-    
+
+
+
+
+    [Space(15)]
+    [Header("Inputs.")]
+
+    public List<Button> buttons = new List<Button>();
+    public List<PressurePlate> pressurePlates = new List<PressurePlate>();
+    public InputMode mode;
+
+
+    [Space(20)]
+    [Header("Required repaired cables to operate.")]
+    public List<Repairable> requiredRepairs = new List<Repairable>();
+
+
+
+
+
+
+    bool currentlyPowered;
+
+    bool currentlyOutputting;
+
+
+
+
+
     public float pulseLength;
 
     
     public UnityEvent triggerOnActions;
     public UnityEvent triggerOffActions;
-
-    bool state;
 
 
     [Space(15)]
@@ -34,95 +64,139 @@ public class TriggerableObject : MonoBehaviour
     public Sprite uiIcon;
 
 
+    private void Awake()
+    {
+
+
+        foreach (Button button in buttons)
+        {
+            if (button.trigger == null)
+            {
+                button.trigger = this;
+            }
+
+        }
+        foreach (Repairable rep in requiredRepairs)
+        {
+            rep.trigger = this;
+        }
+
+
+    }
+
+
     public void Triggered()
     {
         TryAddRemoteControl();
 
-        if (!state)
+        if (mode == InputMode.Permanent)
         {
-            state = true;
-            StartCoroutine(Delay());
+            if (!currentlyPowered)
+            {
+                StartCoroutine(TriggerWithDelay());
+            }
+        }
+        else if (mode == InputMode.Trigger)
+        {
+            if(IsRepaired())
+            {
+                if (!currentlyPowered)
+                {
+                    Turn(true);
+                }
+            }
 
         }
-        else
+        else if (mode == InputMode.Toggle) 
         {
-            state = false;
+            if(currentlyPowered)
+            {
+                //toggle off
+                Turn(false);
+            }
+            else
+            {
+                //check repairs
+                if(IsRepaired())
+                {
+                    //toggle on
+                    Turn(true);
+                }
+
+            }
+        }
+    }
+
+
+    bool IsRepaired()
+    {
+        foreach (Repairable rpr in requiredRepairs)
+        {
+            if (!rpr.hasFuse)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void UpdateRepairs()
+    {
+        if (!IsRepaired())
+        {
+            Turn(false);
+        }
+    }
+
+
+
+
+    IEnumerator TriggerWithDelay()
+    {
+        Turn(true);
+        yield return new WaitForSeconds(pulseLength);
+        if(currentlyOutputting)
+        {
+            Turn(false);
         }
 
     }
 
-    public void Toggled(bool to)
+    public void Turn(bool to)
     {
-        if(state)
+        currentlyPowered = to;
+
+        if (to)
         {
-            if (to)
+            if (currentlyOutputting)
             {
-                Debug.LogError("On to on");
+                Debug.LogWarning("Already on");
             }
             else
             {
+                //check if can
+                if (IsRepaired())
+                {
+                    currentlyOutputting = true;
+                    triggerOnActions.Invoke();
+                }
+            }
+        }
+        else
+        {
+            if (currentlyOutputting)
+            {
+                currentlyOutputting = false;
                 triggerOffActions.Invoke();
-                state = false;
-                Debug.Log(61);
-            }
-        }
-        else
-        {
-            if (to)
-            {
-                StartCoroutine(ToggleDelay(true));
-                Debug.Log(62);
             }
             else
             {
-                
-                Debug.LogError("Off to off");
+                Debug.LogWarning("Already Off");
             }
         }
-    }
-
-    IEnumerator ToggleDelay(bool toOn)
-    {
-        state = toOn;
-        triggerOnActions.Invoke();
-        yield return new WaitForSeconds(pulseLength);
-        if(!state)
-        {
-            triggerOffActions.Invoke();
-        }
-    }
-
-
-
-    public void UnRepair()
-    {
-        if (state)
-        {
-            state = false;
-            triggerOffActions.Invoke();
-        }
-    }
-
-
-
-
-    IEnumerator Delay()
-    {
-        triggerOnActions.Invoke();
-        yield return new WaitForSeconds(pulseLength);
-        if (state)
-        {
-            state = false;
-            triggerOffActions.Invoke();
-        }
-        else
-        {
-            StartCoroutine(Delay());
-        }
 
     }
-
-
 
 
 

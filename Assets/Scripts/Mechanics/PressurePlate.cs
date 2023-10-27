@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public TriggerInput trigger;
+    public TriggerableObject trigger;
 
     private void Awake()
     {
@@ -55,7 +55,7 @@ public class PressurePlate : MonoBehaviour
             if(weights.Count == 0)
             {
                 isPressed = false;
-                trigger.Toggle(false);
+                trigger.Triggered();
             }
         }
         else
@@ -63,8 +63,8 @@ public class PressurePlate : MonoBehaviour
             if (weights.Count > 0)
             {
                 isPressed = true;
-                trigger.Toggle(isPressed);
-    
+                trigger.Triggered();
+
             }
         }
 
