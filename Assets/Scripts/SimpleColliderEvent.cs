@@ -11,12 +11,19 @@ public class SimpleColliderEvent : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider collision)
     {
-        ColliderEnter.Invoke();
+        if (collision.tag == "Player")
+        {
+            ColliderEnter.Invoke();
+
+        }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        ColliderExit.Invoke();
+        if (collision.tag == "Player")
+        {
+            ColliderExit.Invoke();
+        }
     }
 
 }

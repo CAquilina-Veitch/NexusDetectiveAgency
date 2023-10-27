@@ -21,7 +21,6 @@ public class SceneSegmentManager : MonoBehaviour
             string sceneName = segmentScenes[i].name;*/
             if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[0]).isLoaded)
             {
-                SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
                 SceneManager.LoadSceneAsync(segmentSceneIds[0], LoadSceneMode.Additive);
             }
         }
