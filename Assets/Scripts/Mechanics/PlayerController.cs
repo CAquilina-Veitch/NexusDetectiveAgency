@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     
     
     [SerializeField] Player[] players = new Player[2];
-    ref Player currentPlayer
+    public ref Player currentPlayer
     {
         get
         {
@@ -590,6 +590,10 @@ public class PlayerController : MonoBehaviour
             p.camTransform.localRotation = Quaternion.Euler(pitch, 0, 0);
         }
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
+
+        moveInput.Normalize();
+
+
         Vector3 movementCalc = Vector3.Lerp(rb.velocity, currentPlayer.transform.forward * speed * moveInput.y + currentPlayer.transform.right * speed * moveInput.x, Time.deltaTime * acceleration);
         movementCalc.y = rb.velocity.y;
         rb.velocity = movementCalc;
