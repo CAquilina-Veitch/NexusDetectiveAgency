@@ -579,6 +579,11 @@ public class PlayerController : MonoBehaviour
         {
 
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
 
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
         pitch += mouseInput.y;
@@ -597,6 +602,8 @@ public class PlayerController : MonoBehaviour
         Vector3 movementCalc = Vector3.Lerp(rb.velocity, currentPlayer.transform.forward * speed * moveInput.y + currentPlayer.transform.right * speed * moveInput.x, Time.deltaTime * acceleration);
         movementCalc.y = rb.velocity.y;
         rb.velocity = movementCalc;
+
+
     }
 
 }
