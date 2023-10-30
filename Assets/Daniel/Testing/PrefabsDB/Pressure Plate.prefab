@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 2788530274409388987}
   - component: {fileID: 4346771049230656406}
   - component: {fileID: 1510726860222767850}
-  - component: {fileID: 8139866715288765888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pressure Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +103,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -143,29 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f22cbad131c242a19fac39e81b398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 8139866715288765888}
+  trigger: {fileID: 0}
   weights: []
---- !u!114 &8139866715288765888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101060671207946788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1373c477fd075044586bc56a90d40714, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Note: "This component is needed for a button or pressure plate to interface with
-    a triggerable object. \r\nThis component contains those inputs, and is in charge
-    of checking for repairs, and allowing remote activation of the connected actions.
-    \r\n\r\nCan be attached to anything, but each trigger input component should
-    be a unique set of actions"
-  buttons: []
-  pressurePlates:
-  - {fileID: 1510726860222767850}
-  connectedTriggerables:
-  - {fileID: 0}
-  requiredRepairs: []
-  uiIcon: {fileID: 0}

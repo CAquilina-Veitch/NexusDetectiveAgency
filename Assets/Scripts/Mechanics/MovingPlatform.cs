@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [AddComponentMenu("Nexus Detective Agency Components/ Moving Platform")]
@@ -10,60 +12,40 @@ public class MovingPlatform : MonoBehaviour
     public List<Transform> pathPoints;  // List of points for the platform to move between
     public float movementSpeed = 2.0f; // Set the movement speed
 
-    private int currentPointIndex = 0;
-    private bool isMoving = false;
+    bool forward = false;
 
-    private void Start()
+    private float currentPointIndex;
+
+
+
+    private void FixedUpdate()
     {
-        // Ensure the platform is at the initial point
-        if (movingPlatform != null && pathPoints.Count > 0)
-        {
-            movingPlatform.position = pathPoints[currentPointIndex].position;
-        }
-    }
+        if(currentPointIndex > 0 && currentPointIndex < pathPoints.Count-1)
+        { 
 
-    public void StartMovingPlatform()
-    {
-        Debug.Log("STart platform");
-        if (movingPlatform != null && pathPoints.Count > 0)
-        {
-            StopMovingPlatform();
-
-
-            StartCoroutine(MovePlatform());
-        }
-    }
-
-    public void StopMovingPlatform()
-    {
-        if (isMoving)
-        {
-            StopCoroutine(MovePlatform());
-            isMoving = false;
-        }
-    }
-
-    IEnumerator MovePlatform()
-    {
-        movingPlatform.position = pathPoints[0].position;
-        isMoving = true;
-        currentPointIndex = 0;
-        while (currentPointIndex < pathPoints.Count)
-        {
-            Vector3 targetPosition = pathPoints[currentPointIndex].position;
-            while (Vector3.Distance(movingPlatform.position, targetPosition) > 0.01f)
+            currentPointIndex += Time.deltaTime * movementSpeed * (forward ? 1 : -1);
+            currentPointIndex = Mathf.Clamp(currentPointIndex, 0, pathPoints.Count-1);
+            float i = currentPointIndex % 1;
+            movingPlatform.position = Vector3.Lerp(pathPoints[((int)Mathf.Floor(i))].position, pathPoints[(int)Mathf.Ceil(i)].position, i);
+            if (i == 0)
             {
-                movingPlatform.position = Vector3.MoveTowards(movingPlatform.position, targetPosition, movementSpeed * Time.deltaTime);
-                yield return null;
+                movingPlatform.position = pathPoints[Mathf.RoundToInt(currentPointIndex)].position;
             }
-
-            // Move to the next point
-            currentPointIndex++;
-
-            yield return null;
+            Debug.Log($"{currentPointIndex} , {pathPoints[((int)Mathf.Floor(i))].position}, {pathPoints[(int)Mathf.Ceil(i)].position} , {i}");
         }
-
-        isMoving = false;
-        movingPlatform.position = pathPoints[pathPoints.Count-1].position;
     }
+    private void OnEnable()
+    {
+        movingPlatform.position = pathPoints[Mathf.RoundToInt(currentPointIndex)].position;
+    }
+
+    public void DirectionFlip()
+    {
+        Debug.Log("AA");
+        forward = !forward;
+        currentPointIndex += (forward ? 0.01f : -0.01f);
+    }
+
+
+
 }

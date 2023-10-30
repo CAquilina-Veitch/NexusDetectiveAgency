@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
         if (currentHeldItem == null)
         {
             RaycastHit hit;
-            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach,isntPlayerMask))
+            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
             {
                 Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward* hit.distance, Color.yellow,5);
                 Debug.Log($"Did Hit Grabbable {hit.collider.gameObject.name}");
