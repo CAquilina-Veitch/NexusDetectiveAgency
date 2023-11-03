@@ -93,7 +93,10 @@ public class TriggerableObject : MonoBehaviour
         {
             if (!currentlyPowered)
             {
-                StartCoroutine(TriggerWithDelay());
+                if (IsRepaired())
+                {
+                    Turn(true);
+                }
             }
         }
         else if (mode == InputMode.Trigger)
@@ -102,7 +105,7 @@ public class TriggerableObject : MonoBehaviour
             {
                 if (!currentlyPowered)
                 {
-                    Turn(true);
+                    StartCoroutine(TriggerWithDelay());
                 }
             }
 
@@ -147,6 +150,19 @@ public class TriggerableObject : MonoBehaviour
         {
             Turn(false);
         }
+        else
+        {
+            if(mode == InputMode.Toggle)
+            {
+                if(pressurePlates.Count > 0)
+                {
+                    if (pressurePlates[0].weights.Count > 0)
+                    {
+                        Turn(true);
+                    }
+                }
+            }
+        }
     }
 
 
@@ -165,6 +181,7 @@ public class TriggerableObject : MonoBehaviour
 
     public void Turn(bool to)
     {
+        Debug.LogWarning($"Turn {to}");
         currentlyPowered = to;
 
         if (to)
