@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6678082076603286120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.16403152, z: 0}
+  m_LocalPosition: {x: -0, y: 0.181, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 4479474752705868292}
   - component: {fileID: 9043891740966860073}
   - component: {fileID: 2489170739014399132}
-  - component: {fileID: 7049708538242438980}
   - component: {fileID: 6831538060496289767}
+  - component: {fileID: 6934631575043307014}
   m_Layer: 0
   m_Name: Door Button
   m_TagString: Untagged
@@ -191,30 +191,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4183235, y: 0.22394434, z: 0.5991003}
   m_Center: {x: -6.256342e-10, y: 0.100960486, z: 0.090461954}
---- !u!114 &7049708538242438980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8902452876818131213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1373c477fd075044586bc56a90d40714, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Note: "This component is needed for a button or pressure plate to interface with
-    a triggerable object. \r\nThis component contains those inputs, and is in charge
-    of checking for repairs, and allowing remote activation of the connected actions.
-    \r\n\r\nCan be attached to anything, but each trigger input component should
-    be a unique set of actions"
-  buttons:
-  - {fileID: 6831538060496289767}
-  pressurePlates: []
-  connectedTriggerables:
-  - {fileID: 0}
-  requiredRepairs: []
-  uiIcon: {fileID: 0}
 --- !u!114 &6831538060496289767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,4 +203,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2ca1a487e6edc448793acd5acab572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 7049708538242438980}
+  trigger: {fileID: 0}
+  animator: {fileID: 6934631575043307014}
+--- !u!95 &6934631575043307014
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902452876818131213}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a87de5c3ad482ee4591e4305f7859531, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

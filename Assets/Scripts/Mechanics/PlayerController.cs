@@ -186,6 +186,14 @@ public class PlayerController : MonoBehaviour
 
     void switchDimension(Dimension to)
     {
+
+
+        //check grounded
+
+        if(!isGrounded) { return; }
+
+        if(!canSwitch) { return; }
+
         //check valid Position
 
         RaycastHit hit;
@@ -194,19 +202,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Did Hit Floor {hit.collider.gameObject.name}, distance is {hit.distance}");
             //there is floor somewhere there
 
-            if (hit.distance > 1.2f)
+            if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f, groundMask, QueryTriggerInteraction.Ignore))
             {
-                //player head would not be directly inside an object
-
-                currentPlayerDimension = to;
-                for (int i = 0; i < 2; i++)
-                {
-                    players[i].SwitchTo(i == (int)currentPlayerDimension);
-                    //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
-                }
-                ChangeGrabParent();
-
+                StartCoroutine(dimensionSwitch(to));
             }
+
+
 
         }
 
@@ -214,6 +215,45 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    void dimensionJump(Dimension to)
+    {
+        currentPlayerDimension = to;
+        for (int i = 0; i < 2; i++)
+        {
+            players[i].SwitchTo(i == (int)currentPlayerDimension);
+            //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
+        }
+        ChangeGrabParent();
+    }
+    bool canSwitch = true;
+    public IEnumerator dimensionSwitch(Dimension to)
+    {
+        canSwitch = false;
+
+        foreach(Player p in players)
+        {
+            p.anim.SetTrigger("DimensionSwitch");
+        }
+
+
+
+        yield return new WaitForSeconds(0.7f);
+
+        dimensionJump(to);
+
+        yield return new WaitForSeconds (0.7f);
+
+        canSwitch = true;
+
+
+
+
+
+    }
+
+
+
     void ForceDimension(Dimension to)
     {
         //check valid Position
@@ -516,7 +556,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            foreach(Player p in players)
+            {
+                p.anim.SetTrigger("DimensionSwitch");
+            }
+        }
         if (Input.GetKeyDown(jumpKey))
         {
             if (currentLedge == null)

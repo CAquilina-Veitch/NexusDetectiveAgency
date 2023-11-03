@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public CapsuleCollider feetCollider;
     public CapsuleCollider bodyCollider;
     public Camera cam;
+    public Camera handCam;
     public Transform camTransform;
     public Animator anim;
 
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
         feetCollider.enabled = to;
         bodyCollider.enabled = to;
         cam.enabled = to;
+        handCam.enabled = to;
     }
 
 }

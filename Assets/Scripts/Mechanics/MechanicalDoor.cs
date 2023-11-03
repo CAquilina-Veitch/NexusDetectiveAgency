@@ -35,7 +35,7 @@ public class MechanicalDoor : MonoBehaviour
 
     public UnityEvent closeAction;
 
-
+    [SerializeField] Animator animator;
 
     private void Awake()
     {
@@ -58,6 +58,7 @@ public class MechanicalDoor : MonoBehaviour
         if(isOpen)
         {
             openAction.Invoke();
+            animator.SetTrigger("Open");
             if(isClosing )
             {
                 StopCoroutine(Reclose());
@@ -66,6 +67,7 @@ public class MechanicalDoor : MonoBehaviour
         }
         else
         {
+            animator.SetTrigger("Close");
             closeAction.Invoke();
         }
 

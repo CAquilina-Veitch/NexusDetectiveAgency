@@ -26,7 +26,7 @@ public struct SoundEffectData
 
 public class SoundEffectManager : MonoBehaviour
 {
-    public List<SoundEffectData> sfxd;
+    public static List<SoundEffectData> sfxd;
     public GameObject sfxPrefab;
     public float SFXVolume = 1;
 
