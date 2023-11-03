@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Did Hit Floor {hit.collider.gameObject.name}, distance is {hit.distance}");
             //there is floor somewhere there
 
-            if (hit.distance > 0.1f)
+            if (hit.distance > 1.2f)
             {
                 //player head would not be directly inside an object
 
