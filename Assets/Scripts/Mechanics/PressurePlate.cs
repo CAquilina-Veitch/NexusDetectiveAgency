@@ -8,6 +8,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public TriggerableObject trigger;
+    [SerializeField] Animator animator;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public class PressurePlate : MonoBehaviour
             {
                 isPressed = false;
                 trigger.Triggered();
+                animator.SetTrigger("Unpress");
             }
         }
         else
@@ -64,6 +66,8 @@ public class PressurePlate : MonoBehaviour
             {
                 isPressed = true;
                 trigger.Triggered();
+                animator.SetTrigger("Press");
+
 
             }
         }

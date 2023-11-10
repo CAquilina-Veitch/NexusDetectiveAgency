@@ -10,6 +10,9 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public TriggerableObject trigger;
+    [SerializeField] Animator animator;
+
+
 
     private void Awake()
     {
@@ -23,6 +26,8 @@ public class Button : MonoBehaviour
     public void Activate()
     {
         trigger.Triggered();
+        animator.SetTrigger("Pressed");
+        
     }
 
 
