@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.VFX;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
 
@@ -86,6 +86,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 moveInput;
     [SerializeField,Min(0.01f)] float speed = 8;
     [SerializeField, Min(0.01f)] float acceleration = 10;
+
+
+
+    [Header("Visual Effects")]
+    [SerializeField] VisualEffect portal;
+
     bool isGrounded
     {
         get
@@ -231,6 +237,7 @@ public class PlayerController : MonoBehaviour
     {
         canSwitch = false;
 
+        portal.Play();
         foreach(Player p in players)
         {
             p.anim.SetTrigger("DimensionSwitch");
