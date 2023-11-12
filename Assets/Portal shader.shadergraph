@@ -40,9 +40,6 @@
             "m_Id": "597b5e70e7204dd0bfcead7616f06910"
         },
         {
-            "m_Id": "6398de292b9449a78327098616c248d7"
-        },
-        {
             "m_Id": "1d16fa9ac7964986ac2fbdc3e425c8c3"
         },
         {
@@ -1369,21 +1366,6 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "2ff03fe437684d3ba4b05dfabeb3c9ac",
-    "m_Id": 1,
-    "m_DisplayName": "X",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "X",
-    "m_StageCapability": 3,
-    "m_Value": 1.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "304d2e7b80b948c0bf2154038287b4c4",
     "m_Id": 2,
     "m_DisplayName": "CellDensity",
@@ -2202,49 +2184,6 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1Node",
-    "m_ObjectId": "6398de292b9449a78327098616c248d7",
-    "m_Group": {
-        "m_Id": "b4adf57f73434e47a77bf2bed6cc7253"
-    },
-    "m_Name": "Float",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": -2254.0,
-            "y": 853.0000610351563,
-            "width": 126.0,
-            "height": 76.99993896484375
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "2ff03fe437684d3ba4b05dfabeb3c9ac"
-        },
-        {
-            "m_Id": "f2f428d40c2f48819c350b87fb510851"
-        }
-    ],
-    "synonyms": [
-        "Vector 1",
-        "1",
-        "v1",
-        "vec1",
-        "scalar"
-    ],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_Value": 0.0
 }
 
 {
@@ -3286,8 +3225,8 @@
     "m_ObjectId": "b4adf57f73434e47a77bf2bed6cc7253",
     "m_Title": "Voronoi and twirll",
     "m_Position": {
-        "x": -2279.333251953125,
-        "y": 301.33331298828127
+        "x": -2279.0,
+        "y": 300.9998779296875
     }
 }
 
@@ -4098,21 +4037,6 @@
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Cosine Time",
-    "m_StageCapability": 3,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "f2f428d40c2f48819c350b87fb510851",
-    "m_Id": 0,
-    "m_DisplayName": "Out",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out",
     "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
