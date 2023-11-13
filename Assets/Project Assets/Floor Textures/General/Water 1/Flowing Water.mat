@@ -29,6 +29,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHABLEND_ON
+  - _REQUIRE_UV2
   m_InvalidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _ENABLE_FOG_ON_TRANSPARENT
@@ -182,7 +183,7 @@ Material:
     - _CameraNearFadeDistance: 1
     - _CoatMask: 0
     - _ColorMode: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -198,7 +199,7 @@ Material:
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
-    - _DistortionStrengthScaled: 0
+    - _DistortionStrengthScaled: 0.1
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -212,7 +213,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _FlipbookMode: 0
+    - _FlipbookMode: 1
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -293,7 +294,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.21960784}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 2.639016, g: 2.639016, b: 2.639016, a: 0.28235295}
+    - _Color: {r: 1.8443025, g: 1.8443025, b: 1.8443025, a: 0.3882353}
     - _ColorAddSubDiff: {r: -1, g: 1, b: 0, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
