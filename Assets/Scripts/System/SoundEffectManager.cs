@@ -26,7 +26,11 @@ public struct SoundEffectData
 
 public class SoundEffectManager : MonoBehaviour
 {
-    public static List<SoundEffectData> sfxd;
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+    public List<SoundEffectData> sfxd;
     public GameObject sfxPrefab;
     public float SFXVolume = 1;
 
@@ -70,11 +74,21 @@ public class SoundEffectManager : MonoBehaviour
     public void PlaySoundEffectWithDelay(string id, float delay)
     {
         StartCoroutine(DelayedSFX(id, delay));
+    }    
+    public void PlaySoundEffectWithDelay(string id, Transform atPosition,float delay)
+    {
+        StartCoroutine(DelayedSFX(id, atPosition, delay));
     }
     IEnumerator DelayedSFX(string id, float delay)
     {
         yield return new WaitForSeconds(delay);
         PlaySoundEffect(id);
+
+    }    
+    IEnumerator DelayedSFX(string id, Transform atPosition, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlaySoundEffect(id, atPosition);
 
     }
 

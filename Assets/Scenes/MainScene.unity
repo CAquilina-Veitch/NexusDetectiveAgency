@@ -123,58 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1544900321
-GameObject:
+--- !u!1001 &718026949
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1544900323}
-  - component: {fileID: 1544900322}
-  m_Layer: 0
-  m_Name: SoundEffectsManager
-  m_TagString: SFXManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1544900322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544900321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909f2c7e9176a2c46a04f8c3d3c38ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sfxd:
-  - name: 
-    clip: {fileID: 0}
-    relativeVolume: 0
-    isLooping: 0
-  sfxPrefab: {fileID: 5795389021107064261, guid: 63def94f60a215d488cfe33070d49fc1,
-    type: 3}
-  SFXVolume: 1
---- !u!4 &1544900323
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544900321}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405166025570992580, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511535887314563348, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundEffectManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b409f111a5e7254f8ee47ba61a8c278, type: 3}
 --- !u!1 &1911966459
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,14 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4006b21f192f33745800d97ace710dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StructureScenes:
-  - {fileID: 102900000, guid: c866bdec34163484a96c00a60c09f6cc, type: 3}
-  - {fileID: 102900000, guid: 576185ee835f6b14090d0eb7f71caf2d, type: 3}
-  - {fileID: 102900000, guid: a6dd25cb811bead4f853b59f48e5283b, type: 3}
-  - {fileID: 102900000, guid: 81ae5785042bf4d42b52869aa5e0bc4c, type: 3}
   StructureScenIds: 03000000020000000100000005000000
-  segmentScenes:
-  - {fileID: 102900000, guid: e7906ab12372827488dd9d0fc3ac1c69, type: 3}
   segmentSceneIds: 04000000
   segmentsToLoadAtOnce: 3
 --- !u!4 &1911966461
@@ -283,4 +292,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 2013410475}
   - {fileID: 1911966461}
-  - {fileID: 1544900323}
+  - {fileID: 718026949}

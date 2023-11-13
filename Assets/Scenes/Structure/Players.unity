@@ -455,16 +455,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerOwner
       objectReference: {fileID: 0}
-    - target: {fileID: 7135371095027392307, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8446602601336760212, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_projectionMatrixMode
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

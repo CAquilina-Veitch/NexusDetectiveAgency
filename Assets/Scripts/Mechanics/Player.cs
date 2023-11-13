@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     public Camera handCam;
     public Transform camTransform;
     public Animator anim;
+    public AudioListener audioListener;
 
     public void SwitchTo(bool to)
     {
         feetCollider.enabled = to;
         bodyCollider.enabled = to;
         cam.enabled = to;
+        audioListener.enabled = to;
         handCam.enabled = to;
     }
 
