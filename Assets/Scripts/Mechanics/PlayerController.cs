@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
 
     [SerializeField] Rigidbody rb;
-    
-    
+
+    [SerializeField] LoreInventory loreInv;
+    [SerializeField] CanvasGroup inventoryCanvasGroup;
     [SerializeField] Player[] players = new Player[2];
     public ref Player currentPlayer
     {
@@ -44,15 +45,16 @@ public class PlayerController : MonoBehaviour
         }
     }
     UIManager uiManager;
-
+    
     [Space(20)]
     [Header("Keybinds")]
     [Space(10)]
 
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
-    [SerializeField] KeyCode abilityOneKey = KeyCode.E;
-    [SerializeField] KeyCode abilityTwoKey = KeyCode.Q;
-    [SerializeField] KeyCode abilityThreeKey = KeyCode.F;
+    [SerializeField] KeyCode dimensionSwapKey = KeyCode.E;
+    [SerializeField] KeyCode abilityKey = KeyCode.Q;
+    [SerializeField] KeyCode readLoreKey = KeyCode.X;
+    [SerializeField] KeyCode openInventoryKey = KeyCode.G;
     [SerializeField] KeyCode grabHoldableKey = KeyCode.Mouse0;
     [SerializeField] KeyCode buttonPressKey = KeyCode.Mouse1;
 
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Vector3 startingPos = new Vector3(31.3f, 1, 74.5f);
     [SerializeField] LayerMask groundMask;
     [SerializeField] LayerMask isntPlayerMask;
+    bool inventoryOpen = false;
 
     [Space(20)]
     [Header("Controls")]
@@ -77,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Vector2 mouseInput;
     [SerializeField,Range(0,10)] float sensitivity = 1;
+
+    [SerializeField] float invFadeTime = 0.2f;
 
     [Space(20)]
     [Header("Movement")]
@@ -398,7 +403,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-   /*void DirectDrone()
+   void DirectDrone()
     {
         dronePlatformDrafting = !dronePlatformDrafting;
 
@@ -438,7 +443,7 @@ public class PlayerController : MonoBehaviour
         {
             dronePlatformDistance = 5;
         }
-    }*/
+    }
    
 
     public void Teleport(Vector3 pos)
@@ -556,8 +561,52 @@ public class PlayerController : MonoBehaviour
             ResetPlayer();
         }
 
+
+
+        RaycastHit interactable;
+        // Check for obstacles between the camera and the grab position
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out interactable, armReach, isntPlayerMask))
+        {
+            if (interactable.transform.TryGetComponent(out Interactable _inter))
+            {
+                _inter.Seen();
+            }
+        }
+
+
     }
-    
+    IEnumerator showCanvas(bool to)
+    {
+        ShowMouse(to);
+        EnableControls(!to);
+        if (inventoryOpen != to)
+        {
+            inventoryOpen = to;
+            float timer = 0;
+            while (timer <  invFadeTime)
+            {
+                float alpha = Mathf.Lerp(to ? 0 : 1, to ? 1 : 0, timer / invFadeTime);
+                inventoryCanvasGroup.alpha = alpha;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            inventoryCanvasGroup.alpha = to ? 1 : 0;
+        }
+
+    }
+    public void ReadLore()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
+        {
+            Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
+            Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
+            if (hit.collider.TryGetComponent(out LoreObject lO))
+            {
+                loreInv.InteractWithObject(lO);
+            }
+        }
+    }
 
 
 
@@ -589,7 +638,10 @@ public class PlayerController : MonoBehaviour
         {
             GrabHoldableItem();
         }
-        
+        if (Input.GetKeyDown(readLoreKey))
+        {
+            ReadLore();
+        }
         
         if(Input.GetKeyDown(buttonPressKey))
         {
@@ -601,15 +653,15 @@ public class PlayerController : MonoBehaviour
         if (currentPlayerDimension == Dimension.Cyberpunk)
         {
 
-            if (Input.GetKeyDown(abilityOneKey))
+            if (Input.GetKeyDown(dimensionSwapKey))
             {
                 switchDimension(Dimension.Steampunk);
             }
-            if (Input.GetKeyDown(abilityTwoKey))
+            if (Input.GetKeyDown(abilityKey))
             {
                 ShowWheel();
             }
-            if (Input.GetKeyUp(abilityTwoKey))
+            if (Input.GetKeyUp(abilityKey))
             {
                 HideWheel();
             }
@@ -618,15 +670,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (currentPlayerDimension == Dimension.Steampunk)
         {
-            if (Input.GetKeyDown(abilityOneKey))
+            if (Input.GetKeyDown(dimensionSwapKey))
             {
                 switchDimension(Dimension.Cyberpunk);
             }
 
-/*            if (Input.GetKeyDown(abilityTwoKey))
+            if (Input.GetKeyDown(abilityKey))
             {
                 DirectDrone();
-            }*/
+            }
         }
         else
         {
@@ -636,7 +688,10 @@ public class PlayerController : MonoBehaviour
         {
             Application.Quit();
         }
-
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            StartCoroutine(showCanvas(!inventoryOpen));
+        }
 
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
         pitch += mouseInput.y;
@@ -656,7 +711,12 @@ public class PlayerController : MonoBehaviour
         movementCalc.y = rb.velocity.y;
         rb.velocity = movementCalc;
 
+    }
 
+    public void EnableControls(bool to)
+    {
+        sensitivity = to ? 1 : 0;
+        speed = to ? 6 : 0;
     }
 
 }

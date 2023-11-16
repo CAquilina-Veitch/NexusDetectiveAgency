@@ -19,7 +19,7 @@ public class Respawning : MonoBehaviour
         transform.position = spawnPosition;
         transform.rotation = spawnRotation;
     }
-    public void Update()
+    public void FixedUpdate()
     {
         if(transform.position.y < deathHeight)
         {
