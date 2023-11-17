@@ -62,7 +62,14 @@ public class LoreInventory : MonoBehaviour
         for(int i = 0; i < invTabs.Count; i++)
         {
             bool isCollected = allLore[i].collected;
+
+            Debug.Log($"{invTabs.Count}, {i}");
+            Debug.Log($"{invTabs.Count}, {i}, {invTabs[i]}");
+            Debug.Log($"{invTabs[i].GetComponent<Button>()}");
+
+
             invTabs[i].GetComponent<Button>().enabled = isCollected;
+
             if (i == currentTab && allLore[currentTab].collected)
             {
 
@@ -75,7 +82,7 @@ public class LoreInventory : MonoBehaviour
     }
     private void OnEnable()
     {
-        UpdateLoreItems();
+        //UpdateLoreItems();
     }
     private void Start()
     {
