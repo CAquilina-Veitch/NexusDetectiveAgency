@@ -17,12 +17,13 @@ public class LoreItem
     public Format format;
 
     public string label;
-    public string title;
-    public string[] subtitle;
+    [TextArea(1, 100)] public string title;
+    [TextArea(1, 100)] public string[] subtitle;
 
 
     public Sprite[] images;
-    public string bodyText;
+
+    [TextArea(1, 100)] public string bodyText;
 
 
 }
@@ -30,6 +31,7 @@ public class LoreItem
 
 public class LoreInventory : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
 
     public List<LoreItem> allLore;
 
@@ -38,14 +40,17 @@ public class LoreInventory : MonoBehaviour
     public int currentTab = -1;
     public float fadeDuration = 0.2f;
 
-    bool inventoryOpen;
+    public Color[] tabColours = new Color[2];
+
+    public List<LoreGroup> displays = new List<LoreGroup>();
+
+    public bool singleIsOpen;
+    public bool invOpen;
 
     [Header("Info")]
-    [SerializeField] Canvas canvas;
-    [SerializeField] CanvasGroup info;
-    [SerializeField] Image img;
-    [SerializeField] TextMeshProUGUI title;
-    [SerializeField] TextMeshProUGUI bodyText;
+
+    [SerializeField] CanvasGroup folder;
+
 
 
     public void InteractWithObject(LoreObject lO)
@@ -55,6 +60,10 @@ public class LoreInventory : MonoBehaviour
             allLore[lO.id].collected = true;
             UpdateLoreItems();
         }
+        singleIsOpen = !singleIsOpen;
+        StartCoroutine(showSingleCanvas(lO.id, singleIsOpen));
+        playerController.ShowMouse(singleIsOpen);
+        playerController.EnableControls(!singleIsOpen);
     }
 
     public void UpdateLoreItems()
@@ -62,13 +71,7 @@ public class LoreInventory : MonoBehaviour
         for(int i = 0; i < invTabs.Count; i++)
         {
             bool isCollected = allLore[i].collected;
-
-            Debug.Log($"{invTabs.Count}, {i}");
-            Debug.Log($"{invTabs.Count}, {i}, {invTabs[i]}");
-            Debug.Log($"{invTabs[i].GetComponent<Button>()}");
-
-
-            invTabs[i].GetComponent<Button>().enabled = isCollected;
+            invTabs[i].GetComponent<UnityEngine.UI.Button>().interactable = isCollected;
 
             if (i == currentTab && allLore[currentTab].collected)
             {
@@ -80,9 +83,39 @@ public class LoreInventory : MonoBehaviour
 
 
     }
+
+    public void openInvCanvas()
+    {
+        invOpen = !invOpen;
+        StartCoroutine(startInvCanvas(invOpen));
+        
+    }
+    IEnumerator startInvCanvas(bool to)
+    {
+        playerController.ShowMouse(to);
+        playerController.EnableControls(!to);
+        if (invOpen != to)
+        {
+            invOpen = to;
+            float timer = 0;
+            while (timer < fadeDuration)
+            {
+                float alpha = Mathf.Lerp(to ? 0 : 1, to ? 1 : 0, timer / fadeDuration);
+                folder.alpha = alpha;
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            folder.alpha = to ? 1 : 0;
+        }
+
+    }
+
+
+
+
     private void OnEnable()
     {
-        //UpdateLoreItems();
+        UpdateLoreItems();
     }
     private void Start()
     {
@@ -93,6 +126,10 @@ public class LoreInventory : MonoBehaviour
     }
     public void SwitchCurrentLore(int to)
     {
+        if(currentTab == to)
+        {
+            return;
+        }
         int from = currentTab;
         currentTab = to;
         StartCoroutine(switchAnimation(from, to));
@@ -108,41 +145,82 @@ public class LoreInventory : MonoBehaviour
         LoreItem item = allLore[to];
         if(item != null)
         {
-            bodyText.text = item.bodyText;
-            title.text = item.title;
+            displays[(int)item.format].bodyText.text = item.bodyText;
+            displays[(int)item.format].title.text = item.title;
             if(item.images.Length>0) 
             {
-                img.sprite = item.images[0];
+                displays[(int)item.format].img.sprite = item.images[0];
+            }
+            if(item.subtitle.Length>0)
+            {
+                displays[(int)item.format].subtitle.text = item.subtitle[0];
             }
         }
     }
 
+
+    IEnumerator showSingleCanvas(int id, bool show)
+    {
+        LoreItem lI = allLore[id];
+        CanvasGroup infoPage = displays[(int)lI.format].cg;
+
+
+        float timer = 0;
+        while (timer < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(show ? 0 : 1, show ? 1 : 0, timer / fadeDuration);
+            infoPage.alpha = alpha;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        infoPage.alpha = show ? 1 : 0;
+    }
+
+
+
     IEnumerator switchAnimation(int from, int to)
     {
+        from = from < 0 ? to : from;
+
+        LoreItem lIf = allLore[from];
+        CanvasGroup infoPagef = displays[(int)lIf.format].cg;
+
         float timer = 0;
         while (timer < fadeDuration)
         {
             float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
-            info.alpha = alpha;
+            infoPagef.alpha = alpha;
+            invTabs[from].color = Color.Lerp(tabColours[0], tabColours[1], timer / fadeDuration);
             timer += Time.deltaTime;
             yield return null;
         }
-        info.alpha = 0;
-
+        infoPagef.alpha = 0;
+        invTabs[from].color = tabColours[1];
         switchInfo(to);
+
+        LoreItem lIt = allLore[from];
+        CanvasGroup infoPaget = displays[(int)lIf.format].cg;
+
+
+
+
+
+
+
 
         // Fade in
         timer = 0f;
         while (timer < fadeDuration)
         {
             float alpha = Mathf.Lerp(0f, 1f, timer / fadeDuration);
-            info.alpha = alpha;
+            infoPaget.alpha = alpha;
+            invTabs[to].color = Color.Lerp(tabColours[1], tabColours[0], timer / fadeDuration);
             timer += Time.deltaTime;
             yield return null;
         }
 
-        info.alpha = 1;
-
+        infoPaget.alpha = 1;
+        invTabs[to].color = tabColours[0];
 
 
     }

@@ -15,11 +15,30 @@ public class Interactable : MonoBehaviour
     MeshRenderer mR;
     public Material outlineMat;
 
+    bool canTurnOn = true;
+
     private void Start()
     {
         mR = GetComponent<MeshRenderer>();
     }
-    
+
+    public void Enable(bool to)
+    {
+        canTurnOn = to;
+        if(!to)
+        {
+            if (isOverlayed)
+            {
+                var temp = mR.materials.ToList();
+                temp.RemoveAt(temp.Count - 1);
+                mR.SetMaterials(temp);
+                isOverlayed = false;
+
+                currentTimer = 0;
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         if(isOverlayed)
@@ -30,7 +49,6 @@ public class Interactable : MonoBehaviour
             }
             else
             {
-                Debug.Log("###");
                 var temp = mR.materials.ToList();
                 temp.RemoveAt(temp.Count - 1);
                 mR.SetMaterials(temp);

@@ -356,6 +356,17 @@ public class PlayerController : MonoBehaviour
             currentHeldItem = null;
         }
     }
+    public void RespawnWithoutItem()
+    {
+        if(currentHeldItem != null)
+        {
+            Holdable h = currentHeldItem;
+            currentHeldItem.transform.parent = null;
+            currentHeldItem.ToggleGhost(false);
+            currentHeldItem = null;
+            h.GetComponent<Respawning>().Respawn();
+        }
+    }
 
     void ChangeGrabParent()
     {
@@ -578,25 +589,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    IEnumerator showCanvas(bool to)
-    {
-        ShowMouse(to);
-        EnableControls(!to);
-        if (inventoryOpen != to)
-        {
-            inventoryOpen = to;
-            float timer = 0;
-            while (timer <  invFadeTime)
-            {
-                float alpha = Mathf.Lerp(to ? 0 : 1, to ? 1 : 0, timer / invFadeTime);
-                inventoryCanvasGroup.alpha = alpha;
-                timer += Time.deltaTime;
-                yield return null;
-            }
-            inventoryCanvasGroup.alpha = to ? 1 : 0;
-        }
 
-    }
     public void ReadLore()
     {
         RaycastHit hit;
@@ -693,7 +686,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            StartCoroutine(showCanvas(!inventoryOpen));
+            StartCoroutine(loreInv.openInvCanvas());
         }
 
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
