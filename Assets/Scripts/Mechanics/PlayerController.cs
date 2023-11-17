@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
 
-public enum groundType { normal, concrete, metal, wood, dirt}
+public enum GroundType { normal, concrete, metal, wood, dirt}
 public class PlayerController : MonoBehaviour
 {
     
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField,Min(0.01f)] float speed = 8;
     [SerializeField, Min(0.01f)] float acceleration = 10;
 
-    public groundType groundType;
+    public GroundType groundType;
 
 
 
