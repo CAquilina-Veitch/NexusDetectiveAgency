@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{2e1216d7-bd60-4777-94c7-62e95958dec9}">
+	<object class="AudioFile" id="{62384555-f93e-4b7f-91fa-fc9ffaf83cc3}">
 		<property name="assetPath">
-			<value>Audio/Footsteps/Base/Footstep1.wav</value>
+			<value>Audio/Ambience/AmbienceBugs.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>96</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.37759637188208617</value>
+			<value>63.712000000000003</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>

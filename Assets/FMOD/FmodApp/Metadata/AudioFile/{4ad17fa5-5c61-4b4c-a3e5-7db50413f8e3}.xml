@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{2e1216d7-bd60-4777-94c7-62e95958dec9}">
+	<object class="AudioFile" id="{4ad17fa5-5c61-4b4c-a3e5-7db50413f8e3}">
 		<property name="assetPath">
-			<value>Audio/Footsteps/Base/Footstep1.wav</value>
+			<value>Audio/Ambience/AmbienceTropical.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.37759637188208617</value>
+			<value>54.058666666666667</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>
