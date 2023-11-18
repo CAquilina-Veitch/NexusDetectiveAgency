@@ -75,6 +75,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask isntPlayerMask;
     bool inventoryOpen = false;
 
+
+
+
     [Space(20)]
     [Header("Controls")]
     [Space(10)]
@@ -568,6 +571,27 @@ public class PlayerController : MonoBehaviour
             }
 
             currentHeldItem.transform.position = grabPosition;
+        }
+
+        if (dronePlatformDrafting)
+        {
+            Vector3 draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * heldItemArmLength;
+
+            // Calculate the object's size
+            Bounds droneBounds = droneDraft.GetComponent<Collider>().bounds;
+            float droneSize = Mathf.Max(droneBounds.size.x, droneBounds.size.y, droneBounds.size.z);
+
+            RaycastHit obstacleHit;
+            // Check for obstacles between the camera and the grab position
+            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, heldItemArmLength + droneSize, groundMask))
+            {
+                // Calculate a new grab position considering the object's size
+                float adjustedArmLength = Mathf.Max(Vector3.Distance(currentPlayer.cam.transform.position, obstacleHit.point) - droneSize, 0f);
+                //adjustedArmLength -= objectSize;
+                draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * adjustedArmLength;
+            }
+
+            droneDraft.transform.position = draftPosition;
         }
 
         if(Input.GetKeyDown(KeyCode.R)||transform.position.y<-20)
