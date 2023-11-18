@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
+  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1368,6 +1368,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerOwner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814674025602383789, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814674025602383789, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814674025602383789, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814674025602383789, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814674025602383789, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814674025602383789, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -225.57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

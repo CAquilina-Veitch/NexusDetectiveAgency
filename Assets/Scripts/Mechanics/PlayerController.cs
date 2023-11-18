@@ -686,7 +686,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            StartCoroutine(loreInv.openInvCanvas());
+            loreInv.openInvCanvas();
         }
 
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;

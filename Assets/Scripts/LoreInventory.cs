@@ -94,19 +94,22 @@ public class LoreInventory : MonoBehaviour
     {
         playerController.ShowMouse(to);
         playerController.EnableControls(!to);
-        if (invOpen != to)
+
+        if (!to)
         {
-            invOpen = to;
-            float timer = 0;
-            while (timer < fadeDuration)
-            {
-                float alpha = Mathf.Lerp(to ? 0 : 1, to ? 1 : 0, timer / fadeDuration);
-                folder.alpha = alpha;
-                timer += Time.deltaTime;
-                yield return null;
-            }
-            folder.alpha = to ? 1 : 0;
+            currentTab = -1;
+            StartCoroutine(showSingleCanvas(0,to));
         }
+        invOpen = to;
+        float timer = 0;
+        while (timer < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(to ? 0 : 1, to ? 1 : 0, timer / fadeDuration);
+            folder.alpha = alpha;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        folder.alpha = to ? 1 : 0;
 
     }
 
@@ -180,26 +183,33 @@ public class LoreInventory : MonoBehaviour
 
     IEnumerator switchAnimation(int from, int to)
     {
-        from = from < 0 ? to : from;
-
-        LoreItem lIf = allLore[from];
-        CanvasGroup infoPagef = displays[(int)lIf.format].cg;
-
         float timer = 0;
-        while (timer < fadeDuration)
+        if (from >= 0)
         {
-            float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
-            infoPagef.alpha = alpha;
-            invTabs[from].color = Color.Lerp(tabColours[0], tabColours[1], timer / fadeDuration);
-            timer += Time.deltaTime;
-            yield return null;
+            LoreItem lIf = allLore[from];
+            CanvasGroup infoPagef = displays[(int)lIf.format].cg;
+
+
+            while (timer < fadeDuration)
+            {
+                float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+                infoPagef.alpha = alpha;
+                invTabs[from].color = Color.Lerp(tabColours[0], tabColours[1], timer / fadeDuration);
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            infoPagef.alpha = 0;
+            invTabs[from].color = tabColours[1];
         }
-        infoPagef.alpha = 0;
-        invTabs[from].color = tabColours[1];
+
+
+        
+
+
         switchInfo(to);
 
-        LoreItem lIt = allLore[from];
-        CanvasGroup infoPaget = displays[(int)lIf.format].cg;
+        LoreItem lIt = allLore[to];
+        CanvasGroup infoPaget = displays[(int)lIt.format].cg;
 
 
 
