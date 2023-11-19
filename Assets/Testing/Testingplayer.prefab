@@ -389,6 +389,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerOwner
       objectReference: {fileID: 0}
+    - target: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: dimensionalUnavailableWarningDuration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

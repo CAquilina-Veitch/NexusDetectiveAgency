@@ -136,6 +136,9 @@ public class PlayerController : MonoBehaviour
     [Space(20)]
     [Header("Abilities")]
     [Space(10)]
+    [SerializeField]CanvasGroup dimensionalUnavailableWarning;
+    [SerializeField] float dimensionalUnavailableWarningDuration = 0.7f;
+
     [SerializeField] GameObject dronePlatformPrefab;
     [SerializeField] GameObject droneDraft;
     bool dronePlatformActive;
@@ -219,9 +222,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Did Hit Floor {hit.collider.gameObject.name}, distance is {hit.distance}");
             //there is floor somewhere there
 
-            if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f, groundMask, QueryTriggerInteraction.Ignore))
+            if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f))
             {
                 StartCoroutine(dimensionSwitch(to));
+            }
+            else
+            {
+                StartCoroutine(ShowDimensionalUnavailability());
             }
 
 
@@ -288,6 +295,21 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    IEnumerator ShowDimensionalUnavailability()
+    {
+        float time = 0;
+        while (time < dimensionalUnavailableWarningDuration)
+        {
+            dimensionalUnavailableWarning.alpha = Mathf.Lerp(1, 0, time / dimensionalUnavailableWarningDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        dimensionalUnavailableWarning.alpha = 0;
+
+    }
+
+
 
     //Movement
 
