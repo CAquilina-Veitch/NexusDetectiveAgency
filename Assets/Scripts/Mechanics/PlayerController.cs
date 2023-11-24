@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Vector2 mouseInput;
     [SerializeField,Range(0,10)] float sensitivity = 1;
-
+    [SerializeField] float droneScrollSpeed = 0.2f;
     [SerializeField] float invFadeTime = 0.2f;
 
     [Space(20)]
@@ -143,7 +143,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject droneDraft;
     bool dronePlatformActive;
     bool dronePlatformDrafting;
+
     [HideInInspector] public float dronePlatformDistance;
+    [SerializeField] Vector2 droneDistanceClamps = new Vector2(1, 8);
     GameObject currentDronePlatformPrefab;
 
 
@@ -459,7 +461,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-
     void NewDronePositionSet()
     {
         ShowDraft(false);
@@ -597,23 +598,41 @@ public class PlayerController : MonoBehaviour
 
         if (dronePlatformDrafting)
         {
-            Vector3 draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * heldItemArmLength;
+            
+            Vector3 draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * dronePlatformDistance;
 
             // Calculate the object's size
-            Bounds droneBounds = droneDraft.GetComponent<Collider>().bounds;
+            Bounds droneBounds = droneDraft.GetComponent<BoxCollider>().bounds;
             float droneSize = Mathf.Max(droneBounds.size.x, droneBounds.size.y, droneBounds.size.z);
 
             RaycastHit obstacleHit;
             // Check for obstacles between the camera and the grab position
-            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, heldItemArmLength + droneSize, groundMask))
+
+            if (Physics.BoxCast(currentPlayer.cam.transform.position, droneBounds.extents, currentPlayer.cam.transform.forward, out obstacleHit, Quaternion.identity, dronePlatformDistance, groundMask)) 
+            /*if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, dronePlatformDistance + droneSize, groundMask))
             {
                 // Calculate a new grab position considering the object's size
-                float adjustedArmLength = Mathf.Max(Vector3.Distance(currentPlayer.cam.transform.position, obstacleHit.point) - droneSize, 0f);
+                float adjustedDroneDistance = Mathf.Max(Vector3.Distance(currentPlayer.cam.transform.position, obstacleHit.point) - droneSize, 0f);
                 //adjustedArmLength -= objectSize;
-                draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * adjustedArmLength;
+                draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * adjustedDroneDistance;
             }
+            else
+            {
+                Vector3 boxcastOrigin = droneBounds.max; // Start from the top of the bounds
+                Vector3 boxcastExtents = new Vector3(droneBounds.size.x / 2f, 0.01f, droneBounds.size.z / 2f); // Rectangular shape, flat in y
+                Vector3 boxcastDirection = Vector3.down;
+                float boxcastDistance = droneBounds.size.y; // Only go as far as the bottom of the bounds
+
+                RaycastHit boxcastHit;
+                if (Physics.BoxCast(boxcastOrigin, boxcastExtents, boxcastDirection, out boxcastHit, Quaternion.identity, boxcastDistance, groundMask))
+                {
+                    // Set the distance to the hit distance minus a bit
+                    draftPosition = boxcastHit.point - new Vector3(0, 0.1f, 0);
+                }
+            }*/
 
             droneDraft.transform.position = draftPosition;
+            Debug.Log(draftPosition);
         }
 
         if(Input.GetKeyDown(KeyCode.R)||transform.position.y<-20)
@@ -691,7 +710,6 @@ public class PlayerController : MonoBehaviour
             Repair();
         }
 
-
         if (currentPlayerDimension == Dimension.Cyberpunk)
         {
 
@@ -720,6 +738,12 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(abilityKey))
             {
                 DirectDrone();
+            }
+            if(dronePlatformDrafting)
+            {
+                float scrollInput = Input.mouseScrollDelta.y;
+                dronePlatformDistance += scrollInput * droneScrollSpeed;
+                dronePlatformDistance = Mathf.Clamp(dronePlatformDistance, droneDistanceClamps.x, droneDistanceClamps.y);
             }
         }
         else
