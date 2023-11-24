@@ -5809,7 +5809,6 @@ Transform:
   - {fileID: 8774731651002955604}
   - {fileID: 5341525676391879784}
   - {fileID: 5903486712837373636}
-  - {fileID: 4618259287382403637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2775375196102379664
@@ -9697,6 +9696,38 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7734736648094853838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5467858537494232306}
+  m_Layer: 7
+  m_Name: DroneParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5467858537494232306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734736648094853838}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4618259287382403637}
+  m_Father: {fileID: 8774731651002955604}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8089274857372912656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10546,6 +10577,7 @@ Transform:
   - {fileID: 4021940973688502124}
   - {fileID: 7935276385353688340}
   - {fileID: 1787016869045356697}
+  - {fileID: 5467858537494232306}
   m_Father: {fileID: 722763665282694011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5629491618671960083
@@ -15879,7 +15911,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 722763665282694011}
+    m_TransformParent: {fileID: 5467858537494232306}
     m_Modifications:
     - target: {fileID: 6804401933862250399, guid: e6f8349b8b321224998f7411fe7b9b29,
         type: 3}
