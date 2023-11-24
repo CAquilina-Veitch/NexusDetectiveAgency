@@ -608,7 +608,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit obstacleHit;
             // Check for obstacles between the camera and the grab position
 
-            if (Physics.BoxCast(currentPlayer.cam.transform.position, droneBounds.extents, currentPlayer.cam.transform.forward, out obstacleHit, Quaternion.identity, dronePlatformDistance, groundMask)) 
+            if (Physics.BoxCast(currentPlayer.cam.transform.position+(currentPlayer.cam.transform.forward*droneDistanceClamps.x), droneBounds.extents, currentPlayer.cam.transform.forward, out obstacleHit, Quaternion.identity, dronePlatformDistance, groundMask)) 
             /*if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, dronePlatformDistance + droneSize, groundMask))
             {
                 // Calculate a new grab position considering the object's size
