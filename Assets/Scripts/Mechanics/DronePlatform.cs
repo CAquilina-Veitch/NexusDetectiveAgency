@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DronePlatform : MonoBehaviour
 {
-
+/*
     [SerializeField] Transform playerCam;
     [SerializeField] PlayerController playerControls;
     [SerializeField] LayerMask groundLayerMask;
@@ -27,7 +27,7 @@ public class DronePlatform : MonoBehaviour
 
 
         transform.position = playerCam.transform.position + playerCam.transform.forward * playerControls.dronePlatformDistance;
-    }
+    }*/
 
 
 

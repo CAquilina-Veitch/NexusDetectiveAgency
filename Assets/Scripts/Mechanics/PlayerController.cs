@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.VFX;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
@@ -598,8 +596,9 @@ public class PlayerController : MonoBehaviour
 
         if (dronePlatformDrafting)
         {
-            
-            Vector3 draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * dronePlatformDistance;
+
+            //Vector3 draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * dronePlatformDistance;
+            Vector3 draftPosition = currentPlayer.transform.position;
 
             // Calculate the object's size
             Bounds droneBounds = droneDraft.GetComponent<BoxCollider>().bounds;
@@ -608,7 +607,14 @@ public class PlayerController : MonoBehaviour
             RaycastHit obstacleHit;
             // Check for obstacles between the camera and the grab position
 
-            if (Physics.BoxCast(currentPlayer.cam.transform.position+(currentPlayer.cam.transform.forward*droneDistanceClamps.x), droneBounds.extents, currentPlayer.cam.transform.forward, out obstacleHit, Quaternion.identity, dronePlatformDistance, groundMask)) 
+            if (Physics.BoxCast(currentPlayer.cam.transform.position+(currentPlayer.cam.transform.forward*droneDistanceClamps.x), droneBounds.extents, currentPlayer.cam.transform.forward, out obstacleHit, Quaternion.identity, dronePlatformDistance, groundMask))
+            {
+
+            }
+            else
+            {
+
+            }
             /*if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, dronePlatformDistance + droneSize, groundMask))
             {
                 // Calculate a new grab position considering the object's size
