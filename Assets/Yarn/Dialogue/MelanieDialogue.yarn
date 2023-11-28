@@ -1,22 +1,43 @@
 ﻿title: MelanieDialogue
 tags:
+position: -266,-791
 ---
-
 <<declare $animNumber = 0>>
 <<declare $documentsFound = 0>>
+<<declare $firstInteraction = true>>
 
 DEBUG: How many documents has the player found?
 ->	Only a few.
 		<<set $documentsFound += 2>>
 ->	Enough to proceed.
 		<<set $documentsFound += 5>>
-
 <<wait 1>>
-<<jump TalkingToMelanie1>>
-
+DEBUG: Has the player already talked to Melanie?
+->	No.
+		<<set $firstInteraction = true>>
+->	Yes
+		<<set $firstInteraction = false>>
+<<wait 1>>
+<<jump MelanieInteract>>
 ===
-title: TalkingToMelanie1
+
+
+title: MelanieInteract
+position:
+position: -266,-592
 ---
+<<if $firstInteraction == true>>
+	<<jump TalkingToMelanie1>>
+<<else>>
+	<<jump TalkingToMelanieRepeat>>
+<<endif>>
+===
+
+
+title: TalkingToMelanie1
+position: -870,-381
+---
+<<set $firstInteraction = false>>
 
 Melanie: Who are you?
 Melanie: How on Earth did you get here?
@@ -27,21 +48,31 @@ Melanie: How on Earth did you get here?
 ->	I'm Detective Max.
 		Max: My name is Max, I'm a detective.
 		Melanie: Well Max, you know you are technically trespassing, right?
+<<jump TalkingToMelanie2>>
+===
 
+
+title: TalkingToMelanie2
+position:
+position: -869,-95
+---
 Melanie: You should be leaving. Now. Before I call security.
 
 ->	I can't do that.
 		Max: Not so fast.
 		Max: I need to see the device you've been working on.
-		<<jump TalkingToMelanie2>>
+		<<jump TalkingToMelanie3>>
 ->	Fine (Leave).
 		Max: Well alright then.
-		<<stop>>
-
+		<<wait  1>>
+		DEBUG: Max leaves, then eventually returns to Melanie.
+		<<jump TalkingToMelanie2>>
 ===
-title: TalkingToMelanie2
----
 
+
+title: TalkingToMelanie3
+position: -869,141
+---
 Melanie: What device? We don't have anything down here.
 Melanie: We haven't been working on anything for years.
 Melanie: Everything we had been working on is in our main displays in the lobby.
@@ -58,19 +89,65 @@ Melanie: Well there simply isn't.
 		<<jump TalkingToMelaniePass>>
 <<endif>>
 ===
-title: TalkingToMelanieFail
----
 
+
+title: TalkingToMelanieFail
+position: -655,274
+---
 ->	I don't believe you.
 		Max: Well, I simply don't believe that.
 
 Melanie: Fine.
 Melanie: If you desperately want to see what's behind here, get this file.
 Melanie: It's going to catch you up to speed a little (Leave).
-<<stop>>
-
+<<jump ExitingForQuest>>
 ===
+
+
+title: ExitingForQuest
+position:
+position: -255,-273
+---
+DEBUG: Max leaves Melanie in search for her documents.
+<<wait  1>>
+DEBUG: Before long, Max returns.
+DEBUG: Did Max find the required documents?
+->	Yes.
+		<<set $documentsFound += 5>>
+		<<jump TalkingToMelanieRepeat>>
+->	No.
+		<<jump TalkingToMelanie2>>
+===
+
+
+title: TalkingToMelanieRepeat
+position:
+position: 61,-274
+---
+
+//Max mumbles: Found... it...
+Max: I found the file you were looking for.
+
+Melanie: About time. Any questions?
+
+//Max mumbles: "No... New... part?"
+Max: So I can't create a new part?
+
+Melanie: There was only a single unit ever created, due to the fact this project was purely experimental.
+Melanie:Because of the lost schematics, the only way to make the machine work was if there was another part somewhere.
+
+//Max mumbles: "Can... I... Fix... This..."
+Max: So you're saying that if I either find a way to fix the machine, or get a new part, the machine will be functional again?
+
+Melanie: Yes, that would be the case.
+Melanie: By getting a new part, we can repair it to its full capacity.
+Melanie: Hopefully, we could fix all the shame we brought upon ourselves.
+<<jump TalkingToMelanieEnd>>
+===
+
+
 title: TalkingToMelaniePass
+position: -253,-78
 ---
 ->	Stop bluffing.
 		Max: Stop bluffing.
@@ -120,5 +197,21 @@ Melanie: We are responsible for bringing doom upon ourselves by modifying the ma
 Melanie: We made the wrong choice and paid dearly for it.
 
 <<jump TalkingToMelanieEnd>>
+===
 
+
+title: TalkingToMelanieEnd
+position:
+position: 57,271
+---
+//Max mumbles: I... Think... I... can... fix... it)
+Max: I may be able to fix it.
+Max: I can try and find a part for you from the other dimension.
+
+Melanie: Really?
+Melanie: If you fixed this, you could save countless lives.
+<<wait  1>>
+Melanie: Oh, and one more thing.
+Melanie: Good luck.
+<<stop>>
 ===
