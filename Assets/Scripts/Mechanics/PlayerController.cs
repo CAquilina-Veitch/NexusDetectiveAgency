@@ -138,16 +138,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dimensionalUnavailableWarningDuration = 0.7f;
 
     [SerializeField] GameObject dronePlatformPrefab;
-    [SerializeField] GameObject droneDraft;
+    [SerializeField] BoxCollider droneDraft;
     bool dronePosValid;
     bool dronePlatformDrafting;
 
     [HideInInspector] public float currentDronePlatformDistance;
     [SerializeField] Vector2 droneDistanceClamps = new Vector2(1, 8);
-    GameObject currentDronePlatformPrefab;
+    DronePlatform currentDronePlatformPrefab;
     [SerializeField] Material[] droneMaterials = new Material[2];
     [SerializeField] MeshRenderer droneMeshRenderer;
     [SerializeField] bool droneMatValid = true;
+    [SerializeField] LayerMask playerAndGroundMask;
 
     public bool hasFuse;
 
@@ -438,35 +439,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-   void DirectDrone()
-   {
+    void ToggleDroneDraft()
+    {
         dronePlatformDrafting = !dronePlatformDrafting;
-
+        dronePosValid = false;
+        ShowDraft(dronePlatformDrafting);
+    }
+    void ConfirmDroneDraft()
+    {
         if (dronePlatformDrafting)
         {
-            ShowDraft(true);
-        }
-        else
-        {
+            dronePlatformDrafting = false;
             NewDronePositionSet();
         }
-        
     }
-
 
 
     void NewDronePositionSet()
     {
         if (dronePosValid)
         {
+            if(currentDronePlatformPrefab != null)
+            {
+                currentDronePlatformPrefab.StartFlyingUp();
+            }
+
+            currentDronePlatformPrefab = Instantiate(dronePlatformPrefab).GetComponent<DronePlatform>();
+            currentDronePlatformPrefab.Init(droneDraft.transform.position - 2*droneDraft.center);
+
             ShowDraft(false);
-            Destroy(currentDronePlatformPrefab);
+
         }
         else
         {
@@ -480,7 +482,7 @@ public class PlayerController : MonoBehaviour
     {
         dronePlatformDrafting = showDraft;
 
-        droneDraft.SetActive(showDraft);
+        droneDraft.gameObject.SetActive(showDraft);
 
         currentDronePlatformDistance = 5;
         if (showDraft)
@@ -608,18 +610,8 @@ public class PlayerController : MonoBehaviour
         {
 
             // Calculate the object's size
-            Bounds droneBounds = droneDraft.GetComponent<BoxCollider>().bounds;
+            Bounds droneBounds = droneDraft.bounds;
 
-            // Check for obstacles between the camera and the grab position
-
-
-
-
-
-
-            //Raycast from positio
-            // boxcheck if not
-            //if didnt come back by box amount then boxcheck.
 
             bool validSpot = true;
 
@@ -646,13 +638,14 @@ public class PlayerController : MonoBehaviour
             {
                 checkBoxPosition = currentPlayer.cam.transform.position + (currentPlayer.cam.transform.forward * currentDronePlatformDistance);
             }
-
-            if (Physics.CheckBox(checkBoxPosition, droneBounds.extents / 2, Quaternion.identity,groundMask))
+            droneDraft.transform.position = checkBoxPosition;
+            checkBoxPosition += droneDraft.center;
+            if (Physics.CheckBox(checkBoxPosition, droneBounds.extents / 2, Quaternion.identity, playerAndGroundMask))
             {
                 validSpot = false;
             }
             dronePosValid = validSpot;
-            droneDraft.transform.position = checkBoxPosition;
+
             if (validSpot)
             {
                 if(!droneMatValid)
@@ -733,7 +726,15 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(grabHoldableKey))
         {
-            GrabHoldableItem();
+
+            if(dronePlatformDrafting)
+            {
+                ConfirmDroneDraft();
+            }
+            else
+            {
+                GrabHoldableItem();
+            }
         }
         if (Input.GetKeyDown(readLoreKey))
         {
@@ -773,7 +774,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(abilityKey))
             {
-                DirectDrone();
+                ToggleDroneDraft();
             }
             if(dronePlatformDrafting)
             {

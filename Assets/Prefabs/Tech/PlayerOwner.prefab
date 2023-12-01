@@ -6226,8 +6226,16 @@ MonoBehaviour:
   dronePlatformPrefab: {fileID: 2840770868395591897, guid: fbc6f6583f608cc48849583e257498c3,
     type: 3}
   droneDraft: {fileID: 8991804540566098002}
-  dronePlatformDistance: 0
+  currentDronePlatformDistance: 0
   droneDistanceClamps: {x: 1, y: 8}
+  droneMaterials:
+  - {fileID: 0}
+  - {fileID: 0}
+  droneMeshRenderer: {fileID: 0}
+  droneMatValid: 1
+  playerAndGroundMask:
+    serializedVersion: 2
+    m_Bits: 0
   hasFuse: 0
   CollectedActions: []
 --- !u!54 &4575853808168147207
@@ -12590,7 +12598,6 @@ GameObject:
   - component: {fileID: 4618259287382403637}
   - component: {fileID: 5129811135877170724}
   - component: {fileID: 7807619282267804222}
-  - component: {fileID: 7446276417341333447}
   m_Layer: 0
   m_Name: Drone Draft
   m_TagString: Untagged
@@ -12663,27 +12670,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7446276417341333447
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8991804540566098002}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.13524745, y: 0.12060074, z: 0.11732484}
-  m_Center: {x: 0, y: 0.00015213966, z: 0}
 --- !u!1 &9047369952196612367
 GameObject:
   m_ObjectHideFlags: 0

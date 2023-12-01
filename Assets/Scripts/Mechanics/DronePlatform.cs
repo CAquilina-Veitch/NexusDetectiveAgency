@@ -1,35 +1,73 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DronePlatform : MonoBehaviour
 {
-/*
-    [SerializeField] Transform playerCam;
-    [SerializeField] PlayerController playerControls;
-    [SerializeField] LayerMask groundLayerMask;
-    [SerializeField] float verticalHeight;
+    [SerializeField] Animator anim;
+    public BoxCollider b;
+    public Vector3 targetPosition;
+    float duration = 1f; // Duration in seconds
+    float p = 0;
+    float vel = 30;
+    float bobbingAmount = 0.2f;
+    float bobbingSpeed = 1f;
+    float startHeight = 30;
 
-    private void FixedUpdate()
+    bool isFlying = false;
+    Vector3 initialPosition;
+
+    public void Init(Vector3 positionToGoTo)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, groundLayerMask))
+        targetPosition = positionToGoTo;
+        initialPosition = positionToGoTo + Vector3.up * startHeight;
+        transform.position = initialPosition;
+        isFlying = true;
+        
+    }
+
+
+    void FixedUpdate()
+    {
+        if (isFlying)
         {
-            Debug.DrawRay(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
-            transform.position = hit.point;
+            p+=duration/vel;
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, p);
+            
+            if (p >= 1f)
+            {
+                isFlying = false;
+                transform.position = targetPosition;
+                anim.SetTrigger("Destination");
+                b.enabled = true;
+                StartCoroutine(Bobbing());
+            }
         }
-        else
+    }
+
+    IEnumerator Bobbing()
+    {
+        while (!isFlying)
         {
-            Debug.DrawRay(playerCam.transform.position, playerCam.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
+            transform.position = new Vector3(transform.position.x, targetPosition.y + Mathf.Sin(Time.time * bobbingSpeed) * bobbingAmount, transform.position.z);
+            yield return null;
         }
+    }
 
+    float startTime;
 
-        transform.position = playerCam.transform.position + playerCam.transform.forward * playerControls.dronePlatformDistance;
-    }*/
+    public void StartFlyingUp()
+    {
+        p = 0f;
+        vel *= -1;
+        isFlying = true;
+        StartCoroutine(DestroyAfterDuration());
+        b.enabled = false;
+    }
 
-
-
-
+    IEnumerator DestroyAfterDuration()
+    {
+        yield return new WaitForSeconds(duration);
+        isFlying = false;
+        Destroy(gameObject);
+    }
 }
