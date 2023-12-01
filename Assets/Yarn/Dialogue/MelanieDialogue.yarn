@@ -1,6 +1,6 @@
 ﻿title: MelanieDialogue
 tags:
-position: -266,-791
+position: -1013,-832
 ---
 <<declare $animNumber = 0>>
 <<declare $audioMelanieNumber = 0>>
@@ -8,19 +8,20 @@ position: -266,-791
 <<declare $documentsFound = 0>>
 <<declare $firstInteraction = true>>
 <<declare $FetchDocFound = false>>
+<<declare $MealnieActive = true>>
 
 DEBUG: How many documents has the player found?
 ->	Only a few.
-		<<set $documentsFound += 1>>
+		<<set $documentsFound to 1>>
 ->	Enough to proceed.
-		<<set $documentsFound += 5>>
+		<<set $documentsFound to 5>>
 <<wait 1>>
 <<jump MelanieInteract>>
 ===
 
 
 title: MelanieInteract
-position: -266,-592
+position: -258,-837
 ---
 <<if $firstInteraction == true>>
 	<<jump TalkingToMelanie1>>
@@ -31,14 +32,12 @@ position: -266,-592
 
 
 title: TalkingToMelanie1
-position: -870,-381
+position: -822,-561
 ---
 <<set $firstInteraction = false>>
 
 Melanie: Who are you?
-//Play Audio
-//Play Anim
-Melanie: How on Earth did you get here?
+Melanie: How on Earth did you get here? #line:001
 
 ->	Could say the same.
 		Max: Could say the same thing about you.
@@ -52,7 +51,7 @@ Melanie: How on Earth did you get here?
 
 title: TalkingToMelanie2
 position:
-position: -869,-95
+position: -822,-286
 ---
 Melanie: You should be leaving. Now. Before I call security.
 
@@ -63,13 +62,12 @@ Melanie: You should be leaving. Now. Before I call security.
 ->	Fine (Leave).
 		Max: Well alright then.
 		<<wait  1>>
-		DEBUG: Max leaves, then eventually returns to Melanie.
-		<<jump TalkingToMelanie2>>
+		<<jump MelanieExit>>
 ===
 
 
 title: TalkingToMelanie3
-position: -869,141
+position: -823,-92
 ---
 Melanie: What device? We don't have anything down here.
 Melanie: We haven't been working on anything for years.
@@ -89,6 +87,7 @@ Melanie: Well there simply isn't.
 
 title: MelanieDocLoop
 position:
+position: -258,-561
 ---
 <<if $FetchDocFound == false>>
 	<<jump TalkingToMelanie2>>
@@ -99,7 +98,7 @@ position:
 
 
 title: MelanieFail
-position: -655,274
+position: -541,-286
 ---
 ->	I don't believe you.
 		Max: Well, I simply don't believe that.
@@ -114,23 +113,23 @@ Melanie: It's going to catch you up to speed a little (Leave).
 
 title: ExitingForQuest
 position:
-position: -255,-273
+position: -262,-286
 ---
 DEBUG: Max leaves Melanie in search for her documents.
 <<wait  1>>
-DEBUG: Before long, Max returns.
 DEBUG: Did Max find the required documents?
 ->	Yes.
 		<<set $FetchDocFound = true>>
-		<<jump MelanieRepeat>>
+		<<jump MelanieExit>>
 ->	No.
-		<<jump TalkingToMelanie2>>
+		<<jump MelanieExit>>
+
 ===
 
 
 title: MelanieRepeat
 position:
-position: 61,-274
+position: 265,-442
 ---
 
 //Max mumbles: Found... it...
@@ -138,38 +137,42 @@ Max: I found the file you were looking for.
 
 Melanie: About time. Any questions?
 
-//Max mumbles: "No... New... part?"
-Max: So I can't create a new part?
+->	Max: What about a new part?
+		//Max mumbles: "No... New... part?"
+		Max: So I can't create a new part?
 
-Melanie: There was only a single unit ever created, due to the fact this project was purely experimental.
-Melanie:Because of the lost schematics, the only way to make the machine work was if there was another part somewhere.
+		Melanie: There was only a single unit ever created, due to the fact this project was purely experimental.
+		Melanie:Because of the lost schematics, the only way to make the machine work was if there was another part somewhere.
 
-//Max mumbles: "Can... I... Fix... This..."
-Max: So you're saying that if I either find a way to fix the machine, or get a new part, the machine will be functional again?
+->	Max: But a new part will fix this?
+		//Max mumbles: "Can... I... Fix... This..."
+		Max: So you're saying that if I either find a way to fix the machine, or get a new part, the machine will be functional again?
 
-Melanie: Yes, that would be the case.
-Melanie: By getting a new part, we can repair it to its full capacity.
-Melanie: Hopefully, we could fix all the shame we brought upon ourselves.
-<<jump MelanieEnd>>
+		Melanie: Yes, that would be the case.
+		Melanie: By getting a new part, we can repair it to its full capacity.
+		Melanie: Hopefully, we could fix all the shame we brought upon ourselves.
+
+<<jump MelanieFinal>>
 ===
 
 
 title: MelaniePass
-position: -253,-78
+position: -256,-93
 ---
 ->	Stop bluffing.
 		Max: Stop bluffing.
 		Max: I know there is something behind that door. The CPU broke.
 
-Melanie: Wait... What?
-Melanie: How... could you possibly know that?
+		Melanie: Wait... What?
+		Melanie: How... could you possibly know that?
 
-//Max mumbles: I... Know... All...
-Max: I know lots of things, like how you authorized the improper use of the machine.
-Max: How Bridger R&D wanted to abuse this device to make a profit of innocents.
-Max: Like how your guilt and shame mean more than your job.
+->	Max: I know a lot more.
+		//Max mumbles: I... Know... All...
+		Max: I know lots of things, like how you authorized the improper use of the machine.
+		Max: How Bridger R&D wanted to abuse this device to make a profit of innocents.
+		Max: Like how your guilt and shame mean more than your job.
 
-Melanie: ...
+		Melanie: ...
 
 Max: I can help you fix this mess.
 
@@ -181,6 +184,7 @@ Melanie: But fixing this machine is impossible.
 
 title: MelaniePassTree
 position:
+position: 7,-94
 ---
 
 ->	Max: What do you mean by "Fixing it is impossible"?
@@ -209,13 +213,13 @@ position:
 		Melanie: We are responsible for bringing doom upon ourselves by modifying the machine.
 		Melanie: We made the wrong choice and paid dearly for it.
 
-<<jump MelanieEnd>>
+<<wait 1>>
+<<jump MelanieFinal>>
 ===
 
 
-title: MelanieEnd
-position:
-position: 57,271
+title: MelanieFinal
+position: 264,-94
 ---
 //Max mumbles: I... Think... I... can... fix... it)
 Max: I may be able to fix it.
@@ -226,5 +230,12 @@ Melanie: If you fixed this, you could save countless lives.
 <<wait  1>>
 Melanie: Oh, and one more thing.
 Melanie: Good luck.
+<<jump MelanieExit>>
+===
+
+title: MelanieExit
+position:
+---
+<<set $MealnieActive = false>>
 <<stop>>
 ===
