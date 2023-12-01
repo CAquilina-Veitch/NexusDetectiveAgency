@@ -1198,6 +1198,26 @@ PrefabInstance:
       propertyPath: droneDraft
       value: 
       objectReference: {fileID: 7465308484149244513}
+    - target: {fileID: 3039717859201768589, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6641573179828850397, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798779509511029115, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973355904638216565, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7446276417341333447, guid: d28b12982d5864c4faf59d43da42efaa,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1206,6 +1226,11 @@ PrefabInstance:
     - target: {fileID: 7734736648094853838, guid: d28b12982d5864c4faf59d43da42efaa,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217142161996167144, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
