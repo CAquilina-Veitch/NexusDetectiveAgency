@@ -139,13 +139,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject dronePlatformPrefab;
     [SerializeField] GameObject droneDraft;
-    bool dronePlatformActive;
+    bool dronePosValid;
     bool dronePlatformDrafting;
 
-    [HideInInspector] public float dronePlatformDistance;
+    [HideInInspector] public float currentDronePlatformDistance;
     [SerializeField] Vector2 droneDistanceClamps = new Vector2(1, 8);
     GameObject currentDronePlatformPrefab;
-
+    [SerializeField] Material[] droneMaterials = new Material[2];
+    [SerializeField] MeshRenderer droneMeshRenderer;
+    [SerializeField] bool droneMatValid = true;
 
     public bool hasFuse;
 
@@ -222,7 +224,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Did Hit Floor {hit.collider.gameObject.name}, distance is {hit.distance}");
             //there is floor somewhere there
 
-            if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f))
+            if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f,groundMask))
             {
                 StartCoroutine(dimensionSwitch(to));
             }
@@ -443,7 +445,7 @@ public class PlayerController : MonoBehaviour
 
 
    void DirectDrone()
-    {
+   {
         dronePlatformDrafting = !dronePlatformDrafting;
 
         if (dronePlatformDrafting)
@@ -461,8 +463,16 @@ public class PlayerController : MonoBehaviour
 
     void NewDronePositionSet()
     {
-        ShowDraft(false);
-        Destroy(currentDronePlatformPrefab);
+        if (dronePosValid)
+        {
+            ShowDraft(false);
+            Destroy(currentDronePlatformPrefab);
+        }
+        else
+        {
+            dronePlatformDrafting = true;
+        }
+
 
     }
 
@@ -472,14 +482,14 @@ public class PlayerController : MonoBehaviour
 
         droneDraft.SetActive(showDraft);
 
-        dronePlatformDistance = 5;
+        currentDronePlatformDistance = 5;
         if (showDraft)
         {
 
         }
         else
         {
-            dronePlatformDistance = 5;
+            currentDronePlatformDistance = 5;
         }
     }
    
@@ -597,48 +607,68 @@ public class PlayerController : MonoBehaviour
         if (dronePlatformDrafting)
         {
 
-            //Vector3 draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * dronePlatformDistance;
-            Vector3 draftPosition = currentPlayer.transform.position;
-
             // Calculate the object's size
             Bounds droneBounds = droneDraft.GetComponent<BoxCollider>().bounds;
-            float droneSize = Mathf.Max(droneBounds.size.x, droneBounds.size.y, droneBounds.size.z);
 
-            RaycastHit obstacleHit;
             // Check for obstacles between the camera and the grab position
 
-            if (Physics.BoxCast(currentPlayer.cam.transform.position+(currentPlayer.cam.transform.forward*droneDistanceClamps.x), droneBounds.extents, currentPlayer.cam.transform.forward, out obstacleHit, Quaternion.identity, dronePlatformDistance, groundMask))
-            {
 
-            }
-            else
-            {
 
-            }
-            /*if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out obstacleHit, dronePlatformDistance + droneSize, groundMask))
-            {
-                // Calculate a new grab position considering the object's size
-                float adjustedDroneDistance = Mathf.Max(Vector3.Distance(currentPlayer.cam.transform.position, obstacleHit.point) - droneSize, 0f);
-                //adjustedArmLength -= objectSize;
-                draftPosition = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * adjustedDroneDistance;
-            }
-            else
-            {
-                Vector3 boxcastOrigin = droneBounds.max; // Start from the top of the bounds
-                Vector3 boxcastExtents = new Vector3(droneBounds.size.x / 2f, 0.01f, droneBounds.size.z / 2f); // Rectangular shape, flat in y
-                Vector3 boxcastDirection = Vector3.down;
-                float boxcastDistance = droneBounds.size.y; // Only go as far as the bottom of the bounds
 
-                RaycastHit boxcastHit;
-                if (Physics.BoxCast(boxcastOrigin, boxcastExtents, boxcastDirection, out boxcastHit, Quaternion.identity, boxcastDistance, groundMask))
+
+
+            //Raycast from positio
+            // boxcheck if not
+            //if didnt come back by box amount then boxcheck.
+
+            bool validSpot = true;
+
+            RaycastHit wallCheck;
+            Vector3 checkBoxPosition;
+
+            if (Physics.Raycast(currentPlayer.cam.transform.position + (currentPlayer.cam.transform.forward * droneDistanceClamps.x),currentPlayer.cam.transform.forward, out wallCheck, currentDronePlatformDistance, groundMask))
+            {
+                Vector3 directionToPlayer = currentPlayer.cam.transform.position - wallCheck.point;
+
+
+                if (Physics.BoxCast(wallCheck.point, droneBounds.extents / 2, directionToPlayer.normalized, out RaycastHit boxHit, Quaternion.identity, directionToPlayer.magnitude-droneDistanceClamps.x,groundMask))
                 {
-                    // Set the distance to the hit distance minus a bit
-                    draftPosition = boxcastHit.point - new Vector3(0, 0.1f, 0);
+                    checkBoxPosition = boxHit.point;
+                    Debug.DrawLine(boxHit.point, wallCheck.point);
                 }
-            }*/
+                else
+                {
+                    checkBoxPosition = wallCheck.point - currentPlayer.cam.transform.forward * (droneBounds.extents.magnitude + 0.1f); // Adjust 0.1f as needed
+                }
 
-            droneDraft.transform.position = draftPosition;
-            Debug.Log(draftPosition);
+            }
+            else
+            {
+                checkBoxPosition = currentPlayer.cam.transform.position + (currentPlayer.cam.transform.forward * currentDronePlatformDistance);
+            }
+
+            if (Physics.CheckBox(checkBoxPosition, droneBounds.extents / 2, Quaternion.identity,groundMask))
+            {
+                validSpot = false;
+            }
+            dronePosValid = validSpot;
+            droneDraft.transform.position = checkBoxPosition;
+            if (validSpot)
+            {
+                if(!droneMatValid)
+                {
+                    droneMeshRenderer.material = droneMaterials[0];
+                    droneMatValid = true;
+                }
+            }
+            else
+            {
+                if (droneMatValid)
+                {
+                    droneMeshRenderer.material = droneMaterials[1];
+                    droneMatValid = false;
+                }
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.R)||transform.position.y<-20)
@@ -748,8 +778,8 @@ public class PlayerController : MonoBehaviour
             if(dronePlatformDrafting)
             {
                 float scrollInput = Input.mouseScrollDelta.y;
-                dronePlatformDistance += scrollInput * droneScrollSpeed;
-                dronePlatformDistance = Mathf.Clamp(dronePlatformDistance, droneDistanceClamps.x, droneDistanceClamps.y);
+                currentDronePlatformDistance += scrollInput * droneScrollSpeed;
+                currentDronePlatformDistance = Mathf.Clamp(currentDronePlatformDistance, droneDistanceClamps.x, droneDistanceClamps.y);
             }
         }
         else
