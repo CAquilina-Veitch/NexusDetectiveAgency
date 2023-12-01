@@ -3,33 +3,29 @@ tags:
 position: -266,-791
 ---
 <<declare $animNumber = 0>>
+<<declare $audioMelanieNumber = 0>>
+<<declare $audioMaxNumber = 0>>
 <<declare $documentsFound = 0>>
 <<declare $firstInteraction = true>>
+<<declare $FetchDocFound = false>>
 
 DEBUG: How many documents has the player found?
 ->	Only a few.
-		<<set $documentsFound += 2>>
+		<<set $documentsFound += 1>>
 ->	Enough to proceed.
 		<<set $documentsFound += 5>>
-<<wait 1>>
-DEBUG: Has the player already talked to Melanie?
-->	No.
-		<<set $firstInteraction = true>>
-->	Yes
-		<<set $firstInteraction = false>>
 <<wait 1>>
 <<jump MelanieInteract>>
 ===
 
 
 title: MelanieInteract
-position:
 position: -266,-592
 ---
 <<if $firstInteraction == true>>
 	<<jump TalkingToMelanie1>>
 <<else>>
-	<<jump TalkingToMelanieRepeat>>
+	<<jump MelanieDocLoop>>
 <<endif>>
 ===
 
@@ -40,6 +36,8 @@ position: -870,-381
 <<set $firstInteraction = false>>
 
 Melanie: Who are you?
+//Play Audio
+//Play Anim
 Melanie: How on Earth did you get here?
 
 ->	Could say the same.
@@ -82,16 +80,25 @@ Melanie: Everything we had been working on is in our main displays in the lobby.
 		Max: And I know it's affecting this world.
 
 Melanie: Well there simply isn't.
-
 <<if $documentsFound < 5 >>
-		<<jump TalkingToMelanieFail>>
+		<<jump MelanieFail>>
 <<else>>
-		<<jump TalkingToMelaniePass>>
+		<<jump MelaniePass>>
+<<endif>>
+===
+
+title: MelanieDocLoop
+position:
+---
+<<if $FetchDocFound == false>>
+	<<jump TalkingToMelanie2>>
+<<else>>
+	<<jump MelanieRepeat>>
 <<endif>>
 ===
 
 
-title: TalkingToMelanieFail
+title: MelanieFail
 position: -655,274
 ---
 ->	I don't believe you.
@@ -100,6 +107,7 @@ position: -655,274
 Melanie: Fine.
 Melanie: If you desperately want to see what's behind here, get this file.
 Melanie: It's going to catch you up to speed a little (Leave).
+<<set $FetchDocFound = false>>
 <<jump ExitingForQuest>>
 ===
 
@@ -113,14 +121,14 @@ DEBUG: Max leaves Melanie in search for her documents.
 DEBUG: Before long, Max returns.
 DEBUG: Did Max find the required documents?
 ->	Yes.
-		<<set $documentsFound += 5>>
-		<<jump TalkingToMelanieRepeat>>
+		<<set $FetchDocFound = true>>
+		<<jump MelanieRepeat>>
 ->	No.
 		<<jump TalkingToMelanie2>>
 ===
 
 
-title: TalkingToMelanieRepeat
+title: MelanieRepeat
 position:
 position: 61,-274
 ---
@@ -142,11 +150,11 @@ Max: So you're saying that if I either find a way to fix the machine, or get a n
 Melanie: Yes, that would be the case.
 Melanie: By getting a new part, we can repair it to its full capacity.
 Melanie: Hopefully, we could fix all the shame we brought upon ourselves.
-<<jump TalkingToMelanieEnd>>
+<<jump MelanieEnd>>
 ===
 
 
-title: TalkingToMelaniePass
+title: MelaniePass
 position: -253,-78
 ---
 ->	Stop bluffing.
@@ -167,40 +175,45 @@ Max: I can help you fix this mess.
 
 Melanie: You are certainly good at your job.
 Melanie: But fixing this machine is impossible.
-
-//Max mumbles: Impossible?
-Max: What do you mean by "Fixing it is impossible"?
-
-Melanie: Well. Ummm.
-Melanie: We, ehh... lost... the schematics.
-Melanie: A poor filing choice from an intern.
-
-//Max mumbles: Who... knows
-Max: Does no one know that it broke?
-
-Melanie: We hid it, out of shame.
-Melanie: No one knows besides the team that worked on it.
-Melanie: We had to think about what would happen if someone did find out about it.
-Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands.
-
-//Max mumbles: Pure... Incompetence
-Max: More gross incompetence.
-Max: The sad thing is, the machine would have worked.
-Max: In a separate dimension, the machine worked to clean the air.
-Max: Greenery populates the world.
-
-Melanie: Jesus ... .You can travel dimensions?
-<<wait  1>>
-Melanie: I'm getting off track.
-Melanie: I suppose it's comforting to know the machine was used for its correct purpose. That is what we designed the machine for.
-Melanie: We are responsible for bringing doom upon ourselves by modifying the machine.
-Melanie: We made the wrong choice and paid dearly for it.
-
-<<jump TalkingToMelanieEnd>>
+<<jump MelaniePassTree>>
 ===
 
 
-title: TalkingToMelanieEnd
+title: MelaniePassTree
+position:
+---
+
+->	Max: What do you mean by "Fixing it is impossible"?
+		//Max mumbles: Impossible?
+		Melanie: Well. Ummm.
+		Melanie: We, ehh... lost... the schematics.
+		Melanie: A poor filing choice from an intern.
+
+->	Max: Does no one know that it broke?
+		//Max mumbles: Who... knows
+		Melanie: We hid it, out of shame.
+		Melanie: No one knows besides the team that worked on it.
+		Melanie: We had to think about what would happen if someone did find out about it.
+		Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands.
+
+->	Max: More gross incompetence.
+		//Max mumbles: Pure... Incompetence
+		Max: The sad thing is, the machine would have worked.
+		Max: In a separate dimension, the machine worked to clean the air.
+		Max: Greenery populates the world.
+
+		Melanie: Jesus ... .You can travel dimensions?
+		<<wait  1>>
+		Melanie: I'm getting off track.
+		Melanie: I suppose it's comforting to know the machine was used for its correct purpose. That is what we designed the machine for.
+		Melanie: We are responsible for bringing doom upon ourselves by modifying the machine.
+		Melanie: We made the wrong choice and paid dearly for it.
+
+<<jump MelanieEnd>>
+===
+
+
+title: MelanieEnd
 position:
 position: 57,271
 ---
