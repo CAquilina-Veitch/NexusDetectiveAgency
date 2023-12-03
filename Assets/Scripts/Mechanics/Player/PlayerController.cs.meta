@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f7bda58f7c2659e4781f50d0593f8bb8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - currentLedge: {instanceID: 0}
+  - dronePlatformPrefab: {fileID: 7062359711274002322, guid: f5153d56be8f9d34b95a1e9172daacda,
+      type: 3}
+  - droneDraft: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

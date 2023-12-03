@@ -6225,17 +6225,17 @@ MonoBehaviour:
   dimensionalUnavailableWarningDuration: 1
   dronePlatformPrefab: {fileID: 2840770868395591897, guid: fbc6f6583f608cc48849583e257498c3,
     type: 3}
-  droneDraft: {fileID: 8991804540566098002}
+  droneDraft: {fileID: 7963579710940796131}
   currentDronePlatformDistance: 0
   droneDistanceClamps: {x: 1, y: 8}
   droneMaterials:
-  - {fileID: 0}
-  - {fileID: 0}
-  droneMeshRenderer: {fileID: 0}
+  - {fileID: -876546973899608171, guid: 4f040337197af7b4093ddbc2e1ce494a, type: 3}
+  - {fileID: 2100000, guid: bb07b3f8828c672459b3b1b2a06909a6, type: 2}
+  droneMeshRenderer: {fileID: 7807619282267804222}
   droneMatValid: 1
   playerAndGroundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   hasFuse: 0
   CollectedActions: []
 --- !u!54 &4575853808168147207
@@ -8184,7 +8184,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3679190865651062313}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -10986,7 +10986,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5467858537494232306}
-  m_Layer: 7
+  - component: {fileID: 7963579710940796131}
+  m_Layer: 0
   m_Name: DroneParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11009,6 +11010,27 @@ Transform:
   - {fileID: 4618259287382403637}
   m_Father: {fileID: 722763665282694011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7963579710940796131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734736648094853838}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.762375, y: 6.030035, z: 5.86624}
+  m_Center: {x: 0, y: 2.93, z: 0}
 --- !u!1 &7850145103471310652
 GameObject:
   m_ObjectHideFlags: 0

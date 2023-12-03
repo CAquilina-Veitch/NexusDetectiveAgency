@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneSegmentManager : MonoBehaviour
 {
-    public List<int> StructureScenIds;
+    public List<int> StructureSceneIds;
     public List<int> segmentSceneIds; // List of scene names for your segments
+    public List<int> midSegmentSceneIds; // List of scene names for your segments
     public int segmentsToLoadAtOnce = 2 ;
 
     private int currentSegmentIndex = 0;
@@ -25,15 +26,8 @@ public class SceneSegmentManager : MonoBehaviour
     }
 
     private void UnloadPastSegments()
-    {/*
-        for (int i = 0; i < currentSegmentIndex; i++)
-        {
-            string sceneName = segmentScenes[i].name;
-            if (SceneManager.GetSceneByName(sceneName).isLoaded)
-            {
-                SceneManager.UnloadSceneAsync(sceneName);
-            }
-        }*/
+    {
+
     }
 
     private void LoadStructure(int i)
@@ -41,15 +35,15 @@ public class SceneSegmentManager : MonoBehaviour
         //string sceneName = StructureScenes[i].name;
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            SceneManager.LoadScene(StructureScenIds[i], LoadSceneMode.Additive);
+            SceneManager.LoadScene(StructureSceneIds[i], LoadSceneMode.Additive);
         }
     }
     void UnloadStructure(int i)
     {
         //string sceneName = StructureScenes[i].name;
-        if (SceneManager.GetSceneByBuildIndex(StructureScenIds[i]).isLoaded)
+        if (SceneManager.GetSceneByBuildIndex(StructureSceneIds[i]).isLoaded)
         {
-            SceneManager.UnloadSceneAsync(StructureScenIds[i]);
+            SceneManager.UnloadSceneAsync(StructureSceneIds[i]);
         }
     }
 

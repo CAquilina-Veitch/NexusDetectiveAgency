@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 185638821}
   - component: {fileID: 185638825}
   - component: {fileID: 185638826}
+  - component: {fileID: 185638827}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -258,6 +259,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+--- !u!114 &185638827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185638820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8bf1f726362ed439f471fe8bd2673b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &216959250
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +417,7 @@ GameObject:
   - component: {fileID: 401048717}
   - component: {fileID: 401048716}
   - component: {fileID: 401048715}
-  - component: {fileID: 401048714}
+  - component: {fileID: 401048719}
   m_Layer: 6
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -412,18 +425,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &401048714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 401048713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8bf1f726362ed439f471fe8bd2673b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &401048715
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -511,6 +512,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &401048719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401048713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8bf1f726362ed439f471fe8bd2673b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &703418333
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +536,7 @@ GameObject:
   - component: {fileID: 703418336}
   - component: {fileID: 703418335}
   - component: {fileID: 703418334}
+  - component: {fileID: 703418338}
   m_Layer: 6
   m_Name: r
   m_TagString: Untagged
@@ -616,12 +630,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1037824058 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7807619282267804222, guid: d28b12982d5864c4faf59d43da42efaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 7465308484149244512}
+--- !u!114 &703418338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703418333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8bf1f726362ed439f471fe8bd2673b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1240434765
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +769,7 @@ GameObject:
   - component: {fileID: 1275080368}
   - component: {fileID: 1275080367}
   - component: {fileID: 1275080366}
+  - component: {fileID: 1275080370}
   m_Layer: 6
   m_Name: r (1)
   m_TagString: Untagged
@@ -842,6 +863,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1275080370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275080365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8bf1f726362ed439f471fe8bd2673b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1321917673
 GameObject:
   m_ObjectHideFlags: 1
@@ -1194,93 +1227,106 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[0].label
+      value: Lore item 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[0].title
+      value: =========================================== > Welcome to Search Log
+        Terminal < ===========================================
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[1].label
+      value: Note from person
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[2].label
+      value: Escape
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[2].title
+      value: Newspaper Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[3].label
+      value: Project G
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[3].title
+      value: Project G
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[2].bodyText
+      value: 'As the global search for the escaped subject of Project G intensifies,
+        experts are now raising alarms about the potential genetic implications of
+        breeding with G. With his astonishing lack of cognitive abilities documented
+        in classified files, fears have emerged that incorporating G''s genetic material
+        into the human gene pool could lead to unforeseen consequences, jeopardizing
+        the intellectual capacities of future generations.
+
+
+
+        Geneticists
+        and ethicists are urging caution against any attempts to breed with G, emphasizing
+        the importance of maintaining the integrity of the human genome. Concerns
+        revolve around the possibility of perpetuating a lineage characterized by
+        unparalleled intellectual mediocrity, prompting a global conversation on
+        the ethical dimensions of genetic decisions and the potential impact on the
+        trajectory of human intelligence.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
+        type: 3}
+      propertyPath: allLore.Array.data[3].bodyText
+      value: 'Project G encapsulates a remarkable exploration into the realm of unparalleled
+        intellectual mediocrity. Delving into the exploits of an individual whose
+        cognitive abilities seem to defy the very boundaries of reason, these classified
+        files unfold a saga of bewildering stupidity. Aptly named "Goober," the subject
+        of this project navigates the world with a level of intelligence that can
+        only be described as mind-bogglingly subpar.
+
+
+
+        Witness as G demonstrates
+        an uncanny knack for misunderstanding even the simplest concepts, turning
+        the mundane into a spectacle of confusion. From attempting to microwave metal
+        objects to mistaking a calculator for a cutting-edge gaming console, the
+        files within Project G paint a portrait of a person whose thought processes
+        appear to be operating on an entirely different wavelength.
+
+
+
+        Intriguingly,
+        G''s actions and decisions challenge conventional notions of common sense,
+        leaving researchers astounded at the depths of ineptitude reached in various
+        scenarios. Whether attempting to decipher a "knock-knock" joke or struggling
+        to grasp the concept of a square peg in a round hole, G''s intellectual endeavors
+        redefine the boundaries of human understanding, albeit in the most perplexingly
+        unintelligent manner.'
+      objectReference: {fileID: 0}
     - target: {fileID: 1346451205447295651, guid: d28b12982d5864c4faf59d43da42efaa,
         type: 3}
       propertyPath: m_Name
       value: PlayerOwner
       objectReference: {fileID: 0}
-    - target: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: droneDraft
-      value: 
-      objectReference: {fileID: 7465308484149244516}
-    - target: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: droneMeshRenderer
-      value: 
-      objectReference: {fileID: 1037824058}
-    - target: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: playerAndGroundMask.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: droneMaterials.Array.data[0]
-      value: 
-      objectReference: {fileID: -876546973899608171, guid: 4f040337197af7b4093ddbc2e1ce494a,
-        type: 3}
-    - target: {fileID: 2775375196102379664, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: droneMaterials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: bb07b3f8828c672459b3b1b2a06909a6, type: 2}
     - target: {fileID: 7446276417341333447, guid: d28b12982d5864c4faf59d43da42efaa,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7734736648094853838, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7734736648094853838, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8671328914403652914, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7734736648094853838, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7465308484149244516}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d28b12982d5864c4faf59d43da42efaa, type: 3}
---- !u!1 &7465308484149244513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7734736648094853838, guid: d28b12982d5864c4faf59d43da42efaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 7465308484149244512}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &7465308484149244516
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7465308484149244513}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.762375, y: 6.030035, z: 5.86624}
-  m_Center: {x: 0, y: 2.93, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
