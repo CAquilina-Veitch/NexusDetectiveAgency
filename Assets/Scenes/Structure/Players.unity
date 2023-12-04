@@ -1169,7 +1169,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012748449}
   m_CullTransparentMesh: 1
---- !u!1001 &7465308484149244512
+--- !u!1001 &2765495491104490222
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1177,156 +1177,161 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
+    - target: {fileID: 642717451512497207, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 31.3
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
+      propertyPath: inventoryCanvasGroup
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 74.5
+      propertyPath: dimensionalUnavailableWarning
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
+    - target: {fileID: 2035071746112958031, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 722763665282694011, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[0].label
-      value: Lore item 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[0].title
-      value: =========================================== > Welcome to Search Log
-        Terminal < ===========================================
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[1].label
-      value: Note from person
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[2].label
-      value: Escape
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[2].title
-      value: Newspaper Title
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[3].label
-      value: Project G
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[3].title
-      value: Project G
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[2].bodyText
-      value: 'As the global search for the escaped subject of Project G intensifies,
-        experts are now raising alarms about the potential genetic implications of
-        breeding with G. With his astonishing lack of cognitive abilities documented
-        in classified files, fears have emerged that incorporating G''s genetic material
-        into the human gene pool could lead to unforeseen consequences, jeopardizing
-        the intellectual capacities of future generations.
-
-
-
-        Geneticists
-        and ethicists are urging caution against any attempts to breed with G, emphasizing
-        the importance of maintaining the integrity of the human genome. Concerns
-        revolve around the possibility of perpetuating a lineage characterized by
-        unparalleled intellectual mediocrity, prompting a global conversation on
-        the ethical dimensions of genetic decisions and the potential impact on the
-        trajectory of human intelligence.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1298634403843222521, guid: d28b12982d5864c4faf59d43da42efaa,
-        type: 3}
-      propertyPath: allLore.Array.data[3].bodyText
-      value: 'Project G encapsulates a remarkable exploration into the realm of unparalleled
-        intellectual mediocrity. Delving into the exploits of an individual whose
-        cognitive abilities seem to defy the very boundaries of reason, these classified
-        files unfold a saga of bewildering stupidity. Aptly named "Goober," the subject
-        of this project navigates the world with a level of intelligence that can
-        only be described as mind-bogglingly subpar.
-
-
-
-        Witness as G demonstrates
-        an uncanny knack for misunderstanding even the simplest concepts, turning
-        the mundane into a spectacle of confusion. From attempting to microwave metal
-        objects to mistaking a calculator for a cutting-edge gaming console, the
-        files within Project G paint a portrait of a person whose thought processes
-        appear to be operating on an entirely different wavelength.
-
-
-
-        Intriguingly,
-        G''s actions and decisions challenge conventional notions of common sense,
-        leaving researchers astounded at the depths of ineptitude reached in various
-        scenarios. Whether attempting to decipher a "knock-knock" joke or struggling
-        to grasp the concept of a square peg in a round hole, G''s intellectual endeavors
-        redefine the boundaries of human understanding, albeit in the most perplexingly
-        unintelligent manner.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1346451205447295651, guid: d28b12982d5864c4faf59d43da42efaa,
+    - target: {fileID: 2882513469416883330, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
       propertyPath: m_Name
       value: PlayerOwner
       objectReference: {fileID: 0}
-    - target: {fileID: 7446276417341333447, guid: d28b12982d5864c4faf59d43da42efaa,
+    - target: {fileID: 4728856476426954624, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
-      propertyPath: m_IsTrigger
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 74.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759118008549625600, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863447299974254512, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828167824822970752, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475905030570129024, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: folder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: invTabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: invTabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: invTabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: invTabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: displays.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: displays.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: displays.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: displays.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7968545865625076066, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064928530871037278, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d28b12982d5864c4faf59d43da42efaa, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1336,6 +1341,6 @@ SceneRoots:
   - {fileID: 1321917675}
   - {fileID: 185638824}
   - {fileID: 1844753128}
-  - {fileID: 7465308484149244512}
   - {fileID: 703418337}
   - {fileID: 1275080369}
+  - {fileID: 2765495491104490222}
