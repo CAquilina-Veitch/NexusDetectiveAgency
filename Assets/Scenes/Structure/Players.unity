@@ -1184,6 +1184,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
+      propertyPath: dronePlatformPrefab
+      value: 
+      objectReference: {fileID: 6135431352254082725, guid: a8bc760719c46814f9361284369b0bb2,
+        type: 3}
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
       propertyPath: inventoryCanvasGroup
       value: 
       objectReference: {fileID: 0}
