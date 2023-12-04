@@ -22,17 +22,16 @@ public class DronePlatform : MonoBehaviour
         initialPosition = positionToGoTo + Vector3.up * startHeight;
         transform.position = initialPosition;
         isFlying = true;
-        
     }
-
 
     void FixedUpdate()
     {
         if (isFlying)
         {
-            p += duration/vel;
-            transform.position = Vector3.Lerp(initialPosition, targetPosition, p);
-            
+            p += Time.fixedDeltaTime / duration * vel;
+            float easedP = EaseInOutQuad(p);
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, easedP);
+
             if (p >= 1f)
             {
                 isFlying = false;
@@ -71,5 +70,11 @@ public class DronePlatform : MonoBehaviour
         yield return new WaitForSeconds(duration);
         isFlying = false;
         Destroy(gameObject);
+    }
+
+    // Easing function for smooth acceleration and deceleration
+    float EaseInOutQuad(float t)
+    {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     }
 }

@@ -8,29 +8,35 @@ public class SceneSegmentManager : MonoBehaviour
     public List<int> StructureSceneIds;
     public List<int> segmentSceneIds; // List of scene names for your segments
     public List<int> midSegmentSceneIds; // List of scene names for your segments
-    public int segmentsToLoadAtOnce = 2 ;
 
-    private int currentSegmentIndex = 0;
+    int currentSegmentIndex = 0;
+    int currentMidSegmentIndex = 0;
 
-    private void LoadSegments()
+    void LoadSegment()
     {
-        for (int i = currentSegmentIndex; i < Mathf.Min(currentSegmentIndex + segmentsToLoadAtOnce, segmentSceneIds.Count); i++)
+        if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
         {
-            /*Debug.Log(i);
-            string sceneName = segmentScenes[i].name;*/
-            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[0]).isLoaded)
-            {
-                SceneManager.LoadSceneAsync(segmentSceneIds[0], LoadSceneMode.Additive);
-            }
+            SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
+        }
+        if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex - 1]).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(segmentSceneIds[currentSegmentIndex - 1]);
+        }
+    }    
+    
+    void LoadMidSegment()
+    {
+        if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex]).isLoaded)
+        {
+            SceneManager.LoadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex], LoadSceneMode.Additive);
+        }
+        if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex - 1]).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex - 1]);
         }
     }
 
-    private void UnloadPastSegments()
-    {
-
-    }
-
-    private void LoadStructure(int i)
+    void LoadStructure(int i)
     {
         //string sceneName = StructureScenes[i].name;
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
@@ -50,14 +56,21 @@ public class SceneSegmentManager : MonoBehaviour
     public void LoadNextSegment()
     {
         currentSegmentIndex++;
-        LoadSegments();
-        UnloadPastSegments();
+        LoadSegment();
+    }    
+    public void LoadNextMidSegment()
+    {
+        currentMidSegmentIndex++;
+        LoadMidSegment();
     }
-    public void loadSegment(int which)
+    public void JumpLoadMidSegment(int which)
+    {
+        currentMidSegmentIndex = which;
+        LoadMidSegment();
+    }    public void JumpLoadSegment(int which)
     {
         currentSegmentIndex = which;
-        LoadSegments();
-        UnloadPastSegments();
+        LoadSegment();
     }
 
     public void StartGame()
@@ -65,7 +78,8 @@ public class SceneSegmentManager : MonoBehaviour
         LoadStructure(1);
         UnloadStructure(0);
         UnloadStructure(3);
-        loadSegment(0);
+        LoadSegment();
+        LoadMidSegment();
         LoadStructure(2);
     }
     public void Awake()
@@ -83,7 +97,7 @@ public class SceneSegmentManager : MonoBehaviour
         LoadStructure(1);
         UnloadStructure(0);
         UnloadStructure(3);
-        loadSegment(0);
+        LoadSegment();
         LoadStructure(2);
     }
     private void Update()
