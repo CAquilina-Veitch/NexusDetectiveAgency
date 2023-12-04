@@ -28,11 +28,18 @@ public class LoreItem
 
 }
 
-
+public class LoreBookSection
+{
+    public int id;
+    public List<int> loreItems;
+    public List<Image> tabs;
+}
 public class LoreInventory : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
 
+
+    public List<LoreBookSection> LoreBookSections = new List<LoreBookSection>();
     public List<LoreItem> allLore;
 
     public List<Image> invTabs;

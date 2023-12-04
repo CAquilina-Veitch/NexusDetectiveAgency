@@ -7,8 +7,10 @@ public class DronePlatform : MonoBehaviour
     public BoxCollider b;
     public Vector3 targetPosition;
     float duration = 1f; // Duration in seconds
-    float p = 0;
-    float vel = 200;
+    float t = 0;
+
+    bool isGoingDown;
+
     float bobbingAmount = 0.1f;
     float bobbingSpeed = 1f;
     float startHeight = 30;
@@ -21,6 +23,7 @@ public class DronePlatform : MonoBehaviour
         targetPosition = positionToGoTo;
         initialPosition = positionToGoTo + Vector3.up * startHeight;
         transform.position = initialPosition;
+        isGoingDown = true;
         isFlying = true;
     }
 
@@ -28,17 +31,20 @@ public class DronePlatform : MonoBehaviour
     {
         if (isFlying)
         {
-            p += Time.fixedDeltaTime / duration * vel;
-            float easedP = EaseInOutQuad(p);
-            transform.position = Vector3.Lerp(initialPosition, targetPosition, easedP);
-
-            if (p >= 1f)
+            transform.position = Vector3.Lerp(transform.position, isGoingDown ? targetPosition : initialPosition, 0.2f);
+            t += Time.deltaTime;
+            if (t >= duration)
             {
                 isFlying = false;
-                transform.position = targetPosition;
+                transform.position = isGoingDown ? targetPosition : initialPosition;
                 anim.SetTrigger("Destination");
                 b.enabled = true;
                 StartCoroutine(Bobbing());
+                if (!isGoingDown)
+                {
+                    Destroy(gameObject);
+
+                }
             }
         }
     }
@@ -52,29 +58,13 @@ public class DronePlatform : MonoBehaviour
         }
     }
 
-    float startTime;
+
 
     public void StartFlyingUp()
     {
-        p = 0f;
-        Vector3 temp = initialPosition;
-        initialPosition = targetPosition;
-        targetPosition = temp;
+        isGoingDown = false;
         isFlying = true;
-        StartCoroutine(DestroyAfterDuration());
+
         b.enabled = false;
-    }
-
-    IEnumerator DestroyAfterDuration()
-    {
-        yield return new WaitForSeconds(duration);
-        isFlying = false;
-        Destroy(gameObject);
-    }
-
-    // Easing function for smooth acceleration and deceleration
-    float EaseInOutQuad(float t)
-    {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     }
 }
