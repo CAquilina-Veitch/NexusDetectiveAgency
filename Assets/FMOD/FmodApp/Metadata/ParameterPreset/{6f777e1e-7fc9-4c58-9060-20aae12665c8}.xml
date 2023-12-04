@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{6f777e1e-7fc9-4c58-9060-20aae12665c8}">
+		<property name="name">
+			<value>MelanieLine</value>
+		</property>
+		<relationship name="folder">
+			<destination>{66a416a9-7212-44ac-9346-1810941a7f88}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ba6f5be0-c24e-41d8-a434-f27bea90e316}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ba6f5be0-c24e-41d8-a434-f27bea90e316}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>melanie01</value>
+			<value>melanie02</value>
+			<value>melanie03</value>
+			<value>melanie04</value>
+			<value>melanie05</value>
+			<value>melanie06</value>
+			<value>melanie07</value>
+			<value>melanie08</value>
+			<value>melanie09</value>
+			<value>melanie10</value>
+			<value>melanie11</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

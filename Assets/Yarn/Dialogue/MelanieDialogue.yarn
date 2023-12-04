@@ -37,14 +37,14 @@ position: -822,-561
 <<set $firstInteraction = false>>
 
 Melanie: Who are you?
-Melanie: How on Earth did you get here? #line:001
+Melanie: How did you get in here? #melanie01
 
 ->	Could say the same.
 		Max: Could say the same thing about you.
-		Melanie: Well I work here, I'm allowed to be here.
+		Melanie: Well I work here, I'm allowed to be here. #melanie02
 ->	I'm Detective Max.
 		Max: My name is Max, I'm a detective.
-		Melanie: Well Max, you know you are technically trespassing, right?
+		Melanie: Well Max, you know you are trespassing, right? #melanie03
 <<jump TalkingToMelanie2>>
 ===
 
@@ -53,7 +53,7 @@ title: TalkingToMelanie2
 position:
 position: -822,-286
 ---
-Melanie: You should be leaving. Now. Before I call security.
+Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
 		Max: Not so fast.
@@ -69,15 +69,13 @@ Melanie: You should be leaving. Now. Before I call security.
 title: TalkingToMelanie3
 position: -823,-92
 ---
-Melanie: What device? We don't have anything down here.
-Melanie: We haven't been working on anything for years.
-Melanie: Everything we had been working on is in our main displays in the lobby.
+Melanie: What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
 
 ->	There's something here.
 		Max: I know there is something else here.
 		Max: And I know it's affecting this world.
 
-Melanie: Well there simply isn't.
+Melanie: Well there simply isn't. #melanie06
 <<if $documentsFound < 5 >>
 		<<jump MelanieFail>>
 <<else>>
@@ -103,9 +101,7 @@ position: -541,-286
 ->	I don't believe you.
 		Max: Well, I simply don't believe that.
 
-Melanie: Fine.
-Melanie: If you desperately want to see what's behind here, get this file.
-Melanie: It's going to catch you up to speed a little (Leave).
+Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little (Leave). #melanie07
 <<set $FetchDocFound = false>>
 <<jump ExitingForQuest>>
 ===
@@ -163,8 +159,7 @@ position: -256,-93
 		Max: Stop bluffing.
 		Max: I know there is something behind that door. The CPU broke.
 
-		Melanie: Wait... What?
-		Melanie: How... could you possibly know that?
+		Melanie: Wait... What? How... could you possibly know that? #melanie08
 
 ->	Max: I know a lot more.
 		//Max mumbles: I... Know... All...
@@ -176,8 +171,7 @@ position: -256,-93
 
 Max: I can help you fix this mess.
 
-Melanie: You are certainly good at your job.
-Melanie: But fixing this machine is impossible.
+Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
 <<jump MelaniePassTree>>
 ===
 
@@ -189,16 +183,14 @@ position: 7,-94
 
 ->	Max: What do you mean by "Fixing it is impossible"?
 		//Max mumbles: Impossible?
-		Melanie: Well. Ummm.
-		Melanie: We, ehh... lost... the schematics.
-		Melanie: A poor filing choice from an intern.
+		Melanie: Well. Ummm. We, ehh... lost... the schematics. A poor filing choice from an intern. #melanie10
 
 ->	Max: Does no one know that it broke?
 		//Max mumbles: Who... knows
 		Melanie: We hid it, out of shame.
 		Melanie: No one knows besides the team that worked on it.
 		Melanie: We had to think about what would happen if someone did find out about it.
-		Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands.
+		Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands. #melanie11
 
 ->	Max: More gross incompetence.
 		//Max mumbles: Pure... Incompetence
