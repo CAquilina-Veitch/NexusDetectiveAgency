@@ -465,7 +465,7 @@ public class PlayerController : MonoBehaviour
             }
 
             currentDronePlatformPrefab = Instantiate(dronePlatformPrefab).GetComponent<DronePlatform>();
-            currentDronePlatformPrefab.Init(droneDraft.transform.position - 2*droneDraft.center);
+            currentDronePlatformPrefab.Init(droneDraft.transform.position - 2 * droneDraft.center);
 
             ShowDraft(false);
 

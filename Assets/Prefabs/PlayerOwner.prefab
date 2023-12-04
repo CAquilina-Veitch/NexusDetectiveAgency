@@ -17753,7 +17753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1606256353868123154
 Transform:
   m_ObjectHideFlags: 0
@@ -24319,7 +24319,7 @@ MonoBehaviour:
   heldItemArmLength: 3
   dimensionalUnavailableWarning: {fileID: 0}
   dimensionalUnavailableWarningDuration: 1
-  dronePlatformPrefab: {fileID: 2840770868395591897, guid: fbc6f6583f608cc48849583e257498c3,
+  dronePlatformPrefab: {fileID: 176634666239295609, guid: e53aa19c410066844bf029be2cf44fbc,
     type: 3}
   droneDraft: {fileID: 5972851712515413433}
   currentDronePlatformDistance: 0
