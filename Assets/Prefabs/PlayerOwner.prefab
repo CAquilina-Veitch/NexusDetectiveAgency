@@ -1007,9 +1007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Body Text
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4cbf551d1af9f7841b0d25d288e1f042, type: 2}
   m_sharedMaterial: {fileID: 955180230808492918, guid: 4cbf551d1af9f7841b0d25d288e1f042,
@@ -3900,7 +3898,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456226432707780327}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -4315,16 +4313,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500199575678851424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3.4997342, y: 3.4997342, z: 3.4997354}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7493241327543960539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 273, y: 286}
+  m_AnchoredPosition: {x: -456, y: 318}
   m_SizeDelta: {x: 264.25, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2888405929144404248
@@ -5764,16 +5762,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660145906889269467}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1412135, y: 1.1412135, z: 1.1412138}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2651829586226431565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 56.43, y: 175.3}
+  m_AnchoredPosition: {x: 871.00006, y: 347.00006}
   m_SizeDelta: {x: 633.27, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6777691932873246469
@@ -8691,17 +8689,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011051876096489444}
-  m_LocalRotation: {x: 0, y: 0, z: -0.10348692, w: 0.9946308}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3535, y: 1.3535, z: 1.3535}
+  m_LocalScale: {x: 1.3789343, y: 1.3789343, z: 1.3789345}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2651829586226431565}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.88}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 334, y: 214}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: 461, y: -252}
+  m_SizeDelta: {x: 205.0562, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8534590460191800307
 CanvasRenderer:
@@ -8731,7 +8729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18357,15 +18355,15 @@ RectTransform:
   m_GameObject: {fileID: 2099462561459266347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7122427, y: 1.7122427, z: 1.7122427}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8371874052399621913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 339.7, y: -51.4}
-  m_SizeDelta: {x: 384.6, y: 600}
+  m_AnchoredPosition: {x: 0, y: 56}
+  m_SizeDelta: {x: 412.3462, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3045166661134794537
 CanvasRenderer:
@@ -21243,16 +21241,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484458215616613579}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.166578, y: 1.166578, z: 1.1665784}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7493241327543960539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 86, y: 185}
+  m_AnchoredPosition: {x: 234, y: -352}
   m_SizeDelta: {x: 585.3727, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1248411344464854581
@@ -21827,17 +21825,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2538510107826620937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.60676, y: 2.60676, z: 2.6067603}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2651829586226431565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: 307.7}
-  m_SizeDelta: {x: 264.25, y: 50}
+  m_AnchoredPosition: {x: 482, y: 132.05806}
+  m_SizeDelta: {x: 165.7467, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1040707055817095304
 CanvasRenderer:
@@ -24388,123 +24386,525 @@ MonoBehaviour:
   playerController: {fileID: 764292712164159145}
   allLore:
   - collected: 0
-    format: 0
-    label: goober internet history
-    title: =========================================== > Welcome to Goober's Search
-      Log Terminal < ===========================================
-    subtitle:
-    - '===========================================
-
-      > End of Goober''s Search
-      Log <
-
-      ==========================================='
+    format: 2
+    label: Climate Crisis?
+    title: 
+    subtitle: []
     images:
-    - {fileID: 21300000, guid: f0206a600fd2af545b7fc950cc70aaf3, type: 3}
-    bodyText: "1. [Timestamp: 2023-11-17 10:05 AM]\r\n   Query: \"how to microwav
-      metel\"\r\n   Results:\r\n   - \"Can you microwav metel? - Yahoo Answers\"\r\n  
-      - \"Why microwaving metel is dangerous - Science Explained\"\r\n\r\n2. [Timestamp:
-      2023-11-17 10:15 AM]\r\n   Query: \"what is a calculator used for\"\r\n   Results:\r\n  
-      - \"Calculator uses in daily life - Quora\"\r\n   - \"Functions of a calculator
-      - Educational Technology\"\r\n\r\n3. [Timestamp: 2023-11-17 10:30 AM]\r\n  
-      Query: \"knock knock joks\"\r\n   Results:\r\n   - \"Best knock-knock jokes
-      for kids - Reader's Digest\"\r\n   - \"How to tell a knock-knock joke - WikiHow\"\r\n\r\n4.
-      [Timestamp: 2023-11-17 11:00 AM]\r\n   Query: \"can you fit square peg in round
-      hole\"\r\n   Results:\r\n   - \"Physics of fitting square peg in round hole
-      - Scientific American\"\r\n   - \"Problem-solving: Can you fit a square peg
-      into a round hole? - Quora\"\r\n\r\n5. [Timestamp: 2023-11-17 11:30 AM]\r\n  
-      Query: \"leeg of legend how to play\"\r\n   Results:\r\n   - \"League of Legends
-      beginner's guide - Riot Games\"\r\n   - \"Top 10 tips for new players in League
-      of Legends - Inven Global\""
+    - {fileID: 21300000, guid: 13777382817a8c84fbc415423d749c5c, type: 3}
+    bodyText: 
   - collected: 0
     format: 1
-    label: Note from goober
-    title: ' to whover timay consirn'
+    label: Max's Journal
+    title: My Newfound Abilities
     subtitle:
-    - gober first wrting
+    - 
     images:
-    - {fileID: 21300000, guid: df9407df9f0258942abb768347ceb30d, type: 3}
-    bodyText: 'deer fren,
-
-
-
-      I rite 2 u cos big big trubles. dey chasin me
-      lots, dunno y, but i no lik it. it confusin like big mess. i tri to figer out
-      but it like puzzle wifout piecis.
-
-
-
-      pls tell em stop chasin. goober
-      just wanna be free like birb in sky. no want hurt, jus wanna do thing i lik,
-      like playin'' leeg of legend. it fun game wif chams and stuf. i lik big sword
-      cham, he swing so cool.
-
-
-
-      i no get why they so mad. goober jus want
-      peace and play game. pls help, tell em stop chasin'', we play leeg togethr.
-      we be team and win all games. thnk u, fren.
-
-
-
-      Sincerrelee, Goober'
+    - {fileID: 0}
+    bodyText: "I don\u2019t know why exactly, but I've come into the possession of
+      something\u2026powerful.\r\n\r\nA few weeks ago, I did a job for a client that
+      involved returning stolen goods from a private collector's home. While everything
+      went as planned, I was attracted to a strange artifact that glowed a bright
+      blue. When picking up the object, I felt a rush like no other rippling through
+      my body. My mind was filled with knowledge of other dimensions, and how to
+      travel between them.\r\n\r\nFor the last few weeks I have been able to travel
+      through parallel universes, learning their secrets and achieving my client's
+      goals, but I still don\u2019t have a full grasp on how this power works. \r\n\r\nWhen
+      traveling into other realities, it appears that my body has had its own history.
+      I may have lost a limb or an eye, but I have no prior memories or experiences
+      to remember from that body, as it is essentially a copy. I also have found
+      that no matter where I am, my alternate body will be in the same place when
+      I return. When I first jumped, I found myself going down to the beach, and
+      when I returned I was still ankle-deep in water, in the exact location I left.
+      \r\n\r\nI need some clarification, but as I use my ability more frequently,
+      I am understanding more about its intricacies. It is only a matter of time.\r\n"
   - collected: 0
-    format: 2
-    label: goober Escape
-    title: Big baby newspaper
+    format: 1
+    label: Doctor's Letter
+    title: 
     subtitle:
-    - Unintelligent Fugitive "Goober" Escapes Research Facility, Global Concerns
-      Rise
-    images:
-    - {fileID: 21300000, guid: d777309a033b46b4ab78931f3c2e32e8, type: 3}
-    bodyText: 'As the global search for the escaped subject of Project Goober intensifies,
-      experts are now raising alarms about the potential genetic implications of
-      breeding with Goober. With his astonishing lack of cognitive abilities documented
-      in classified files, fears have emerged that incorporating Goober''s genetic
-      material into the human gene pool could lead to unforeseen consequences, jeopardizing
-      the intellectual capacities of future generations.
-
-
-
-      Geneticists and
-      ethicists are urging caution against any attempts to breed with Goober, emphasizing
-      the importance of maintaining the integrity of the human genome. Concerns revolve
-      around the possibility of perpetuating a lineage characterized by unparalleled
-      intellectual mediocrity, prompting a global conversation on the ethical dimensions
-      of genetic decisions and the potential impact on the trajectory of human intelligence.'
+    - Dear Doctor Carter
+    images: []
+    bodyText: "I have come into some trouble recently\u2026 changes in my line of
+      work that have made it fairly difficult to come to terms with my place in this
+      rapidly changing world. I was hoping that we could correspond so that I may
+      gain some insight into why I am feeling this way, and perhaps even give me
+      some closure on the matter.\r\n\r\nDue to these recent changes in my work,
+      I have had the opportunity to travel to many exotic places, meet many new and
+      interesting people, and see some honestly marvelous sights. However, I have
+      found that in having these experiences I have come to question whether I have
+      made the right decisions in my life, whether I truly am where I want to be,
+      as I have seen many ruined through inconsequential decisions, and many more
+      flourish under equally weighted choices. \r\n\r\nIn this time I have felt so
+      many changes are occurring, and I am not quite sure how to deal with them.
+      Honestly, I don\u2019t believe I have struggled with this much change since
+      I first moved to New York. The idea of migrating without my family was certainly
+      always a challenge for me, the first of many to come in my move, and I found
+      at times I desperately needed their support when they were, for all intents
+      and purposes, a world away. \r\n\r\nWhilst being an English migrant in New
+      York was certainly an easier experience than can be said for some others, there
+      were still fundamental challenges that I had to overcome, from as little as
+      understanding tipping culture, to some of the greater animosity felt towards
+      the English by certain US citizens. I think these recent challenges have brought
+      many of these feelings back to the surface, as I have encountered many of the
+      same experiences when introduced to these fundamentally different cultures
+      and people to those I am used to encountering. \r\n\r\nI feel that your insight
+      on these matters would be most welcome, and I hope my mailing you was not too
+      forward. I look forward to your response.\r"
   - collected: 0
     format: 3
-    label: Project Goober
-    title: Project Goober
-    subtitle:
-    - 9/3/2004
+    label: '[REDACTED] Report'
+    title: '[REDACTED] Report'
+    subtitle: []
     images:
-    - {fileID: 21300000, guid: 06ce5ceb7dd4d2c468ea27194dcd7a7c, type: 3}
-    bodyText: 'Project Goober encapsulates a remarkable exploration into the realm
-      of unparalleled intellectual mediocrity. Delving into the exploits of an individual
-      whose cognitive abilities seem to defy the very boundaries of reason, these
-      classified files unfold a saga of bewildering stupidity. Aptly named "Goober,"
-      the subject of this project navigates the world with a level of intelligence
-      that can only be described as mind-bogglingly subpar.
-
-
-
-      Witness as Goober
-      demonstrates an uncanny knack for misunderstanding even the simplest concepts,
-      turning the mundane into a spectacle of confusion. From attempting to microwave
-      metal objects to mistaking a calculator for a cutting-edge gaming console,
-      the files within Project Goober paint a portrait of a person whose thought
-      processes appear to be operating on an entirely different wavelength.
-
-
-
-      Intriguingly,
-      Goober''s actions and decisions challenge conventional notions of common sense,
-      leaving researchers astounded at the depths of ineptitude reached in various
-      scenarios. Whether attempting to decipher a "knock-knock" joke or struggling
-      to grasp the concept of a square peg in a round hole, Goober''s intellectual
-      endeavors redefine the boundaries of human understanding, albeit in the most
-      perplexingly unintelligent manner.'
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "[REDACTED] located in the Special Projects department of this facility,
+      was started by Dr [REDACTED] with the intent of [REDACTED] climate change.
+      This is to serve as a progress report marking six months since the project
+      began, and details the materials used in the production of [REDACTED] as well
+      as personnel involved and the development of the [REDACTED] component required
+      for the technology to function.\r\n\r\nMaterials \r\n15 meters of solid steel
+      sheet metal\r\n40 meters of pure copper wire\r\n15 meters of fiber optic cable\r\n2
+      3x3 meter glass sheets\r\n50 Silicon chips\r\n[REDACTED]\r\n[REDACTED]\r\n\r\nPersonnel:\r\nDR
+      [REDACTED] acting as team lead of this project\r\nDR [REDACTED] Lead Engineer;
+      Accompanied by personally selected team\r\nDR [REDACTED] Lead Chemist; Accompanied
+      by personally selected team\r\nDR [REDACTED] Lead Software Developer; Accompanied
+      by personally selected team\r\nDR [REDACTED] Lead Environmental Scientist;
+      Accompanied by personally selected team\r\n\r\n\r\nThe key component of [REDACTED]
+      is the [REDACTED], developed under the combined supervision of all team leads,
+      developed to control [REDACTED] in order to [REDACTED]. Until installation
+      [REDACTED] must be kept under strict supervision, and where necessary be kept
+      within the sensitive materials lockbox located in the [REDACTED] laboratory.
+      Dr [REDACTED] believes that [REDACTED] will be completed within the next [REDACTED]
+      months, and will notify the Orders Department if any further materials are
+      required.\r\n"
+  - collected: 0
+    format: 3
+    label: Production Report
+    title: 'Project Achilles: Initial Production Report'
+    subtitle:
+    - 'Date: 26/7/2055'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Project Leaders:\r\nTeam Lead: Dr Melanie Wallis\r\nLead Researcher:
+      Dr Tim Henderson\r\nLead Engineer: Leah Torris\r\n\r\nInitial Plan: \r\nTo
+      research, plan, and construct a device that will be able to absorb a bulk package
+      of excess CO2 from the atmosphere and convert it into a cleaner, less harmful
+      source of breathable air for the world.\r\n\r\nProject Class:\r\nExperimental
+      \r\n\r\nTimespan allowed:\r\nUnlimited \r\n\r\nAllowed Budget:\r\n[REDACTED]\r\n\r\nAssigned
+      Workspace:\r\n[REDACTED], Level 2\r\n\r\nEnd Result:\r\nClean the world\u2019s
+      air supply and [REDACTED]\r"
+  - collected: 0
+    format: 3
+    label: Update #1
+    title: Project Achilles Update Report
+    subtitle:
+    - 'Date: 07/4/2059'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Good news. More funding has arrived. Despite the good news, Management
+      has recently contacted us, now putting a firm cap on the end date of our project,
+      despite our production report staging we had an unlimited timeframe. We have
+      until the end of this year, or the project gets shelved until a more \u201CCompetent\u201D
+      team comes along. \r\n\r\nTo make matters worse, We also were told our budget
+      has been axed, meaning this last lot of funding will most likely be our last.
+      We never knew what our budget was to begin with. Whenever we asked for funding,
+      we got it. I guess we used too much money for the project to be profitable
+      or something, knowing Bridger R&D. What this means for us now, is that if something
+      goes wrong, we won\u2019t have any kind of cash to fix it. Not brilliant, but
+      we can manage.\r\n\r\nThat said, with the new cash available, we have been
+      investing in more sophisticated parts to finish and \u201Cpolish\u201D, so
+      to speak, the project. One of said parts has been a brand new CPU that has
+      been programmed specifically for the CR-1200, meaning that the machine should
+      function as planned. The only warning we have received about the CPU is, and
+      I quote, \u201CIf put under enough stress, it will be impossible to replace.
+      This is the only one in existence. Don\u2019t fuck it up\u201D. \r\n\r\nWonderful
+      language.\r\n\r\nEither way, we are approaching the end of several long and
+      arduous years, and hopefully, our work will pay off. Clean air will help us
+      all breathe a little easier, and more importantly, we won\u2019t get fired
+      just yet.\r\n\r\nOnly a small report this time, thankfully nothing too eventful
+      has happened over the past few months.\r\n\r\n\r\nDr. Melanie Wallis, Project
+      Lead\r\r"
+  - collected: 0
+    format: 3
+    label: Update #2
+    title: Project Achilles Update Report
+    subtitle:
+    - 'Date: 2/6/2059'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Management has been breathing down our necks. Inspections almost every
+      second day now. The CPU has been formally installed, meaning the full use of
+      the machine will be active soon. We ran some small-scale tests, and they have
+      worked brilliantly. We are in the process of upscaling the CPU usage to a larger
+      and larger scale, working its way to the ultimate limit of its potential. We
+      have been cautious about causing strain on the part, as we don\u2019t need
+      it breaking now.\r\n\r\nIn other news, Dr. Henderson has been acting strange
+      over the last few weeks. I thought initially that it was the stress of management
+      pressuring us to finish the project, but after observing him more and more
+      each day, it was almost like he had found something that could throw the project
+      on its head. My curiosity got the better of me and I ended up pulling him aside
+      last week to have a talk about his behavior. To be blunt, he turned out to
+      be a nervous wreck. He ended up telling me that the machine, in its current
+      form, can be usable, but not for the purpose we intended it to be.\r\n\r\nIt
+      turns out that where the CRU-1200 currently stands in \u201Creadiness\u201D
+      for use, Henderson has been able to find and secretly test a way to convert
+      used fossil fuels, such as contaminated crude oil and ash from coal fired power
+      plants, into a form of renewable fuel, essentially causing a loop of burn,
+      convert, repeat, without harming or producing any more byproducts of the initial
+      extraction process usually undertaken at mine sites, oil drilling rigs and
+      refineries.\r\n\r\nThis is clearly game-changing, and I was quite frankly stunned
+      that he had kept this a secret for so long. I gathered the team in for an emergency
+      meeting and explained the situation. Leah Torris was extremely skeptical about
+      the conversion, stating that he had designed a machine to convert gas, not
+      anything solid or liquid. He thinks that without proper re-programming, the
+      CPU will break under stress. Dr. Henderson explained that as he had already
+      tested the process while motoring the levels, he had seen no major jump in
+      usage of temperature to cause it to break. Our programming team agrees, saying
+      that they would only need to enter a few lines of additional code to create
+      a warning system and to update the conversion system.\r\n\r\nI have my doubts,
+      and I certainly have my skepticism, but at this stage, we are out of money
+      and out of time. I gave the conversion a green light and notified management,
+      who seemed pleased by the update.\r\n\r\nHopefully, we will be fully functional
+      within the next few months. \r\n\r\n\r\nDr. Melanie Wallis, Project Lead\r"
+  - collected: 0
+    format: 3
+    label: Damage Report
+    title: Project Achilles Damage Report
+    subtitle:
+    - 'Date: 17/8/2059'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Damage report: \r\nCRU - 1200 \r\n\r\nSustained Damage: \r\nCPU malfunction\r\n\r\nCause
+      Of damage: \r\nStress + Unknown factor\r\n\r\nReporting Officer: \r\nDr. Melanie
+      Wallis\r\n\r\n\r\nAdditional Comments:\r\n\r\nAfter only a few weeks of functioning,
+      the CPU has broken. This is a problem. What\u2019s worse, we can\u2019t seem
+      to shut it off, like it's gone into auto-pilot or something. \r\n\r\nI have
+      a theory as to why it broke. When Henderson found out about the recyclable
+      fossil fuels function, and when I approved its use, None of us re-programmed
+      the functionality of the CPU, for fear of breaking it. I believe that the stress
+      of solid conversion forced the part to break, as it wasn\u2019t designed or
+      programmed for that function. We were idiots to think the machine would fix
+      itself. This is the price we pay. \r\n\r\nUPDATED COMMENTS:\r\n\r\nWe really
+      are in trouble now. After carefully monitoring the machine for a few days,
+      we have detected that it is starting to spit out a mass of CO2 gas from its
+      emitters. By our calculations, our world will be a walking corpse of lifelessness
+      within a year. Anything that is living will perish. \r\n\r\nWe don\u2019t know
+      how to fix this.\r\nWe cannot fix this. \r\n\r\nI\u2019ve already accepted
+      our fate. I can only hope for humanity now. We have doomed us all.\r"
+  - collected: 0
+    format: 1
+    label: Entry 25
+    title: Personal Notes- Entry  25
+    subtitle:
+    - 5/10/2059
+    images:
+    - {fileID: 0}
+    bodyText: "We fucked up.\r\n\r\nI found out why so much of our initial production
+      report was redacted. \r\n\r\nBridger R&D wanted to SELL clean air, not fix
+      the problems they caused.\r\n\r\nI have an insider in the filling department,
+      and he knows full well that I am working on Project Achilles. For some unknown
+      reason, he gained possession of the full report. In short, it states that upon
+      the project\u2019s completion, everyone who worked on the project will be forced
+      to sign NDA agreements and fired with compensation. \r\nI can only assume this
+      is a way to cover their tracks.\r\n\r\nThe next step includes the marketing
+      and possible mass production of this machine, even detailing how they would
+      be able to reduce the effectiveness of the machine to produce less breathable
+      air, encouraging people to buy more. This plan is monstrous, deceptive, and
+      a vile cash grab on an already dying world. \r\nThe worst bit? This isn\u2019t
+      the first time Richard D. Bridger has been a greedy psychopath.\r\n\r\nHis
+      history of causing problems, covering them up, and pretending he\u2019s the
+      hero has been going on for decades, and now he has gone so far as to gamble
+      to life of the entire human race on a manic grab for as much profit as possible.
+      Fucking disgraceful.\r\n\r\nConsidering I could be fired, or worse if this
+      entry is discovered, I have to hide it carefully. I hope that one day, when
+      I am gone, someone can expose Bridger for the man he truly is.\r\n\r\nA greedy,
+      self-absorbed, deranged madman willing to bet on anything to make billions.\r\n\r\n\r\n-
+      Melanie\r"
+  - collected: 0
+    format: 3
+    label: New Branch
+    title: Offer of Employment - Dr Huang
+    subtitle:
+    - 'Date: 15/10/2058'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Hi Dr Huang,\r\n\r\nWe are writing to you to inform you that we would
+      like to extend an offer of employment effective immediately. We have just heard
+      the great news that our new branch in Shanghai is officially open, which means
+      you don\u2019t have to move far from home to assist us in our research.\r\n\r\nThat
+      is the last branch of our expansion project, meaning we now have nearly fifty
+      labs located worldwide. Frankly, this makes me quite excited for what's to
+      come, and what we can finally do now that we have reached this point, and I
+      am sure you will contribute well to your local projects. \r\n\r\nNow that we
+      have completed our expansion project, this allows us to have our fingers in
+      many different pies so to speak. We would be able to bring about effective
+      global scale change with our research, and this would open us up to more lucrative
+      opportunities based upon local contracts and region specific issues. \r\n\r\nTake
+      our research on cybernetic body extensions, once we have sought approval for
+      producing these components in the US, it is only a matter of time before one
+      of our other facilities allows us to begin production in Laos, which means
+      we can instill real fundamental change for the people of Laos and help those
+      hurt by unexploded ordnance. \r\n\r\nOur new offices will allow us to source
+      some of the brightest minds in the region, much like yourself, and our state
+      of the art remote connection labs will connect our greatest scientists from
+      across the planet, meaning not only do we get better quality research, but
+      also much more efficiently than we would had we stayed within our US laboratories.
+      We are now able to create a worldwide network that allows us to pass on research
+      without any concerns of political interference.\r\n\r\nThis was one of the
+      major reasons I joined Bridger R&D, and I can\u2019t wait for the opportunities
+      that await us.\r\n\r\nI look forward to working with you soon.\r\n\r\nKind
+      Regards,\r\nHarold Grant, HR Manager\r"
+  - collected: 0
+    format: 3
+    label: Security Breach
+    title: Breach in Security
+    subtitle:
+    - 'Date: 8/12/2059'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "To all our employees here at Bridger R&D,\r\n\r\nIt is with great
+      displeasure that I have to inform you of a recent breach in our security, courtesy
+      of Avacus International.  We believe that the target of the breach was one
+      of our special projects, which most of you would know simply as Project Achilles.
+      \r\n\r\nWe believe this may have been an attempt at corporate espionage, instigated
+      by a heavily redacted project brief that was leaked earlier this financial
+      year. \r\n\r\nWe want to assure all of you that we did not lose any data, primarily
+      thanks to our cybersecurity system developed for, and on loan from, the department
+      of defense, however as this undoubtedly will be the first of several further
+      attacks, we will be seeking to develop this system further to ensure total
+      security over our research.\r\n\r\nWe will be running a full investigation
+      into the culprits responsible for the initial project brief leak, as well as
+      any co-conspirators of those responsible under our employ, and we will be seeking
+      legal action against Avacus International for their brazen attempts at the
+      theft of our intellectual property. \r\n\r\nKind Regards,\r\nRichard Bridger.
+      CEO of Bridger R&D  \r\n"
+  - collected: 0
+    format: 3
+    label: Wing Closure
+    title: Project Achilles Wing Closure
+    subtitle:
+    - 'Date: 15/9/2056'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "To whom this may concern,\r\n\r\nAfter the completion of Project Achilles
+      in December of last year, as well as the movement of our carbon sequestration
+      technology to other other facilities worldwide for distribution to local governments,
+      it was decided that the Project Achilles wing of our special projects will
+      be closed in February of next year, with plans to shutter more of our New York
+      facility in favor of moving our more sensitive projects to some of our international
+      facilities.\r\n\r\nThis document should serve as an official acknowledgement
+      and report of the necessary actions taken to close this wing, including but
+      not limited to:\r\n\r\n- Disposal of all physical data storage devices\r\n-
+      Disposal of all components not incorporated into the final prototype\r\n- Movement
+      of all physical data, including project notes and photographs, to our offsite
+      storage facility in Brooklyn \r\n- Return of any and all personal effects to
+      project team\r\n- Removal of biometric access to wing from project team\r\n\r\nAccess
+      has been shut off to a majority of facility staff in order to protect the prototype,
+      until the time that we decide what we should do with it, whether it be sent
+      to deep storage, displayed in Bridger Headquarters in London, or disposed of.
+      We have not yet heard of what this space shall be converted into, however it
+      has been requested that much of the internal infrastructure be left untouched,
+      and for us to leave the remaining equipment there for the time being for storage.
+      \r\n\r\nStaff that have worked on this project for the last few years, including
+      the supervising the distribution of hardware, will be redistributed between
+      various projects, however Dr Melanie Wallis has requested that she retain some
+      of her core staff, particularly Dr Henderson, for a new project application.
+      Dr Wallis has also put through a transfer request to be moved to our Dublin
+      facility, as she stated that it would suit her project requirements. \r\n\r\nTimothy
+      Baxter, COO\r\n"
+  - collected: 0
+    format: 3
+    label: Avacus Breach
+    title: Avacus International Breach
+    subtitle:
+    - Date:13/7/2055
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "To the researchers on Project Achilles,\r\n\r\nAs you are probably
+      already aware, we have had a recent breach in security thanks to those at Avacus
+      International, and one of their key targets was Project Achilles, largely due
+      to its secrecy within the company. Although they luckily were unable to secure
+      any of the project information, it has pushed our timetable forwards, likely
+      to be completed within the next six months.\r\n\r\nAs I am sure many of you
+      will understand, this is absolutely necessary due to the threat Avacus poses
+      to your intellectual property. If they were able to take the data accrued as
+      well as any preliminary designs in a subsequent attack, all of the hard work
+      your team has performed will be all for naught. \r\n\r\nOnce this project has
+      been finalised and made known to the public, we will be able to patent its
+      design and distribute units to our laboratories worldwide, and we will have
+      full rights to any of the work you have put towards realising this dream..
+      \r\n\r\nDon\u2019t let this put a damper on your spirits, these are only precautionary
+      measures, and I am sure that our cybersec system will hold out for long enough
+      for this project to become fully realised. \r\n\r\nGood luck, and keep up the
+      good work,\r\n\r\nTimothy Baxter, COO\r\n"
+  - collected: 0
+    format: 3
+    label: Avacus Breach
+    title: Avacus International Breach
+    subtitle:
+    - Date:13/7/2055
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "To the researchers on Project Achilles,\r\n\r\nAs you are probably
+      already aware, we have had a recent breach in security thanks to those at Avacus
+      International, and one of their key targets was Project Achilles, largely due
+      to its secrecy within the company. Although they luckily were unable to secure
+      any of the project information, it has pushed our timetable forwards, likely
+      to be completed within the next six months.\r\n\r\nAs I am sure many of you
+      will understand, this is absolutely necessary due to the threat Avacus poses
+      to your intellectual property. If they were able to take the data accrued as
+      well as any preliminary designs in a subsequent attack, all of the hard work
+      your team has performed will be all for naught. \r\n\r\nOnce this project has
+      been finalised and made known to the public, we will be able to patent its
+      design and distribute units to our laboratories worldwide, and we will have
+      full rights to any of the work you have put towards realising this dream..
+      \r\n\r\nDon\u2019t let this put a damper on your spirits, these are only precautionary
+      measures, and I am sure that our cybersec system will hold out for long enough
+      for this project to become fully realised. \r\n\r\nGood luck, and keep up the
+      good work,\r\n\r\nTimothy Baxter, COO\r\n"
+  - collected: 0
+    format: 0
+    label: Botanical Gardens
+    title: New York Lab Conversion
+    subtitle:
+    - Date:22/10/2065
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "To our New York staff,\r\n\r\nAfter careful consideration we have
+      come to the decision that effective January of next year, the New York branch
+      of Bridger R&D will be converted into the Bridger Botanical Gardens, in honor
+      of all the good that came of the carbon sequestration machine courtesy of the
+      Project Achilles team. \r\n\r\nIt is understandable that many of you may be
+      in fear of losing any future employment with us due to these closures, but
+      we would like to assure you that none of our employees will be let go during
+      this time. Thanks to a generous offer made by our Washington branch, any employees
+      that wish to continue their employment with Bridger R&D may continue working
+      there, with public transport costs covered due to the inconvenience. \r\n\r\nAny
+      of you who wish to continue working in New York may request further employment
+      in Bridger Botanical Gardens, as we are seeking technicians to convert the
+      retired Project Achilles laboratory into a central control system for the gardens,
+      and we also require geneticists, botanists, and engineers to work in plant
+      cultivation and maintenance of garden infrastructure. \r\n\r\nIf either of
+      these options interest you, please contact your team leader and express interest
+      in your transfer, and any who express interest in shifting employment to Bridger
+      Botanical Gardens will receive their new contracts between 10 to 15 business
+      days.\r\n\r\nAll on-site projects will be suspended until further notice while
+      they are being transported to the Washington facility, however we will still
+      support remote work if the project is at a pivotal point in production.\r\n\r\nFor
+      those of you who are not willing to continue under our employment, please send
+      a letter of resignation to your supervisor, and we will organize your severance
+      packages and support your shifting of personal effects off-site.  \r\n\r\nThank
+      you for your understanding during this time, and we look forward to getting
+      Bridger Botanical Gardens up and running.\r\n\r\nKind Regards,\r\nTimothy Baxter,
+      COO\r\n"
+  - collected: 0
+    format: 0
+    label: Beginning Production
+    title: 'Project Achilles: Initial Production Statement'
+    subtitle:
+    - 'Date: 26/07/2055'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Project Leaders:\r\nTeam Lead: Dr. Richard Bridger\r\nProject Manager:
+      Dr. Melanie Wallis\r\nLead Researcher: Dr. Tim Henderson\r\nLead Engineer: 
+      Leah Torris\r\n\r\n\r\nOur Objective:\r\nFollowing Dr. Bridger\u2019s initial
+      design, our objective is to create a device that is able to reverse the detrimental
+      effects of climate change and human impact on the environment by converting
+      excess CO2 and other harmful chemicals into a form of breathable air. \r\n\r\nFunding
+      required:\r\nDr Bridger has not only allocated all of the company resources
+      to this project, but he has also contributed a significant amount from his
+      own personal funds to keep the project alive.\r\n\r\nTimespan of Project:\r\nAs
+      a team, we have discussed this in length over the last 3 days. We have allocated
+      1 year, although Dr. Bridger believes that we will be complete within 6 months.\r\n\r\n\r\nAdditional
+      comments:\r\nI am, as a professional, confident that we are able to achieve
+      this goal. Dr. Bridger is renowned for his intelligence, and now that he is
+      dedicated to this project, his problem-solving skills are needed more than
+      ever. We can do this. We have to. \r\n\r\n\r\n\r\nDr. Melanie Wallis, Project
+      Manager\r"
+  - collected: 0
+    format: 0
+    label: Completion
+    title: PROJECT COMPLETION
+    subtitle:
+    - 'Date: 25/12/2055'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Project name: \r\nAchilles, CRU-1200\r\n\r\nProject Details: \r\nA
+      device that is able to convert polluted air into a form of breathable air\r\n\r\nProject
+      Function: \r\nOperational at normal levels\r\n\r\n\r\nAdditional comments:\r\n\r\nI
+      cannot believe it. We have actually done it. \r\n\r\nThe machine works. Everything
+      works. The CRU-1200 is fully functional, and we are already seeing the effects,
+      just weeks later. \r\n\r\nPeople are less sick, waterlines are receding, and
+      studies we have conducted around the atmosphere have shown a drop in polluted
+      air quality by at least 86%. \r\n\r\nWe have achieved the impossible. \r\n\r\nI
+      have no idea what comes for society next, but Dr Bridger is overwhelmed with
+      joy at the success, declaring that big things will come of this creation.\r\nThis
+      is one hell of a Christmas present.\r\n\r\nSigning off, for the last time,\r\n\r\n\r\nDr
+      Melanie Wallis, Assistant Project Manager\r\n"
+  - collected: 0
+    format: 1
+    label: Entry 2
+    title: Entry 2 -  Richards D Bridger
+    subtitle:
+    - 'Date: 20/07/2055'
+    images: []
+    bodyText: "I had a dream.\r\n\r\nA terrifying realization.\r\n\r\nOur world is
+      dying. And it is all my fault.\r\n\r\nWhen I first created Bridger R&D, I strived
+      for a better world, a world for all to live in peace, without famine, war,
+      or poverty. I wanted to revolutionize the world, to make it a place for all
+      to be accepted and embraced. But I have fallen short of that goal. I have realized
+      that my greed has gotten the better of me. I thought I could resist, that I
+      would be immune to vile effects, but I was wrong. I was so very wrong.\r\n\r\nBridger
+      R&D has become a corrupt and harmful corporation, polluting the world with
+      its lies and schemes, infecting the world with its cancerous tendrils that
+      seep into the lowest parts of society. For this, I am ashamed.\r\n\r\nI have
+      a plan. Maybe it will fix the world. Maybe it won\u2019t. But I have to try.
+      \r\n\r\nI, Richard Dimitri Bridger, vow to fix this world. To create a utopia,
+      a world with no problems.\r\n\r\nI will redeem this company. I cannot rely
+      on anyone but myself anymore, so I will lead this new project myself.\r\n\r\nI
+      have designed a prototype device that, in theory, will be able to reverse the
+      negative effects of excess CO2 and convert them into more breathable, less
+      harmful sort of air. If this works, our society will begin to flourish once
+      more, as it takes one of humanity's largest problems off the table. \r\n\r\nPermanently.\r\n\r\nI
+      know who I want to work with on this project. They are trusted, intelligent,
+      and morally ethical in their work. These men and women will be heroes in society
+      upon this project\u2019s completion.\r\n\r\nWhat no one knows as of yet, is
+      that when this is all said and done, I plan to disband Bridger R&D. We, I,
+      have done too much damage to this place, and the only way I see forward, is
+      walking alone. \r\n\r\nNow, I sign off. I have much to do.\r\n\r\nRichard Dimirti
+      Bridger, Founder and CEO of Bridger R&D\r\n"
+  - collected: 0
+    format: 0
+    label: Update #2 - Alt
+    title: Project Achilles Update Report
+    subtitle:
+    - 'Date: 16/10/2055'
+    images:
+    - {fileID: 21300000, guid: 280e8c7e115b72548ad380ac19ade6cf, type: 3}
+    bodyText: "Considering the fact the last 2 months have been as smooth as ever,
+      this update should be minimal. Dr Bridger\u2019s input has helped exponentially.
+      This project would have taken years without him. \r\n\r\nDr Henderson has found
+      an interesting function for the new machine. In its current state, the machine
+      is able to convert used or dirtied solid fuel matter into clean, renewable
+      fuel, meaning that we would be able to recycle types of old fuel and create
+      an endless cycle of fossil fuels. Upon learning about this development, Dr
+      Bridger shut it down, explaining that we were on track and on time and that
+      we didn\u2019t need something as harmful as this to prevent the completion
+      of our goal. I personally agree with his statement, implementing this kind
+      of function could mean devastation across the world. Thankfully, the rest of
+      the team agreed.\r\n\r\nAs stated above, we are very much on schedule. I was
+      proven quite wrong by Dr Bridger, maybe we will get this project completed
+      within the next few months.\r\n\r\nWe will just have to wait and see.\r\n\r\nDr
+      Melanie Wallis, Assistant Project Manager\r\n"
+  - collected: 0
+    format: 2
+    label: 
+    title: 
+    subtitle: []
+    images:
+    - {fileID: 21300000, guid: 8d23921fb269e424ea62a43844924a15, type: 3}
+    bodyText: 
   invTabs:
   - {fileID: 0}
   - {fileID: 0}
@@ -27153,17 +27553,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3244762323962470695}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.166578, y: 1.166578, z: 1.1665784}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7493241327543960539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 67.3, y: 251}
-  m_SizeDelta: {x: 633.27, y: 50}
+  m_AnchoredPosition: {x: 174, y: -352}
+  m_SizeDelta: {x: 621.1218, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7149199844149942713
 CanvasRenderer:
@@ -40074,16 +40474,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800090710215460338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1412135, y: 1.1412135, z: 1.1412138}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2651829586226431565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 56, y: 229}
+  m_AnchoredPosition: {x: 932, y: 347}
   m_SizeDelta: {x: 633.27, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7728170896609761020
@@ -40749,9 +41149,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4859809387736658886}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85720766, y: 0.85720766, z: 0.85720766}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4454945165547109586}
@@ -40759,10 +41159,10 @@ RectTransform:
   - {fileID: 7641174696705387734}
   - {fileID: 6306235903519039921}
   m_Father: {fileID: 8480692371400006071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 28}
+  m_AnchoredPosition: {x: 0, y: 82}
   m_SizeDelta: {x: 1200, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1702700081433955650
@@ -54585,7 +54985,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f5301fad9594bf4199d20bb3f123e53, type: 2}
   m_sharedMaterial: {fileID: -6474702422716211880, guid: 1f5301fad9594bf4199d20bb3f123e53,
@@ -63064,9 +63464,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7121400460337894218}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.87626, y: 0.87626, z: 0.87626}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6460595549930539805}
@@ -63074,10 +63474,10 @@ RectTransform:
   - {fileID: 2336880958726366932}
   - {fileID: 975701381264219807}
   m_Father: {fileID: 8480692371400006071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 47}
+  m_AnchoredPosition: {x: 0, y: 85}
   m_SizeDelta: {x: 1200, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &3147712016062208346
@@ -66734,7 +67134,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Subtitle
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4cbf551d1af9f7841b0d25d288e1f042, type: 2}
   m_sharedMaterial: {fileID: 955180230808492918, guid: 4cbf551d1af9f7841b0d25d288e1f042,
@@ -72734,16 +73134,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8172649526182997361}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.2, y: 5.2, z: 5.2}
+  m_LocalScale: {x: 6.0662055, y: 6.0662055, z: 6.0662074}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7493241327543960539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 347, y: -8}
+  m_AnchoredPosition: {x: 72.32779, y: 404.80276}
   m_SizeDelta: {x: 76.7953, y: 71.984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9200339427574795287
@@ -72761,7 +73161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8172649526182997361}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
