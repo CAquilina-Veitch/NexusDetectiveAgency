@@ -36,14 +36,22 @@ position: -822,-561
 ---
 <<set $firstInteraction = false>>
 
-Melanie: Who are you?
-Melanie: How did you get in here? #melanie01
-
+<<set $audioMelanieNumber = 1>>
+<<playvoicemel DialogueManager>>
+Melanie: Who are you? How did you get in here? #melanie01
 ->	Could say the same.
-		Max: Could say the same thing about you.
+		<<set $audioMaxNumber = 1>>
+		<<playvoicemax DialogueManager>>
+		Max: Could say the same thing about you. #max01
+		<<set $audioMelanieNumber = 2>>
+		<<playvoicemel DialogueManager>>
 		Melanie: Well I work here, I'm allowed to be here. #melanie02
 ->	I'm Detective Max.
+		<<set $audioMaxNumber = 2>>
+		<<playvoicemax DialogueManager>>
 		Max: My name is Max, I'm a detective.
+		<<set $audioMelanieNumber = 3>>
+		<<playvoicemel DialogueManager>>
 		Melanie: Well Max, you know you are trespassing, right? #melanie03
 <<jump TalkingToMelanie2>>
 ===
@@ -124,7 +132,6 @@ DEBUG: Did Max find the required documents?
 
 
 title: MelanieRepeat
-position:
 position: 265,-442
 ---
 
@@ -177,7 +184,6 @@ Melanie: You certainly are good at your job. But fixing this machine is impossib
 
 
 title: MelaniePassTree
-position:
 position: 7,-94
 ---
 
