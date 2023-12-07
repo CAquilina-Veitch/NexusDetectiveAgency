@@ -129,7 +129,7 @@ MonoBehaviour:
   cam: {fileID: 382099104384174653}
   handCam: {fileID: 2694225915703823078}
   camTransform: {fileID: 2241903336952265849}
-  anim: {fileID: 0}
+  anim: {fileID: 4065847376769777368}
   audioListener: {fileID: 7417749774899284831}
 --- !u!114 &7476325078986411323
 MonoBehaviour:

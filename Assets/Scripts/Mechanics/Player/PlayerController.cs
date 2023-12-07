@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -8,7 +9,7 @@ public enum Dimension { Cyberpunk, Steampunk, Noir}
 public enum GroundType { normal, concrete, metal, wood, dirt}
 public class PlayerController : MonoBehaviour
 {
-    
+    GameObject lastInteracted;
     [Space(20)]
     [Header("Dependencies")]
     [Space(10)]
@@ -64,7 +65,9 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
 
     float pitch, yaw;
-   
+    bool mouseManualControlled = true;
+
+
     [Space(10)]
     public Dimension currentPlayerDimension;
     [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
@@ -72,7 +75,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] LayerMask isntPlayerMask;
     bool inventoryOpen = false;
-
 
 
 
@@ -416,9 +418,74 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.GetComponent<Button>() != null)
             {
                 hit.collider.GetComponent<Button>().Activate();
+                lastInteracted = hit.collider.gameObject;
+                StartCoroutine(LockOn(lastInteracted.transform.position, 4.125f));
+
             }
         }
     }
+
+    public void HackTriggerable()
+    {
+        currentPlayer.anim.SetTrigger("Hack");
+        StartCoroutine(LockOn(lastInteracted.transform.position, 4.125f));
+    }
+
+    IEnumerator LockOn(Vector3 pos, float duration)
+    {
+        float LockLength = 0.25f;
+        EnableControls(false);
+        float d = duration > LockLength ? LockLength : duration;
+        Quaternion LookRotation = Quaternion.LookRotation(pos - currentPlayer.cam.transform.position);
+        duration -= d;
+        Vector2 pitchYaw = new Vector2(pitch, yaw );
+
+        Quaternion qStart = Quaternion.Euler(pitchYaw);
+        Quaternion qGoal = LookRotation;
+        Quaternion qCurrent = qStart;
+
+
+
+        while (d > 0)
+        {
+            qCurrent = Quaternion.Lerp(qCurrent, qGoal, 1 - (d / LockLength));
+            currentPlayer.transform.rotation = Quaternion.Euler(0, qCurrent.eulerAngles.y, 0);
+            currentPlayer.camTransform.localRotation = Quaternion.Euler(qCurrent.eulerAngles.x, 0, 0);
+            d -= Time.deltaTime;
+            yield return null;
+        }
+        currentPlayer.transform.rotation = Quaternion.Euler(0, qGoal.eulerAngles.y, 0);
+        currentPlayer.camTransform.localRotation = Quaternion.Euler(qGoal.eulerAngles.x, 0, 0);
+
+        d = duration > LockLength ? LockLength : duration;
+        duration -= d;
+        yield return new WaitForSeconds(duration);
+        
+        while (d > 0)
+        {
+            qCurrent = Quaternion.Lerp(qCurrent, qStart, 1 - (d / LockLength));
+            currentPlayer.transform.rotation = Quaternion.Euler(0, qCurrent.eulerAngles.y, 0);
+            currentPlayer.camTransform.localRotation = Quaternion.Euler(qCurrent.eulerAngles.x, 0, 0);
+            d -= Time.deltaTime;
+            yield return null;
+        }
+
+        currentPlayer.transform.rotation = Quaternion.Euler(0, qStart.eulerAngles.y, 0);
+        currentPlayer.camTransform.localRotation = Quaternion.Euler(qStart.eulerAngles.x, 0, 0);
+
+
+
+
+
+
+
+
+
+        EnableControls(true);
+
+
+    }
+
 
 
 
@@ -459,7 +526,8 @@ public class PlayerController : MonoBehaviour
     {
         if (dronePosValid)
         {
-            if(currentDronePlatformPrefab != null)
+            currentPlayer.anim.SetTrigger("Point");
+            if (currentDronePlatformPrefab != null)
             {
                 currentDronePlatformPrefab.StartFlyingUp();
             }
@@ -796,15 +864,21 @@ public class PlayerController : MonoBehaviour
             loreInv.openInvCanvas();
         }
 
-        mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
-        pitch += mouseInput.y;
-        yaw += mouseInput.x;
-        pitch = Mathf.Clamp(pitch, -90, 90);
-        foreach(Player p in players)
+        if(mouseManualControlled)
         {
-            p.transform.rotation = Quaternion.Euler(0, yaw, 0);
-            p.camTransform.localRotation = Quaternion.Euler(pitch, 0, 0);
+
+            mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
+            pitch += mouseInput.y;
+            yaw += mouseInput.x;
+            pitch = Mathf.Clamp(pitch, -90, 90);
+            foreach (Player p in players)
+            {
+                p.transform.rotation = Quaternion.Euler(0, yaw, 0);
+                p.camTransform.localRotation = Quaternion.Euler(pitch, 0, 0);
+            }
+
         }
+
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
         moveInput.Normalize();
@@ -818,6 +892,7 @@ public class PlayerController : MonoBehaviour
 
     public void EnableControls(bool to)
     {
+        mouseManualControlled = to;
         sensitivity = to ? 1 : 0;
         speed = to ? 6 : 0;
     }
