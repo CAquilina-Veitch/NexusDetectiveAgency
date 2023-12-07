@@ -417,9 +417,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Did Hit Button {hit.collider.gameObject.name}");
             if (hit.collider.GetComponent<Button>() != null)
             {
-                hit.collider.GetComponent<Button>().Activate();
                 lastInteracted = hit.collider.gameObject;
-                StartCoroutine(LockOn(lastInteracted.transform.position, 4.125f));
+                hit.collider.GetComponent<Button>().Activate();
 
             }
         }
