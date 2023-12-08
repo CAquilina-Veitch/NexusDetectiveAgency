@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,13 +15,45 @@ public class DialogueManager : MonoBehaviour
     FMOD.Studio.EventInstance maxVoice;                //FMOD instance of Max's audio
     public string melanieVoicePath;                    //Path to Melanie's voice lines in FMOD
     public string maxVoicePath;                        //Path to Max's voice lines in FMOD
+
+    public Transform melanieTran;
+    public Transform maxTran;
+
+    public Animator melanieAnim;
     
     private void Awake()
     {
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();              //Finds variables within Yarn
-        dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();             //Finds Yarn's Dialogue Runner
-        melanieVoice = FMODUnity.RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
-        maxVoice = FMODUnity.RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
+        dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
+        melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
+        maxVoice = RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
+
+
+    }
+
+    private void Update()
+    {
+        RuntimeManager.AttachInstanceToGameObject(melanieVoice, melanieTran);
+        RuntimeManager.AttachInstanceToGameObject(maxVoice, maxTran);
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            StartMelConvo();
+        }
+    }
+
+     
+
+    public void StartMelConvo()
+    {
+        melanieAnim.SetTrigger("Start Dialogue");
+        StartCoroutine(DelayDialogueStart());
+        
+    }
+    IEnumerator DelayDialogueStart()
+    {
+        yield return new WaitForSeconds(11.25f);
+        dialogueRunner.StartDialogue("MelanieDialogue");
     }
 
     [YarnCommand("playvoicemel")]                                                   //Creates a custom Command in Yarn
@@ -28,9 +61,16 @@ public class DialogueManager : MonoBehaviour
     {
         float voiceID;
         variableStorage.TryGetValue("$audioMelanieNumber", out voiceID);            //Retrieves Yarn's written voice line as a number
-        melanieVoice.setParameterByName("MelanieLine", voiceID);                    //Sends that number to FMOD to determine a voice line
-        melanieVoice.start();                                                       //Play sound in FMOD
-        Debug.Log($"Melanie Animation: {voiceID}");                                 //Play animation here
+        variableStorage.TryGetValue("$AudioCutOut", out bool cut);
+        if (!cut)
+        {
+            melanieVoice.setParameterByName("MelanieLine", voiceID);                    //Sends that number to FMOD to determine a voice line
+            melanieVoice.start();                                                       //Play sound in FMOD
+        }
+        melanieAnim.SetInteger("Dialogue Stage", (int)voiceID);
+        melanieAnim.SetTrigger("Dialogue Trigger");
+
+        //Debug.Log($"Melanie Animation: {voiceID}");                                 //Play animation here
     }
     [YarnCommand("playvoicemax")]
     public void SetMaxID()

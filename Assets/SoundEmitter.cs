@@ -12,7 +12,7 @@ public class SoundEmitter : MonoBehaviour
     [SerializeField] string eventString;
 
     //StudioEventEmitter objSound;
-    public void Awake()
+    public void Start()
     {
         //objSound = GetComponent<StudioEventEmitter>();
         soundInst = RuntimeManager.CreateInstance(eventString);

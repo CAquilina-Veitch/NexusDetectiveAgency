@@ -9,13 +9,14 @@ position: -1013,-832
 <<declare $firstInteraction = true>>
 <<declare $FetchDocFound = false>>
 <<declare $MealnieActive = true>>
+<<declare $AudioCutOut = false>>
 
-DEBUG: How many documents has the player found?
-->	Only a few.
-		<<set $documentsFound to 1>>
-->	Enough to proceed.
-		<<set $documentsFound to 5>>
-<<wait 1>>
+//DEBUG: How many documents has the player found?
+//->	Only a few.
+//		<<set $documentsFound to 1>>
+//->	Enough to proceed.
+//		<<set $documentsFound to 5>>
+//<<wait 1>>
 <<jump MelanieInteract>>
 ===
 
@@ -61,12 +62,16 @@ title: TalkingToMelanie2
 position:
 position: -822,-286
 ---
+<<set $audioMelanieNumber = 4>>
+<<playvoicemel DialogueManager>>
 Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
+		<<set $AudioCutOut = true>>
 		Max: Not so fast. I need to see the device you've been working on. #max03
 		<<jump TalkingToMelanie3>>
 ->	Fine (Leave).
+		<<set $AudioCutOut = true>>
 		Max: Well alright then. #max04
 		<<wait  1>>
 		<<jump MelanieExit>>
@@ -76,11 +81,15 @@ Melanie: You'll be leaving now. Before I call security. #melanie04
 title: TalkingToMelanie3
 position: -823,-92
 ---
-Melanie: What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
+<<set $audioMelanieNumber = 5>>
+<<playvoicemel DialogueManager>>
+Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
 
 ->	There's something here.
 		Max: I know there' i's something else here. And I know it's affecting this world. #max05
 
+<<set $audioMelanieNumber = 6>>
+<<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
 <<if $documentsFound < 5 >>
 		<<jump MelanieFail>>

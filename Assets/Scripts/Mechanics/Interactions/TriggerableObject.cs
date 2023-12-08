@@ -70,11 +70,13 @@ public class TriggerableObject : MonoBehaviour
 
         foreach (Button button in buttons)
         {
-            if (button.trigger == null)
+            if (button != null)
             {
-                button.trigger = this;
+                if (button.trigger == null)
+                {
+                    button.trigger = this;
+                }
             }
-
         }
         foreach (Repairable rep in requiredRepairs)
         {

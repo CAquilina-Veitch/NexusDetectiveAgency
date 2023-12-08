@@ -821,7 +821,8 @@ public class PlayerController : MonoBehaviour
 
         if (currentPlayerDimension == Dimension.Cyberpunk)
         {
-
+
+
             if (Input.GetKeyDown(dimensionSwapKey))
             {
                 switchDimension(Dimension.Steampunk);
@@ -838,7 +839,8 @@ public class PlayerController : MonoBehaviour
 
         }
         else if (currentPlayerDimension == Dimension.Steampunk)
-        {
+        {
+
             if (Input.GetKeyDown(dimensionSwapKey))
             {
                 switchDimension(Dimension.Cyberpunk);
