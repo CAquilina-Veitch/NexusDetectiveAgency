@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5387cf93-ab14-4036-82c8-42604326752e}">
+		<property name="name">
+			<value>MaxPuzzles</value>
+		</property>
+		<relationship name="folder">
+			<destination>{66a416a9-7212-44ac-9346-1810941a7f88}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ac0f167e-5eed-4338-a698-0087ba9bc214}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ac0f167e-5eed-4338-a698-0087ba9bc214}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="minimum">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>24</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
