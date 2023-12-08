@@ -1,0 +1,80 @@
+﻿title: MaxSoloDialogue
+tags:
+position: -24,-23
+---
+
+===
+
+
+title: 01MaxCollectible
+tags:
+position: -95,-209
+---
+Max: I'd better have a look around. Might be some information I can use.
+<<stop>>
+===
+
+
+title: 02MaxCollectible
+tags:
+position: -95,-209
+---
+Max: Hmm... I'd better try and find some more documents.
+<<stop>>
+===
+
+
+title: 03MaxCollectible
+tags:
+position: -95,-209
+---
+Max: I wonder if there's any more files lying around.
+<<stop>>
+===
+
+
+title: 04MaxDimBlocked
+tags:
+position: -95,-209
+---
+Max: Augh, something's blocking my path.
+<<stop>>
+===
+
+
+title: 05MaxDimBlocked
+tags:
+position: -95,-209
+---
+Max: I think there might be something in the way.
+<<stop>>
+===
+
+
+title: 06MaxDimBlocked
+tags:
+position: -95,-209
+---
+Max: Huh, strange... I'd wonder if I'd warp into a flowerpot or something.
+<<stop>>
+===
+
+
+title: 07MaxDimBlocked
+tags:
+position:
+---
+Max: Clearly I need to move before changing.
+<<stop>>
+===
+
+
+title: 08MaxTerminalFirst
+tags:
+position:
+---
+Max: Interesting, a... computer? Might be worth a look.
+<<stop>>
+===
+
+

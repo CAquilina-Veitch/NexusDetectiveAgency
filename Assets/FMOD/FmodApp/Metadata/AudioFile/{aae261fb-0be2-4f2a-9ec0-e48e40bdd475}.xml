@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{aae261fb-0be2-4f2a-9ec0-e48e40bdd475}">
+		<property name="assetPath">
+			<value>Audio/Objects/Interaction/PressurePadClick.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.57793650793650797</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>
+		</relationship>
+	</object>
+</objects>

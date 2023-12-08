@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5651c92b-5aec-417f-982f-a786d13037f6}">
+		<property name="assetPath">
+			<value>Audio/Ambience/WaterAmbience.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>120.22676041666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>
+		</relationship>
+	</object>
+</objects>

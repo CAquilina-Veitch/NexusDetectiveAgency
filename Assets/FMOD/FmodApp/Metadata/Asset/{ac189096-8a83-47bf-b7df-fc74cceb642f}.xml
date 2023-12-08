@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{ac189096-8a83-47bf-b7df-fc74cceb642f}">
+		<property name="assetPath">
+			<value>Audio/Abilities/DimensionSwap/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>
+		</relationship>
+	</object>
+</objects>

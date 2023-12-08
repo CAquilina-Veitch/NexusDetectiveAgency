@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{59c1a94c-4d1f-4dfb-8c76-e180b72b00ce}">
+		<property name="assetPath">
+			<value>Audio/Dialogue/Max/With Melanie/06MaxToMelMASTER.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.2031666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>
+		</relationship>
+	</object>
+</objects>

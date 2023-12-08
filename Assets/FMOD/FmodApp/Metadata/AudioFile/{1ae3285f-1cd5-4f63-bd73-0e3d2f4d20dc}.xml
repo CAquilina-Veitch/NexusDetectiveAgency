@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1ae3285f-1cd5-4f63-bd73-0e3d2f4d20dc}">
+		<property name="assetPath">
+			<value>Audio/Dialogue/Max/Puzzles/16MaxPuzzleSolvedMASTER.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4528125000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{cda3d910-e143-467e-a3ea-09c76f203762}</destination>
+		</relationship>
+	</object>
+</objects>
