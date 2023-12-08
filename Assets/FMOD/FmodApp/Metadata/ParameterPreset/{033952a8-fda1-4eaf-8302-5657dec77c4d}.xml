@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{033952a8-fda1-4eaf-8302-5657dec77c4d}">
+		<property name="name">
+			<value>MaxMovement</value>
+		</property>
+		<relationship name="folder">
+			<destination>{66a416a9-7212-44ac-9346-1810941a7f88}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{29731ea7-7165-47ec-b892-50394c136c74}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{29731ea7-7165-47ec-b892-50394c136c74}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>maxHurt</value>
+			<value>maxJump</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
