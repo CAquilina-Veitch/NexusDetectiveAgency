@@ -67,6 +67,10 @@ public class DialogueManager : MonoBehaviour
             melanieVoice.setParameterByName("MelanieLine", voiceID);                    //Sends that number to FMOD to determine a voice line
             melanieVoice.start();                                                       //Play sound in FMOD
         }
+        else
+        {
+            voiceID += 10;
+        }
         melanieAnim.SetInteger("Dialogue Stage", (int)voiceID);
         melanieAnim.SetTrigger("Dialogue Trigger");
 
