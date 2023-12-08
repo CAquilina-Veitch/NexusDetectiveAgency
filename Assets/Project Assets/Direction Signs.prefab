@@ -27,15 +27,15 @@ RectTransform:
   m_GameObject: {fileID: 801926787077952815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
-  m_LocalScale: {x: 0.7836406, y: 1.1948951, z: 0.7836406}
+  m_LocalScale: {x: 0.54814094, y: 0.83580524, z: 0.54814094}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2582309882881010078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.12, y: -141}
-  m_SizeDelta: {x: 232.31, y: 50}
+  m_AnchoredPosition: {x: -10.5, y: -227.8}
+  m_SizeDelta: {x: 265.87, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &316925309509391341
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Text Here
+  m_text: Loading Docks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afc9c91ddfe438c48b52dba05c91a13d, type: 2}
   m_sharedMaterial: {fileID: 428342864083185332, guid: afc9c91ddfe438c48b52dba05c91a13d,
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.1
-  m_fontSizeBase: 20.1
+  m_fontSize: 27.9
+  m_fontSizeBase: 27.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.2, y: -118.1}
+  m_AnchoredPosition: {x: 78.5, y: -169.8}
   m_SizeDelta: {x: 158.34, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8377235767171722368
@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.12, y: -84}
+  m_AnchoredPosition: {x: -11.12, y: -133.80005}
   m_SizeDelta: {x: 232.31, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1879270861243530065
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Text Here
+  m_text: Waste Management
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afc9c91ddfe438c48b52dba05c91a13d, type: 2}
   m_sharedMaterial: {fileID: 428342864083185332, guid: afc9c91ddfe438c48b52dba05c91a13d,
@@ -530,7 +530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1764137708830248935
 RectTransform:
   m_ObjectHideFlags: 0
@@ -817,7 +817,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.2, y: -202.8}
+  m_AnchoredPosition: {x: 57.1, y: -260.6}
   m_SizeDelta: {x: 158.34, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6251823539395035425
@@ -952,8 +952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.12, y: -20}
-  m_SizeDelta: {x: 232.31, y: 50}
+  m_AnchoredPosition: {x: -12.7, y: -11}
+  m_SizeDelta: {x: 179.93, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5791415839185620208
 CanvasRenderer:
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Text Here
+  m_text: New Equipment Registry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afc9c91ddfe438c48b52dba05c91a13d, type: 2}
   m_sharedMaterial: {fileID: 428342864083185332, guid: afc9c91ddfe438c48b52dba05c91a13d,
@@ -1011,8 +1011,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.1
-  m_fontSizeBase: 20.1
+  m_fontSize: 18.4
+  m_fontSizeBase: 18.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1115,7 +1115,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9a6324e9481706b40b538094ea4523b4, type: 2}
+  - {fileID: 2100000, guid: c4ed50e1594718140aed3b0ab9905911, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

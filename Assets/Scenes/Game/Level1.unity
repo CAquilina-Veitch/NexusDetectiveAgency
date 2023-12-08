@@ -69649,35 +69649,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 494852401876475461, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -88
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700110117507174732, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_text
-      value: New Equipment Registry
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700110117507174732, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 18.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2700110117507174732, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 18.4
-      objectReference: {fileID: 0}
     - target: {fileID: 4776291530743115789, guid: d81bed79a739ae749b0d388a7b78bf68,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.309
+      value: 54.471
       objectReference: {fileID: 0}
     - target: {fileID: 4776291530743115789, guid: d81bed79a739ae749b0d388a7b78bf68,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.286
+      value: 1.979
       objectReference: {fileID: 0}
     - target: {fileID: 4776291530743115789, guid: d81bed79a739ae749b0d388a7b78bf68,
         type: 3}
@@ -69719,45 +69699,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5732210267792384988, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_text
-      value: Waste Management
-      objectReference: {fileID: 0}
-    - target: {fileID: 6282537909405698833, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 73.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6282537909405698833, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -124
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319788411178102138, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -145
-      objectReference: {fileID: 0}
     - target: {fileID: 7700217293655480550, guid: d81bed79a739ae749b0d388a7b78bf68,
         type: 3}
       propertyPath: m_Name
       value: Direction Signs
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073438467967177512, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 179.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073438467967177512, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -12.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073438467967177512, guid: d81bed79a739ae749b0d388a7b78bf68,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
