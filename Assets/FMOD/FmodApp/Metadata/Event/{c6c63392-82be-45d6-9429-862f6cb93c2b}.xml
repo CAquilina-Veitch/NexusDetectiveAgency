@@ -5,7 +5,7 @@
 			<value>EventPressurePad</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{08019435-551a-4637-9b0f-df33b6bb1f21}</destination>
@@ -151,6 +151,7 @@
 	<object class="MixerBusEffectChain" id="{11727238-84ea-4b28-bcfd-9584dd46635d}">
 		<relationship name="effects">
 			<destination>{27c158b8-6611-4e18-86e7-bd65db5a4b81}</destination>
+			<destination>{c2640e0d-3048-4b89-80a7-dd668a0b18e2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0bdf5a8a-ffb6-424c-b4f5-24f2a8cae46c}" />
@@ -186,6 +187,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{540d945c-bdb3-43d0-8c41-accadd24a4b9}" />
 	<object class="MixerBusFader" id="{27c158b8-6611-4e18-86e7-bd65db5a4b81}" />
+	<object class="SpatialiserEffect" id="{c2640e0d-3048-4b89-80a7-dd668a0b18e2}" />
 	<object class="ThreeEQEffect" id="{0f6f4f3d-b22c-4de9-95ac-83af4a6889ed}">
 		<property name="midGain">
 			<value>-7</value>
