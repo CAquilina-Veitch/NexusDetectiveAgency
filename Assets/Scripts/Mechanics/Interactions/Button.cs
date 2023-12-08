@@ -5,13 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [AddComponentMenu("Nexus Detective Agency Components/ Triggers/ Pressable Button")]
-
+[RequireComponent(typeof(SoundEmitter))]
 
 public class Button : MonoBehaviour
 {
     public TriggerableObject trigger;
     [SerializeField] Animator animator;
-
+    [SerializeField] SoundEmitter soundEmitter;
 
 
     private void Awake()
@@ -25,6 +25,7 @@ public class Button : MonoBehaviour
 
     public void Activate()
     {
+        soundEmitter.StartSound();
         trigger.Triggered();
         animator.SetTrigger("Pressed");
         

@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(TriggerableObject))]
 
-
-
-
-
 public class MechanicalDoor : MonoBehaviour
 {
+    [SerializeField] SoundEmitter soundEmitter;
+
     [TextArea(1,20)]
     [Tooltip("Doesn't do anything. Just comments shown in inspector")]
      public string Note = "This is a 'mechanical' door, meaning its triggered remotely and cant be opened by hand.\r\n\r\nTimeOpen controls how long the door will stay open before closing, set the number to 0 if you want it to stay open indefinitely.\r\n\r\nConnect this components ToggleOpen to the triggerable object event, either to toggle or specify open/close with bool parameter\r\n\r\n\r\nThis component will need a collider to operate; can be any type. ";
@@ -52,6 +51,7 @@ public class MechanicalDoor : MonoBehaviour
     }
     public void ToggleOpen(bool to)
     {
+        soundEmitter.StartSound();
         isOpen = to;
         cldr.enabled = !isOpen;//cud change
 
@@ -70,10 +70,6 @@ public class MechanicalDoor : MonoBehaviour
             animator.SetTrigger("Close");
             closeAction.Invoke();
         }
-
-
-
-
     }
     IEnumerator Reclose()
     {

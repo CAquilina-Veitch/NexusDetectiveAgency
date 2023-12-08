@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1223616444825486642}
   - component: {fileID: 6951438485988576516}
   - component: {fileID: 5981824810707782706}
-  m_Layer: 0
+  - component: {fileID: 4701043386796028324}
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,11 +74,13 @@ MonoBehaviour:
   Note: "if the mode is set to pulse, the button will do the on action every press,
     then off after pulselength, but toggle will do on then off then on etc. \r\n\r\nPressure
     plates use toggle, with leaving the plate being the off,  pulselength is "
-  buttons: []
-  pressurePlates: []
-  mode: 0
+  buttons:
+  - {fileID: 0}
+  pressurePlates:
+  - {fileID: 0}
+  mode: 2
   requiredRepairs: []
-  pulseLength: 0
+  pulseLength: 1e+11
   triggerOnActions:
     m_PersistentCalls:
       m_Calls:
@@ -88,6 +91,19 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 23cfd829e2ed7294c8cde7ff51fd129a,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -108,6 +124,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_sharedMaterial
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: ed9d399e9955378489f716a6476b4ec8,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canBeRemotelyActivated: 0
   uiIcon: {fileID: 0}
 --- !u!114 &6951438485988576516
@@ -122,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5e89400236b92498d15840936664f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEmitter: {fileID: 4701043386796028324}
   Note: 'This is a ''mechanical'' door, meaning its triggered remotely and cant be
     opened by hand.
 
@@ -158,6 +188,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: 23cfd829e2ed7294c8cde7ff51fd129a,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   closeAction:
     m_PersistentCalls:
       m_Calls:
@@ -173,6 +228,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
   animator: {fileID: 5981824810707782706}
 --- !u!95 &5981824810707782706
 Animator:
@@ -195,6 +262,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4701043386796028324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391740118325499847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c532ca8a1360b74eb8aedcd3961e4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventString: event:/Objects/EventTechDoor3D
 --- !u!1 &5378418950536243257
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3812614903952713402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DoorObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,6 +386,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: airlockDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 14dc71866a53d5b4dbc1ab595317cded,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -394,6 +479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: airlockDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 14dc71866a53d5b4dbc1ab595317cded,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

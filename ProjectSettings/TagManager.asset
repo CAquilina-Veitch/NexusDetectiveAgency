@@ -9,6 +9,7 @@ TagManager:
   - Sound
   - PlayerController
   - UIManager
+  - TrigDeath
   layers:
   - Default
   - TransparentFX

@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 2489170739014399132}
   - component: {fileID: 6831538060496289767}
   - component: {fileID: 6934631575043307014}
+  - component: {fileID: 1707986191238205593}
+  - component: {fileID: 5209008699587016516}
   m_Layer: 0
   m_Name: Door Button
   m_TagString: Untagged
@@ -205,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
   animator: {fileID: 6934631575043307014}
+  soundEmitter: {fileID: 5209008699587016516}
 --- !u!95 &6934631575043307014
 Animator:
   serializedVersion: 5
@@ -226,3 +229,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1707986191238205593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902452876818131213}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1832140834
+      Data2: 1305177492
+      Data3: -1162435697
+      Data4: 1416241369
+    Path: event:/Objects/EventButtonPress
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5209008699587016516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902452876818131213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c532ca8a1360b74eb8aedcd3961e4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventString: event:/Objects/EventButtonPress

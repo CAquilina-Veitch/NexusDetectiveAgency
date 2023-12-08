@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask isntPlayerMask;
     bool inventoryOpen = false;
 
-
+    [SerializeField] GameObject listenerObj;
 
     [Space(20)]
     [Header("Controls")]
@@ -251,9 +251,10 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             players[i].SwitchTo(i == (int)currentPlayerDimension);
-            //rigidbodys[i].isKinematic = (i != currentPlayerDimension);
         }
         ChangeGrabParent();
+        //ChangeListenerPosition();
+        
     }
     bool canSwitch = true;
     public IEnumerator dimensionSwitch(Dimension to)
@@ -406,6 +407,10 @@ public class PlayerController : MonoBehaviour
             currentHeldItem.transform.position = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * heldItemArmLength;
         }
         
+    }
+    void ChangeListenerPosition()
+    {
+        listenerObj.transform.position = currentPlayer.camTransform.position;
     }
 
     void PressButton()

@@ -1,14 +1,17 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 [AddComponentMenu("Nexus Detective Agency Components/ Triggers/ Pressure Plate")]
+[RequireComponent(typeof(SoundEmitter))]
 
 public class PressurePlate : MonoBehaviour
 {
     public TriggerableObject trigger;
     [SerializeField] Animator animator;
+    [SerializeField] SoundEmitter soundEmitter;
 
     private void Awake()
     {
@@ -58,6 +61,7 @@ public class PressurePlate : MonoBehaviour
                 isPressed = false;
                 trigger.Triggered();
                 animator.SetTrigger("Unpress");
+                soundEmitter.StartSound();
             }
         }
         else
@@ -67,7 +71,7 @@ public class PressurePlate : MonoBehaviour
                 isPressed = true;
                 trigger.Triggered();
                 animator.SetTrigger("Press");
-
+                soundEmitter.StartSound();
 
             }
         }
