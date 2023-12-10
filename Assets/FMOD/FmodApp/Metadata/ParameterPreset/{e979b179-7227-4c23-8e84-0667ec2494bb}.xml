@@ -13,17 +13,10 @@
 	</object>
 	<object class="GameParameter" id="{d21191ff-f94a-44ef-92b8-9a28ddd6fece}">
 		<property name="parameterType">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="maximum">
 			<value>2</value>
-		</property>
-		<property name="enumerationLabels">
-			<value>DimCyber</value>
-			<value>DimSolar</value>
-		</property>
-		<property name="isHeld">
-			<value>true</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
