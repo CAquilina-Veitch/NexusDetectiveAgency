@@ -78,7 +78,7 @@ public class LoreInventory : MonoBehaviour
     }
     public void Set(PlayerController p)
     {
-        isDetective= false;
+        isDetective = false;
         player = p;
     }
 
@@ -91,7 +91,21 @@ public class LoreInventory : MonoBehaviour
         Debug.Log(i);
         openingLeather = i;
         StartCoroutine(CloseCanvasGroup(leatherCanvasGroup));
-        StartCoroutine(OpenCanvasGroup(realityCanvasGroup));
+
+
+
+        if (i < 2)
+        {
+            StartCoroutine(OpenCanvasGroup(realityCanvasGroup));
+        }
+        else
+        {
+            openingDimension = Dimension.Noir;
+            changeTabTitles();
+            StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
+        }
+
+
     }
 
     public void ChooseReality(int d)
@@ -103,11 +117,23 @@ public class LoreInventory : MonoBehaviour
         StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
     }
 
+    public void TabPressed(int e)
+    {
+        Debug.Log(e);
+        if (e < loreIDs.Count)
+        {
+            SwitchCurrentLore(loreIDs[e]);
+            Debug.Log(e);
+        }
+    }
+
+
+    List<int> loreIDs = new List<int>();
     public void changeTabTitles()
     {
-        List<int> loreIDs = new List<int>();
+        loreIDs = new List<int>();
 
-        for(int i = 0; i<allLore.Count; i++)
+        for (int i = 0; i<allLore.Count; i++)
         {
             if (allLore[i].leather == openingLeather && allLore[i].reality == openingDimension)
             {
@@ -124,7 +150,7 @@ public class LoreInventory : MonoBehaviour
             else
             {
                 invTabs[i].gameObject.SetActive(true);
-                invTabs[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
+                invTabs[i].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
             }
             
         }
@@ -284,6 +310,7 @@ public class LoreInventory : MonoBehaviour
         {
             return;
         }
+        Debug.LogError(to);
         int from = currentTab;
         currentTab = to;
         StartCoroutine(switchAnimation(from, to));
@@ -334,6 +361,7 @@ public class LoreInventory : MonoBehaviour
 
     IEnumerator switchAnimation(int from, int to)
     {
+        Debug.Log("to");
         float timer = 0;
         if (from >= 0)
         {
@@ -345,12 +373,10 @@ public class LoreInventory : MonoBehaviour
             {
                 float alpha = Mathf.Lerp(1f, 0f, timer / fadeDuration);
                 infoPagef.alpha = alpha;
-                invTabs[from].color = Color.Lerp(tabColours[0], tabColours[1], timer / fadeDuration);
                 timer += Time.deltaTime;
                 yield return null;
             }
             infoPagef.alpha = 0;
-            invTabs[from].color = tabColours[1];
         }
 
 
@@ -375,13 +401,11 @@ public class LoreInventory : MonoBehaviour
         {
             float alpha = Mathf.Lerp(0f, 1f, timer / fadeDuration);
             infoPaget.alpha = alpha;
-            invTabs[to].color = Color.Lerp(tabColours[1], tabColours[0], timer / fadeDuration);
             timer += Time.deltaTime;
             yield return null;
         }
 
         infoPaget.alpha = 1;
-        invTabs[to].color = tabColours[0];
 
 
     }
