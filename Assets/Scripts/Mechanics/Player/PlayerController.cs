@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] LoreInventory loreInv;
     [SerializeField] Player[] players = new Player[2];
+
+
+    [SerializeField] GameObject tinyPlatform;
     public ref Player currentPlayer
     {
         get
@@ -587,26 +590,18 @@ public class PlayerController : MonoBehaviour
 
     void ShowWheel()
     {
-        UIM.ToggleUI("Remote Interaction", true);
-        ShowMouse(true);
         currentPlayer.anim.SetTrigger("HoverHand");
+        StartCoroutine(showTinyPlatform());
 
     }
-
-    void HideWheel()
+    IEnumerator showTinyPlatform()
     {
-        int selectedNum = GetMouseOverNumber();
-        if (selectedNum!=-1)
-        {
-            CollectedActions[selectedNum].Triggered();
-        }
-
-        UIM.ToggleUI("Remote Interaction", false);
-        ShowMouse(false);
-        currentPlayer.anim.SetTrigger("HoverDown");
-
-
+        yield return new WaitForSeconds(1.07f);
+        tinyPlatform.SetActive(true);
+        yield return new WaitForSeconds(0.99f);
+        tinyPlatform.SetActive(false);
     }
+
 
     int GetMouseOverNumber()
     {
@@ -838,10 +833,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(abilityKey))
             {
                 ShowWheel();
-            }
-            if (Input.GetKeyUp(abilityKey))
-            {
-                HideWheel();
             }
 
 
