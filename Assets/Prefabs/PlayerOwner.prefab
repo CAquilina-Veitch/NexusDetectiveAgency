@@ -33345,13 +33345,14 @@ MonoBehaviour:
   players:
   - {fileID: 3333471694815432311}
   - {fileID: 3903506513667267351}
+  tinyPlatform: {fileID: 0}
   jumpKey: 32
   dimensionSwapKey: 101
   abilityKey: 113
   readLoreKey: 120
-  openInventoryKey: 103
-  grabHoldableKey: 323
-  buttonPressKey: 324
+  openInventoryKey: 105
+  grabHoldableKey: 324
+  buttonPressKey: 323
   currentPlayerDimension: 0
   dimensionalDiffPosition: {x: 0, y: 0, z: -78}
   startingPos: {x: 31.3, y: 1, z: 74.5}
@@ -33377,7 +33378,7 @@ MonoBehaviour:
   currentHeldItem: {fileID: 0}
   armReach: 4
   heldItemArmLength: 3
-  dimensionalUnavailableWarning: {fileID: 0}
+  dimensionalUnavailableWarning: {fileID: 2605754260678944265}
   dimensionalUnavailableWarningDuration: 1
   dronePlatformPrefab: {fileID: 2563633134111047803, guid: e53aa19c410066844bf029be2cf44fbc,
     type: 3}
