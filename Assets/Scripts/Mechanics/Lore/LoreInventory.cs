@@ -94,6 +94,7 @@ public class LoreInventory : MonoBehaviour
     public Dimension openingDimension;
     public void ChooseLeather(int i)
     {
+        Debug.Log(i);
         openingLeather = i;
         StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
         StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
@@ -118,9 +119,13 @@ public class LoreInventory : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+
+        cnvsG.blocksRaycasts = true;
+        cnvsG.alpha = 1;
     }    
     IEnumerator CloseCanvasGroup(CanvasGroup cnvsG)
     {
+        cnvsG.blocksRaycasts = false;
         float timer = 0;
         float from = cnvsG.alpha;
         while (timer < fadeDuration)
@@ -130,6 +135,8 @@ public class LoreInventory : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        cnvsG.alpha = 0;
+
     }
 
 
