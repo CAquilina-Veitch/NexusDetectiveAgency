@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Repairable : MonoBehaviour
 {
+    [SerializeField] SoundEmitter soundEmitterPlug;
+    [SerializeField] SoundEmitter soundEmitterUnplug;
     public bool hasFuse;
 
     [HideInInspector] public TriggerableObject trigger;
@@ -29,6 +31,7 @@ public class Repairable : MonoBehaviour
             }
             else
             {
+                soundEmitterUnplug.StartSound();
                 this.hasFuse = false;
                 pC.hasFuse = true;
                 if(trigger != null)
@@ -45,6 +48,7 @@ public class Repairable : MonoBehaviour
         {
             if (pC.hasFuse)
             {
+                soundEmitterPlug.StartSound();
                 pC.hasFuse = false;
                 hasFuse = true;
                 fuseObj.SetActive(true);
