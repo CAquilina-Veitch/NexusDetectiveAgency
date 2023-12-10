@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 934302819116247376}
   - component: {fileID: 4418278584520221939}
   - component: {fileID: 1959420821958783876}
+  - component: {fileID: 569666636326059507}
+  - component: {fileID: 8469139977506278565}
   m_Layer: 0
   m_Name: BreakPoint
   m_TagString: Untagged
@@ -203,9 +205,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db5f3a4b9105bd49a2560af84cfb2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEmitterPlug: {fileID: 0}
+  soundEmitterUnplug: {fileID: 0}
   hasFuse: 1
   trigger: {fileID: 0}
   fuseObj: {fileID: 6053820064839392362}
+--- !u!114 &569666636326059507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657595889587622131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c532ca8a1360b74eb8aedcd3961e4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventString: event:/Abilities/Repair/EventRepairPlug
+  PlayOnStart: 0
+--- !u!114 &8469139977506278565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657595889587622131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c532ca8a1360b74eb8aedcd3961e4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventString: event:/Abilities/Repair/EventRepairUnplug
+  PlayOnStart: 0
 --- !u!1 &6053820064839392362
 GameObject:
   m_ObjectHideFlags: 0

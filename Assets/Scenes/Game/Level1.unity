@@ -9611,25 +9611,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &179691668 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7395555683979740833, guid: 0a04f6cc53829a543bddfb0b72517c6f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1749481957}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &179691673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179691668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 179691668}
 --- !u!1001 &180329135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17898,25 +17879,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &406154121 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1077380425862276130, guid: 0a04f6cc53829a543bddfb0b72517c6f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1749481957}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &406154126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406154121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 406154121}
 --- !u!1001 &408225344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71312,6 +71274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1509b9ecab56e73438c1442274a8791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDetectiveAgency: 0
 --- !u!1001 &1536172570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80532,15 +80495,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7395555683979740833, guid: 0a04f6cc53829a543bddfb0b72517c6f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 179691673}
-    - targetCorrespondingSourceObject: {fileID: 1077380425862276130, guid: 0a04f6cc53829a543bddfb0b72517c6f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 406154126}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a04f6cc53829a543bddfb0b72517c6f, type: 3}
 --- !u!1001 &1750974659
 PrefabInstance:
@@ -92868,6 +92823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1509b9ecab56e73438c1442274a8791e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDetectiveAgency: 0
 --- !u!114 &2027552843
 MonoBehaviour:
   m_ObjectHideFlags: 0

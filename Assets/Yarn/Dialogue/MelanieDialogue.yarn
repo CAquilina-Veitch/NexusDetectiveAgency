@@ -67,13 +67,12 @@ position: -822,-286
 Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
-		<<set $AudioCutOut = true>>
 		<<set $audioMaxNumber = 3>>
 		<<playvoicemax DialogueManager>>
 		Max: Not so fast. I need to see the device you've been working on. #max03
 		<<jump TalkingToMelanie3>>
 ->	Fine (Leave).
-		<<set $AudioCutOut = true>>
+		//<<set $AudioCutOut = true>>
 		<<set $audioMaxNumber = 4>>
 		<<playvoicemax DialogueManager>>
 		Max: Well alright then. #max04
@@ -85,17 +84,13 @@ Melanie: You'll be leaving now. Before I call security. #melanie04
 title: TalkingToMelanie3
 position: -823,-92
 ---
-//<<set $audioMelanieNumber = 5>>
+<<set $audioMelanieNumber = 5>>
 <<playvoicemel DialogueManager>>
-Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years.
-Melanie: Everything we had been working on is in our main displays in the lobby. #melanie05
-
-->	There's something here.
-		<<set $audioMaxNumber = 5>>
-		<<playvoicemax DialogueManager>>
-		Max: I know there's something else here. And I know it's affecting this world. #max05
-
-//<<set $audioMelanieNumber = 6>>
+Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
+<<set $audioMaxNumber = 5>>
+<<playvoicemax DialogueManager>>
+Max: I know there's something else here. And I know it's affecting this world. #max05
+<<set $audioMelanieNumber = 6>>
 <<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
 <<if $documentsFound < 5 >>
@@ -124,6 +119,7 @@ position: -541,-286
 		<<set $audioMaxNumber = 6>>
 		<<playvoicemax DialogueManager>>
 		Max: Well, I simply don't believe that. #max06
+		<<set $audioMelanieNumber = 7>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little (Leave). #melanie07
 		<<set $FetchDocFound = false>>
@@ -150,11 +146,12 @@ DEBUG: Did Max find the required documents?
 title: MelanieRepeat
 position: 265,-442
 ---
-
+<<set $AudioCutOut = true>>
+<<playvoicemel DialogueManager>>
+<<wait  14>>
 <<set $audioMaxNumber = 13>>
 <<playvoicemax DialogueManager>>
 Max: I found the file you were looking for.
-<<playvoicemel DialogueManager>>
 Melanie: About time. Any questions?
 
 ->	Max: What about a new part?
@@ -189,11 +186,15 @@ position: -256,-93
 		<<set $audioMaxNumber = 8>>
 		<<playvoicemax DialogueManager>>
 		Max: The CPU broke. #max08
+		<<set $audioMelanieNumber = 8>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Wait... What? How... could you possibly know that? #melanie08
 
 ->	Max: I know a lot more.
 		//Max mumbles: I... Know... All... #max09
+		<<set $AudioCutOut = true>>
+		<<playvoicemel DialogueManager>>
+		<<wait  14>>
 		<<set $audioMaxNumber = 9>>
 		<<playvoicemax DialogueManager>>
 		Max: I know lots of things, like how you authorized the improper use of the machine.
