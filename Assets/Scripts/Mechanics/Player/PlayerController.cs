@@ -85,8 +85,8 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
 
     [SerializeField] Vector2 mouseInput;
-    [SerializeField,Range(0,10)] float sensitivity = 1;
-    [SerializeField,Range(0,10)] float realSens = 1;
+    [SerializeField,Range(0,10)] public float sensitivity = 1;
+    [SerializeField] float realSens = 1;
     [SerializeField] float droneScrollSpeed = 0.2f;
     [SerializeField] float invFadeTime = 0.2f;
 

@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class Sensitivity : MonoBehaviour
 {
+
+
+    DetectiveAgencyPlayer detective;
+    PlayerController player;
+    bool isDetective;
+
+    float boundSens;
+
     public void ChangeSensitivity(float sensitivity)
     {
+        boundSens = sensitivity;
+        if (isDetective)
+        {
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public float Set(DetectiveAgencyPlayer p)
     {
-        
+        isDetective = true;
+        detective = p;
+        return boundSens;
+    }
+    public float Set(PlayerController p)
+    {
+        isDetective = false;
+        player = p;
+        return boundSens;
     }
 }
