@@ -6,13 +6,12 @@ public class ScrollCanvas : MonoBehaviour
 {
     public float startPosition;
     public float currentScrollAmount = 0f;
-    public float scrollAmount;
-    public float scrollSpeed = 1f;
+    public float scrollSpeed = -1f;
     public float maxLength = 800f; // Change this value as needed
 
     void Start()
     {
-        startPosition = transform.position.y;
+        startPosition = transform.localPosition.y;
     }
 
     void Update()
@@ -21,9 +20,9 @@ public class ScrollCanvas : MonoBehaviour
 
         if (scrollDelta != 0)
         {
-            scrollAmount = Mathf.Clamp(currentScrollAmount + (scrollDelta * scrollSpeed), 0, maxLength);
+            currentScrollAmount = Mathf.Clamp(currentScrollAmount + (scrollDelta * scrollSpeed), 0, maxLength);
 
-            transform.position = new Vector3(transform.position.x, currentScrollAmount, transform.position.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, currentScrollAmount+startPosition, transform.localPosition.z);
         }
     }
 }

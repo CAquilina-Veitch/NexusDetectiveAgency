@@ -75,17 +75,12 @@ public class LoreInventory : MonoBehaviour
     public void Set(DetectiveAgencyPlayer p)
     {
         isDetective = true;
-        detective = p;/*
-        singleIsOpen = false;
-        invOpen = false;*/
+        detective = p;
     }
     public void Set(PlayerController p)
     {
         isDetective= false;
         player = p;
-/*
-        singleIsOpen = false;
-        invOpen = false;*/
     }
 
 
