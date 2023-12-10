@@ -18899,6 +18899,7 @@ GameObject:
   - component: {fileID: 2241903336952265849}
   - component: {fileID: 382099104384174653}
   - component: {fileID: 1192492120774679960}
+  - component: {fileID: 1772812649977090657}
   m_Layer: 7
   m_Name: Max Solar Cam
   m_TagString: Untagged
@@ -19101,6 +19102,19 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &1772812649977090657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764779339154699854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 1764779339154699854}
 --- !u!1 &1765974949252062384
 GameObject:
   m_ObjectHideFlags: 0
@@ -29961,7 +29975,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   hasFuse: 0
-  CollectedActions: []
+  hackedTrigger: {fileID: 0}
 --- !u!54 &10558106470180417
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -87915,6 +87929,7 @@ GameObject:
   - component: {fileID: 4439732127689244383}
   - component: {fileID: 6940804123596223656}
   - component: {fileID: 5155044840449360720}
+  - component: {fileID: 2648299989349045170}
   m_Layer: 7
   m_Name: Max Cyber Cam
   m_TagString: Untagged
@@ -88117,6 +88132,19 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &2648299989349045170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8082857461821904077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 8082857461821904077}
 --- !u!1 &8083948909501374577
 GameObject:
   m_ObjectHideFlags: 0

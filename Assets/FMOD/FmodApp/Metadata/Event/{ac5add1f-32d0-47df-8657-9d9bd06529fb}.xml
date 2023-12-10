@@ -53,7 +53,7 @@
 			<destination>{8cfeeef1-d53a-4f68-9bbc-e47d1c05caec}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{eb8a0404-3c95-47c3-97ce-2e39b6d9d03a}</destination>
+			<destination>{5acb5bd8-6e3b-40d7-ab3b-87688c600b1b}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{aa859507-1b62-4b7a-8411-8392f3772d11}" />
@@ -125,6 +125,10 @@
 	</object>
 	<object class="MixerBusPanner" id="{158b511c-dbab-4690-bca3-141e6617acf0}" />
 	<object class="MixerBusFader" id="{f0e90e80-3363-4de3-872d-2ac5452938df}" />
-	<object class="SpatialiserEffect" id="{eca8a393-d317-4991-bfd5-a79cf1b1a083}" />
+	<object class="SpatialiserEffect" id="{eca8a393-d317-4991-bfd5-a79cf1b1a083}">
+		<property name="panBlend">
+			<value>0.849999964</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{468062ab-6ebb-45d8-b7cd-5df471adb61b}" />
 </objects>
