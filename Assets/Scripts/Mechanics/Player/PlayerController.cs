@@ -777,13 +777,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            foreach(Player p in players)
-            {
-                p.anim.SetTrigger("DimensionSwitch");
-            }
-        }
         if (Input.GetKeyDown(jumpKey))
         {
             if (currentLedge == null)
@@ -860,11 +853,7 @@ public class PlayerController : MonoBehaviour
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(openInventoryKey))
         {
             loreInv.openInvCanvas();
         }
@@ -899,7 +888,8 @@ public class PlayerController : MonoBehaviour
     {
         mouseManualControlled = to;
         sensitivity = to ? 1 : 0;
-        speed = to ? 6 : 0;
+        speed = to ? 8 : 0;
     }
+
 
 }

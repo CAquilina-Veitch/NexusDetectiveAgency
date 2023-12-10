@@ -81,7 +81,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
     public void EnableControls()
     {
         sensitivity = 1;
-        speed = 6;
+        speed = 8;
     }
     public void DisableControls()
     {

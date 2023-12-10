@@ -6,6 +6,6 @@ public class Upright : MonoBehaviour
 {
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.identity;
+        transform.rotation = Quaternion.Euler(90, 0, 0);
     }
 }
