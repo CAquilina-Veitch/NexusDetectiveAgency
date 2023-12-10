@@ -56,6 +56,7 @@ public class LoreInventory : MonoBehaviour
     [Header("Info")]
 
     [SerializeField] CanvasGroup folder;
+    [SerializeField] GameObject crosshair;
 
     [SerializeField] CanvasGroup inventoryCanvasGroup;
 
@@ -119,11 +120,9 @@ public class LoreInventory : MonoBehaviour
 
     public void TabPressed(int e)
     {
-        Debug.Log(e);
         if (e < loreIDs.Count)
         {
             SwitchCurrentLore(loreIDs[e]);
-            Debug.Log(e);
         }
     }
 
@@ -150,7 +149,7 @@ public class LoreInventory : MonoBehaviour
             else
             {
                 invTabs[i].gameObject.SetActive(true);
-                invTabs[i].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
+                invTabs[i].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[loreIDs[i]].label;
             }
             
         }
@@ -208,7 +207,6 @@ public class LoreInventory : MonoBehaviour
         if (!allLore[lO.id].collected)
         {
             allLore[lO.id].collected = true;
-            UpdateLoreItems();
         }
         singleIsOpen = !singleIsOpen;
         StartCoroutine(showSingleCanvas(lO.id, singleIsOpen));
@@ -232,35 +230,41 @@ public class LoreInventory : MonoBehaviour
         }
     }
 
-
-    public void UpdateLoreItems()
-    {/*
-        for(int i = 0; i < invTabs.Count; i++)
-        {
-            bool isCollected = allLore[i].collected;
-            invTabs[i].GetComponent<UnityEngine.UI.Button>().interactable = isCollected;
-
-            if (i == currentTab && allLore[currentTab].collected)
-            {
-
-            }
-
-            
-        }*/
-
-
-    }
-
     public void openInvCanvas()
     {
-        invOpen = !invOpen;
         if (!singleIsOpen)
         {
-            StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
-            ToggleControls(false);
+            invOpen = !invOpen;
+            ToggleControls(!invOpen);
+            if (invOpen)
+            {
+                StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
+                
+            }
+            else
+            {
+                closeAll();
+            }
+            
         }
         
     }
+
+    public void closeAll()
+    {
+        closeCurrent();
+        StartCoroutine(CloseCanvasGroup(loreCanvasGroup));
+        StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
+        StartCoroutine(CloseCanvasGroup(leatherCanvasGroup));
+    }
+    public void closeCurrent()
+    {
+        foreach (LoreGroup d in displays)
+        {
+            StartCoroutine(CloseCanvasGroup(d.cg));
+        }
+    }
+
     IEnumerator startInvCanvas(bool to)
     {
         
@@ -294,14 +298,6 @@ public class LoreInventory : MonoBehaviour
         }
         folder.alpha = to ? 1 : 0;
 
-    }
-
-
-
-
-    private void OnEnable()
-    {
-        UpdateLoreItems();
     }
 
     public void SwitchCurrentLore(int to)
