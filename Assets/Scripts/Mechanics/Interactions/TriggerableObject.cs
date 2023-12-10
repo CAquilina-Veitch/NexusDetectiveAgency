@@ -225,7 +225,7 @@ public class TriggerableObject : MonoBehaviour
         if (canBeRemotelyActivated && !ownedRemotely)
         {
             ownedRemotely = true;
-            GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().CollectedActions.Add(this);
+            GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().hackedTrigger = this;
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().HackTriggerable();
 
         }
