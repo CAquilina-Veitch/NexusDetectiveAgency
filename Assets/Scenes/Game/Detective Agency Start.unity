@@ -3007,7 +3007,7 @@ MonoBehaviour:
   mouseInput: {x: 0, y: 0}
   sensitivity: 1
   moveInput: {x: 0, y: 0}
-  speed: 8
+  speed: 6
   acceleration: 10
 --- !u!136 &752179205
 CapsuleCollider:
