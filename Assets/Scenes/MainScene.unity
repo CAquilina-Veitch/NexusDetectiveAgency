@@ -186,6 +186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundEffectManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7511535887314563348, guid: 2b409f111a5e7254f8ee47ba61a8c278,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -220,9 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4006b21f192f33745800d97ace710dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StructureScenIds: 03000000020000000100000005000000
-  segmentSceneIds: 04000000
-  segmentsToLoadAtOnce: 3
+  StructureSceneIds: 010000000200000003000000040000000a000000
+  segmentSceneIds: 050000000700000009000000
+  midSegmentSceneIds: 0600000008000000
 --- !u!4 &1911966461
 Transform:
   m_ObjectHideFlags: 0

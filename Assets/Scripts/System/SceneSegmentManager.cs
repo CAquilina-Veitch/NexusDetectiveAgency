@@ -18,9 +18,12 @@ public class SceneSegmentManager : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
         }
-        if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex - 1]).isLoaded)
+        if (currentSegmentIndex > 0)
         {
-            SceneManager.UnloadSceneAsync(segmentSceneIds[currentSegmentIndex - 1]);
+            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex - 1]).isLoaded)
+            {
+                SceneManager.UnloadSceneAsync(segmentSceneIds[currentSegmentIndex - 1]);
+            }
         }
     }    
     
@@ -30,9 +33,12 @@ public class SceneSegmentManager : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex], LoadSceneMode.Additive);
         }
-        if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex - 1]).isLoaded)
+        if (currentMidSegmentIndex > 0)
         {
-            SceneManager.UnloadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex - 1]);
+            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex - 1]).isLoaded)
+            {
+                SceneManager.UnloadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex - 1]);
+            }
         }
     }
 
@@ -75,12 +81,14 @@ public class SceneSegmentManager : MonoBehaviour
 
     public void StartGame()
     {
+        Debug.LogError("StartCalled");
+        /*
         LoadStructure(1);
         UnloadStructure(0);
         UnloadStructure(3);
         LoadSegment();
         LoadMidSegment();
-        LoadStructure(2);
+        LoadStructure(2);*/
     }
     public void Awake()
     {
@@ -89,16 +97,22 @@ public class SceneSegmentManager : MonoBehaviour
 
     public void DetectiveAgency()
     {
-        UnloadStructure(0);
-        LoadStructure(3);
-        LoadStructure(2);
+        UnloadStructure(0);     //menu
+        LoadStructure(2);       //ui
+        LoadStructure(3);       //det start
+    }
+    public void FinalDetectiveAgency()
+    {
+        LoadStructure(4);
+        UnloadStructure(1);
     }
     public void PlaytestDemoStart()
     {
-        LoadStructure(1);
-        UnloadStructure(0);
-        UnloadStructure(3);
+        LoadStructure(1);       //player
+        UnloadStructure(3);     //det start
+        //UnloadStructure(3);     
         LoadSegment();
+        LoadMidSegment();
     }
     private void Update()
     {
