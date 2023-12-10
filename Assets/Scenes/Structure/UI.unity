@@ -9103,7 +9103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\r\"Shipping Container\" (https://skfb.ly/6YA6J) by RMaull2002 is licensed
+  m_text: "\r\n\"Shipping Container\" (https://skfb.ly/6YA6J) by RMaull2002 is licensed
     under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"Sci
     fi Portable Generator\" (https://skfb.ly/onZ9P) by re1monsen is licensed under
     Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"Solar
@@ -9471,7 +9471,13 @@ MonoBehaviour:
     (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"pallet truck\" () by
     Kwon_Hyuk is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"Apollo
     Belvedere\" (https://skfb.ly/6Rw9y) by Rigsters is licensed under Creative Commons
-    Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n"
+    Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"Sci-fi Floor
+    Section KB016\" (https://skfb.ly/6uPAM) by d880 is licensed under Creative Commons
+    Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"004Mb Modular
+    Panel\" (https://skfb.ly/QwBQ) by d880 is licensed under Creative Commons Attribution
+    (http://creativecommons.org/licenses/by/4.0/).\r\n\r\n\"Male Full Body Ecorche\"
+    (https://skfb.ly/KFyA) by Diego Luj\xE1n Garc\xEDa is licensed under Creative
+    Commons Attribution (http://creativecommons.org/licenses/by/4.0/).\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9498,8 +9504,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9563,7 +9569,7 @@ MonoBehaviour:
   startPosition: 254
   currentScrollAmount: 0
   scrollSpeed: -30
-  maxLength: 999999
+  maxLength: 16325
 --- !u!1 &787876845
 GameObject:
   m_ObjectHideFlags: 0
@@ -17009,6 +17015,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903d3d8022972c44d9f8141f8a8ee8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endCard:
+    m_PersistentCalls:
+      m_Calls: []
   allLore:
   - collected: 0
     format: 2
