@@ -98,6 +98,7 @@ public class LoreInventory : MonoBehaviour
 
     public void ChooseReality(int d)
     {
+        Debug.LogWarning(d);
         openingDimension = (Dimension)d;
         StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
         StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
@@ -157,18 +158,25 @@ public class LoreInventory : MonoBehaviour
         singleIsOpen = !singleIsOpen;
         StartCoroutine(showSingleCanvas(lO.id, singleIsOpen));
         
-        if(isDetective)
+
+
+    }
+
+
+    void ToggleControls(bool on)
+    {
+        if (isDetective)
         {
-            detective.ShowMouse(singleIsOpen);
-            detective.EnableControls(!singleIsOpen);
+            detective.ShowMouse(!on);
+            detective.EnableControls(on);
         }
         else
         {
-            player.ShowMouse(singleIsOpen);
-            player.EnableControls(!singleIsOpen);
+            player.ShowMouse(!on);
+            player.EnableControls(on);
         }
-
     }
+
 
     public void UpdateLoreItems()
     {
@@ -191,7 +199,11 @@ public class LoreInventory : MonoBehaviour
     public void openInvCanvas()
     {
         invOpen = !invOpen;
-        StartCoroutine(startInvCanvas(invOpen));
+        if (!singleIsOpen)
+        {
+            StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
+            ToggleControls(false);
+        }
         
     }
     IEnumerator startInvCanvas(bool to)
