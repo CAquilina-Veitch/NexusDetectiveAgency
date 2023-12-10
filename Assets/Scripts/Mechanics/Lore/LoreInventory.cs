@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Format { Terminal, Handwritten, Newspaper, File}
-
 [Serializable]
 public class LoreItem
 {
@@ -97,10 +96,40 @@ public class LoreInventory : MonoBehaviour
 
     public void ChooseReality(int d)
     {
+        Debug.LogWarning(d);
         openingDimension = (Dimension)d;
+        changeTabTitles();
         StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
         StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
     }
+
+    public void changeTabTitles()
+    {
+        List<int> loreIDs = new List<int>();
+
+        for(int i = 0; i<allLore.Count; i++)
+        {
+            if (allLore[i].leather == openingLeather && allLore[i].reality == openingDimension)
+            {
+                loreIDs.Add(i);
+            }
+        }
+
+        for (int i = 0; i < invTabs.Count; i++)
+        {
+            if (i >= loreIDs.Count)
+            {
+                invTabs[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                invTabs[i].gameObject.SetActive(true);
+                invTabs[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
+            }
+            
+        }
+    }
+
 
 
     IEnumerator OpenCanvasGroup(CanvasGroup cnvsG)
@@ -116,11 +145,13 @@ public class LoreInventory : MonoBehaviour
         }
 
         cnvsG.blocksRaycasts = true;
+        cnvsG.interactable = true;
         cnvsG.alpha = 1;
     }    
     IEnumerator CloseCanvasGroup(CanvasGroup cnvsG)
     {
         cnvsG.blocksRaycasts = false;
+        cnvsG.interactable = false;
         float timer = 0;
         float from = cnvsG.alpha;
         while (timer < fadeDuration)
@@ -156,21 +187,28 @@ public class LoreInventory : MonoBehaviour
         singleIsOpen = !singleIsOpen;
         StartCoroutine(showSingleCanvas(lO.id, singleIsOpen));
         
-        if(isDetective)
-        {
-            detective.ShowMouse(singleIsOpen);
-            detective.EnableControls(!singleIsOpen);
-        }
-        else
-        {
-            player.ShowMouse(singleIsOpen);
-            player.EnableControls(!singleIsOpen);
-        }
+
 
     }
 
-    public void UpdateLoreItems()
+
+    void ToggleControls(bool on)
     {
+        if (isDetective)
+        {
+            detective.ShowMouse(!on);
+            detective.EnableControls(on);
+        }
+        else
+        {
+            player.ShowMouse(!on);
+            player.EnableControls(on);
+        }
+    }
+
+
+    public void UpdateLoreItems()
+    {/*
         for(int i = 0; i < invTabs.Count; i++)
         {
             bool isCollected = allLore[i].collected;
@@ -182,7 +220,7 @@ public class LoreInventory : MonoBehaviour
             }
 
             
-        }
+        }*/
 
 
     }
@@ -190,7 +228,11 @@ public class LoreInventory : MonoBehaviour
     public void openInvCanvas()
     {
         invOpen = !invOpen;
-        StartCoroutine(startInvCanvas(invOpen));
+        if (!singleIsOpen)
+        {
+            StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
+            ToggleControls(false);
+        }
         
     }
     IEnumerator startInvCanvas(bool to)
@@ -235,13 +277,7 @@ public class LoreInventory : MonoBehaviour
     {
         UpdateLoreItems();
     }
-    private void Start()
-    {
-        for (int i = 0; i < invTabs.Count; i++)
-        {
-            invTabs[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
-        }
-    }
+
     public void SwitchCurrentLore(int to)
     {
         if(currentTab == to)
