@@ -61,6 +61,13 @@ public class LoreInventory : MonoBehaviour
     [SerializeField] CanvasGroup inventoryCanvasGroup;
 
 
+    [SerializeField] CanvasGroup leatherCanvasGroup;
+    [SerializeField] CanvasGroup realityCanvasGroup;
+    [SerializeField] CanvasGroup loreCanvasGroup;
+
+
+
+
     DetectiveAgencyPlayer detective;
     PlayerController player;
     bool isDetective;
@@ -80,6 +87,60 @@ public class LoreInventory : MonoBehaviour
         singleIsOpen = false;
         invOpen = false;*/
     }
+
+
+
+    public int openingLeather;
+    public Dimension openingDimension;
+    public void ChooseLeather(int i)
+    {
+        openingLeather = i;
+        StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
+        StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
+    }
+
+    public void ChooseReality(Dimension d)
+    {
+        openingDimension = d;
+        StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
+        StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
+    }
+
+
+    IEnumerator OpenCanvasGroup(CanvasGroup cnvsG)
+    {
+        float timer = 0;
+        float from = cnvsG.alpha;
+        while (timer < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(from,1, timer / fadeDuration);
+            cnvsG.alpha = alpha;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }    
+    IEnumerator CloseCanvasGroup(CanvasGroup cnvsG)
+    {
+        float timer = 0;
+        float from = cnvsG.alpha;
+        while (timer < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(from,0, timer / fadeDuration);
+            cnvsG.alpha = alpha;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
