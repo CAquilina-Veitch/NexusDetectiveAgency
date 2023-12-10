@@ -29616,9 +29616,9 @@ MonoBehaviour:
   dimensionSwapKey: 101
   abilityKey: 113
   readLoreKey: 120
-  openInventoryKey: 103
-  grabHoldableKey: 323
-  buttonPressKey: 324
+  openInventoryKey: 105
+  grabHoldableKey: 324
+  buttonPressKey: 323
   currentPlayerDimension: 0
   dimensionalDiffPosition: {x: 0, y: 0, z: -78}
   startingPos: {x: 31.3, y: 1, z: 74.5}
