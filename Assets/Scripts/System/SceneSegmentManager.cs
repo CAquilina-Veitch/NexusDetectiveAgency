@@ -91,6 +91,7 @@ public class SceneSegmentManager : MonoBehaviour
     {
         UnloadStructure(0);
         LoadStructure(3);
+        LoadStructure(2);
     }
     public void PlaytestDemoStart()
     {
@@ -98,7 +99,6 @@ public class SceneSegmentManager : MonoBehaviour
         UnloadStructure(0);
         UnloadStructure(3);
         LoadSegment();
-        LoadStructure(2);
     }
     private void Update()
     {

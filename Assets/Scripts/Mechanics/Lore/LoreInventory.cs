@@ -100,9 +100,38 @@ public class LoreInventory : MonoBehaviour
     {
         Debug.LogWarning(d);
         openingDimension = (Dimension)d;
+        changeTabTitles();
         StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
         StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
     }
+
+    public void changeTabTitles()
+    {
+        List<int> loreIDs = new List<int>();
+
+        for(int i = 0; i<allLore.Count; i++)
+        {
+            if (allLore[i].leather == openingLeather && allLore[i].reality == openingDimension)
+            {
+                loreIDs.Add(i);
+            }
+        }
+
+        for (int i = 0; i < invTabs.Count; i++)
+        {
+            if (i >= loreIDs.Count)
+            {
+                invTabs[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                invTabs[i].gameObject.SetActive(true);
+                invTabs[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
+            }
+            
+        }
+    }
+
 
 
     IEnumerator OpenCanvasGroup(CanvasGroup cnvsG)
@@ -118,11 +147,13 @@ public class LoreInventory : MonoBehaviour
         }
 
         cnvsG.blocksRaycasts = true;
+        cnvsG.interactable = true;
         cnvsG.alpha = 1;
     }    
     IEnumerator CloseCanvasGroup(CanvasGroup cnvsG)
     {
         cnvsG.blocksRaycasts = false;
+        cnvsG.interactable = false;
         float timer = 0;
         float from = cnvsG.alpha;
         while (timer < fadeDuration)
@@ -179,7 +210,7 @@ public class LoreInventory : MonoBehaviour
 
 
     public void UpdateLoreItems()
-    {
+    {/*
         for(int i = 0; i < invTabs.Count; i++)
         {
             bool isCollected = allLore[i].collected;
@@ -191,7 +222,7 @@ public class LoreInventory : MonoBehaviour
             }
 
             
-        }
+        }*/
 
 
     }
@@ -248,13 +279,7 @@ public class LoreInventory : MonoBehaviour
     {
         UpdateLoreItems();
     }
-    private void Start()
-    {
-        for (int i = 0; i < invTabs.Count; i++)
-        {
-            invTabs[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[i].label;
-        }
-    }
+
     public void SwitchCurrentLore(int to)
     {
         if(currentTab == to)
