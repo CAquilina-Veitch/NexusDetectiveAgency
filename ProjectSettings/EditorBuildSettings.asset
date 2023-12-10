@@ -36,6 +36,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestSceneDB.unity
     guid: e7906ab12372827488dd9d0fc3ac1c69
   - enabled: 1
-    path: Assets/Scenes/Segments/Detective Agency.unity
+    path: Assets/Scenes/Game/Detective Agency Start.unity
     guid: 81ae5785042bf4d42b52869aa5e0bc4c
   m_configObjects: {}
