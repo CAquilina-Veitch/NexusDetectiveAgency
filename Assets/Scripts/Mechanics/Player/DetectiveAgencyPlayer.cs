@@ -10,7 +10,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
     [Space(10)]
 
     [SerializeField] Rigidbody rb;
-    [SerializeField] Transform camTransform;
+    [SerializeField] public Transform camTransform;
     LoreInventory loreInv;
 
     [Space(20)]
@@ -18,7 +18,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
     [Space(10)]
 
     float pitch, yaw;
-
+    [SerializeField] LayerMask isntPlayerMask;
     [Space(10)]
     public Dimension currentPlayerDimension;
     [SerializeField] public Vector3 dimensionalDiffPosition = new Vector3(-10, 0, 0);
@@ -76,8 +76,41 @@ public class DetectiveAgencyPlayer : MonoBehaviour
         Vector3 movementCalc = Vector3.Lerp(rb.velocity, transform.forward * speed * moveInput.y + transform.right * speed * moveInput.x, Time.deltaTime * acceleration);
         movementCalc.y = rb.velocity.y;
         rb.velocity = movementCalc;
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ReadLore();
+        }
+
+
+    }
+    private void FixedUpdate()
+    {
+        RaycastHit interactable;
+        // Check for obstacles between the camera and the grab position
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out interactable, 5, isntPlayerMask))
+        {
+            Debug.DrawRay(camTransform.position, camTransform.forward, Color.magenta, 5f);
+            if (interactable.transform.TryGetComponent(out Interactable _inter))
+            {
+                _inter.Seen();
+            }
+        }
     }
 
+    public void ReadLore()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(camTransform.position, camTransform.forward*5, out hit, 5, isntPlayerMask))
+        {
+            Debug.DrawRay(camTransform.position, camTransform.forward * hit.distance, Color.cyan, 5);
+            Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
+            if (hit.collider.TryGetComponent(out LoreObject lO))
+            {
+                loreInv.InteractWithObject(lO);
+            }
+        }
+    }
 
     public void EnableControls()
     {

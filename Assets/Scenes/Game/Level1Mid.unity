@@ -18126,6 +18126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2010852027}
   - component: {fileID: 2010852026}
+  - component: {fileID: 2010852028}
   m_Layer: 0
   m_Name: 'Start '
   m_TagString: Untagged
@@ -18169,6 +18170,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2010852028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010852025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cde9885bbd12c4f9d24c09b723b622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadMidScene: 0
+  enterActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2139935807}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2011867666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19082,7 +19111,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2139935804}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2139935807}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf5e89400236b92498d15840936664f3, type: 3}
@@ -19091,6 +19120,12 @@ MonoBehaviour:
 --- !u!65 &2139935806 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 6613565351362608604, guid: c461be0ac8e266d4abc22f097f2113c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139935804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139935807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 391740118325499847, guid: c461be0ac8e266d4abc22f097f2113c4,
     type: 3}
   m_PrefabInstance: {fileID: 2139935804}
   m_PrefabAsset: {fileID: 0}

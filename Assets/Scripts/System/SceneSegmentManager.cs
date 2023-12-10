@@ -14,10 +14,7 @@ public class SceneSegmentManager : MonoBehaviour
 
     void LoadSegment()
     {
-        if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
-        {
-            SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
-        }
+
         if (currentSegmentIndex > 0)
         {
             if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex - 1]).isLoaded)
@@ -25,19 +22,29 @@ public class SceneSegmentManager : MonoBehaviour
                 SceneManager.UnloadSceneAsync(segmentSceneIds[currentSegmentIndex - 1]);
             }
         }
+        if(currentSegmentIndex < segmentSceneIds.Count)
+        {
+            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
+            {
+                SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
+            }
+        }
     }    
     
     void LoadMidSegment()
     {
-        if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex]).isLoaded)
-        {
-            SceneManager.LoadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex], LoadSceneMode.Additive);
-        }
         if (currentMidSegmentIndex > 0)
         {
             if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex - 1]).isLoaded)
             {
                 SceneManager.UnloadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex - 1]);
+            }
+        }
+        if(currentMidSegmentIndex < midSegmentSceneIds.Count)
+        {
+            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex]).isLoaded)
+            {
+                SceneManager.LoadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex], LoadSceneMode.Additive);
             }
         }
     }
