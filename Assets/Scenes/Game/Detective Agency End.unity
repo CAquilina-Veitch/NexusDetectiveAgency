@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5.4761014, g: 8.982148, b: 20.589617, a: 1}
+  m_IndirectSpecularColor: {r: 5.476086, g: 8.982087, b: 20.589617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4163,6 +4163,11 @@ PrefabInstance:
     - target: {fileID: 4297517979205013740, guid: 7f8c42ba73f9725459e71a9743a424a1,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631219417788309721, guid: 7f8c42ba73f9725459e71a9743a424a1,
+        type: 3}
+      propertyPath: isDetectiveAgency
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5078265773009250733, guid: 7f8c42ba73f9725459e71a9743a424a1,
@@ -9509,6 +9514,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4631219417788309721, guid: 7f8c42ba73f9725459e71a9743a424a1,
+        type: 3}
+      propertyPath: isDetectiveAgency
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4889560331845044571, guid: 7f8c42ba73f9725459e71a9743a424a1,
         type: 3}
       propertyPath: m_text
@@ -10045,6 +10055,11 @@ PrefabInstance:
     - target: {fileID: 4297517979205013740, guid: 7f8c42ba73f9725459e71a9743a424a1,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631219417788309721, guid: 7f8c42ba73f9725459e71a9743a424a1,
+        type: 3}
+      propertyPath: isDetectiveAgency
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5078265773009250733, guid: 7f8c42ba73f9725459e71a9743a424a1,
@@ -15639,6 +15654,11 @@ PrefabInstance:
     - target: {fileID: 4297517979205013740, guid: 7f8c42ba73f9725459e71a9743a424a1,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631219417788309721, guid: 7f8c42ba73f9725459e71a9743a424a1,
+        type: 3}
+      propertyPath: isDetectiveAgency
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5078265773009250733, guid: 7f8c42ba73f9725459e71a9743a424a1,

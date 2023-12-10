@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DetectiveAgencyPlayer : MonoBehaviour
@@ -47,7 +48,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        //Toggle(true);
+        Toggle(true);
         yaw = transform.eulerAngles.y;
 
     }
@@ -105,6 +106,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
     {
         loreInv = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>();
         loreInv.Set(this);
+        Toggle(true);
     }
 
 
