@@ -168,7 +168,9 @@ public class PlayerController : MonoBehaviour
 
 
     [Space(10)]
-    public List<TriggerableObject> CollectedActions = new List<TriggerableObject>();
+
+    public TriggerableObject hackedTrigger;
+    //public List<TriggerableObject> CollectedActions = new List<TriggerableObject>();
 
 
 
@@ -272,6 +274,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator dimensionSwitch(Dimension to)
     {
         canSwitch = false;
+        
 
         portal.Play();
         foreach(Player p in players)
@@ -280,13 +283,13 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
+        EnableControls(false);
         yield return new WaitForSeconds(0.7f);
 
         dimensionJump(to);
 
         yield return new WaitForSeconds (0.7f);
-
+        EnableControls(true);
         canSwitch = true;
 
 
@@ -591,59 +594,25 @@ public class PlayerController : MonoBehaviour
 
     void ShowWheel()
     {
-        currentPlayer.anim.SetTrigger("HoverHand");
-        StartCoroutine(showTinyPlatform());
+        if (hackedTrigger == null)
+        {
+
+        }
+        else
+        {
+            currentPlayer.anim.SetTrigger("HoverHand");
+            StartCoroutine(showTinyPlatform());
+        }
 
     }
     IEnumerator showTinyPlatform()
     {
         yield return new WaitForSeconds(1.07f);
         tinyPlatform.SetActive(true);
+        hackedTrigger.Triggered();
         yield return new WaitForSeconds(0.99f);
         tinyPlatform.SetActive(false);
     }
-
-
-    int GetMouseOverNumber()
-    {
-        Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 direction = screenCenter - mousePosition;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        
-        angle -= 90f;
-        angle = 360 - angle;
-
-        if (angle < 0)
-        {
-            angle += 360f;
-        }
-
-        // Add 90 degrees to the angle to make 0 point down and increase clockwise
-
-
-        if (angle >= 360f)
-        {
-            angle -= 360f;
-        }
-
-        if (CollectedActions.Count == 0)
-        {
-            return -1;
-        }
-        int num = CollectedActions.Count;
-        //Debug.LogWarning($"{angle} / {num}");
-        int fitCount = Mathf.FloorToInt(angle / (360/ num));
-        return fitCount;
-    }
-
-
-
-
-
-
-
 
     ///////////////////////////////////////////////////
 
