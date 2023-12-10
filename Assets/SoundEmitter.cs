@@ -11,11 +11,17 @@ public class SoundEmitter : MonoBehaviour
     [SerializeField] EventInstance soundInst;
     [SerializeField] string eventString;
 
+    [SerializeField] bool PlayOnStart;
+
     //StudioEventEmitter objSound;
     public void Start()
     {
         //objSound = GetComponent<StudioEventEmitter>();
         soundInst = RuntimeManager.CreateInstance(eventString);
+        if(PlayOnStart == true)
+        {
+            StartSound();
+        }
     }
 
     private void Update()

@@ -5029,7 +5029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
+  attenuationObject: {fileID: 1347791487}
 --- !u!1 &1386577917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8250,7 +8250,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d20113e77176d554e9a297e8e216df46,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1907904705}
   m_SourcePrefab: {fileID: 100100000, guid: d20113e77176d554e9a297e8e216df46, type: 3}
 --- !u!4 &1907904703 stripped
 Transform:
@@ -8258,6 +8262,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1907904702}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1907904704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d20113e77176d554e9a297e8e216df46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907904702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1907904705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907904704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c532ca8a1360b74eb8aedcd3961e4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventString: event:/Dialogue/EventNewsReport
+  PlayOnStart: 1
 --- !u!1 &1940656672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a7e5cd4895a3ed941baf65ae585dc26b,
@@ -9951,6 +9975,7 @@ GameObject:
   - component: {fileID: 5078265773345677717}
   - component: {fileID: 5078265773345677718}
   - component: {fileID: 5078265773345677719}
+  - component: {fileID: 5078265773345677720}
   m_Layer: 0
   m_Name: Interactable Lore
   m_TagString: Untagged
@@ -13337,6 +13362,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &5078265773345677720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600118166620843722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c532ca8a1360b74eb8aedcd3961e4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventString: event:/Dialogue/EventIntroDia
+  PlayOnStart: 0
 --- !u!4 &5078265774436044243
 Transform:
   m_ObjectHideFlags: 0
