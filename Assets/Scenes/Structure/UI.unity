@@ -16259,6 +16259,8 @@ MonoBehaviour:
     images:
     - {fileID: 21300000, guid: 13777382817a8c84fbc415423d749c5c, type: 3}
     bodyText: 
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: Max's Journal
@@ -16284,6 +16286,8 @@ MonoBehaviour:
       when I returned I was still ankle-deep in water, in the exact location I left.
       \r\n\r\nI need some clarification, but as I use my ability more frequently,
       I am understanding more about its intricacies. It is only a matter of time.\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: Doctor's Letter
@@ -16317,6 +16321,8 @@ MonoBehaviour:
       and people to those I am used to encountering. \r\n\r\nI feel that your insight
       on these matters would be most welcome, and I hope my mailing you was not too
       forward. I look forward to your response.\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: '[REDACTED] Report'
@@ -16344,6 +16350,8 @@ MonoBehaviour:
       Dr [REDACTED] believes that [REDACTED] will be completed within the next [REDACTED]
       months, and will notify the Orders Department if any further materials are
       required.\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Production Report
@@ -16360,6 +16368,8 @@ MonoBehaviour:
       \r\n\r\nTimespan allowed:\r\nUnlimited \r\n\r\nAllowed Budget:\r\n[REDACTED]\r\n\r\nAssigned
       Workspace:\r\n[REDACTED], Level 2\r\n\r\nEnd Result:\r\nClean the world\u2019s
       air supply and [REDACTED]\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Update #1
@@ -16391,6 +16401,8 @@ MonoBehaviour:
       just yet.\r\n\r\nOnly a small report this time, thankfully nothing too eventful
       has happened over the past few months.\r\n\r\n\r\nDr. Melanie Wallis, Project
       Lead\r\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Update #2
@@ -16433,6 +16445,8 @@ MonoBehaviour:
       and out of time. I gave the conversion a green light and notified management,
       who seemed pleased by the update.\r\n\r\nHopefully, we will be fully functional
       within the next few months. \r\n\r\n\r\nDr. Melanie Wallis, Project Lead\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Damage Report
@@ -16458,6 +16472,8 @@ MonoBehaviour:
       within a year. Anything that is living will perish. \r\n\r\nWe don\u2019t know
       how to fix this.\r\nWe cannot fix this. \r\n\r\nI\u2019ve already accepted
       our fate. I can only hope for humanity now. We have doomed us all.\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: Entry 25
@@ -16487,6 +16503,8 @@ MonoBehaviour:
       I am gone, someone can expose Bridger for the man he truly is.\r\n\r\nA greedy,
       self-absorbed, deranged madman willing to bet on anything to make billions.\r\n\r\n\r\n-
       Melanie\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: New Branch
@@ -16521,6 +16539,8 @@ MonoBehaviour:
       major reasons I joined Bridger R&D, and I can\u2019t wait for the opportunities
       that await us.\r\n\r\nI look forward to working with you soon.\r\n\r\nKind
       Regards,\r\nHarold Grant, HR Manager\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Security Breach
@@ -16545,6 +16565,8 @@ MonoBehaviour:
       legal action against Avacus International for their brazen attempts at the
       theft of our intellectual property. \r\n\r\nKind Regards,\r\nRichard Bridger.
       CEO of Bridger R&D  \r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Wing Closure
@@ -16579,6 +16601,8 @@ MonoBehaviour:
       Dr Wallis has also put through a transfer request to be moved to our Dublin
       facility, as she stated that it would suit her project requirements. \r\n\r\nTimothy
       Baxter, COO\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 3
     label: Avacus Breach
@@ -16604,6 +16628,8 @@ MonoBehaviour:
       measures, and I am sure that our cybersec system will hold out for long enough
       for this project to become fully realised. \r\n\r\nGood luck, and keep up the
       good work,\r\n\r\nTimothy Baxter, COO\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 0
     label: Botanical Gardens
@@ -16639,6 +16665,8 @@ MonoBehaviour:
       you for your understanding during this time, and we look forward to getting
       Bridger Botanical Gardens up and running.\r\n\r\nKind Regards,\r\nTimothy Baxter,
       COO\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 0
     label: Beginning Production
@@ -16663,6 +16691,8 @@ MonoBehaviour:
       dedicated to this project, his problem-solving skills are needed more than
       ever. We can do this. We have to. \r\n\r\n\r\n\r\nDr. Melanie Wallis, Project
       Manager\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 0
     label: Completion
@@ -16683,6 +16713,8 @@ MonoBehaviour:
       joy at the success, declaring that big things will come of this creation.\r\nThis
       is one hell of a Christmas present.\r\n\r\nSigning off, for the last time,\r\n\r\n\r\nDr
       Melanie Wallis, Assistant Project Manager\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: Entry 2
@@ -16715,6 +16747,8 @@ MonoBehaviour:
       have done too much damage to this place, and the only way I see forward, is
       walking alone. \r\n\r\nNow, I sign off. I have much to do.\r\n\r\nRichard Dimirti
       Bridger, Founder and CEO of Bridger R&D\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 0
     label: Update #2 - Alt
@@ -16738,6 +16772,8 @@ MonoBehaviour:
       proven quite wrong by Dr Bridger, maybe we will get this project completed
       within the next few months.\r\n\r\nWe will just have to wait and see.\r\n\r\nDr
       Melanie Wallis, Assistant Project Manager\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 2
     label: 
@@ -16746,6 +16782,8 @@ MonoBehaviour:
     images:
     - {fileID: 21300000, guid: 8d23921fb269e424ea62a43844924a15, type: 3}
     bodyText: 
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: Fixed CPU
@@ -16779,6 +16817,8 @@ MonoBehaviour:
       or maybe, just maybe, I did nothing. \r\n\r\nNone the less. The choices I made,
       I made myself. I am the one to bear the consequences of my own actions, and
       those actions could impact the rest of the world, and more.\r\n"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: 'A Doomed Reality '
@@ -16807,6 +16847,8 @@ MonoBehaviour:
       it? Who's to say, it will be out of my hands soon.\r\n\r\nI know that the choices
       I made, I made myself. I am the one to bear the consequences of my own actions,
       and those actions have impacted the rest of the world, and more.\r"
+    leather: 0
+    reality: 0
   - collected: 0
     format: 1
     label: 'A Doomed Reality '
@@ -16839,11 +16881,13 @@ MonoBehaviour:
       more.\r\r\n\r\nDr Mealine Wallis may never be able to fix that broken CPU in
       her own dimension, meaning that unless they insight real change, the world
       is truly lost. Everyone will perish if they don't, It is just a matter of time.\r\r\r"
+    leather: 0
+    reality: 0
   invTabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 123701145}
+  - {fileID: 174159659}
+  - {fileID: 1574497247}
+  - {fileID: 2132993425}
   currentTab: -1
   fadeDuration: 0.2
   tabColours:
@@ -23849,7 +23893,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591138666}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -31198,7 +31242,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045034013}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
