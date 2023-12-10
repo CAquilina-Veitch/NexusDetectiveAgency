@@ -10,6 +10,7 @@ TagManager:
   - PlayerController
   - UIManager
   - TrigDeath
+  - LoreInventory
   layers:
   - Default
   - TransparentFX

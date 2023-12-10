@@ -222,6 +222,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &164518612760061159 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 2605754260678944265, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2765495491104490222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2765495491104490222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,6 +236,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: loreInv
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: dimensionalUnavailableWarning
+      value: 
+      objectReference: {fileID: 164518612760061159}
     - target: {fileID: 2882513469416883330, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
       propertyPath: m_Name
@@ -285,160 +301,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.size
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[19].label
-      value: Fixed CPU
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[19].title
-      value: The Hard Choices
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[20].label
-      value: 'A Doomed Reality '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[20].title
-      value: The Hard Choices
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[21].label
-      value: 'A Doomed Reality '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[21].title
-      value: The Hard Choices
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[19].format
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[20].format
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[21].format
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[19].bodyText
-      value: "A few weeks ago, I was tasked with tracking down a piece of technology
-        that would be able to save our planet from imminent doom. Climate change
-        was coming thick and fast, and the company that contracted me knew that I
-        was the only person that could stop it.\r\n\r\nI traveled, and I hunted,
-        and then, I found. In two separate dimensions, there was a machine that had
-        the ability to re-filter and re-cycle over polluted, toxic air and convert
-        it into cleaner, breathable air. Now this is where I had a choice on where
-        to go next.\r\n\r\nIn one dimension, vegetation flourished. The entire planet
-        was green with life. The machine worked. It completed its job. In the other
-        dimension, the machine was turned against humanity by humans themselves,
-        reverse engineering the machine to recycle waste fossil fuels to create a
-        sick form of renewable energy, and in turn, causing the machine to malfunction
-        and pollute the world into damnation.\r\n\r\nAfter seeing what damage had
-        been caused by the regretful actions of Dr Melanie Wallis, I decided to help
-        humanity. After finding files in the green dimension about the intricate
-        details of the CPU and how to fix it, I was able to use my existing knowledge
-        to be able to reverse the effects of the CPU, releasing Nitrogen into the
-        atmosphere. This, according to reports, can increase plant growth. The natural
-        plants will take care of the rest of the pollution.\r\n\r\nSo where does
-        that leave my home? To be honest, I am uncertain. \r\n\r\nAccording to recent
-        newspapers, following my failure, Bridger R&D, the same company that not
-        only contracted me, but also created the machines in both dimensions, has
-        supposedly come up with a prototype of a renewable air filtration system,
-        however, I have seen it, and it definitely is not like the others. Will it
-        work? I don\u2019t know. \r\n\r\nMaybe I doomed us all, maybe I set forth
-        an age of prosperity, or maybe, just maybe, I did nothing. \r\n\r\nNone the
-        less. The choices I made, I made myself. I am the one to bear the consequences
-        of my own actions, and those actions could impact the rest of the world,
-        and more.\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[20].bodyText
-      value: "A few weeks ago, I was tasked with tracking down a piece of technology
-        that would be able to save our planet from imminent doom. Climate change
-        was coming thick and fast, and the company that contracted me knew that I
-        was the only person that could stop it.\r\n\r\nI traveled, and I hunted,
-        and then, I found. In two separate dimensions, there was a machine that had
-        the ability to re-filter and re-cycle over polluted, toxic air and convert
-        it into cleaner, breathable air. Now this is where I had a choice on where
-        to go next.\r\n\r\nIn one dimension, vegetation flourished. The entire planet
-        was green with life. The machine worked. It completed its job. In the other
-        dimension, the machine was turned against humanity by humans themselves,
-        reverse engineering the machine to recycle waste fossil fuels to create a
-        sick form of renewable energy, and in turn, causing the machine to malfunction
-        and pollute the world into damnation.\r\n\r\nI was sickened by the actions
-        of Dr Melanie Wallis. In fact, I was furious. How could you throw away such
-        a chance at survival just for a temporary solution? Why risk the chance?
-        \r\n\r\nI chose, simply, to retrieve the misused device, and return it to
-        my own dimension.\r\n\r\nI am astounded by the level of technology involved
-        in the construction of such a device. Even though it is broken, maybe they
-        will still able to understand it.\r\n\r\nI suppose it is about time I returned
-        this device to the Bridger team. Will they make the right choice with it?
-        Who's to say, it will be out of my hands soon.\r\n\r\nI know that the choices
-        I made, I made myself. I am the one to bear the consequences of my own actions,
-        and those actions have impacted the rest of the world, and more.\r"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[21].bodyText
-      value: "A few weeks ago, I was tasked with tracking down a piece of technology
-        that would be able to save our planet from imminent doom. Climate change
-        was coming thick and fast, and the company that contracted me knew that I
-        was the only person that could stop it.\r\n\r\nI traveled, and I hunted,
-        and then, I found. In two separate dimensions, there was a machine that could
-        re-filter and re-cycle over polluted, toxic air and convert it into cleaner,
-        breathable air. Now this is where I had a choice on where to go next.\r\n\r\nIn
-        one dimension, vegetation flourished. The entire planet was green with life.
-        The machine worked. It completed its job. In the other dimension, the machine
-        was turned against humanity by humans themselves, reverse engineering the
-        machine to recycle waste fossil fuels to create a sick form of renewable
-        energy, and in turn, causing the machine to malfunction and pollute the world
-        into damnation.\r\n\r\nJust by looking at the growth in the flourishing dimension,
-        I can tell the machine has done its job. It functioned just as intended,
-        with the reversal of pollution causing the ushering of a new and bright era
-        for this dimension\u2019s human race.\r\n\r\nSo with those factors considered,
-        I retrieved the CPU from the flourishing dimension and returned home.\n\nI
-        am astounded by the level of technology involved in the construction of such
-        a device. Even though it is broken, maybe they will still able to understand
-        it.\r\n\r\nI suppose it is about time I returned this device to the Bridger
-        team. Will they make the right choice with it? Who's to say, it will be out
-        of my hands soon.\r\n\r\nI know that the choices I made, I made myself. I
-        am the one to bear the consequences of my own actions, and those actions
-        have impacted the rest of the world, and more.\r\r\n\r\nDr Mealine Wallis
-        may never be able to fix that broken CPU in her own dimension, meaning that
-        unless they insight real change, the world is truly lost. Everyone will perish
-        if they don't, It is just a matter of time.\r\r\r"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[19].images.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951114330807430719, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
-        type: 3}
-      propertyPath: allLore.Array.data[19].images.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 8d23921fb269e424ea62a43844924a15,
-        type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4004758219941147514, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
+    - {fileID: 5248589260227719911, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
+    - {fileID: 843248803288057523, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
+    - {fileID: 5028151580294126404, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
+    - {fileID: 5831024849961785276, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}

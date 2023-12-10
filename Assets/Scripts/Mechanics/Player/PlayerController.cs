@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     [SerializeField] LoreInventory loreInv;
-    [SerializeField] CanvasGroup inventoryCanvasGroup;
     [SerializeField] Player[] players = new Player[2];
     public ref Player currentPlayer
     {
@@ -102,6 +101,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("Visual Effects")]
     [SerializeField] VisualEffect portal;
+
+
+    private void Start()
+    {
+        loreInv = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>();
+        loreInv.Set(this);
+    }
+
+
 
     bool isGrounded
     {

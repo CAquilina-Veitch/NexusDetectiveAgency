@@ -10,6 +10,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
 
     [SerializeField] Rigidbody rb;
     [SerializeField] Transform camTransform;
+    LoreInventory loreInv;
 
     [Space(20)]
     [Header("Mechanisms")]
@@ -87,4 +88,25 @@ public class DetectiveAgencyPlayer : MonoBehaviour
         sensitivity = 0;
         speed = 0;
     }
+    public void EnableControls(bool to)
+    {
+        if (to)
+        {
+            EnableControls();
+        }
+        else
+        {
+            DisableControls();
+        }
+    }
+
+
+    private void Start()
+    {
+        loreInv = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>();
+        loreInv.Set(this);
+    }
+
+
+
 }

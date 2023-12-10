@@ -18,7 +18,7 @@ public class RemoteInteractionUI : MonoBehaviour
 
     private void OnEnable()
     {
-        controller = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
+        //controller = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
         UpdateUI();
 
 

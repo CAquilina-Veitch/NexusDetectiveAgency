@@ -25,6 +25,9 @@ public class LoreItem
 
     [TextArea(1, 100)] public string bodyText;
 
+    public int leather;
+    public Dimension reality;
+
 
 }
 
@@ -36,9 +39,6 @@ public class LoreBookSection
 }
 public class LoreInventory : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController;
-
-
     public List<LoreBookSection> LoreBookSections = new List<LoreBookSection>();
     public List<LoreItem> allLore;
 
@@ -58,6 +58,29 @@ public class LoreInventory : MonoBehaviour
 
     [SerializeField] CanvasGroup folder;
 
+    [SerializeField] CanvasGroup inventoryCanvasGroup;
+
+
+    DetectiveAgencyPlayer detective;
+    PlayerController player;
+    bool isDetective;
+
+    public void Set(DetectiveAgencyPlayer p)
+    {
+        isDetective = true;
+        detective = p;/*
+        singleIsOpen = false;
+        invOpen = false;*/
+    }
+    public void Set(PlayerController p)
+    {
+        isDetective= false;
+        player = p;
+/*
+        singleIsOpen = false;
+        invOpen = false;*/
+    }
+
 
 
     public void InteractWithObject(LoreObject lO)
@@ -69,8 +92,18 @@ public class LoreInventory : MonoBehaviour
         }
         singleIsOpen = !singleIsOpen;
         StartCoroutine(showSingleCanvas(lO.id, singleIsOpen));
-        playerController.ShowMouse(singleIsOpen);
-        playerController.EnableControls(!singleIsOpen);
+        
+        if(isDetective)
+        {
+            detective.ShowMouse(singleIsOpen);
+            detective.EnableControls(!singleIsOpen);
+        }
+        else
+        {
+            player.ShowMouse(singleIsOpen);
+            player.EnableControls(!singleIsOpen);
+        }
+
     }
 
     public void UpdateLoreItems()
@@ -99,8 +132,20 @@ public class LoreInventory : MonoBehaviour
     }
     IEnumerator startInvCanvas(bool to)
     {
-        playerController.ShowMouse(to);
-        playerController.EnableControls(!to);
+        
+
+        if (isDetective)
+        {
+            detective.ShowMouse(to);
+            detective.EnableControls(to);
+        }
+        else
+        {
+            player.ShowMouse(to);
+            player.EnableControls(!to);
+        }
+
+
 
         if (!to)
         {
