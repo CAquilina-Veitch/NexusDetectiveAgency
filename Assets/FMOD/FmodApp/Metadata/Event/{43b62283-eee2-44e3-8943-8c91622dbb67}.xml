@@ -235,7 +235,6 @@
 		<property name="transitionOffset">
 			<value>1</value>
 		</property>
-		<property name="name" />
 		<property name="looping">
 			<value>2</value>
 		</property>

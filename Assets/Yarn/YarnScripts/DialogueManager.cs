@@ -84,4 +84,9 @@ public class DialogueManager : MonoBehaviour
         maxVoice.setParameterByName("MaxToMel", voiceMaxID);
         maxVoice.start();
     }
+    [YarnCommand("melaniesuccess")]
+    public void OpenFinalDoor()
+    {
+        //Melanie convo successfully finished, opens last door
+    }
 }
