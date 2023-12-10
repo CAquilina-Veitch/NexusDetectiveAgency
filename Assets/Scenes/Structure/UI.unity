@@ -16260,7 +16260,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 13777382817a8c84fbc415423d749c5c, type: 3}
     bodyText: 
     leather: 0
-    reality: 0
+    reality: 2
   - collected: 0
     format: 1
     label: Max's Journal
@@ -16287,7 +16287,7 @@ MonoBehaviour:
       \r\n\r\nI need some clarification, but as I use my ability more frequently,
       I am understanding more about its intricacies. It is only a matter of time.\r\n"
     leather: 0
-    reality: 0
+    reality: 2
   - collected: 0
     format: 1
     label: Doctor's Letter
@@ -16322,7 +16322,7 @@ MonoBehaviour:
       on these matters would be most welcome, and I hope my mailing you was not too
       forward. I look forward to your response.\r"
     leather: 0
-    reality: 0
+    reality: 2
   - collected: 0
     format: 3
     label: '[REDACTED] Report'
@@ -16602,7 +16602,7 @@ MonoBehaviour:
       facility, as she stated that it would suit her project requirements. \r\n\r\nTimothy
       Baxter, COO\r\n"
     leather: 0
-    reality: 0
+    reality: 1
   - collected: 0
     format: 3
     label: Avacus Breach
@@ -16666,7 +16666,7 @@ MonoBehaviour:
       Bridger Botanical Gardens up and running.\r\n\r\nKind Regards,\r\nTimothy Baxter,
       COO\r\n"
     leather: 0
-    reality: 0
+    reality: 1
   - collected: 0
     format: 0
     label: Beginning Production
@@ -16692,7 +16692,7 @@ MonoBehaviour:
       ever. We can do this. We have to. \r\n\r\n\r\n\r\nDr. Melanie Wallis, Project
       Manager\r"
     leather: 0
-    reality: 0
+    reality: 1
   - collected: 0
     format: 0
     label: Completion
@@ -16714,7 +16714,7 @@ MonoBehaviour:
       is one hell of a Christmas present.\r\n\r\nSigning off, for the last time,\r\n\r\n\r\nDr
       Melanie Wallis, Assistant Project Manager\r\n"
     leather: 0
-    reality: 0
+    reality: 1
   - collected: 0
     format: 1
     label: Entry 2
@@ -16748,7 +16748,7 @@ MonoBehaviour:
       walking alone. \r\n\r\nNow, I sign off. I have much to do.\r\n\r\nRichard Dimirti
       Bridger, Founder and CEO of Bridger R&D\r\n"
     leather: 0
-    reality: 0
+    reality: 1
   - collected: 0
     format: 0
     label: Update #2 - Alt
@@ -16773,7 +16773,7 @@ MonoBehaviour:
       within the next few months.\r\n\r\nWe will just have to wait and see.\r\n\r\nDr
       Melanie Wallis, Assistant Project Manager\r\n"
     leather: 0
-    reality: 0
+    reality: 1
   - collected: 0
     format: 2
     label: 
@@ -16818,7 +16818,7 @@ MonoBehaviour:
       I made myself. I am the one to bear the consequences of my own actions, and
       those actions could impact the rest of the world, and more.\r\n"
     leather: 0
-    reality: 0
+    reality: 2
   - collected: 0
     format: 1
     label: 'A Doomed Reality '
@@ -16848,7 +16848,7 @@ MonoBehaviour:
       I made, I made myself. I am the one to bear the consequences of my own actions,
       and those actions have impacted the rest of the world, and more.\r"
     leather: 0
-    reality: 0
+    reality: 2
   - collected: 0
     format: 1
     label: 'A Doomed Reality '
@@ -16882,7 +16882,7 @@ MonoBehaviour:
       her own dimension, meaning that unless they insight real change, the world
       is truly lost. Everyone will perish if they don't, It is just a matter of time.\r\r\r"
     leather: 0
-    reality: 0
+    reality: 2
   invTabs:
   - {fileID: 123701145}
   - {fileID: 174159659}
