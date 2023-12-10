@@ -3,8 +3,8 @@ tags:
 position: -1013,-832
 ---
 <<declare $animNumber = 0>>
-<<declare $audioMelanieNumber = 0>>
-<<declare $audioMaxNumber = 0>>
+<<declare $audioMelanieNumber = 1>>
+<<declare $audioMaxNumber = 1>>
 <<declare $documentsFound = 0>>
 <<declare $firstInteraction = true>>
 <<declare $FetchDocFound = false>>
@@ -68,10 +68,14 @@ Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
 		<<set $AudioCutOut = true>>
+		<<set $audioMaxNumber = 3>>
+		<<playvoicemax DialogueManager>>
 		Max: Not so fast. I need to see the device you've been working on. #max03
 		<<jump TalkingToMelanie3>>
 ->	Fine (Leave).
 		<<set $AudioCutOut = true>>
+		<<set $audioMaxNumber = 4>>
+		<<playvoicemax DialogueManager>>
 		Max: Well alright then. #max04
 		<<wait  1>>
 		<<jump MelanieExit>>
@@ -81,14 +85,17 @@ Melanie: You'll be leaving now. Before I call security. #melanie04
 title: TalkingToMelanie3
 position: -823,-92
 ---
-<<set $audioMelanieNumber = 5>>
+//<<set $audioMelanieNumber = 5>>
 <<playvoicemel DialogueManager>>
-Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
+Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years.
+Melanie: Everything we had been working on is in our main displays in the lobby. #melanie05
 
 ->	There's something here.
-		Max: I know there' i's something else here. And I know it's affecting this world. #max05
+		<<set $audioMaxNumber = 5>>
+		<<playvoicemax DialogueManager>>
+		Max: I know there's something else here. And I know it's affecting this world. #max05
 
-<<set $audioMelanieNumber = 6>>
+//<<set $audioMelanieNumber = 6>>
 <<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
 <<if $documentsFound < 5 >>
@@ -114,11 +121,13 @@ title: MelanieFail
 position: -541,-286
 ---
 ->	I don't believe you.
+		<<set $audioMaxNumber = 6>>
+		<<playvoicemax DialogueManager>>
 		Max: Well, I simply don't believe that. #max06
-
-Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little (Leave). #melanie07
-<<set $FetchDocFound = false>>
-<<jump ExitingForQuest>>
+		<<playvoicemel DialogueManager>>
+		Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little (Leave). #melanie07
+		<<set $FetchDocFound = false>>
+		<<jump ExitingForQuest>>
 ===
 
 
@@ -142,27 +151,30 @@ title: MelanieRepeat
 position: 265,-442
 ---
 
-//Max mumbles: Found... it... #max13
+<<set $audioMaxNumber = 13>>
+<<playvoicemax DialogueManager>>
 Max: I found the file you were looking for.
-
+<<playvoicemel DialogueManager>>
 Melanie: About time. Any questions?
 
 ->	Max: What about a new part?
-		//Max mumbles: "No... New... part?" #max14
+		<<set $audioMaxNumber = 14>>
+		<<playvoicemax DialogueManager>>
 		Max: So I can't create a new part?
-
+		<<playvoicemel DialogueManager>>
 		Melanie: There was only a single unit ever created, due to the fact this project was purely experimental.
 		Melanie:Because of the lost schematics, the only way to make the machine work was if there was another part somewhere.
 
 ->	Max: But a new part will fix this?
-		//Max mumbles: "Can... I... Fix... This..."
-		Max: So you're saying that if I either find a way to fix the machine, or get a new part, the machine will be functional again?
-
+		<<set $audioMaxNumber = 15>>
+		<<playvoicemax DialogueManager>>
+		Max: So you're saying that if I secure this CPU component, this machine could be reproduced?
+		<<playvoicemel DialogueManager>>
 		Melanie: Yes, that would be the case.
-		Melanie: By getting a new part, we can repair it to its full capacity.
-		Melanie: Hopefully, we could fix all the shame we brought upon ourselves.
+		Melanie: We don't have much use for ours without it being repaired to its full capacity.
+		Melanie: Maybe you could make use of it?
 
-<<jump MelanieFinal>>
+<<jump MelanieExit>>
 ===
 
 
@@ -170,13 +182,19 @@ title: MelaniePass
 position: -256,-93
 ---
 ->	Stop bluffing.
+		<<set $audioMaxNumber = 7>>
+		<<playvoicemax DialogueManager>>
 		Max: Stop bluffing, I know there is something behind that door. #max07
+		<<set $audioMaxNumber = 8>>
+		<<playvoicemax DialogueManager>>
 		Max: The CPU broke. #max08
-
+		<<playvoicemel DialogueManager>>
 		Melanie: Wait... What? How... could you possibly know that? #melanie08
 
 ->	Max: I know a lot more.
 		//Max mumbles: I... Know... All... #max09
+		<<set $audioMaxNumber = 9>>
+		<<playvoicemax DialogueManager>>
 		Max: I know lots of things, like how you authorized the improper use of the machine.
 		Max: How Bridger R&D wanted to abuse this device to make a profit of innocents.
 		Max: Like how your guilt and shame mean more than your job.
@@ -184,7 +202,7 @@ position: -256,-93
 		Melanie: ...
 
 Max: I can help you fix this mess.
-
+<<playvoicemel DialogueManager>>
 Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
 <<jump MelaniePassTree>>
 ===
@@ -194,23 +212,31 @@ title: MelaniePassTree
 position: 7,-94
 ---
 
-->	Max: What do you mean by "Fixing it is impossible"?
-		//Max mumbles: Impossible?
+->	Max: Impossible?
+		<<set $audioMaxNumber = 10>>
+		<<playvoicemax DialogueManager>>
+		Max: What do you mean by "Fixing it is impossible"?
+		<<playvoicemel DialogueManager>>
 		Melanie: Well. Ummm. We, ehh... lost... the schematics. A poor filing choice from an intern. #melanie10
 
-->	Max: Does no one know that it broke?
-		//Max mumbles: Who... knows #max11
+->	Max: Who knows?
+		<<set $audioMaxNumber = 11>>
+		<<playvoicemax DialogueManager>>
+		Max: Does no one know that it broke?
+		<<playvoicemel DialogueManager>>
 		Melanie: We hid it, out of shame.
 		Melanie: No one knows besides the team that worked on it.
 		Melanie: We had to think about what would happen if someone did find out about it.
 		Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands. #melanie11
 
-->	Max: More gross incompetence.
-		//Max mumbles: Pure... Incompetence #max12
+->	Max: Pure incompetence.
+		<<set $audioMaxNumber = 12>>
+		<<playvoicemax DialogueManager>>
+		Max: More gross incompetence.
 		Max: The sad thing is, the machine would have worked.
 		Max: In a separate dimension, the machine worked to clean the air.
 		Max: Greenery populates the world.
-
+		<<playvoicemel DialogueManager>>
 		Melanie: Jesus ... .You can travel dimensions?
 		<<wait  1>>
 		Melanie: I'm getting off track.
@@ -219,24 +245,9 @@ position: 7,-94
 		Melanie: We made the wrong choice and paid dearly for it.
 
 <<wait 1>>
-<<jump MelanieFinal>>
-===
-
-
-title: MelanieFinal
-position: 264,-94
----
-//Max mumbles: I... Think... I... can... fix... it #max15
-Max: I may be able to fix it.
-Max: I can try and find a part for you from the other dimension.
-
-Melanie: Really?
-Melanie: If you fixed this, you could save countless lives.
-<<wait  1>>
-Melanie: Oh, and one more thing.
-Melanie: Good luck.
 <<jump MelanieExit>>
 ===
+
 
 title: MelanieExit
 position:

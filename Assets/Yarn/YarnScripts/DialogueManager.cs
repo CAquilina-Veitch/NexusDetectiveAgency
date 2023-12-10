@@ -59,19 +59,19 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("playvoicemel")]                                                   //Creates a custom Command in Yarn
     public void SetMelanieID()                                                      //Begins when Yarn displays a line's subtitles
     {
-        float voiceID;
-        variableStorage.TryGetValue("$audioMelanieNumber", out voiceID);            //Retrieves Yarn's written voice line as a number
+        float voiceMelID;
+        variableStorage.TryGetValue("$audioMelanieNumber", out voiceMelID);            //Retrieves Yarn's written voice line as a number
         variableStorage.TryGetValue("$AudioCutOut", out bool cut);
         if (!cut)
         {
-            melanieVoice.setParameterByName("MelanieLine", voiceID);                    //Sends that number to FMOD to determine a voice line
-            melanieVoice.start();                                                       //Play sound in FMOD
+            melanieVoice.setParameterByName("MelanieLine", voiceMelID);
+            melanieVoice.start();
         }
         else
         {
-            voiceID += 10;
+            voiceMelID += 99;
         }
-        melanieAnim.SetInteger("Dialogue Stage", (int)voiceID);
+        melanieAnim.SetInteger("Dialogue Stage", (int)voiceMelID);
         melanieAnim.SetTrigger("Dialogue Trigger");
 
         //Debug.Log($"Melanie Animation: {voiceID}");                                 //Play animation here
@@ -79,9 +79,9 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("playvoicemax")]
     public void SetMaxID()
     {
-        float voiceID;
-        variableStorage.TryGetValue("$audioMaxNumber", out voiceID);
-        maxVoice.setParameterByName("MaxLine", voiceID);
+        float voiceMaxID;
+        variableStorage.TryGetValue("$audioMaxNumber", out voiceMaxID);
+        maxVoice.setParameterByName("MaxToMel", voiceMaxID);
         maxVoice.start();
     }
 }
