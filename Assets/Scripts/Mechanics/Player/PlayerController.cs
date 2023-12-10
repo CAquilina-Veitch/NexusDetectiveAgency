@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Vector2 mouseInput;
     [SerializeField,Range(0,10)] float sensitivity = 1;
+    [SerializeField,Range(0,10)] float realSens = 1;
     [SerializeField] float droneScrollSpeed = 0.2f;
     [SerializeField] float invFadeTime = 0.2f;
 
@@ -861,7 +862,7 @@ public class PlayerController : MonoBehaviour
         if(mouseManualControlled)
         {
 
-            mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * sensitivity;
+            mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * realSens;
             pitch += mouseInput.y;
             yaw += mouseInput.x;
             pitch = Mathf.Clamp(pitch, -90, 90);
@@ -887,7 +888,7 @@ public class PlayerController : MonoBehaviour
     public void EnableControls(bool to)
     {
         mouseManualControlled = to;
-        sensitivity = to ? 1 : 0;
+        realSens = to ? sensitivity : 0;
         speed = to ? 8 : 0;
     }
 
