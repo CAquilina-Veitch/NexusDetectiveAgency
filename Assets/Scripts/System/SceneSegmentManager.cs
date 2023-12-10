@@ -12,6 +12,7 @@ public class SceneSegmentManager : MonoBehaviour
     int currentSegmentIndex = 0;
     int currentMidSegmentIndex = 0;
 
+
     void LoadSegment()
     {
 
@@ -22,12 +23,24 @@ public class SceneSegmentManager : MonoBehaviour
                 SceneManager.UnloadSceneAsync(segmentSceneIds[currentSegmentIndex - 1]);
             }
         }
+
         if(currentSegmentIndex < segmentSceneIds.Count)
         {
-            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
+            if (currentSegmentIndex > 0)
             {
-                SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
+                if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
+                {
+                    SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
+                }
             }
+            else
+            {
+                if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
+                {
+                    SceneManager.LoadScene(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
+                }
+            }
+
         }
     }    
     
@@ -54,7 +67,7 @@ public class SceneSegmentManager : MonoBehaviour
         //string sceneName = StructureScenes[i].name;
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            SceneManager.LoadScene(StructureSceneIds[i], LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
         }
     }
     void UnloadStructure(int i)
