@@ -96,13 +96,13 @@ public class LoreInventory : MonoBehaviour
     {
         Debug.Log(i);
         openingLeather = i;
-        StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
-        StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
+        StartCoroutine(CloseCanvasGroup(leatherCanvasGroup));
+        StartCoroutine(OpenCanvasGroup(realityCanvasGroup));
     }
 
-    public void ChooseReality(Dimension d)
+    public void ChooseReality(int d)
     {
-        openingDimension = d;
+        openingDimension = (Dimension)d;
         StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
         StartCoroutine(OpenCanvasGroup(loreCanvasGroup));
     }
@@ -114,7 +114,7 @@ public class LoreInventory : MonoBehaviour
         float from = cnvsG.alpha;
         while (timer < fadeDuration)
         {
-            float alpha = Mathf.Lerp(from,1, timer / fadeDuration);
+            float alpha = Mathf.Lerp(from, 1, timer / fadeDuration);
             cnvsG.alpha = alpha;
             timer += Time.deltaTime;
             yield return null;

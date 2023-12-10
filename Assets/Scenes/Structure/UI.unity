@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6371,9 +6371,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1591138667}
-  - {fileID: 734551771}
   - {fileID: 2045034014}
+  - {fileID: 734551771}
+  - {fileID: 1591138667}
   - {fileID: 1519767742}
   - {fileID: 1276429871}
   - {fileID: 656064851}
@@ -8821,7 +8821,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734551770}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -23222,9 +23222,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1091416604}
         m_TargetAssemblyTypeName: LoreInventory, Assembly-CSharp
-        m_MethodName: SwitchCurrentLore
+        m_MethodName: ChooseReality
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24024,7 +24024,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591138666}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -28956,9 +28956,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1091416604}
         m_TargetAssemblyTypeName: LoreInventory, Assembly-CSharp
-        m_MethodName: SwitchCurrentLore
+        m_MethodName: ChooseReality
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
