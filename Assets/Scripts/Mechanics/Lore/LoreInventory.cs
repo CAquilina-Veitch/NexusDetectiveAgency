@@ -6,7 +6,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public enum Format { Terminal, Handwritten, Newspaper, File}
 [Serializable]
@@ -39,7 +38,6 @@ public class LoreBookSection
 }
 public class LoreInventory : MonoBehaviour
 {
-    [SerializeField] UnityEvent endCard;
     public List<LoreBookSection> LoreBookSections = new List<LoreBookSection>();
     public List<LoreItem> allLore;
 
