@@ -9950,6 +9950,7 @@ GameObject:
   - component: {fileID: 5078265773345677716}
   - component: {fileID: 5078265773345677717}
   - component: {fileID: 5078265773345677718}
+  - component: {fileID: 5078265773345677719}
   m_Layer: 0
   m_Name: Interactable Lore
   m_TagString: Untagged
@@ -13309,6 +13310,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.4004087, y: 1, z: 3.1978388}
   m_Center: {x: -0.75884646, y: 0, z: -0.82147974}
+--- !u!114 &5078265773345677719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600118166620843722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76f20269dfdfb844bad0a3c06e9dbe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinishedExposition:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 600118167946281613}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &5078265774436044243
 Transform:
   m_ObjectHideFlags: 0
