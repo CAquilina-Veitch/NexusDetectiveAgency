@@ -2,7 +2,7 @@
 tags:
 position: -24,-23
 ---
-
+<<declare $maxSoloLineNo = 1>>
 ===
 
 
@@ -10,6 +10,8 @@ title: 01MaxCollectible
 tags:
 position: -95,-209
 ---
+<<set $maxSoloLineNo = 1>>
+<<playsolomax DialogueManager>>
 Max: I'd better have a look around. Might be some information I can use.
 <<stop>>
 ===
@@ -19,6 +21,8 @@ title: 02MaxCollectible
 tags:
 position: -95,-209
 ---
+<<set $maxSoloLineNo = 2>>
+<<playsolomax DialogueManager>>
 Max: Hmm... I'd better try and find some more documents.
 <<stop>>
 ===
@@ -28,6 +32,8 @@ title: 03MaxCollectible
 tags:
 position: -95,-209
 ---
+<<set $maxSoloLineNo = 3>>
+<<playsolomax DialogueManager>>
 Max: I wonder if there's any more files lying around.
 <<stop>>
 ===
@@ -37,6 +43,8 @@ title: 04MaxDimBlocked
 tags:
 position: -95,-209
 ---
+<<set $maxSoloLineNo = 4>>
+<<playsolomax DialogueManager>>
 Max: Augh, something's blocking my path.
 <<stop>>
 ===
@@ -46,6 +54,8 @@ title: 05MaxDimBlocked
 tags:
 position: -95,-209
 ---
+<<set $maxSoloLineNo = 5>>
+<<playsolomax DialogueManager>>
 Max: I think there might be something in the way.
 <<stop>>
 ===
@@ -55,6 +65,8 @@ title: 06MaxDimBlocked
 tags:
 position: -95,-209
 ---
+<<set $maxSoloLineNo = 6>>
+<<playsolomax DialogueManager>>
 Max: Huh, strange... I'd wonder if I'd warp into a flowerpot or something.
 <<stop>>
 ===
@@ -64,6 +76,8 @@ title: 07MaxDimBlocked
 tags:
 position:
 ---
+<<set $maxSoloLineNo = 7>>
+<<playsolomax DialogueManager>>
 Max: Clearly I need to move before changing.
 <<stop>>
 ===
@@ -73,8 +87,173 @@ title: 08MaxTerminalFirst
 tags:
 position:
 ---
+<<set $maxSoloLineNo = 8>>
+<<playsolomax DialogueManager>>
 Max: Interesting, a... computer? Might be worth a look.
 <<stop>>
 ===
 
 
+title: 09MaxTerminalFind
+tags:
+position:
+---
+<<set $maxSoloLineNo = 9>>
+<<playsolomax DialogueManager>>
+Max: Well, hello there.
+<<stop>>
+===
+
+
+title: 10MaxTerminalFind
+tags:
+position:
+---
+<<set $maxSoloLineNo = 10>>
+<<playsolomax DialogueManager>>
+Max: Another one? How many are there?
+<<stop>>
+===
+
+
+title: 11MaxTerminalFind
+tags:
+position:
+---
+<<set $maxSoloLineNo = 11>>
+<<playsolomax DialogueManager>>
+Max: People really just don't file in this dimension, do they...
+<<stop>>
+===
+
+
+title: 12MaxPuzzleSolved
+tags:
+position:
+---
+<<set $maxSoloLineNo = 1>>
+<<playsolomax DialogueManager>>
+Max: I think that did it.
+<<stop>>
+===
+
+
+title: 13MaxPuzzleSolved
+tags:
+position:
+---
+<<set $maxSoloLineNo = 13>>
+<<playsolomax DialogueManager>>
+Max: Ugh, finally.
+<<stop>>
+===
+
+
+title: 14MaxPuzzleSolved
+tags:
+position:
+---
+<<set $maxSoloLineNo = 14>>
+<<playsolomax DialogueManager>>
+Max: Well there we go.
+<<stop>>
+===
+
+
+title: 15MaxPuzzleSolved
+tags:
+position:
+---
+<<set $maxSoloLineNo = 15>>
+<<playsolomax DialogueManager>>
+Max: Moving on.
+<<stop>>
+===
+
+
+title: 16MaxPuzzleSolved
+tags:
+position:
+---
+<<set $maxSoloLineNo = 16>>
+<<playsolomax DialogueManager>>
+Max: Well, that took its time.
+<<stop>>
+===
+
+
+title: 17MaxPuzzleSolved
+tags:
+position:
+---
+<<set $maxSoloLineNo = 17>>
+<<playsolomax DialogueManager>>
+Max: Who designed this place?
+<<stop>>
+===
+
+
+title: 18MaxLevelOne
+tags:
+position:
+---
+<<set $maxSoloLineNo = 18>>
+<<playsolomax DialogueManager>>
+Max: Lots of heavy tech here, wonder if there's anything light enough to carry.
+<<stop>>
+===
+
+
+title: 19MaxLevelOne
+tags:
+position:
+---
+<<set $maxSoloLineNo = 19>>
+<<playsolomax DialogueManager>>
+Max: Another pressure pad? But only one cube... hmm...
+<<stop>>
+===
+
+
+title: 20MaxLevelTwo
+tags:
+position:
+---
+<<set $maxSoloLineNo = 20>>
+<<playsolomax DialogueManager>>
+Max: Alright, let's get to work.
+<<stop>>
+===
+
+
+title: 21MaxLevelTwo
+tags:
+position:
+---
+<<set $maxSoloLineNo = 21>>
+<<playsolomax DialogueManager>>
+Max: I think there's something useful here.
+<<stop>>
+===
+
+
+title: 22MaxLevelTwo
+tags:
+position:
+---
+<<set $maxSoloLineNo = 22>>
+<<playsolomax DialogueManager>>
+Max: Looks like some kind of cistern control. Maybe it can change the flow of water.
+<<stop>>
+===
+
+
+title: 232MaxLevelThree
+tags:
+position:
+---
+<<set $maxSoloLineNo = 23>>
+<<playsolomax DialogueManager>>
+Max: Ugh, poor thing's broken. Hmm it's definitely fixable though.
+<<stop>>
+===
