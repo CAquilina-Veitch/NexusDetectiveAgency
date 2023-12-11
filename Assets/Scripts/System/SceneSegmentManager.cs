@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
+using FMOD.Studio;
 
 public class SceneSegmentManager : MonoBehaviour
 {
@@ -14,139 +15,143 @@ public class SceneSegmentManager : MonoBehaviour
     int currentMidSegmentIndex = 0;
 
 
-    async void LoadSegment(int i)
+    IEnumerator LoadNextA(int from, int to)
+    {
+        AsyncOperation ao = SceneManager.UnloadSceneAsync(from);
+        yield return ao;
+        AsyncOperation ae = SceneManager.LoadSceneAsync(to);
+        yield return ae;
+    }
+
+
+    AsyncOperation LoadSegmentA(int i)
     {
         if (i < segmentSceneIds.Count)
         {
             if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(segmentSceneIds[i], LoadSceneMode.Additive);
-                await WaitUntilSceneLoaded(asyncOperation);
+                AsyncOperation aO = SceneManager.LoadSceneAsync(segmentSceneIds[i], LoadSceneMode.Additive);
+                return aO;
             }
         }
+        return null;
     }
 
-    async void UnloadSegment(int i)
+
+    AsyncOperation UnloadSegmentA(int i)
     {
         Debug.LogWarning($"unloading {i}, which is {segmentSceneIds[i]}");
         if (i >= 0)
         {
             if (SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(segmentSceneIds[i]);
-                await WaitUntilSceneUnloaded(asyncOperation);
+                AsyncOperation aO = SceneManager.UnloadSceneAsync(segmentSceneIds[i]);
+                return aO;
             }
         }
+        return null;
     }
 
-    async void LoadMidSegment(int i)
+    AsyncOperation LoadMidSegmentA(int i)
     {
         if (i < midSegmentSceneIds.Count)
         {
             if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
             {
-                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(midSegmentSceneIds[i], LoadSceneMode.Additive);
-                await WaitUntilSceneLoaded(asyncOperation);
+                AsyncOperation aO = SceneManager.LoadSceneAsync(midSegmentSceneIds[i], LoadSceneMode.Additive);
+                return aO;
             }
         }
+        return null;
     }
 
-    async void UnloadMidSegment(int i)
+    AsyncOperation UnloadMidSegmentA(int i)
     {
         if (i >= 0)
         {
             if (SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
             {
-                AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(midSegmentSceneIds[i]);
-                await WaitUntilSceneUnloaded(asyncOperation);
+                AsyncOperation aO = SceneManager.UnloadSceneAsync(midSegmentSceneIds[i]);
+                return aO;
             }
         }
+        return null;
     }
 
-    async void LoadStructure(int i)
+    AsyncOperation LoadStructureA(int i)
     {
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
-            await WaitUntilSceneLoaded(asyncOperation);
+            AsyncOperation aO = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
+            return aO;
         }
+        return null;
     }
 
-    async void UnloadStructure(int i)
+    AsyncOperation UnloadStructureA(int i)
     {
         if (SceneManager.GetSceneByBuildIndex(StructureSceneIds[i]).isLoaded)
         {
-            AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(StructureSceneIds[i]);
-            await WaitUntilSceneUnloaded(asyncOperation);
+            AsyncOperation aO = SceneManager.UnloadSceneAsync(StructureSceneIds[i]);
+            return aO;
         }
-    }
-
-    async Task WaitUntilSceneLoaded(AsyncOperation operation)
-    {
-        while (!operation.isDone)
-        {
-            // Optionally, you can yield return null or another WaitForSeconds
-            await Task.Yield();
-        }
-    }
-    async Task WaitUntilSceneUnloaded(AsyncOperation operation)
-    {
-        while (!operation.isDone)
-        {
-            // Optionally, you can yield return null or another WaitForSeconds
-            await Task.Yield();
-        }
+        return null;
     }
 
 
     public void LoadNextSegment()
     {
         currentSegmentIndex++;
-        UnloadSegment(currentSegmentIndex - 1);
-        LoadSegment(currentSegmentIndex);
+        StartCoroutine(LoadNextA(StructureSceneIds[currentSegmentIndex - 1], StructureSceneIds[currentSegmentIndex]));
     }    
     public void LoadNextMidSegment()
     {
         currentMidSegmentIndex++;
-        UnloadMidSegment(currentMidSegmentIndex - 1);
-        LoadMidSegment(currentMidSegmentIndex);
+        StartCoroutine(LoadNextA(StructureSceneIds[currentMidSegmentIndex - 1], StructureSceneIds[currentMidSegmentIndex]));
     }
     public void JumpLoadMidSegment(int which)
     {
         currentMidSegmentIndex = which;
-        LoadMidSegment(which);
+        LoadMidSegmentA(which);
     }
     public void JumpLoadSegment(int which)
     {
         currentSegmentIndex = which;
-        LoadSegment(which);
+        LoadSegmentA(which);
     }
 
     public void Awake()
     {
-        LoadStructure(0);
+        LoadStructureA(0);
     }
 
     public void DetectiveAgency()
     {
-        UnloadStructure(0);     //menu
-        LoadStructure(2);       //ui
-        LoadStructure(3);       //det start
+        UnloadStructureA(0);     //menu
+        LoadStructureA(2);       //ui
+        LoadStructureA(3);       //det start
     }
     public void FinalDetectiveAgency()
     {
-        LoadStructure(4);
-        UnloadStructure(1); 
-        UnloadMidSegment(currentMidSegmentIndex);
-        UnloadSegment(currentSegmentIndex);
+        StartCoroutine(FinalDet());
+    }
+    IEnumerator FinalDet()
+    {
+        yield return UnloadStructureA(1);
+        yield return LoadStructureA(4);
+        yield return UnloadMidSegmentA(currentMidSegmentIndex);
+        yield return UnloadMidSegmentA(currentMidSegmentIndex);
     }
     public void PlaytestDemoStart()
     {
-        LoadStructure(1);       //player
-        UnloadStructure(3);     //det start
-        //UnloadStructure(3);     
-        LoadSegment(0);
-        LoadMidSegment(0);
+        StartCoroutine(FirstLevel());
+    }
+    IEnumerator FirstLevel()
+    {
+        yield return LoadSegmentA(0);
+        yield return LoadMidSegmentA(0);
+        LoadStructureA (1);             //player
+        UnloadStructureA(3);            //det start
     }
     private void Update()
     {
