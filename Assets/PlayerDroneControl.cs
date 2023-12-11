@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerDroneControl : MonoBehaviour
 {
-    public void GivePlayerDrone(bool to)
+    public void GivePlayerDrone()
     {
-        GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().HasDrone(to);
+        GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().ToggleDroneDraft();
     }
 
     public bool happenOnTrigger = false;
@@ -18,7 +18,7 @@ public class PlayerDroneControl : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                GivePlayerDrone(onTriggerGivePlayerDroneIfTrueOrTakeIfFalse);
+                GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().ToggleDroneDraft(onTriggerGivePlayerDroneIfTrueOrTakeIfFalse);
             }
         }
     }

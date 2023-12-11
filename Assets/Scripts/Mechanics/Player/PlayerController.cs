@@ -70,20 +70,6 @@ public class PlayerController : MonoBehaviour
     float pitch, yaw;
     bool mouseManualControlled = true;
 
-    public bool hasDrone = false;
-    public void HasDrone(bool to)
-    {
-        hasDrone = to;
-        if (!to)
-        {
-            if (dronePlatformDrafting)
-            {
-                dronePlatformDrafting = false;
-                dronePosValid = false;
-                ShowDraft(dronePlatformDrafting);
-            }
-        }
-    }
 
     [Space(10)]
     public Dimension currentPlayerDimension;
@@ -174,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public float currentDronePlatformDistance;
     [SerializeField] Vector2 droneDistanceClamps = new Vector2(1, 8);
-    DronePlatform currentDronePlatformPrefab;
+    List<DronePlatform> currentDronePlatformPrefabs = new List<DronePlatform>();
     [SerializeField] Material[] droneMaterials = new Material[2];
     [SerializeField] MeshRenderer droneMeshRenderer;
     [SerializeField] bool droneMatValid = true;
@@ -561,11 +547,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ToggleDroneDraft()
+    public void ToggleDroneDraft()
     {
         dronePlatformDrafting = !dronePlatformDrafting;
         dronePosValid = false;
         ShowDraft(dronePlatformDrafting);
+    }    
+    public void ToggleDroneDraft(bool to)
+    {
+        if (dronePlatformDrafting != to)
+        {
+            dronePlatformDrafting = to;
+            dronePosValid = false;
+            ShowDraft(dronePlatformDrafting);
+        }
     }
     void ConfirmDroneDraft()
     {
@@ -580,17 +575,27 @@ public class PlayerController : MonoBehaviour
     void NewDronePositionSet()
     {
         if (dronePosValid)
-        {
+        { 
+
+
             currentPlayer.anim.SetTrigger("Point");
-            if (currentDronePlatformPrefab != null)
+            
+
+            DronePlatform currentDronePlatformPrefab = Instantiate(dronePlatformPrefab).GetComponent<DronePlatform>();
+            currentDronePlatformPrefab.Init(droneDraft.transform.position - 2 * droneDraft.center);
+            currentDronePlatformPrefabs.Add(currentDronePlatformPrefab);
+            ShowDraft(false);
+
+            if(currentDronePlatformPrefabs.Count>2)
             {
-                currentDronePlatformPrefab.StartFlyingUp();
+                if (currentDronePlatformPrefabs[0] != null)
+                {
+                    currentDronePlatformPrefabs[0].StartFlyingUp();
+                }
+                currentDronePlatformPrefabs.RemoveAt(0);
+                
             }
 
-            currentDronePlatformPrefab = Instantiate(dronePlatformPrefab).GetComponent<DronePlatform>();
-            currentDronePlatformPrefab.Init(droneDraft.transform.position - 2 * droneDraft.center);
-
-            ShowDraft(false);
 
         }
         else
@@ -844,13 +849,9 @@ public class PlayerController : MonoBehaviour
             {
                 switchDimension(Dimension.Cyberpunk);
             }
-
             if (Input.GetKeyDown(abilityKey))
             {
-                if (hasDrone)
-                {
-                    ToggleDroneDraft();
-                }
+                ToggleDroneDraft(false);
             }
             if(dronePlatformDrafting)
             {
