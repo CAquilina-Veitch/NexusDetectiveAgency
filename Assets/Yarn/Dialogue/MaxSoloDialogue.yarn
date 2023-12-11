@@ -199,8 +199,7 @@ position:
 ---
 //18MaxLevelOne
 Max: Lots of heavy tech here, wonder if there's anything light enough to carry.
-<<wait  4>>
-<<stop>>
+<<wait  4>> <<stop>>
 ===
 
 
