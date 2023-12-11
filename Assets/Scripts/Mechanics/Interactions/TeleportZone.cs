@@ -13,7 +13,7 @@ public class TeleportZone : MonoBehaviour
     [SerializeField] float speed;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "PlayerController")
+        if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().Teleport(tpPos.position);
         }
