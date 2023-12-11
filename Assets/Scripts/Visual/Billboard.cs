@@ -9,7 +9,7 @@ public class Billboard : MonoBehaviour
     DetectiveAgencyPlayer det;
     public bool isDetectiveAgency;
 
-    private void OnEnable()
+    private void Start()
     {
         if(isDetectiveAgency)
         {

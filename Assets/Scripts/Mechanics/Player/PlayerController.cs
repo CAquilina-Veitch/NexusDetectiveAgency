@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
+            return true;
             Debug.DrawRay(currentPlayer.transform.position, Vector3.down * jumpCheckLength, Color.cyan, 5.0f);
             if (Physics.Raycast(currentPlayer.transform.position,Vector3.down,jumpCheckLength, groundMask))
             {
@@ -186,6 +187,11 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawSphere(dimensionalDiffPosition+transform.position, 0.2f);
         Gizmos.color = Color.magenta;
         Gizmos.DrawSphere(-dimensionalDiffPosition + transform.position, 0.2f);
+    }
+
+    public void Ready()
+    {
+        rb.useGravity = true;
     }
 
     private void Awake()
