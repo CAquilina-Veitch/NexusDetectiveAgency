@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();              //Finds variables within Yarn
-        loreInventory = FindObjectOfType<LoreInventory>();
+        //loreInventory = FindObjectOfType<LoreInventory>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
         melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
         maxVoice = RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
@@ -46,10 +46,10 @@ public class DialogueManager : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(melanieVoice, melanieTran);
         RuntimeManager.AttachInstanceToGameObject(maxVoice, maxTran);
 
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            StartMelConvo();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha9))
+        //{
+        //    StartMelConvo();
+        //}
     }
 
      
@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator DelayDialogueStart()
     {
-        yield return new WaitForSeconds(11.25f);
+        yield return new WaitForSeconds(11.25f); //11.25
         dialogueRunner.StartDialogue("MelanieDialogue");
     }
 
@@ -80,10 +80,10 @@ public class DialogueManager : MonoBehaviour
         {
             voiceMelID += 99;
         }
-        if (hologramEffectActive == true)
-        {
-            //Do hologram effect
-        }
+        //if (hologramEffectActive == true)
+        //{
+        //    //Do hologram effect
+        //}
         melanieAnim.SetInteger("Dialogue Stage", (int)voiceMelID);
         melanieAnim.SetTrigger("Dialogue Trigger");
 
@@ -97,14 +97,14 @@ public class DialogueManager : MonoBehaviour
         maxVoice.setParameterByName("MaxToMel", voiceMaxID);
         maxVoice.start();
     }
-    [YarnCommand("loredocsfound")]
-    public void LoreDocsFound()
-    {
-        documentsFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent< LoreInventory>().collectedLore();
-        mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
-        variableStorage.SetValue("$documentsFound", documentsFound);
-        variableStorage.SetValue("$FetchDocFound", mainDocFound);
-    }
+    //[YarnCommand("loredocsfound")]
+    //public void LoreDocsFound()
+    //{
+    //    documentsFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent< LoreInventory>().collectedLore();
+    //    mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
+    //    variableStorage.SetValue("$documentsFound", documentsFound);
+    //    variableStorage.SetValue("$FetchDocFound", mainDocFound);
+    //}
     [YarnCommand("melaniestop")]
     public void MelanieStop()
     {

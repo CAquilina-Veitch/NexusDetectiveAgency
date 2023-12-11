@@ -25,8 +25,8 @@ position: -1013,-832
 title: MelanieInteract
 position: -258,-837
 ---
-<<loredocsfound DialogueManager>>
-
+//<<loredocsfound DialogueManager>>
+<<set $documentsFound = 10>>
 <<if $firstInteraction == true>>
 	<<jump TalkingToMelanie1>>
 <<else>>
