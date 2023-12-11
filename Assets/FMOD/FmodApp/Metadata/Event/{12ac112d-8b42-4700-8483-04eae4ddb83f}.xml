@@ -196,7 +196,10 @@
 			<value>5000</value>
 		</property>
 		<property name="panBlend">
-			<value>0.849999964</value>
+			<value>0.904999971</value>
+		</property>
+		<property name="userStereoSeparation">
+			<value>22.5426693</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{256b532e-3b29-4316-af18-f85e30b1a6bf}" />
