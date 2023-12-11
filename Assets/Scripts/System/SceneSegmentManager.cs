@@ -17,9 +17,12 @@ public class SceneSegmentManager : MonoBehaviour
 
     IEnumerator LoadNextA(int from, int to)
     {
-        AsyncOperation ao = SceneManager.UnloadSceneAsync(from);
-        yield return ao;
-        AsyncOperation ae = SceneManager.LoadSceneAsync(to);
+        if(from >= 0)
+        {
+            AsyncOperation ao = SceneManager.UnloadSceneAsync(from);
+            yield return ao;
+        }
+        AsyncOperation ae = SceneManager.LoadSceneAsync(to,LoadSceneMode.Additive);
         yield return ae;
     }
 
@@ -99,15 +102,15 @@ public class SceneSegmentManager : MonoBehaviour
     }
 
 
-    public void LoadNextSegment()
+    public void LoadNextSegmentA()
     {
         currentSegmentIndex++;
-        StartCoroutine(LoadNextA(StructureSceneIds[currentSegmentIndex - 1], StructureSceneIds[currentSegmentIndex]));
-    }    
-    public void LoadNextMidSegment()
+        StartCoroutine(LoadNextA(segmentSceneIds[currentSegmentIndex - 1], segmentSceneIds[currentSegmentIndex]));
+    }
+    public void LoadNextMidSegmentA()
     {
         currentMidSegmentIndex++;
-        StartCoroutine(LoadNextA(StructureSceneIds[currentMidSegmentIndex - 1], StructureSceneIds[currentMidSegmentIndex]));
+        StartCoroutine(LoadNextA(midSegmentSceneIds[currentMidSegmentIndex - 1], midSegmentSceneIds[currentMidSegmentIndex]));
     }
     public void JumpLoadMidSegment(int which)
     {
