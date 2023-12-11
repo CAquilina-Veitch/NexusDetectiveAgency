@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8382bfd860c79f3468d8093e8a1a30be,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -10289,7 +10290,7 @@ GameObject:
   - component: {fileID: 5078265773345677717}
   - component: {fileID: 5078265773345677718}
   - component: {fileID: 5078265773345677720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interactable Lore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
