@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     private InMemoryVariableStorage variableStorage;   //How variables are stored within Yarn
     [SerializeField] private LoreInventory loreInventory;
     [SerializeField] LineView lineView;
+    [SerializeField] MelSpin melSpin;
 
     public int documentsFound;
     public bool mainDocFound;
@@ -55,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     public void StartMelConvo()
     {
         melanieAnim.SetTrigger("Start Dialogue");
+        melSpin.Spin();
         StartCoroutine(DelayDialogueStart());
     }
     IEnumerator DelayDialogueStart()
@@ -126,7 +128,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator GoNextDialogue()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
         lineView.GetComponent<LineView>().UserRequestedViewAdvancement();
     }
 

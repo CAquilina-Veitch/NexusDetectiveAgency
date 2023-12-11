@@ -12,7 +12,7 @@ public class MelSpin : MonoBehaviour
     IEnumerator spinOnDelay()
     {
         yield return new WaitForSeconds(11.25f);
-        transform.localRotation = Quaternion.EulerAngles(0,-90,0);
+        transform.localRotation = Quaternion.EulerAngles(0,-85,0);
         foreach(GameObject go in toTurnOff)
         {
             go.SetActive(false);
