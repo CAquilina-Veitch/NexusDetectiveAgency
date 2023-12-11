@@ -13,51 +13,46 @@ public class SceneSegmentManager : MonoBehaviour
     int currentMidSegmentIndex = 0;
 
 
-    void LoadSegment()
+    void LoadSegment(int i)
     {
-
-        if (currentSegmentIndex > 0)
+        if(i < segmentSceneIds.Count)
         {
-            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex - 1]).isLoaded)
+            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                SceneManager.UnloadSceneAsync(segmentSceneIds[currentSegmentIndex - 1]);
+                SceneManager.LoadScene(segmentSceneIds[i], LoadSceneMode.Additive);
             }
-        }
-
-        if(currentSegmentIndex < segmentSceneIds.Count)
-        {
-            if (currentSegmentIndex > 0)
-            {
-                if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
-                {
-                    SceneManager.LoadSceneAsync(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
-                }
-            }
-            else
-            {
-                if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[currentSegmentIndex]).isLoaded)
-                {
-                    SceneManager.LoadScene(segmentSceneIds[currentSegmentIndex], LoadSceneMode.Additive);
-                }
-            }
-
         }
     }    
-    
-    void LoadMidSegment()
+
+    void UnloadSegment(int i)
     {
-        if (currentMidSegmentIndex > 0)
+        Debug.LogWarning($"unloading {i}, which is {segmentSceneIds[i]}");
+        if (i >= 0)
         {
-            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex - 1]).isLoaded)
+            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                SceneManager.UnloadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex - 1]);
+                SceneManager.UnloadSceneAsync(segmentSceneIds[i]);
             }
         }
-        if(currentMidSegmentIndex < midSegmentSceneIds.Count)
+    }
+    
+    void LoadMidSegment(int i)
+    {
+        if(i < midSegmentSceneIds.Count)
         {
-            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[currentMidSegmentIndex]).isLoaded)
+            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
             {
-                SceneManager.LoadSceneAsync(midSegmentSceneIds[currentMidSegmentIndex], LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync(midSegmentSceneIds[i], LoadSceneMode.Additive);
+            }
+        }
+    }
+    void UnloadMidSegment(int i)
+    {
+        if (i >= 0)
+        {
+            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
+            {
+                SceneManager.UnloadSceneAsync(midSegmentSceneIds[i]);
             }
         }
     }
@@ -82,21 +77,24 @@ public class SceneSegmentManager : MonoBehaviour
     public void LoadNextSegment()
     {
         currentSegmentIndex++;
-        LoadSegment();
+        UnloadSegment(currentSegmentIndex - 1);
+        LoadSegment(currentSegmentIndex);
     }    
     public void LoadNextMidSegment()
     {
         currentMidSegmentIndex++;
-        LoadMidSegment();
+        UnloadMidSegment(currentMidSegmentIndex - 1);
+        LoadMidSegment(currentMidSegmentIndex);
     }
     public void JumpLoadMidSegment(int which)
     {
         currentMidSegmentIndex = which;
-        LoadMidSegment();
-    }    public void JumpLoadSegment(int which)
+        LoadMidSegment(which);
+    }
+    public void JumpLoadSegment(int which)
     {
         currentSegmentIndex = which;
-        LoadSegment();
+        LoadSegment(which);
     }
 
     public void StartGame()
@@ -125,14 +123,16 @@ public class SceneSegmentManager : MonoBehaviour
     {
         LoadStructure(4);
         UnloadStructure(1);
+        UnloadMidSegment(currentMidSegmentIndex);
+        UnloadSegment(currentSegmentIndex);
     }
     public void PlaytestDemoStart()
     {
         LoadStructure(1);       //player
         UnloadStructure(3);     //det start
         //UnloadStructure(3);     
-        LoadSegment();
-        LoadMidSegment();
+        LoadSegment(0);
+        LoadMidSegment(0);
     }
     private void Update()
     {
