@@ -2234,7 +2234,15 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: -3556817346404478780, guid: 2a97a66ad8b6a2e45ad80b69be4c7bbe, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -6250076149019478384, guid: 2a97a66ad8b6a2e45ad80b69be4c7bbe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 550036520}
+    - targetCorrespondingSourceObject: {fileID: -6250076149019478384, guid: 2a97a66ad8b6a2e45ad80b69be4c7bbe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 550036519}
   m_SourcePrefab: {fileID: 100100000, guid: 2a97a66ad8b6a2e45ad80b69be4c7bbe, type: 3}
 --- !u!4 &550036517 stripped
 Transform:
@@ -2242,6 +2250,47 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 550036516}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &550036518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6250076149019478384, guid: 2a97a66ad8b6a2e45ad80b69be4c7bbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 550036516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &550036519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550036518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.22000004, y: 0.067654, z: 0.46858498}
+  m_Center: {x: 0.00000023383294, y: -0.009016999, z: 0.0384525}
+--- !u!114 &550036520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550036518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &580690817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2509,6 +2558,14 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6412965312021807011, guid: c1dcfa14982c7c34b9f2b76e2f889043,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 582822704}
+    - targetCorrespondingSourceObject: {fileID: 6412965312021807011, guid: c1dcfa14982c7c34b9f2b76e2f889043,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 582822703}
     - targetCorrespondingSourceObject: {fileID: -1807970279642858887, guid: c1dcfa14982c7c34b9f2b76e2f889043,
         type: 3}
       insertIndex: -1
@@ -2520,6 +2577,48 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 582822700}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &582822702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6412965312021807011, guid: c1dcfa14982c7c34b9f2b76e2f889043,
+    type: 3}
+  m_PrefabInstance: {fileID: 582822700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &582822703
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582822702}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7747835603952057023, guid: c1dcfa14982c7c34b9f2b76e2f889043, type: 3}
+--- !u!114 &582822704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582822702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &582890744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3410,6 +3509,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600118167946281613}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   SecondaryInteract:
     m_PersistentCalls:
@@ -10177,7 +10288,6 @@ GameObject:
   - component: {fileID: 5078265773345677716}
   - component: {fileID: 5078265773345677717}
   - component: {fileID: 5078265773345677718}
-  - component: {fileID: 5078265773345677719}
   - component: {fileID: 5078265773345677720}
   m_Layer: 0
   m_Name: Interactable Lore
@@ -13538,33 +13648,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.4004087, y: 1, z: 3.1978388}
   m_Center: {x: -0.75884646, y: 0, z: -0.82147974}
---- !u!114 &5078265773345677719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600118166620843722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d76f20269dfdfb844bad0a3c06e9dbe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinishedExposition:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 600118167946281613}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &5078265773345677720
 MonoBehaviour:
   m_ObjectHideFlags: 0
