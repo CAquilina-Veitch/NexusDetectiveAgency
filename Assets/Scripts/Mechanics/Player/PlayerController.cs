@@ -907,5 +907,12 @@ public class PlayerController : MonoBehaviour
         speed = to ? 8 : 0;
     }
 
+    public void activateCameras(bool to)
+    {
+        currentPlayer.cam.enabled = to;
+        currentPlayer.handCam.enabled = to;
+        EnableControls(to);
+    }
+
 
 }

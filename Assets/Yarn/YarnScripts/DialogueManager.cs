@@ -22,7 +22,6 @@ public class DialogueManager : MonoBehaviour
     public string melanieVoicePath;                    //Path to Melanie's voice lines in FMOD
     public string maxVoicePath;                        //Path to Max's voice lines in FMOD
 
-    [SerializeField] UnityEvent StartDialogue;
     [SerializeField] UnityEvent EndDialogue;
 
     public Transform melanieTran;
@@ -58,7 +57,6 @@ public class DialogueManager : MonoBehaviour
     {
         melanieAnim.SetTrigger("Start Dialogue");
         StartCoroutine(DelayDialogueStart());
-        //StartDialogue.Invoke();
     }
     IEnumerator DelayDialogueStart()
     {
@@ -101,8 +99,8 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("loredocsfound")]
     public void LoreDocsFound()
     {
-        documentsFound = loreInventory.collectedLore();
-        mainDocFound = loreInventory.isEnough();
+        documentsFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent< LoreInventory>().collectedLore();
+        mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
         variableStorage.SetValue("$documentsFound", documentsFound);
         variableStorage.SetValue("$FetchDocFound", mainDocFound);
     }
