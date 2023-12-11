@@ -619,10 +619,10 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator showTinyPlatform()
     {
-        yield return new WaitForSeconds(1.07f);
+        yield return new WaitForSeconds(1.07f/2);
         tinyPlatform.SetActive(true);
         hackedTrigger.Triggered();
-        yield return new WaitForSeconds(0.99f);
+        yield return new WaitForSeconds(0.99f/2);
         tinyPlatform.SetActive(false);
     }
 
