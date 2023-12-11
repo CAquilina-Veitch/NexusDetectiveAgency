@@ -16,7 +16,7 @@ public class SwitchFromPlayer : MonoBehaviour
         }
     }
 
-    void TogglePlayerCam(bool to)
+    public void TogglePlayerCam(bool to)
     {
         pC.gameObject.SetActive(to);
         cam.enabled = !to;
