@@ -10,6 +10,7 @@ position: -1013,-832
 <<declare $FetchDocFound = false>>
 <<declare $MealnieActive = true>>
 <<declare $AudioCutOut = false>>
+<<declare $HologramEffect = false>>
 
 //DEBUG: How many documents has the player found?
 //->	Only a few.
@@ -54,6 +55,7 @@ Melanie: Who are you? How did you get in here? #melanie01
 		<<playvoicemax DialogueManager>>
 		Max: Well, my name's Max. I'm a detective. #max02
 		<<set $audioMelanieNumber = 3>>
+		<<set $HologramEffect = true>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Well Max, you know you are trespassing, right? #melanie03
 <<jump TalkingToMelanie2>>
@@ -70,6 +72,7 @@ Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
 		<<set $audioMaxNumber = 3>>
+		<<set $HologramEffect = false>>
 		<<playvoicemax DialogueManager>>
 		Max: Not so fast. I need to see the device you've been working on. #max03
 		<<jump TalkingToMelanie3>>
@@ -158,6 +161,7 @@ Melanie: About time. Any questions?
 
 ->	Max: What about a new part?
 		<<set $audioMaxNumber = 14>>
+		<<set $HologramEffect = true>>
 		<<playvoicemax DialogueManager>>
 		Max: So I can't create a new part?
 		<<playvoicemel DialogueManager>>
@@ -168,6 +172,7 @@ Melanie: About time. Any questions?
 		<<set $audioMaxNumber = 15>>
 		<<playvoicemax DialogueManager>>
 		Max: So you're saying that if I secure this CPU component, this machine could be reproduced?
+		<<set $HologramEffect = false>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Yes, that would be the case.
 		Melanie: We don't have much use for ours without it being repaired to its full capacity.
