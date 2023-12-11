@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     public int documentsFound;
     public bool mainDocFound;
+    public bool hologramEffectActive;
 
     FMOD.Studio.EventInstance melanieVoice;            //FMOD instance of Melanie's audio
     FMOD.Studio.EventInstance maxVoice;                //FMOD instance of Max's audio
@@ -57,7 +58,7 @@ public class DialogueManager : MonoBehaviour
     {
         melanieAnim.SetTrigger("Start Dialogue");
         StartCoroutine(DelayDialogueStart());
-        StartDialogue.Invoke();
+        //StartDialogue.Invoke();
     }
     IEnumerator DelayDialogueStart()
     {
@@ -79,6 +80,10 @@ public class DialogueManager : MonoBehaviour
         else
         {
             voiceMelID += 99;
+        }
+        if (hologramEffectActive == true)
+        {
+            //Do hologram effect
         }
         melanieAnim.SetInteger("Dialogue Stage", (int)voiceMelID);
         melanieAnim.SetTrigger("Dialogue Trigger");
