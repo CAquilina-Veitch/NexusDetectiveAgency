@@ -19,6 +19,9 @@ public class swirl : MonoBehaviour
         cam.enabled = true;
         vfct.Play();
         yield return new WaitForSeconds(3);
+    }
+    public void camOff()
+    {
         cam.enabled = false;
     }
 

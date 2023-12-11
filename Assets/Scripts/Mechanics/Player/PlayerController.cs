@@ -217,6 +217,10 @@ public class PlayerController : MonoBehaviour
         TransformPlayerParent(startingPos);
     }
 
+    public void changeStartPosition()
+    {
+        startingPos = transform.position;
+    }
     public void ResetPlayer()
     {
         ForceDimension(0);
@@ -631,15 +635,22 @@ public class PlayerController : MonoBehaviour
 
     public void Teleport(Vector3 pos)
     {
-        transform.position = pos.PlayerPosToOwner(this);
-        RespawnWithoutItem();
+        StartCoroutine(die(pos));
     }
 
-    IEnumerator die()
+    IEnumerator die(Vector3 pos)
     {
         GameObject.FindGameObjectWithTag("Swirler").GetComponent<swirl>().Swirl();
-        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().Fade(true,0.2f);
         yield return new WaitForSeconds(0.5f);
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().Fade(true,0.2f);
+        yield return new WaitForSeconds(0.2f);
+        transform.position = pos.PlayerPosToOwner(this);
+        RespawnWithoutItem();
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().Fade(false, 0.2f);
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().camOff();
+        
+
+
     }
 
     //showWheel;

@@ -33,6 +33,7 @@ public class SceneSegmentManager : MonoBehaviour
 
     public void LoadNextSegment()
     {
+        GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().changeStartPosition();
         int from = currentSegmentIndex;
         currentSegmentIndex += 1;
         int[] ids = { -segmentSceneIds[from], segmentSceneIds[currentSegmentIndex] };
@@ -44,6 +45,7 @@ public class SceneSegmentManager : MonoBehaviour
     }    
     public void LoadNextMidSegment()
     {
+        GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().changeStartPosition();
         int from = currentMidSegmentIndex;
         currentMidSegmentIndex += 1;
         int[] ids = { -midSegmentSceneIds[from], midSegmentSceneIds[currentMidSegmentIndex] };
@@ -170,12 +172,14 @@ public class SceneSegmentManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         fader.Fade(true, 0.5f);
         yield return new WaitForSeconds(0.5f);
+        fader.camOff();
         StartCoroutine(gg(ids));
     }
     IEnumerator PauseForFade(List<int> ids)
     {
         fader.Fade(true, 0.5f);
         yield return new WaitForSeconds(0.5f);
+        fader.camOff();
         StartCoroutine(gg(ids));
     }
     
@@ -277,7 +281,7 @@ public class SceneSegmentManager : MonoBehaviour
         else
         {
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Ready();
-            fader.Fade(false, 0.2f);
+            fader.Fade(false, 0.2f,false);
 
         }
 
