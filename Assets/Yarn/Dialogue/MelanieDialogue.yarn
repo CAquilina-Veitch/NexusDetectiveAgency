@@ -18,7 +18,7 @@ position: -1013,-832
 //->	Enough to proceed.
 //		<<set $documentsFound to 5>>
 //<<wait 1>>
-<<jump MelanieInteract>>
+<<jump MelanieInteractRESET>>
 ===
 
 
@@ -265,4 +265,89 @@ position:
 ---
 <<set $MealnieActive = false>>
 <<stop>>
+===
+
+title: MelanieInteractRESET
+position:
+---
+<<set $audioMelanieNumber = 1>>
+<<playvoicemel DialogueManager>>
+Melanie: Who are you? How did you get in here? #melanie01
+<<set $audioMaxNumber = 1>>
+<<playvoicemax DialogueManager>>
+Max: Could say the same thing about you. #max01
+<<set $audioMelanieNumber = 2>>
+<<playvoicemel DialogueManager>>
+Melanie: Well I work here, I'm allowed to be here. #melanie02
+<<set $audioMelanieNumber = 4>>
+<<playvoicemel DialogueManager>>
+Melanie: You'll be leaving now. Before I call security. #melanie04
+<<set $audioMaxNumber = 3>>
+<<playvoicemax DialogueManager>>
+Max: Not so fast. I need to see the device you've been working on. #max03
+<<set $audioMelanieNumber = 5>>
+<<playvoicemel DialogueManager>>
+Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
+<<set $audioMaxNumber = 5>>
+<<playvoicemax DialogueManager>>
+Max: I know there's something else here. And I know it's affecting this world. #max05
+<<set $audioMelanieNumber = 6>>
+<<playvoicemel DialogueManager>>
+Melanie: Well there simply isn't. #melanie06
+<<set $audioMaxNumber = 7>>
+<<playvoicemax DialogueManager>>
+Max: Stop bluffing, I know there is something behind that door. #max07
+<<set $audioMaxNumber = 8>>
+<<playvoicemax DialogueManager>>
+Max: The CPU broke. #max08
+<<set $audioMelanieNumber = 8>>
+<<playvoicemel DialogueManager>>
+Melanie: Wait... What? How... could you possibly know that? #melanie08
+<<set $AudioCutOut = true>>
+<<playvoicemel DialogueManager>>
+<<wait  14>>
+<<set $audioMaxNumber = 9>>
+<<playvoicemax DialogueManager>>
+Max: I know lots of things, like how you authorized the improper use of the machine.
+<<autonext DialogueManager>>
+Max: How Bridger R&D wanted to abuse this device to make a profit of innocents.
+<<autonext DialogueManager>>
+Max: Like how your guilt and shame mean more than your job.
+<<autonext DialogueManager>>
+Melanie: ...
+<<autonext DialogueManager>>
+Max: I can help you fix this mess.
+<<playvoicemel DialogueManager>>
+Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
+<<set $audioMaxNumber = 10>>
+<<playvoicemax DialogueManager>>
+Max: What do you mean by "Fixing it is impossible"?
+<<playvoicemel DialogueManager>>
+Melanie: Well. Ummm. We, ehh... lost... the schematics. A poor filing choice from an intern. #melanie10
+<<set $audioMaxNumber = 11>>
+<<playvoicemax DialogueManager>>
+Max: Does no one know that it broke?
+<<playvoicemel DialogueManager>>
+Melanie: We hid it, out of shame. No one knows besides the team that worked on it.
+<<autonext DialogueManager>>
+Melanie: We had to think about what would happen if someone did find out about it.
+<<autonext DialogueManager>>
+Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands. #melanie11
+<<set $audioMaxNumber = 12>>
+<<playvoicemax DialogueManager>>
+Max: More gross incompetence.
+<<autonext DialogueManager>>
+Max: The sad thing is, the machine would have worked.
+<<autonext DialogueManager>>
+Max: In a separate dimension, the machine worked to clean the air. Greenery populates the world.
+<<playvoicemel DialogueManager>>
+Melanie: Jesus ... .You can travel dimensions?
+<<autonext DialogueManager>>
+Melanie: I'm getting off track.
+<<autonext DialogueManager>>
+Melanie: I suppose it's comforting to know the machine was used for its correct purpose. That is what we designed the machine for.
+<<autonext DialogueManager>>
+Melanie: We are responsible for bringing doom upon ourselves by modifying the machine. We made the wrong choice and paid dearly for it.
+<<melaniesuccess DialogueManager>>
+<<jump MelanieExit>>
 ===
