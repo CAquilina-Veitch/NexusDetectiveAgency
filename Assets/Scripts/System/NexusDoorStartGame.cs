@@ -11,5 +11,6 @@ public class NexusDoorStartGame : MonoBehaviour
     public void ShowMouse()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

@@ -25,6 +25,8 @@ public class SwitchFromPlayer : MonoBehaviour
         cam.enabled = !to;
 
         Cursor.lockState = to ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !to;
+
         GetComponent<BoxCollider>().enabled = false;
         if (!to)
         {

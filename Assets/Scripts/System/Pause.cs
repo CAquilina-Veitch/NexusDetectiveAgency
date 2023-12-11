@@ -15,6 +15,7 @@ public class Pause : MonoBehaviour
         Debug.LogWarning(111221);
         Time.timeScale = 1;
         Cursor.lockState = mouseWasOn ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !mouseWasOn;
         Debug.Log(Time.timeScale);
     }
 
@@ -28,6 +29,7 @@ private void Update()
             {
                 paused = true;
                 mouseWasOn = Cursor.lockState == CursorLockMode.None;
+                Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 PauseMenu.Invoke();
                 Time.timeScale = 0.000000000001f;
