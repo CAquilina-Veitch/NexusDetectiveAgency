@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d2d234f0430d74b9c14a93a881f377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1990269784}
   loadingScreen: {fileID: 161044023}
 --- !u!1 &648504190
 GameObject:
