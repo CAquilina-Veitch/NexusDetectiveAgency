@@ -108,6 +108,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7410049984224761845}
+    - targetCorrespondingSourceObject: {fileID: 4741751163315624658, guid: 769069a423634b447a1d562ad5287db9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6432559278996185788}
+    - targetCorrespondingSourceObject: {fileID: 5994357283249882443, guid: 769069a423634b447a1d562ad5287db9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6230539819514529256}
   m_SourcePrefab: {fileID: 100100000, guid: 769069a423634b447a1d562ad5287db9, type: 3}
 --- !u!1 &4551725063174831106 stripped
 GameObject:
@@ -192,3 +200,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlate: {fileID: 0}
+--- !u!1 &6979361392669787160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5994357283249882443, guid: 769069a423634b447a1d562ad5287db9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3741242270197350739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6230539819514529256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979361392669787160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
+--- !u!1 &8225127125224725377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4741751163315624658, guid: 769069a423634b447a1d562ad5287db9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3741242270197350739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6432559278996185788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225127125224725377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}

@@ -2,258 +2,258 @@
 tags:
 position: -24,-23
 ---
-<<declare $maxSoloLineNo = 1>>
+
 ===
 
 
-title: 01MaxCollectible
+title: 1
 tags:
 position: -95,-209
 ---
-<<set $maxSoloLineNo = 1>>
-<<playsolomax DialogueManager>>
+//1MaxCollectible
 Max: I'd better have a look around. Might be some information I can use.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 02MaxCollectible
+title: 2
 tags:
 position: -95,-209
 ---
-<<set $maxSoloLineNo = 2>>
-<<playsolomax DialogueManager>>
+//2MaxCollectible
 Max: Hmm... I'd better try and find some more documents.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 03MaxCollectible
+title: 3
 tags:
 position: -95,-209
 ---
-<<set $maxSoloLineNo = 3>>
-<<playsolomax DialogueManager>>
+//3MaxCollectible
 Max: I wonder if there's any more files lying around.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 04MaxDimBlocked
+title: 4
 tags:
 position: -95,-209
 ---
-<<set $maxSoloLineNo = 4>>
-<<playsolomax DialogueManager>>
+//4MaxDimBlocked
 Max: Augh, something's blocking my path.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 05MaxDimBlocked
+title: 5
 tags:
 position: -95,-209
 ---
-<<set $maxSoloLineNo = 5>>
-<<playsolomax DialogueManager>>
+//5MaxDimBlocked
 Max: I think there might be something in the way.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 06MaxDimBlocked
+title: 6
 tags:
 position: -95,-209
 ---
-<<set $maxSoloLineNo = 6>>
-<<playsolomax DialogueManager>>
+//6MaxDimBlocked
 Max: Huh, strange... I'd wonder if I'd warp into a flowerpot or something.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 07MaxDimBlocked
+title: 7
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 7>>
-<<playsolomax DialogueManager>>
+//7MaxDimBlocked
 Max: Clearly I need to move before changing.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 08MaxTerminalFirst
+title: 8
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 8>>
-<<playsolomax DialogueManager>>
+//8MaxTerminalFirst
 Max: Interesting, a... computer? Might be worth a look.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 09MaxTerminalFind
+title: 9
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 9>>
-<<playsolomax DialogueManager>>
+//9MaxTerminalFind
 Max: Well, hello there.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 10MaxTerminalFind
+title: 10
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 10>>
-<<playsolomax DialogueManager>>
+//10MaxTerminalFind
 Max: Another one? How many are there?
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 11MaxTerminalFind
+title: 11
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 11>>
-<<playsolomax DialogueManager>>
+//11MaxTerminalFind
 Max: People really just don't file in this dimension, do they...
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 12MaxPuzzleSolved
+title: 12
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 1>>
-<<playsolomax DialogueManager>>
+//12MaxPuzzleSolved
 Max: I think that did it.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 13MaxPuzzleSolved
+title: 13
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 13>>
-<<playsolomax DialogueManager>>
+//13MaxPuzzleSolved
 Max: Ugh, finally.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 14MaxPuzzleSolved
+title: 14
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 14>>
-<<playsolomax DialogueManager>>
+//14MaxPuzzleSolved
 Max: Well there we go.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 15MaxPuzzleSolved
+title: 15
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 15>>
-<<playsolomax DialogueManager>>
+//15MaxPuzzleSolved
 Max: Moving on.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 16MaxPuzzleSolved
+title: 16
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 16>>
-<<playsolomax DialogueManager>>
+//16MaxPuzzleSolved
 Max: Well, that took its time.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 17MaxPuzzleSolved
+title: 17
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 17>>
-<<playsolomax DialogueManager>>
+//17MaxPuzzleSolved
 Max: Who designed this place?
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 18MaxLevelOne
+title: 18
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 18>>
-<<playsolomax DialogueManager>>
+//18MaxLevelOne
 Max: Lots of heavy tech here, wonder if there's anything light enough to carry.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 19MaxLevelOne
+title: 19
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 19>>
-<<playsolomax DialogueManager>>
+//19MaxLevelOne
 Max: Another pressure pad? But only one cube... hmm...
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 20MaxLevelTwo
+title: 20
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 20>>
-<<playsolomax DialogueManager>>
+//20MaxLevelTwo
 Max: Alright, let's get to work.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 21MaxLevelTwo
+title: 21
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 21>>
-<<playsolomax DialogueManager>>
+//21MaxLevelTwo
 Max: I think there's something useful here.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 22MaxLevelTwo
+title: 22
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 22>>
-<<playsolomax DialogueManager>>
+//22MaxLevelTwo
 Max: Looks like some kind of cistern control. Maybe it can change the flow of water.
+<<wait  4>>
 <<stop>>
 ===
 
 
-title: 232MaxLevelThree
+title: 23
 tags:
 position:
 ---
-<<set $maxSoloLineNo = 23>>
-<<playsolomax DialogueManager>>
+//23MaxLevelThree
 Max: Ugh, poor thing's broken. Hmm it's definitely fixable though.
+<<wait  4>>
 <<stop>>
 ===
