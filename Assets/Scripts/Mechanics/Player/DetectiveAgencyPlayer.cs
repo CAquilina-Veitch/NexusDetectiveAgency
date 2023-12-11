@@ -81,6 +81,10 @@ public class DetectiveAgencyPlayer : MonoBehaviour
         {
             ReadLore();
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            loreInv.openInvCanvas();
+        }
 
 
     }

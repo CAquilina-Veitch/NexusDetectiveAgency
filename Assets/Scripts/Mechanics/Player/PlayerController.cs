@@ -524,8 +524,6 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
         {
-            Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
-            Debug.Log($"Did Hit Fuse {hit.collider.gameObject.name}");
             if (hit.collider.GetComponent<Repairable>() != null)
             {
                 hit.collider.GetComponent<Repairable>().TryRepair(this);
