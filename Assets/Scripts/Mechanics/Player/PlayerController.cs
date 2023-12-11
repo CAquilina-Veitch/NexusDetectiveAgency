@@ -549,18 +549,17 @@ public class PlayerController : MonoBehaviour
 
     public void ToggleDroneDraft()
     {
+        Debug.Log(!dronePlatformDrafting);
         dronePlatformDrafting = !dronePlatformDrafting;
         dronePosValid = false;
         ShowDraft(dronePlatformDrafting);
     }    
     public void ToggleDroneDraft(bool to)
     {
-        if (dronePlatformDrafting != to)
-        {
-            dronePlatformDrafting = to;
-            dronePosValid = false;
-            ShowDraft(dronePlatformDrafting);
-        }
+        Debug.Log(to);
+        dronePlatformDrafting = to;
+        dronePosValid = false;
+        ShowDraft(dronePlatformDrafting);
     }
     void ConfirmDroneDraft()
     {
@@ -588,6 +587,7 @@ public class PlayerController : MonoBehaviour
 
             if(currentDronePlatformPrefabs.Count>2)
             {
+                Debug.Log("I am greater than 2");
                 if (currentDronePlatformPrefabs[0] != null)
                 {
                     currentDronePlatformPrefabs[0].StartFlyingUp();

@@ -6,11 +6,13 @@ public class PlayerDroneControl : MonoBehaviour
 {
     public void GivePlayerDrone()
     {
+        Debug.Log("egg");
         GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().ToggleDroneDraft();
     }
 
     public void GivePlayerDrone(bool to)
     {
+        Debug.Log(to);
         GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().ToggleDroneDraft(to);
     }
 
