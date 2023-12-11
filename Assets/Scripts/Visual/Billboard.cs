@@ -35,7 +35,6 @@ public class Billboard : MonoBehaviour
             Vector3 directionToPlayer = transform.position - det.camTransform.position;
             directionToPlayer.y = 0;
             transform.rotation = Quaternion.LookRotation(directionToPlayer);
-            //transform.rotation = Quaternion.EulerAngles(0,transform.eulerAngles.y,0);
         }
     }
 }
