@@ -9,6 +9,11 @@ public class PlayerDroneControl : MonoBehaviour
         GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().ToggleDroneDraft();
     }
 
+    public void GivePlayerDrone(bool to)
+    {
+        GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().ToggleDroneDraft(to);
+    }
+
     public bool happenOnTrigger = false;
     public bool onTriggerGivePlayerDroneIfTrueOrTakeIfFalse = true;
 

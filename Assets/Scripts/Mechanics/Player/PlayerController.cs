@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public float currentDronePlatformDistance;
     [SerializeField] Vector2 droneDistanceClamps = new Vector2(1, 8);
-    List<DronePlatform> currentDronePlatformPrefabs = new List<DronePlatform>();
+    public List<DronePlatform> currentDronePlatformPrefabs = new List<DronePlatform>();
     [SerializeField] Material[] droneMaterials = new Material[2];
     [SerializeField] MeshRenderer droneMeshRenderer;
     [SerializeField] bool droneMatValid = true;

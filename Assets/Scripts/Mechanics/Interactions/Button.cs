@@ -32,7 +32,10 @@ public class Button : MonoBehaviour
         else
         {
             soundEmitter.StartSound();
-            animator.SetTrigger("Pressed");
+            if (animator != null)
+            {
+                animator.SetTrigger("Pressed");
+            }
         }
         
         
@@ -41,7 +44,10 @@ public class Button : MonoBehaviour
     {
         yield return new WaitForSeconds(3f/2);
         soundEmitter.StartSound();
-        animator.SetTrigger("Pressed");
+        if (animator != null)
+        {
+            animator.SetTrigger("Pressed");
+        }
     }
 
 
