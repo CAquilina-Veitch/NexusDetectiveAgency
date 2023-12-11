@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
     public void Ready()
     {
         rb.useGravity = true;
+        Toggle(true);
     }
 
     private void Awake()

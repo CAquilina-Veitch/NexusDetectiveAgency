@@ -32,7 +32,7 @@ public class SceneSegmentManager : MonoBehaviour
     {
         int from = currentSegmentIndex;
         currentSegmentIndex += 1;
-        int[] ids = { -from, currentSegmentIndex };
+        int[] ids = { -segmentSceneIds[from], segmentSceneIds[currentSegmentIndex] };
 
         StartCoroutine(gg(ids.ToList()));
 
@@ -43,7 +43,7 @@ public class SceneSegmentManager : MonoBehaviour
     {
         int from = currentMidSegmentIndex;
         currentMidSegmentIndex += 1;
-        int[] ids = { -from, currentMidSegmentIndex };
+        int[] ids = { -midSegmentSceneIds[from], midSegmentSceneIds[currentMidSegmentIndex] };
 
         StartCoroutine(gg(ids.ToList()));
 
@@ -143,9 +143,9 @@ public class SceneSegmentManager : MonoBehaviour
     {
         int[] ids =
 {
+            StructureSceneIds[1],
             segmentSceneIds[0],
             midSegmentSceneIds[0],
-            StructureSceneIds[1],
             -StructureSceneIds[3],
         };
         StartCoroutine(gg(ids.ToList()));
