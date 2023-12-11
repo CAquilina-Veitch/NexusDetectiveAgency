@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.VFX;
+using FMOD.Studio;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
 
@@ -175,6 +176,15 @@ public class PlayerController : MonoBehaviour
     //public List<TriggerableObject> CollectedActions = new List<TriggerableObject>();
 
 
+    [Space(20)]
+    [Header("Audio")]
+    [Space(10)]
+    [SerializeField] SoundEmitter soundJump;
+    [SerializeField] SoundEmitter soundHurt;
+    [SerializeField] SoundEmitter soundDimswap;
+    [SerializeField] EventInstance soundMusic;
+    //"".StartSound();
+
 
     public void Toggle(bool to)
     {
@@ -198,6 +208,9 @@ public class PlayerController : MonoBehaviour
     {
         ForceDimension(0);
 
+        soundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/EventSimulMusic");
+        soundMusic.setParameterByName("WhatDimension", (int) currentPlayerDimension);
+        soundMusic.start();
         TransformPlayerParent(startingPos);
     }
 
@@ -205,6 +218,8 @@ public class PlayerController : MonoBehaviour
     {
         ForceDimension(0);
 
+        soundMusic.setParameterByName("WhatDimension", (int)currentPlayerDimension);
+        soundHurt.StartSound();
         TransformPlayerParent(startingPos);
         Toggle(true);
         yaw = transform.eulerAngles.y;
@@ -250,6 +265,7 @@ public class PlayerController : MonoBehaviour
 
             if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f,groundMask))
             {
+                soundDimswap.Start();
                 StartCoroutine(dimensionSwitch(to));
             }
             else
@@ -273,6 +289,7 @@ public class PlayerController : MonoBehaviour
         {
             players[i].SwitchTo(i == (int)currentPlayerDimension);
         }
+        soundMusic.setParameterByName("WhatDimension", (int)to);
         ChangeGrabParent();
         ChangeVFXParent();
         //ChangeListenerPosition();
@@ -363,6 +380,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, 4, rb.velocity.z);
+            soundJump.StartSound();
         }
     }
 
