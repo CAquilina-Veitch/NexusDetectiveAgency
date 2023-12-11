@@ -122,7 +122,7 @@ public class SceneSegmentManager : MonoBehaviour
     public void FinalDetectiveAgency()
     {
         LoadStructure(4);
-        UnloadStructure(1);
+        UnloadStructure(1); 
         UnloadMidSegment(currentMidSegmentIndex);
         UnloadSegment(currentSegmentIndex);
     }
