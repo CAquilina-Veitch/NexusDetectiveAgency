@@ -140,6 +140,7 @@ public class SceneSegmentManager : MonoBehaviour
         LoadStructureA(3);       //det start
         yield return new WaitForNextFrameUnit();
         fader.Fade(false, 0.2f);
+        fader.camOff();
 
     }
 
@@ -282,6 +283,8 @@ public class SceneSegmentManager : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Ready();
             fader.Fade(false, 0.2f,false);
+            fader.camOff();
+            fader.loadingScreen.alpha = 0;
 
         }
 

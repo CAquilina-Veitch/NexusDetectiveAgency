@@ -39,7 +39,11 @@ public class Fadeblack : MonoBehaviour
             // Wait for the next frame
             yield return null;
         }
+        if (!fade)
+        {
 
+            cam.enabled = false;
+        }
         // Ensure that the final alpha is set to 1
         loadingScreen.alpha = goalAlpha;
     }IEnumerator fadeBlack(bool fade, float duration, bool b)
