@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         ForceDimension(0);
-
+        ChangeListenerPosition();
         soundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/EventSimulMusic");
         soundMusic.setParameterByName("WhatDimension", (int) currentPlayerDimension);
         soundMusic.start();
