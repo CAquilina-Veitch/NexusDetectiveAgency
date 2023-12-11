@@ -8665,7 +8665,7 @@ PrefabInstance:
     - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
       propertyPath: requiredRepairs.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
@@ -37077,8 +37077,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8902452876818131213, guid: c15f1c283ab61384184036ca51b3fa72,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2131347093}
   m_SourcePrefab: {fileID: 100100000, guid: c15f1c283ab61384184036ca51b3fa72, type: 3}
+--- !u!1 &2131347092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8902452876818131213, guid: c15f1c283ab61384184036ca51b3fa72,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131347091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2131347093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131347092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1 &2145292600
 GameObject:
   m_ObjectHideFlags: 0
