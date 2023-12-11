@@ -13,6 +13,8 @@ TagManager:
   - LoreInventory
   - EndingCarrier
   - Swirl
+  - Fadeblack
+  - Swirler
   layers:
   - Default
   - TransparentFX

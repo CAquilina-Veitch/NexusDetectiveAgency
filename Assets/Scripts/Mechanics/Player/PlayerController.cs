@@ -461,7 +461,7 @@ public class PlayerController : MonoBehaviour
     void ChangeListenerPosition()
     {
         listenerObj.transform.position = currentPlayer.camTransform.position;
-        listenerObj.transform.parent = currentPlayer.handCam.transform;
+        listenerObj.transform.parent = currentPlayer.cam.transform;
     }
 
     void PressButton()
@@ -631,8 +631,15 @@ public class PlayerController : MonoBehaviour
     public void Teleport(Vector3 pos)
     {
         transform.position = pos.PlayerPosToOwner(this);
+        RespawnWithoutItem();
     }
 
+    IEnumerator die()
+    {
+        GameObject.FindGameObjectWithTag("Swirler").GetComponent<swirl>().Swirl();
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().Fade(true,0.2f);
+        yield return new WaitForSeconds(0.5f);
+    }
 
     //showWheel;
 

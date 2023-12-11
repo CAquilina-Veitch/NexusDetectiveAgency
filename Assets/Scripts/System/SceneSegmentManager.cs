@@ -18,6 +18,8 @@ public class SceneSegmentManager : MonoBehaviour
 
     public CanvasGroup loadingScreen;
 
+    public swirl swirler;
+    public Fadeblack fader;
     void LoadNextAB(int from, int to)
     {
         int[] ids = { -from, to };
@@ -148,10 +150,18 @@ public class SceneSegmentManager : MonoBehaviour
             segmentSceneIds[0],
             midSegmentSceneIds[0],
         };
-        StartCoroutine(gg(ids.ToList()));
+        StartCoroutine(PauseForSwirler(ids.ToList()));
+
     }
-
-
+    IEnumerator PauseForSwirler(List<int> ids)
+    {
+        swirler.Swirl();
+        yield return new WaitForSeconds(1);
+        fader.Fade(true, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(gg(ids));
+    }
+    
 
     private void Update()
     {
@@ -183,6 +193,7 @@ public class SceneSegmentManager : MonoBehaviour
         if (id > 0)
         {
             loadingScreen.alpha = 1;
+            yield return null;
             var asyncOp = SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive); //< Load the scene asynchronously
             asyncOp.allowSceneActivation = false; //< Deactivate the load of gameobjects on scene load
             if (asyncOp != null)
@@ -249,6 +260,8 @@ public class SceneSegmentManager : MonoBehaviour
         else
         {
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Ready();
+            fader.Fade(false, 0.2f);
+
         }
 
     }
