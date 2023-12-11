@@ -15,22 +15,19 @@ public class SwitchFromPlayer : MonoBehaviour
         {
             pC = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
             TogglePlayerCam(false);
+            this.enabled = false;
         }
     }
 
     public void TogglePlayerCam(bool to)
     {
-        pC.gameObject.SetActive(to);
+        pC.activateCameras(to);
         cam.enabled = !to;
         GetComponent<BoxCollider>().enabled = false;
         if (!to)
         {
-            StartDialogue();
+            dM.StartMelConvo();
         }
-    }
-    void StartDialogue()
-    {
-        dM.StartMelConvo();
     }
 
     public void Deactivate()
