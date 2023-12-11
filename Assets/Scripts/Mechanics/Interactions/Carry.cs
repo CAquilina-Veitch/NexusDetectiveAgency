@@ -41,7 +41,7 @@ public class Carry : MonoBehaviour
         }
         if (other.tag == "Player"/*|| other.tag=="PlayerController"*/)
         {
-            SceneManager.MoveGameObjectToScene(other.GetComponentInParent<PlayerController>().gameObject, SceneManager.GetSceneByBuildIndex(3));
+            SceneManager.MoveGameObjectToScene(other.GetComponentInParent<PlayerController>().gameObject, SceneManager.GetSceneByBuildIndex(2));
         }
     }
 
