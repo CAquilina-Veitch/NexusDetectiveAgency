@@ -188,6 +188,11 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawSphere(-dimensionalDiffPosition + transform.position, 0.2f);
     }
 
+    public void Ready()
+    {
+        rb.useGravity = true;
+    }
+
     private void Awake()
     {
         ForceDimension(0);
