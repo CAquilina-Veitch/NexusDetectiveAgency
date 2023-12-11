@@ -104,6 +104,11 @@ public class DialogueManager : MonoBehaviour
         variableStorage.SetValue("$documentsFound", documentsFound);
         variableStorage.SetValue("$FetchDocFound", mainDocFound);
     }
+    [YarnCommand("melaniestop")]
+    public void MelanieStop()
+    {
+        //EndDialogueTemp.Invoke();
+    }
     [YarnCommand("melaniesuccess")]
     public void OpenFinalDoor()
     {
