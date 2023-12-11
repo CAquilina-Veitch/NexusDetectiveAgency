@@ -81,6 +81,10 @@ public class DetectiveAgencyPlayer : MonoBehaviour
         {
             ReadLore();
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            loreInv.openInvCanvas();
+        }
 
 
     }
@@ -107,7 +111,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
             Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
             if (hit.collider.TryGetComponent(out LoreObject lO))
             {
-                loreInv.InteractWithObject(lO);
+                EnableControls(!loreInv.InteractWithObject(lO));
             }
         }
     }

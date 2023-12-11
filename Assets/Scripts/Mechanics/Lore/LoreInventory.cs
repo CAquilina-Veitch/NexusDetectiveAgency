@@ -202,7 +202,7 @@ public class LoreInventory : MonoBehaviour
 
 
 
-    public void InteractWithObject(LoreObject lO)
+    public bool InteractWithObject(LoreObject lO)
     {
         if (!allLore[lO.id].collected)
         {
@@ -210,7 +210,7 @@ public class LoreInventory : MonoBehaviour
         }
         singleIsOpen = !singleIsOpen;
         StartCoroutine(showSingleCanvas(lO.id, singleIsOpen));
-        
+        return singleIsOpen;
 
 
     }
@@ -340,6 +340,9 @@ public class LoreInventory : MonoBehaviour
     {
         LoreItem lI = allLore[id];
         CanvasGroup infoPage = displays[(int)lI.format].cg;
+        
+        
+        switchInfo(id);
 
 
         float timer = 0;
