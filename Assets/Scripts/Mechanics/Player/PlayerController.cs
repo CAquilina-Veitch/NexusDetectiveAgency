@@ -275,6 +275,7 @@ public class PlayerController : MonoBehaviour
     bool canSwitch = true;
     public IEnumerator dimensionSwitch(Dimension to)
     {
+        Debug.Log("Shompf");
         canSwitch = false;
         
 
@@ -863,6 +864,7 @@ public class PlayerController : MonoBehaviour
 
     public void EnableControls(bool to)
     {
+        Debug.Log($"Enabling {to}");
         mouseManualControlled = to;
         realSens = to ? sensitivity : 0;
         speed = to ? 8 : 0;

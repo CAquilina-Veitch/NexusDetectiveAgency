@@ -167,6 +167,11 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: vfxParent
+      value: 
+      objectReference: {fileID: 2765495491104490223}
     - target: {fileID: 2882513469416883330, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
       propertyPath: m_Name
@@ -1960,10 +1965,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5547777186228997732, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
     - {fileID: 1822180453173212200, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3345145069393767279, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
+--- !u!4 &2765495491104490223 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8006552005243882413, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2765495491104490222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
