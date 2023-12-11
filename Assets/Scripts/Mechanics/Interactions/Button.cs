@@ -31,7 +31,10 @@ public class Button : MonoBehaviour
         }
         else
         {
-            soundEmitter.StartSound();
+            if(soundEmitter != null)
+            {
+                soundEmitter.StartSound();
+            }
             if (animator != null)
             {
                 animator.SetTrigger("Pressed");
