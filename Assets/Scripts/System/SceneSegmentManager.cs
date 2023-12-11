@@ -163,6 +163,11 @@ public class SceneSegmentManager : MonoBehaviour
         {
             PlaytestDemoStart();
         }
+        if(Input.GetKey(KeyCode.Alpha6))
+        {
+            Debug.Log(6);
+            StartCoroutine(gg(segmentSceneIds[0]));
+        }
     }
     IEnumerator gg(int id)
     {
@@ -180,7 +185,7 @@ public class SceneSegmentManager : MonoBehaviour
                     for (int i = 0; i < objects.Length; i++)
                     {
                         var obj = objects[i]; //< Get the object
-                        if (obj.scene.name == "scenename") //< Check if the object is in the new scene
+                        if (obj.scene.buildIndex == id) //< Check if the object is in the new scene
                         {
                             obj.SendMessage("Start", SendMessageOptions.DontRequireReceiver); //< Send it the Start Message
                             obj.SendMessage("Awake", SendMessageOptions.DontRequireReceiver); //< Send it the Awake Message

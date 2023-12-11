@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
+            return true;
             Debug.DrawRay(currentPlayer.transform.position, Vector3.down * jumpCheckLength, Color.cyan, 5.0f);
             if (Physics.Raycast(currentPlayer.transform.position,Vector3.down,jumpCheckLength, groundMask))
             {
