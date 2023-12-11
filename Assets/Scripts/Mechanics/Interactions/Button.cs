@@ -39,7 +39,7 @@ public class Button : MonoBehaviour
     }
     IEnumerator Reactivate()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3f/2);
         soundEmitter.StartSound();
         animator.SetTrigger("Pressed");
     }

@@ -69,6 +69,20 @@ public class PlayerController : MonoBehaviour
     float pitch, yaw;
     bool mouseManualControlled = true;
 
+    public bool hasDrone = false;
+    public void HasDrone(bool to)
+    {
+        hasDrone = to;
+        if (!to)
+        {
+            if (dronePlatformDrafting)
+            {
+                dronePlatformDrafting = false;
+                dronePosValid = false;
+                ShowDraft(dronePlatformDrafting);
+            }
+        }
+    }
 
     [Space(10)]
     public Dimension currentPlayerDimension;
@@ -120,7 +134,6 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return true;
             Debug.DrawRay(currentPlayer.transform.position, Vector3.down * jumpCheckLength, Color.cyan, 5.0f);
             if (Physics.Raycast(currentPlayer.transform.position,Vector3.down,jumpCheckLength, groundMask))
             {
@@ -507,14 +520,6 @@ public class PlayerController : MonoBehaviour
         currentPlayer.transform.rotation = Quaternion.Euler(0, qStart.eulerAngles.y, 0);
         currentPlayer.camTransform.localRotation = Quaternion.Euler(qStart.eulerAngles.x, 0, 0);
 
-
-
-
-
-
-
-
-
         EnableControls(true);
 
 
@@ -824,7 +829,10 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(abilityKey))
             {
-                ToggleDroneDraft();
+                if (hasDrone)
+                {
+                    ToggleDroneDraft();
+                }
             }
             if(dronePlatformDrafting)
             {

@@ -33,8 +33,9 @@ public class SceneSegmentManager : MonoBehaviour
         {
             if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                AsyncOperation aO = SceneManager.LoadSceneAsync(segmentSceneIds[i], LoadSceneMode.Additive);
-                return aO;
+                StartCoroutine(gg(segmentSceneIds[i]));
+                /*AsyncOperation aO = SceneManager.LoadSceneAsync(segmentSceneIds[i], LoadSceneMode.Additive);
+                return aO;*/
             }
         }
         return null;
@@ -85,9 +86,8 @@ public class SceneSegmentManager : MonoBehaviour
     {
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            StartCoroutine(gg(StructureSceneIds[i]));
-            /*AsyncOperation aO = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
-            return aO;*/
+            AsyncOperation aO = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
+            return aO;
         }
         return null;
     }
@@ -152,11 +152,15 @@ public class SceneSegmentManager : MonoBehaviour
     }
     IEnumerator FirstLevel()
     {
-        yield return LoadSegmentA(0);
-        yield return LoadMidSegmentA(0);
-        yield return LoadStructureA (1);             //player
+        //player
         yield return UnloadStructureA(3);            //det start
-        GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Ready();
+        
+
+        var ids = new List<int>()
+        {
+            segmentSceneIds[0],midSegmentSceneIds[0],StructureSceneIds[1]
+        };
+        StartCoroutine(gg(ids));
     }
     private void Update()
     {
@@ -170,6 +174,44 @@ public class SceneSegmentManager : MonoBehaviour
             StartCoroutine(gg(segmentSceneIds[0]));
         }
     }
+    IEnumerator gg(List<int> idString)
+    {
+        if (idString.Count >0)
+        {
+            yield break;
+        }
+        var asyncOp = SceneManager.LoadSceneAsync(idString[0], LoadSceneMode.Additive); //< Load the scene asynchronously
+        asyncOp.allowSceneActivation = false; //< Deactivate the load of gameobjects on scene load
+        if (asyncOp != null)
+        {
+            while (!asyncOp.isDone)
+            {
+                // Check if the progress is less than 0.9 (if it's less, it means that we load gameobjects)
+                // Else, it means that we load something else.
+                if (asyncOp.progress >= 0.9f && !asyncOp.allowSceneActivation)
+                {
+                    yield return null;
+                    asyncOp.allowSceneActivation = true; //< Once everything is loaded, reactive this variable
+                }
+                else
+                {
+                    yield return null; //< We still wait until the scene load is finished
+                }
+            }
+        }
+        idString.RemoveAt(0);
+        if (idString.Count > 0)
+        {
+            StartCoroutine(gg(idString));
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Ready();
+        }
+
+    }
+
+
     IEnumerator gg(int id)
     {
         var asyncOp = SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive); //< Load the scene asynchronously
@@ -182,27 +224,11 @@ public class SceneSegmentManager : MonoBehaviour
                 // Else, it means that we load something else.
                 if (asyncOp.progress >= 0.9f && !asyncOp.allowSceneActivation)
                 {
-                    var objects = GameObject.FindObjectsOfType<GameObject>(); //< Get a list of gameObjects in the scene
-                    for (int i = 0; i < objects.Length; i++)
-                    {
-                        var obj = objects[i]; //< Get the object
-                        if (obj.scene.buildIndex == id) //< Check if the object is in the new scene
-                        {
-                            obj.SendMessage("Start", SendMessageOptions.DontRequireReceiver); //< Send it the Start Message
-                            obj.SendMessage("Awake", SendMessageOptions.DontRequireReceiver); //< Send it the Awake Message
-                        }
-
-                        //LoadingScreenUpdate(); //< Update your loading screen animation here
-
-                        yield return null; //< Do a little pause to have a smooth animation in the loading screen without freeze
-                    }
+                    yield return null;
                     asyncOp.allowSceneActivation = true; //< Once everything is loaded, reactive this variable
                 }
                 else
                 {
-                    // we are loading the rest of the scene
-                    //LoadingScreenUpdate(); //< Update your loading screen animation here
-
                     yield return null; //< We still wait until the scene load is finished
                 }
             }
