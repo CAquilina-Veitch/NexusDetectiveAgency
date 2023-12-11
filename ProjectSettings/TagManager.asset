@@ -11,6 +11,7 @@ TagManager:
   - UIManager
   - TrigDeath
   - LoreInventory
+  - EndingCarrier
   layers:
   - Default
   - TransparentFX
