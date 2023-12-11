@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8455581952709154944}
   - component: {fileID: 2841855330207685744}
   - component: {fileID: 282785237848872329}
+  - component: {fileID: 311423080389877810}
   m_Layer: 0
   m_Name: Fuse_Base
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &311423080389877810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168245852975588128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1 &4657595889587622131
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4657595889587622131}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.45, y: 1.97, z: -6.05}
   m_LocalScale: {x: 0.6326, y: 0.6326, z: 0.25304002}
   m_ConstrainProportionsScale: 0
@@ -205,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db5f3a4b9105bd49a2560af84cfb2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEmitterPlug: {fileID: 0}
-  soundEmitterUnplug: {fileID: 0}
+  soundEmitterPlug: {fileID: 569666636326059507}
+  soundEmitterUnplug: {fileID: 8469139977506278565}
   hasFuse: 1
   trigger: {fileID: 0}
   fuseObj: {fileID: 6053820064839392362}

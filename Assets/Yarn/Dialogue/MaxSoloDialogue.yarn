@@ -10,7 +10,7 @@ title: 1
 tags:
 position: -95,-209
 ---
-//1MaxCollectible
+//1MaxCollectible DONE
 Max: I'd better have a look around. Might be some information I can use.
 <<wait  4>>
 <<stop>>
@@ -32,7 +32,7 @@ title: 3
 tags:
 position: -95,-209
 ---
-//3MaxCollectible
+//3MaxCollectible DONE
 Max: I wonder if there's any more files lying around.
 <<wait  4>>
 <<stop>>
@@ -164,7 +164,7 @@ title: 15
 tags:
 position:
 ---
-//15MaxPuzzleSolved
+//15MaxPuzzleSolved DONE
 Max: Moving on.
 <<wait  4>>
 <<stop>>
@@ -197,7 +197,7 @@ title: 18
 tags:
 position:
 ---
-//18MaxLevelOne
+//18MaxLevelOne DONE
 Max: Lots of heavy tech here, wonder if there's anything light enough to carry.
 <<wait  4>> <<stop>>
 ===
@@ -207,7 +207,7 @@ title: 19
 tags:
 position:
 ---
-//19MaxLevelOne
+//19MaxLevelOne DONE
 Max: Another pressure pad? But only one cube... hmm...
 <<wait  4>>
 <<stop>>
@@ -218,7 +218,7 @@ title: 20
 tags:
 position:
 ---
-//20MaxLevelTwo
+//20MaxLevelTwo DONE
 Max: Alright, let's get to work.
 <<wait  4>>
 <<stop>>
@@ -229,7 +229,7 @@ title: 21
 tags:
 position:
 ---
-//21MaxLevelTwo
+//21MaxLevelTwo DONE
 Max: I think there's something useful here.
 <<wait  4>>
 <<stop>>
@@ -240,7 +240,7 @@ title: 22
 tags:
 position:
 ---
-//22MaxLevelTwo
+//22MaxLevelTwo DONE
 Max: Looks like some kind of cistern control. Maybe it can change the flow of water.
 <<wait  4>>
 <<stop>>
