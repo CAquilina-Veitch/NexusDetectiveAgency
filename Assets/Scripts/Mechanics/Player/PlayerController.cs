@@ -183,6 +183,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SoundEmitter soundJump;
     [SerializeField] SoundEmitter soundHurt;
     [SerializeField] SoundEmitter soundDimswap;
+    [SerializeField] SoundEmitter soundMoveplat;
     [SerializeField] EventInstance soundMusic;
     //"".StartSound();
 
@@ -841,6 +842,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyDown(abilityKey))
             {
+                soundMoveplat.Start();
                 ShowWheel();
             }
 

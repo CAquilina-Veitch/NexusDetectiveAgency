@@ -5,7 +5,7 @@
 			<value>EventPlatUse</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{32baee31-f4cd-4e7f-b8fb-0cfa244060a1}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{aa4f5597-eb09-4ad5-af3c-981848e70522}">
 		<relationship name="effects">
 			<destination>{d2c8d7f9-5b42-4122-aa89-74bd78b8fbc8}</destination>
-			<destination>{31ae162b-e684-4e80-8c5f-30d785eb3ab1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{30ca3ec7-9217-4c33-a64d-f9c8dac4836e}" />
@@ -125,6 +124,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{b1df1ca6-2e1b-4539-8a68-012423a7a9ce}" />
 	<object class="MixerBusFader" id="{d2c8d7f9-5b42-4122-aa89-74bd78b8fbc8}" />
-	<object class="SpatialiserEffect" id="{31ae162b-e684-4e80-8c5f-30d785eb3ab1}" />
 	<object class="MixerBusFader" id="{9af3c553-a7e9-487a-9b04-bd0443561606}" />
 </objects>
