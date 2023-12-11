@@ -47475,6 +47475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &1083890093
 PrefabInstance:
@@ -69926,6 +69927,26 @@ PrefabInstance:
       objectReference: {fileID: 1690122383239495092}
     - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
       propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 767006345}
@@ -69934,6 +69955,61 @@ PrefabInstance:
       propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 767006345}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_material
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_material
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Renderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Renderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: 23cfd829e2ed7294c8cde7ff51fd129a, type: 2}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: ed9d399e9955378489f716a6476b4ec8, type: 2}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOnActions.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Material, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223616444825486642, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
+      propertyPath: triggerOffActions.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Material, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74088,6 +74164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &1615188417
 PrefabInstance:
@@ -74604,6 +74681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &1632035263
 PrefabInstance:
@@ -90761,6 +90839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &1960244456
 PrefabInstance:
@@ -99842,6 +99921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!23 &4647458338365089775
 MeshRenderer:
@@ -100413,7 +100493,7 @@ PrefabInstance:
     - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.5
+      value: 6.716
       objectReference: {fileID: 0}
     - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
