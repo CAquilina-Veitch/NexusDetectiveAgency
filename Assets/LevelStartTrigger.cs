@@ -11,11 +11,11 @@ public class LevelStartTrigger : MonoBehaviour
     {
         if(loadMidScene)
         {
-            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().LoadNextMidSegmentA();
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().LoadNextMidSegment();
         }
         else
         {
-            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().LoadNextSegmentA();
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().LoadNextSegment();
 
         }
         enterActions.Invoke();
