@@ -12,7 +12,7 @@ public class EndingManager : MonoBehaviour
 
     private void Start()
     {
-        int end = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<EndingCarrier>().endingChosen;
+        int end = GameObject.FindGameObjectWithTag("EndingCarrier").GetComponent<EndingCarrier>().endingChosen;
         switch (end)
         {
             case 1:

@@ -9,4 +9,8 @@ public class EndingCarrier : MonoBehaviour
     {
         endingChosen = i;
     }
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }
