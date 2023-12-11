@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
+  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12998,6 +12998,7 @@ GameObject:
   - component: {fileID: 286744966}
   - component: {fileID: 286744965}
   - component: {fileID: 286744964}
+  - component: {fileID: 286744967}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -13090,6 +13091,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &286744967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286744962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1509b9ecab56e73438c1442274a8791e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDetectiveAgency: 0
 --- !u!1001 &287381292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37824,6 +37838,7 @@ GameObject:
   - component: {fileID: 842718724}
   - component: {fileID: 842718723}
   - component: {fileID: 842718722}
+  - component: {fileID: 842718725}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -37916,6 +37931,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &842718725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842718720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1509b9ecab56e73438c1442274a8791e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDetectiveAgency: 0
 --- !u!64 &843686497
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46949,6 +46977,7 @@ GameObject:
   - component: {fileID: 1064704083}
   - component: {fileID: 1064704082}
   - component: {fileID: 1064704081}
+  - component: {fileID: 1064704084}
   m_Layer: 0
   m_Name: Canvas (1)
   m_TagString: Untagged
@@ -47041,6 +47070,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1064704084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064704079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1509b9ecab56e73438c1442274a8791e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDetectiveAgency: 0
 --- !u!64 &1066873703
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57570,6 +57612,7 @@ GameObject:
   - component: {fileID: 1268055838}
   - component: {fileID: 1268055837}
   - component: {fileID: 1268055836}
+  - component: {fileID: 1268055839}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -57662,6 +57705,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1268055839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268055834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1509b9ecab56e73438c1442274a8791e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDetectiveAgency: 0
 --- !u!1 &1269134680
 GameObject:
   m_ObjectHideFlags: 0
