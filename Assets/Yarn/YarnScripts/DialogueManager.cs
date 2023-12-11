@@ -46,10 +46,6 @@ public class DialogueManager : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(melanieVoice, melanieTran);
         RuntimeManager.AttachInstanceToGameObject(maxVoice, maxTran);
 
-        //if (Input.GetKeyDown(KeyCode.Alpha9))
-        //{
-        //    StartMelConvo();
-        //}
     }
 
      

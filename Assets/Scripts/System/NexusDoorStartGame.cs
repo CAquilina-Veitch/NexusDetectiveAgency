@@ -8,4 +8,8 @@ public class NexusDoorStartGame : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().PlaytestDemoStart();
     }
+    public void ShowMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
