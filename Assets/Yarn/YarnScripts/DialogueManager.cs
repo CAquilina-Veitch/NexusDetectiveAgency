@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueRunner dialogueRunner;             //Dialogue Runner is Yarn's script management
     private InMemoryVariableStorage variableStorage;   //How variables are stored within Yarn
     [SerializeField] private LoreInventory loreInventory;
+    [SerializeField] LineView lineView;
 
     public int documentsFound;
     public bool mainDocFound;
@@ -35,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();              //Finds variables within Yarn
         //loreInventory = FindObjectOfType<LoreInventory>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
+        lineView = FindObjectOfType<LineView>();
         melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
         maxVoice = RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
 
@@ -83,6 +85,8 @@ public class DialogueManager : MonoBehaviour
         melanieAnim.SetInteger("Dialogue Stage", (int)voiceMelID);
         melanieAnim.SetTrigger("Dialogue Trigger");
 
+
+        StartCoroutine(GoNextDialogue());
         //Debug.Log($"Melanie Animation: {voiceID}");                                 //Play animation here
     }
     [YarnCommand("playvoicemax")]
@@ -92,6 +96,8 @@ public class DialogueManager : MonoBehaviour
         variableStorage.TryGetValue("$audioMaxNumber", out voiceMaxID);
         maxVoice.setParameterByName("MaxToMel", voiceMaxID);
         maxVoice.start();
+
+        StartCoroutine(GoNextDialogue());
     }
     //[YarnCommand("loredocsfound")]
     //public void LoreDocsFound()
@@ -111,4 +117,17 @@ public class DialogueManager : MonoBehaviour
     {
         EndDialogue.Invoke();
     }
+    [YarnCommand("autonext")]
+    public void AutoNext()
+    {
+        StartCoroutine(GoNextDialogue());
+    }
+
+
+    IEnumerator GoNextDialogue()
+    {
+        yield return new WaitForSeconds(5f);
+        lineView.GetComponent<LineView>().UserRequestedViewAdvancement();
+    }
+
 }
