@@ -12,14 +12,17 @@ public class Interactable : MonoBehaviour
     float currentTimer;
     bool isOverlayed;
 
-    MeshRenderer mR;
+    [SerializeField] MeshRenderer mR;
     public Material outlineMat;
 
     bool canTurnOn = true;
 
     private void Start()
     {
-        mR = GetComponent<MeshRenderer>();
+        if(mR== null)
+        {
+            mR = GetComponent<MeshRenderer>();
+        }
     }
 
     public void Enable(bool to)
