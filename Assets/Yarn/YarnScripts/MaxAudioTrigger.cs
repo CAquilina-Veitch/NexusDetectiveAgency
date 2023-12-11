@@ -28,6 +28,6 @@ public class MaxAudioTrigger : MonoBehaviour
     IEnumerator NextDialogue()
     {
         yield return new WaitForSeconds(4f);
-        lineView.GetComponent<LineView>().OnContinueClicked();
+        lineView.GetComponent<LineView>().UserRequestedViewAdvancement();
     }
 }
