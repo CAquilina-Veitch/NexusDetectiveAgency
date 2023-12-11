@@ -775,19 +775,29 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    LoreObject last;
     public void ReadLore()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
+        if (loreInv.singleIsOpen)
         {
-            Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
-            Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
-            if (hit.collider.TryGetComponent(out LoreObject lO))
+            EnableControls(!loreInv.InteractWithObject(last));
+        }
+        else
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward, out hit, armReach, isntPlayerMask))
             {
-                EnableControls(!loreInv.InteractWithObject(lO));
-                
+                Debug.DrawRay(currentPlayer.cam.transform.position, currentPlayer.cam.transform.forward * hit.distance, Color.cyan, 5);
+                Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
+                if (hit.collider.TryGetComponent(out LoreObject lO))
+                {
+                    last = lO;
+                    EnableControls(!loreInv.InteractWithObject(lO));
+
+                }
             }
         }
+       
     }
 
 
