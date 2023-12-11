@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8382bfd860c79f3468d8093e8a1a30be,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2561,10 +2562,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6412965312021807011, guid: c1dcfa14982c7c34b9f2b76e2f889043,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 582822704}
-    - targetCorrespondingSourceObject: {fileID: 6412965312021807011, guid: c1dcfa14982c7c34b9f2b76e2f889043,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 582822703}
     - targetCorrespondingSourceObject: {fileID: -1807970279642858887, guid: c1dcfa14982c7c34b9f2b76e2f889043,
         type: 3}
@@ -2605,20 +2602,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7747835603952057023, guid: c1dcfa14982c7c34b9f2b76e2f889043, type: 3}
---- !u!114 &582822704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582822702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewTimer: 0.1
-  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!1001 &582890744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10289,7 +10272,7 @@ GameObject:
   - component: {fileID: 5078265773345677717}
   - component: {fileID: 5078265773345677718}
   - component: {fileID: 5078265773345677720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interactable Lore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
