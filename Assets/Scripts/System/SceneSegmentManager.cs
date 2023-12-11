@@ -85,8 +85,9 @@ public class SceneSegmentManager : MonoBehaviour
     {
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            AsyncOperation aO = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
-            return aO;
+            StartCoroutine(gg(StructureSceneIds[i]));
+            /*AsyncOperation aO = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
+            return aO;*/
         }
         return null;
     }
@@ -159,11 +160,11 @@ public class SceneSegmentManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKey(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.P))
         {
             PlaytestDemoStart();
         }
-        if(Input.GetKey(KeyCode.Alpha6))
+        if(Input.GetKeyDown(KeyCode.Alpha6))
         {
             Debug.Log(6);
             StartCoroutine(gg(segmentSceneIds[0]));
