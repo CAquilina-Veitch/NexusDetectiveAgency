@@ -31661,6 +31661,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Open Door
       objectReference: {fileID: 0}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1846183392}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 877948293230774077, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+        type: 3}
+      propertyPath: openAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3291176029457839700, guid: 2cfd51ae7fbe7e64793746031bc826c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31722,12 +31757,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1846183390}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1846183392}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f7e64d264b6edb409976cf4d2cbb1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1846183392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 391740118325499847, guid: 2cfd51ae7fbe7e64793746031bc826c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846183390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1854435057
 MeshCollider:
   m_ObjectHideFlags: 0

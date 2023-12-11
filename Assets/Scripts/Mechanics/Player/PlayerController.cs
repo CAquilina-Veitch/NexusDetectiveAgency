@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.VFX;
 using FMOD.Studio;
+using FMODUnity;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
 
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour
     bool inventoryOpen = false;
 
     [SerializeField] GameObject listenerObj;
+    //[SerializeField] StudioListener listenion;
 
     [Space(20)]
     [Header("Controls")]
@@ -201,12 +203,13 @@ public class PlayerController : MonoBehaviour
     public void Ready()
     {
         rb.useGravity = true;
+        Toggle(true);
     }
 
     private void Awake()
     {
         ForceDimension(0);
-
+        ChangeListenerPosition();
         soundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/EventSimulMusic");
         soundMusic.setParameterByName("WhatDimension", (int) currentPlayerDimension);
         soundMusic.start();
@@ -291,7 +294,7 @@ public class PlayerController : MonoBehaviour
         soundMusic.setParameterByName("WhatDimension", (int)to);
         ChangeGrabParent();
         ChangeVFXParent();
-        //ChangeListenerPosition();
+        ChangeListenerPosition();
 
     }
     bool canSwitch = true;
@@ -378,7 +381,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 4, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, 6, rb.velocity.z);
             soundJump.StartSound();
         }
     }
@@ -458,6 +461,7 @@ public class PlayerController : MonoBehaviour
     void ChangeListenerPosition()
     {
         listenerObj.transform.position = currentPlayer.camTransform.position;
+        listenerObj.transform.parent = currentPlayer.handCam.transform;
     }
 
     void PressButton()

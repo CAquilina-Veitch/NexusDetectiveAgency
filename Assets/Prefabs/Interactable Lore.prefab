@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5078265773009250733}
   - component: {fileID: 3245549234768327247}
-  - component: {fileID: 7616796142053997481}
   m_Layer: 0
   m_Name: Interactable Lore
   m_TagString: Untagged
@@ -48,48 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
---- !u!114 &7616796142053997481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600118167494665971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa9e7b3064b3f041b8b0f23156ff2a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Interact:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7428033243406833951}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3245549234768327247}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  SecondaryInteract:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3741246455496865360
 GameObject:
   m_ObjectHideFlags: 0

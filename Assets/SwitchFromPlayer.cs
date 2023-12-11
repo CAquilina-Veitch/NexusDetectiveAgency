@@ -22,6 +22,7 @@ public class SwitchFromPlayer : MonoBehaviour
     {
         pC.gameObject.SetActive(to);
         cam.enabled = !to;
+        GetComponent<BoxCollider>().enabled = false;
         if (!to)
         {
             StartDialogue();
@@ -34,7 +35,6 @@ public class SwitchFromPlayer : MonoBehaviour
 
     public void Deactivate()
     {
-        GetComponent<BoxCollider>().enabled = false;
         cam.enabled = false;
     }
 

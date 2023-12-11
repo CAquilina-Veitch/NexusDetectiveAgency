@@ -41,8 +41,8 @@ public class Repairable : MonoBehaviour
                 {
                     trigger.UpdateRepairs();
                 }
-                powered.Invoke();
                 fuseObj.SetActive(false);
+                unpowered.Invoke();
                 Debug.Log(2);
             }
 
@@ -59,8 +59,8 @@ public class Repairable : MonoBehaviour
                 {
                     trigger.UpdateRepairs();
                 }
-                unpowered.Invoke();
                 //Repair();
+                powered.Invoke();
                 Debug.Log(3);
             }
             else

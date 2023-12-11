@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &583298742 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8954468520729816930, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2765495491104490222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &583298744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583298742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 583298742}
 --- !u!1 &1321917673
 GameObject:
   m_ObjectHideFlags: 1
@@ -921,6 +940,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      propertyPath: listenerObj
+      value: 
+      objectReference: {fileID: 583298742}
     - target: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
         type: 3}
       propertyPath: startingPos.z
@@ -9682,13 +9706,18 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6529785341197145212, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
-    - {fileID: 6909224193410117310, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
-    - {fileID: 3504002335031410131, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
-    - {fileID: 5438017334332636026, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 1772812649977090657, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8954468520729816930, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 583298744}
   m_SourcePrefab: {fileID: 100100000, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
 --- !u!114 &2765495491104490223 stripped
 MonoBehaviour:
