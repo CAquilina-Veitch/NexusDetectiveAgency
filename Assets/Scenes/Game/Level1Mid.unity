@@ -15681,7 +15681,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -54.671
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3245549234768327247, guid: 7f8c42ba73f9725459e71a9743a424a1, type: 3}
     m_RemovedGameObjects:
     - {fileID: 534796418463099195, guid: 7f8c42ba73f9725459e71a9743a424a1, type: 3}
     m_AddedGameObjects:
@@ -20389,6 +20390,9 @@ GameObject:
   - component: {fileID: 2609697922409733010}
   - component: {fileID: 2611264231460434707}
   - component: {fileID: 1372136311450189267}
+  - component: {fileID: 7115196162104658613}
+  - component: {fileID: 7115196162104658612}
+  - component: {fileID: 7115196162104658611}
   m_Layer: 0
   m_Name: SM_A4_paper_fold_2
   m_TagString: Untagged
@@ -20396,6 +20400,55 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7115196162104658611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115196162104658610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f994ec9fbd6816142a993c0edd67e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewTimer: 0.1
+  outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
+--- !u!64 &7115196162104658612
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115196162104658610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4296770411805753656, guid: acdce6ce36031d7408efe1fd6cb80b2a, type: 3}
+--- !u!114 &7115196162104658613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115196162104658610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1bd84f9e1ed8540895835fa4b309a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
 --- !u!4 &7153946634918319505
 Transform:
   m_ObjectHideFlags: 0
