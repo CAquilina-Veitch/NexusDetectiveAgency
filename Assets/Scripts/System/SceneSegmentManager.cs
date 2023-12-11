@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FMOD.Studio;
 using System.Linq;
 using System.ComponentModel;
+using Unity.VisualScripting;
 
 public class SceneSegmentManager : MonoBehaviour
 {
@@ -125,10 +126,21 @@ public class SceneSegmentManager : MonoBehaviour
 
     public void DetectiveAgency()
     {
+        StartCoroutine(startDetagency());
+    }
+
+    IEnumerator startDetagency()
+    {
+        fader.Fade(true, 0.2f);
+        yield return new WaitForSeconds(0.2f);
         UnloadStructureA(0);     //menu
         LoadStructureA(2);       //ui
         LoadStructureA(3);       //det start
+        yield return new WaitForNextFrameUnit();
+        fader.Fade(false, 0.2f);
+
     }
+
     public void FinalDetectiveAgency()
     {
         int[] ids =
@@ -138,7 +150,7 @@ public class SceneSegmentManager : MonoBehaviour
             -midSegmentSceneIds[currentMidSegmentIndex],
             -segmentSceneIds[currentSegmentIndex]
         };
-        StartCoroutine(gg(ids.ToList()));
+        StartCoroutine(PauseForSwirler(ids.ToList()));
     }
 
     public void PlaytestDemoStart()
@@ -151,12 +163,17 @@ public class SceneSegmentManager : MonoBehaviour
             midSegmentSceneIds[0],
         };
         StartCoroutine(PauseForSwirler(ids.ToList()));
-
     }
     IEnumerator PauseForSwirler(List<int> ids)
     {
         swirler.Swirl();
         yield return new WaitForSeconds(1);
+        fader.Fade(true, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(gg(ids));
+    }
+    IEnumerator PauseForFade(List<int> ids)
+    {
         fader.Fade(true, 0.5f);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(gg(ids));

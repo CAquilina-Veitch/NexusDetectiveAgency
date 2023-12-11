@@ -484,7 +484,7 @@ public class PlayerController : MonoBehaviour
     public void HackTriggerable()
     {
         currentPlayer.anim.SetTrigger("Hack");
-        StartCoroutine(LockOn(lastInteracted.transform.position, 4.125f));
+        StartCoroutine(LockOn(lastInteracted.transform.position, 4.125f/2));
     }
 
     IEnumerator LockOn(Vector3 pos, float duration)
