@@ -85,12 +85,9 @@ public class TriggerableObject : MonoBehaviour
 
 
     }
-
-
-    public void Triggered()
+    IEnumerator Retrigger()
     {
-        TryAddRemoteControl();
-
+        yield return new WaitForSeconds(3.5f);
         if (mode == InputMode.Permanent)
         {
             if (!currentlyPowered)
@@ -103,7 +100,7 @@ public class TriggerableObject : MonoBehaviour
         }
         else if (mode == InputMode.Trigger)
         {
-            if(IsRepaired())
+            if (IsRepaired())
             {
                 if (!currentlyPowered)
                 {
@@ -112,9 +109,9 @@ public class TriggerableObject : MonoBehaviour
             }
 
         }
-        else if (mode == InputMode.Toggle) 
+        else if (mode == InputMode.Toggle)
         {
-            if(currentlyPowered)
+            if (currentlyPowered)
             {
                 //toggle off
                 Turn(false);
@@ -122,7 +119,7 @@ public class TriggerableObject : MonoBehaviour
             else
             {
                 //check repairs
-                if(IsRepaired())
+                if (IsRepaired())
                 {
                     //toggle on
                     Turn(true);
@@ -130,6 +127,61 @@ public class TriggerableObject : MonoBehaviour
 
             }
         }
+    }
+
+    public bool Triggered()
+    {
+        if (TryAddRemoteControl())
+        {
+            StartCoroutine(Retrigger());
+            return true;
+        }
+        else
+        {
+            if (mode == InputMode.Permanent)
+            {
+                if (!currentlyPowered)
+                {
+                    if (IsRepaired())
+                    {
+                        Turn(true);
+                    }
+                }
+            }
+            else if (mode == InputMode.Trigger)
+            {
+                if (IsRepaired())
+                {
+                    if (!currentlyPowered)
+                    {
+                        StartCoroutine(TriggerWithDelay());
+                    }
+                }
+
+            }
+            else if (mode == InputMode.Toggle)
+            {
+                if (currentlyPowered)
+                {
+                    //toggle off
+                    Turn(false);
+                }
+                else
+                {
+                    //check repairs
+                    if (IsRepaired())
+                    {
+                        //toggle on
+                        Turn(true);
+                    }
+
+                }
+            }
+            return false;
+        }
+        
+
+        
     }
 
 
@@ -220,15 +272,17 @@ public class TriggerableObject : MonoBehaviour
 
 
 
-    void TryAddRemoteControl()
+    bool TryAddRemoteControl()
     {
         if (canBeRemotelyActivated && !ownedRemotely)
         {
             ownedRemotely = true;
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().hackedTrigger = this;
             GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().HackTriggerable();
+            return true;
 
         }
+        return false;
     }
 
 }

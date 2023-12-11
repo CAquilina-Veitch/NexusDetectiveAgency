@@ -25,12 +25,24 @@ public class Button : MonoBehaviour
 
     public void Activate()
     {
-        soundEmitter.StartSound();
-        trigger.Triggered();
-        animator.SetTrigger("Pressed");
+        if (trigger.Triggered())
+        {
+            StartCoroutine(Reactivate());
+        }
+        else
+        {
+            soundEmitter.StartSound();
+            animator.SetTrigger("Pressed");
+        }
+        
         
     }
-
+    IEnumerator Reactivate()
+    {
+        yield return new WaitForSeconds(3);
+        soundEmitter.StartSound();
+        animator.SetTrigger("Pressed");
+    }
 
 
 
