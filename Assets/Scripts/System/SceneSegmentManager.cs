@@ -144,9 +144,9 @@ public class SceneSegmentManager : MonoBehaviour
         int[] ids =
 {
             StructureSceneIds[1],
+            -StructureSceneIds[3],
             segmentSceneIds[0],
             midSegmentSceneIds[0],
-            -StructureSceneIds[3],
         };
         StartCoroutine(gg(ids.ToList()));
     }

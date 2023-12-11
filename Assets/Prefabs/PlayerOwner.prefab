@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDiaPath: event:/Dialogue/EventMaxPuzzles
   dialogueRunner: {fileID: 2361004094267795206}
+  lineView: {fileID: 0}
   maxLineNumber: 0
 --- !u!1 &8424722089579159
 GameObject:
@@ -29925,6 +29926,7 @@ Transform:
   - {fileID: 3280155924880439369}
   - {fileID: 8804130042336524799}
   - {fileID: 1457448377419743459}
+  - {fileID: 5562930304774028430}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &764292712164159145
@@ -29986,6 +29988,7 @@ MonoBehaviour:
   droneDraft: {fileID: 5972851712515413433}
   currentDronePlatformDistance: 0
   droneDistanceClamps: {x: 1, y: 8}
+  currentDronePlatformPrefabs: []
   droneMaterials:
   - {fileID: -876546973899608171, guid: 4f040337197af7b4093ddbc2e1ce494a, type: 3}
   - {fileID: 2100000, guid: bb07b3f8828c672459b3b1b2a06909a6, type: 2}
@@ -87568,6 +87571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDiaPath: event:/Dialogue/EventMaxPuzzles
   dialogueRunner: {fileID: 2361004094267795206}
+  lineView: {fileID: 0}
   maxLineNumber: 0
 --- !u!1 &8072030895563472298
 GameObject:
@@ -87737,7 +87741,6 @@ GameObject:
   - component: {fileID: 4439732127689244383}
   - component: {fileID: 6940804123596223656}
   - component: {fileID: 5155044840449360720}
-  - component: {fileID: 2648299989349045170}
   m_Layer: 7
   m_Name: Max Cyber Cam
   m_TagString: Untagged
@@ -87940,19 +87943,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &2648299989349045170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8082857461821904077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 8082857461821904077}
 --- !u!1 &8083948909501374577
 GameObject:
   m_ObjectHideFlags: 0
@@ -97109,6 +97099,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4909499802455754367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8954468520729816930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5562930304774028430}
+  m_Layer: 0
+  m_Name: Audio listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5562930304774028430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8954468520729816930}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -31.3, y: -1, z: -74.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4759118008549625600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8964193972164292910
 GameObject:

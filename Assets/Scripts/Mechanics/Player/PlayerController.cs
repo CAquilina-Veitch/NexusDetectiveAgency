@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.VFX;
 using FMOD.Studio;
+using FMODUnity;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
 
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour
     bool inventoryOpen = false;
 
     [SerializeField] GameObject listenerObj;
+    //[SerializeField] StudioListener listenion;
 
     [Space(20)]
     [Header("Controls")]
@@ -292,7 +294,7 @@ public class PlayerController : MonoBehaviour
         soundMusic.setParameterByName("WhatDimension", (int)to);
         ChangeGrabParent();
         ChangeVFXParent();
-        //ChangeListenerPosition();
+        ChangeListenerPosition();
 
     }
     bool canSwitch = true;
@@ -459,6 +461,7 @@ public class PlayerController : MonoBehaviour
     void ChangeListenerPosition()
     {
         listenerObj.transform.position = currentPlayer.camTransform.position;
+        listenerObj.transform.parent = currentPlayer.handCam.transform;
     }
 
     void PressButton()
