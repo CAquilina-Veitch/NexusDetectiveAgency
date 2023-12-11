@@ -16,6 +16,8 @@ public class SceneSegmentManager : MonoBehaviour
     int currentSegmentIndex = 0;
     int currentMidSegmentIndex = 0;
 
+    public CanvasGroup loadingScreen;
+
     void LoadNextAB(int from, int to)
     {
         int[] ids = { -from, to };
@@ -180,6 +182,7 @@ public class SceneSegmentManager : MonoBehaviour
         idString.RemoveAt(0);
         if (id > 0)
         {
+            loadingScreen.alpha = 1;
             var asyncOp = SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive); //< Load the scene asynchronously
             asyncOp.allowSceneActivation = false; //< Deactivate the load of gameobjects on scene load
             if (asyncOp != null)
@@ -218,6 +221,7 @@ public class SceneSegmentManager : MonoBehaviour
                 }
             }
             // We loaded the scene without any freezing!
+            loadingScreen.alpha = 0;
         }
         else
         {

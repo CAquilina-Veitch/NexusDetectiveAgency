@@ -84,6 +84,27 @@ public class LoreInventory : MonoBehaviour
     }
 
 
+    public int collectedLore()
+    {
+        int total = 0;
+        for(int i=0; i<allLore.Count; i++)
+        {
+            if (allLore[i].collected)
+            {
+                if ((i>=3&&i<=8) || (i>=14&&i<=17))
+                {
+                    total++;
+                }
+            }
+        }
+        return total;
+    }
+
+    public bool isEnough()
+    {
+        return (collectedLore() >= 7 || allLore[7].collected);
+    }
+
 
     public int openingLeather;
     public Dimension openingDimension;
