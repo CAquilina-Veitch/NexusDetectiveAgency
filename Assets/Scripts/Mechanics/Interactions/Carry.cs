@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Carry : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class Carry : MonoBehaviour
                     other.GetComponentInParent<Rigidbody>().transform.SetParent(null, true);
                 }
             }
+        }
+        if (other.tag == "Player"/*|| other.tag=="PlayerController"*/)
+        {
+            SceneManager.MoveGameObjectToScene(other.GetComponentInParent<PlayerController>().gameObject, SceneManager.GetSceneByBuildIndex(2));
         }
     }
 
