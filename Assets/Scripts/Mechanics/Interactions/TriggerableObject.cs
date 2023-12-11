@@ -87,7 +87,7 @@ public class TriggerableObject : MonoBehaviour
     }
     IEnumerator Retrigger()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3.5f/2);
         if (mode == InputMode.Permanent)
         {
             if (!currentlyPowered)
