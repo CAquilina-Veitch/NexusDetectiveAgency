@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Yarn.Unity;
 
 public class DialogueManager : MonoBehaviour
@@ -15,6 +16,9 @@ public class DialogueManager : MonoBehaviour
     FMOD.Studio.EventInstance maxVoice;                //FMOD instance of Max's audio
     public string melanieVoicePath;                    //Path to Melanie's voice lines in FMOD
     public string maxVoicePath;                        //Path to Max's voice lines in FMOD
+
+    [SerializeField] UnityEvent StartDialogue;
+    [SerializeField] UnityEvent EndDialogue;
 
     public Transform melanieTran;
     public Transform maxTran;
@@ -48,7 +52,7 @@ public class DialogueManager : MonoBehaviour
     {
         melanieAnim.SetTrigger("Start Dialogue");
         StartCoroutine(DelayDialogueStart());
-        
+        StartDialogue.Invoke();
     }
     IEnumerator DelayDialogueStart()
     {
@@ -87,6 +91,6 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("melaniesuccess")]
     public void OpenFinalDoor()
     {
-        //Melanie convo successfully finished, opens last door
+        EndDialogue.Invoke();
     }
 }
