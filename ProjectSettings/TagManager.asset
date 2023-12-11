@@ -12,6 +12,7 @@ TagManager:
   - TrigDeath
   - LoreInventory
   - EndingCarrier
+  - Swirl
   layers:
   - Default
   - TransparentFX
