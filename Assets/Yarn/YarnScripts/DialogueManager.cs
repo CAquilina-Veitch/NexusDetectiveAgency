@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueRunner dialogueRunner;             //Dialogue Runner is Yarn's script management
     private InMemoryVariableStorage variableStorage;   //How variables are stored within Yarn
 
+    public int documentsFound;
+
     FMOD.Studio.EventInstance melanieVoice;            //FMOD instance of Melanie's audio
     FMOD.Studio.EventInstance maxVoice;                //FMOD instance of Max's audio
     public string melanieVoicePath;                    //Path to Melanie's voice lines in FMOD
@@ -87,6 +89,11 @@ public class DialogueManager : MonoBehaviour
         variableStorage.TryGetValue("$audioMaxNumber", out voiceMaxID);
         maxVoice.setParameterByName("MaxToMel", voiceMaxID);
         maxVoice.start();
+    }
+    [YarnCommand("loredocsfound")]
+    public void LoreDocsFound()
+    {
+        variableStorage.SetValue("$documentsFound", documentsFound);
     }
     [YarnCommand("melaniesuccess")]
     public void OpenFinalDoor()

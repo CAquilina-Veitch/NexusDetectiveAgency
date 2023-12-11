@@ -1,4 +1,4 @@
-﻿title: MaxSoloDialogue
+title: MaxSoloDialogue
 tags:
 position: -24,-23
 ---
@@ -251,7 +251,7 @@ title: 23
 tags:
 position:
 ---
-//23MaxLevelThree
+//23MaxLevelThree DONE
 Max: Ugh, poor thing's broken. Hmm it's definitely fixable though.
 <<wait  4>>
 <<stop>>

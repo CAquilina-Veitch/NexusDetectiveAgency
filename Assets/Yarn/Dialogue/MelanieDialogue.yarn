@@ -24,6 +24,8 @@ position: -1013,-832
 title: MelanieInteract
 position: -258,-837
 ---
+<<loredocsfound DialogueManager>>
+
 <<if $firstInteraction == true>>
 	<<jump TalkingToMelanie1>>
 <<else>>
@@ -93,7 +95,7 @@ Max: I know there's something else here. And I know it's affecting this world. #
 <<set $audioMelanieNumber = 6>>
 <<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
-<<if $documentsFound < 5 >>
+<<if $documentsFound < 9 >>
 		<<jump MelanieFail>>
 <<else>>
 		<<jump MelaniePass>>
