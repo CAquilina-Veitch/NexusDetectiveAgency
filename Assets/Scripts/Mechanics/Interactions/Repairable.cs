@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 [AddComponentMenu("Nexus Detective Agency Components/ Triggers/ Repairable")]
@@ -10,6 +11,8 @@ public class Repairable : MonoBehaviour
     [SerializeField] SoundEmitter soundEmitterPlug;
     [SerializeField] SoundEmitter soundEmitterUnplug;
     public bool hasFuse;
+    [SerializeField] UnityEvent powered;
+    [SerializeField] UnityEvent unpowered;
 
     [HideInInspector] public TriggerableObject trigger;
     [SerializeField] GameObject fuseObj;
@@ -38,7 +41,7 @@ public class Repairable : MonoBehaviour
                 {
                     trigger.UpdateRepairs();
                 }
-
+                powered.Invoke();
                 fuseObj.SetActive(false);
                 Debug.Log(2);
             }
@@ -56,6 +59,7 @@ public class Repairable : MonoBehaviour
                 {
                     trigger.UpdateRepairs();
                 }
+                unpowered.Invoke();
                 //Repair();
                 Debug.Log(3);
             }

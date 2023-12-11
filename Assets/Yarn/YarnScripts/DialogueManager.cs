@@ -11,8 +11,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private DialogueRunner dialogueRunner;             //Dialogue Runner is Yarn's script management
     private InMemoryVariableStorage variableStorage;   //How variables are stored within Yarn
+    [SerializeField] private LoreInventory loreInventory;
 
     public int documentsFound;
+    public bool mainDocFound;
 
     FMOD.Studio.EventInstance melanieVoice;            //FMOD instance of Melanie's audio
     FMOD.Studio.EventInstance maxVoice;                //FMOD instance of Max's audio
@@ -30,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();              //Finds variables within Yarn
+        loreInventory = FindObjectOfType<LoreInventory>();
         dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
         melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
         maxVoice = RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
@@ -93,7 +96,10 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("loredocsfound")]
     public void LoreDocsFound()
     {
+        documentsFound = loreInventory.collectedLore();
+        mainDocFound = loreInventory.isEnough();
         variableStorage.SetValue("$documentsFound", documentsFound);
+        variableStorage.SetValue("$FetchDocFound", mainDocFound);
     }
     [YarnCommand("melaniesuccess")]
     public void OpenFinalDoor()

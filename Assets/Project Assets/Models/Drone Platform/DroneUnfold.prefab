@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5482161218320060722}
   - component: {fileID: 8491280608798017114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.3938376, y: 0.10000011, z: 1.0836399}
   m_Center: {x: 0.2670972, y: 1.5000006, z: 0.020232474}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 101028680860131786}
   - component: {fileID: 8625492289642004124}
   - component: {fileID: 1604382089339674417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DroneUnfold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
