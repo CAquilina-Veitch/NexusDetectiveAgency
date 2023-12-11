@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class SceneSegmentManager : MonoBehaviour
 {
@@ -13,66 +14,90 @@ public class SceneSegmentManager : MonoBehaviour
     int currentMidSegmentIndex = 0;
 
 
-    void LoadSegment(int i)
+    async void LoadSegment(int i)
     {
-        if(i < segmentSceneIds.Count)
+        if (i < segmentSceneIds.Count)
         {
             if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                SceneManager.LoadScene(segmentSceneIds[i], LoadSceneMode.Additive);
+                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(segmentSceneIds[i], LoadSceneMode.Additive);
+                await WaitUntilSceneLoaded(asyncOperation);
             }
         }
-    }    
+    }
 
-    void UnloadSegment(int i)
+    async void UnloadSegment(int i)
     {
         Debug.LogWarning($"unloading {i}, which is {segmentSceneIds[i]}");
         if (i >= 0)
         {
-            if (!SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
+            if (SceneManager.GetSceneByBuildIndex(segmentSceneIds[i]).isLoaded)
             {
-                SceneManager.UnloadSceneAsync(segmentSceneIds[i]);
-            }
-        }
-    }
-    
-    void LoadMidSegment(int i)
-    {
-        if(i < midSegmentSceneIds.Count)
-        {
-            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
-            {
-                SceneManager.LoadSceneAsync(midSegmentSceneIds[i], LoadSceneMode.Additive);
-            }
-        }
-    }
-    void UnloadMidSegment(int i)
-    {
-        if (i >= 0)
-        {
-            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
-            {
-                SceneManager.UnloadSceneAsync(midSegmentSceneIds[i]);
+                AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(segmentSceneIds[i]);
+                await WaitUntilSceneUnloaded(asyncOperation);
             }
         }
     }
 
-    void LoadStructure(int i)
+    async void LoadMidSegment(int i)
     {
-        //string sceneName = StructureScenes[i].name;
+        if (i < midSegmentSceneIds.Count)
+        {
+            if (!SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
+            {
+                AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(midSegmentSceneIds[i], LoadSceneMode.Additive);
+                await WaitUntilSceneLoaded(asyncOperation);
+            }
+        }
+    }
+
+    async void UnloadMidSegment(int i)
+    {
+        if (i >= 0)
+        {
+            if (SceneManager.GetSceneByBuildIndex(midSegmentSceneIds[i]).isLoaded)
+            {
+                AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(midSegmentSceneIds[i]);
+                await WaitUntilSceneUnloaded(asyncOperation);
+            }
+        }
+    }
+
+    async void LoadStructure(int i)
+    {
         if (!SceneManager.GetSceneByBuildIndex(i).isLoaded)
         {
-            SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(StructureSceneIds[i], LoadSceneMode.Additive);
+            await WaitUntilSceneLoaded(asyncOperation);
         }
     }
-    void UnloadStructure(int i)
+
+    async void UnloadStructure(int i)
     {
-        //string sceneName = StructureScenes[i].name;
         if (SceneManager.GetSceneByBuildIndex(StructureSceneIds[i]).isLoaded)
         {
-            SceneManager.UnloadSceneAsync(StructureSceneIds[i]);
+            AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(StructureSceneIds[i]);
+            await WaitUntilSceneUnloaded(asyncOperation);
         }
     }
+
+    async Task WaitUntilSceneLoaded(AsyncOperation operation)
+    {
+        while (!operation.isDone)
+        {
+            // Optionally, you can yield return null or another WaitForSeconds
+            await Task.Yield();
+        }
+    }
+    async Task WaitUntilSceneUnloaded(AsyncOperation operation)
+    {
+        while (!operation.isDone)
+        {
+            // Optionally, you can yield return null or another WaitForSeconds
+            await Task.Yield();
+        }
+    }
+
 
     public void LoadNextSegment()
     {
@@ -97,17 +122,6 @@ public class SceneSegmentManager : MonoBehaviour
         LoadSegment(which);
     }
 
-    public void StartGame()
-    {
-        Debug.LogError("StartCalled");
-        /*
-        LoadStructure(1);
-        UnloadStructure(0);
-        UnloadStructure(3);
-        LoadSegment();
-        LoadMidSegment();
-        LoadStructure(2);*/
-    }
     public void Awake()
     {
         LoadStructure(0);

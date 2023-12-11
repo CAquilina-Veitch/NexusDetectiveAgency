@@ -107,7 +107,7 @@ public class DetectiveAgencyPlayer : MonoBehaviour
             Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
             if (hit.collider.TryGetComponent(out LoreObject lO))
             {
-                loreInv.InteractWithObject(lO);
+                EnableControls(!loreInv.InteractWithObject(lO));
             }
         }
     }
