@@ -171,6 +171,7 @@ public class LoreInventory : MonoBehaviour
             {
                 invTabs[i].gameObject.SetActive(true);
                 invTabs[i].transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = allLore[loreIDs[i]].label;
+                invTabs[i].transform.GetChild(0).GetComponent<UnityEngine.UI.Button>().interactable = allLore[loreIDs[i]].collected;
             }
             
         }
