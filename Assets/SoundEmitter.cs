@@ -33,4 +33,8 @@ public class SoundEmitter : MonoBehaviour
     {
         soundInst.start();
     }
+    public void StopSound()
+    {
+        soundInst.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
 }
