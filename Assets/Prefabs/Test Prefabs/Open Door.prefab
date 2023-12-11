@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3291176029457839700}
   - component: {fileID: 6613565351362608604}
   - component: {fileID: 1223616444825486642}
-  - component: {fileID: 6951438485988576516}
+  - component: {fileID: 877948293230774077}
   - component: {fileID: 5981824810707782706}
   - component: {fileID: 4701043386796028324}
   m_Layer: 6
-  m_Name: Door
+  m_Name: Open Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   triggerOnActions:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6951438485988576516}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MechanicalDoor, Assembly-CSharp
         m_MethodName: ToggleOpen
         m_Mode: 6
@@ -98,7 +98,7 @@ MonoBehaviour:
   triggerOffActions:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6951438485988576516}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MechanicalDoor, Assembly-CSharp
         m_MethodName: ToggleOpen
         m_Mode: 6
@@ -112,7 +112,7 @@ MonoBehaviour:
         m_CallState: 2
   canBeRemotelyActivated: 0
   uiIcon: {fileID: 0}
---- !u!114 &6951438485988576516
+--- !u!114 &877948293230774077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,30 +121,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 391740118325499847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5e89400236b92498d15840936664f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f7e64d264b6edb409976cf4d2cbb1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundEmitter: {fileID: 4701043386796028324}
   Note: 'This is a ''mechanical'' door, meaning its triggered remotely and cant be
     opened by hand.
 
+    
 
+    TimeOpen controls how long the door will stay open
+    before closing, set the number to 0 if you want it to stay open indefinitely.
 
-    TimeOpen controls how long the door will stay open before
-    closing, set the number to 0 if you want it to stay open indefinitely.
-
-
+    
 
     Connect
     this components ToggleOpen to the triggerable object event, either to toggle
     or specify open/close with bool parameter
 
+    
 
+    
 
-
-
-    This component will need a
-    collider to operate; can be any type. '
+    This component
+    will need a collider to operate; can be any type. '
   openTime: 0
   openAction:
     m_PersistentCalls:
@@ -156,31 +156,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_material
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 23cfd829e2ed7294c8cde7ff51fd129a,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -201,18 +176,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
   animator: {fileID: 5981824810707782706}
 --- !u!95 &5981824810707782706
 Animator:
