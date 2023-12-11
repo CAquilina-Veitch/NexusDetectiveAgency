@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     public string maxVoicePath;                        //Path to Max's voice lines in FMOD
 
     [SerializeField] UnityEvent EndDialogue;
+    [SerializeField] UnityEvent EndDialogueTemp;
 
     public Transform melanieTran;
     public Transform maxTran;
@@ -107,7 +108,7 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("melaniestop")]
     public void MelanieStop()
     {
-        //EndDialogueTemp.Invoke();
+        EndDialogueTemp.Invoke();
     }
     [YarnCommand("melaniesuccess")]
     public void OpenFinalDoor()
