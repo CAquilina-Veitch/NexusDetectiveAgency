@@ -381,7 +381,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 4, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, 6, rb.velocity.z);
             soundJump.StartSound();
         }
     }

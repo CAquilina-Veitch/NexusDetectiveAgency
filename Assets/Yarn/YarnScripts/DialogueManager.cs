@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
     {
         melanieAnim.SetTrigger("Start Dialogue");
         StartCoroutine(DelayDialogueStart());
-        StartDialogue.Invoke();
+        //StartDialogue.Invoke();
     }
     IEnumerator DelayDialogueStart()
     {
