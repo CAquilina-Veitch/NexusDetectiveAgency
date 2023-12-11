@@ -236,6 +236,7 @@ public class LoreInventory : MonoBehaviour
 
     public bool InteractWithObject(LoreObject lO)
     {
+        
         if (!allLore[lO.id].collected)
         {
             allLore[lO.id].collected = true;
