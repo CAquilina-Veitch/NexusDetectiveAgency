@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
     [Header("Visual Effects")]
     [SerializeField] VisualEffect portal;
 
+    [SerializeField] Transform vfxParent;
 
     private void Start()
     {
@@ -267,8 +268,9 @@ public class PlayerController : MonoBehaviour
             players[i].SwitchTo(i == (int)currentPlayerDimension);
         }
         ChangeGrabParent();
+        ChangeVFXParent();
         //ChangeListenerPosition();
-        
+
     }
     bool canSwitch = true;
     public IEnumerator dimensionSwitch(Dimension to)
@@ -422,6 +424,12 @@ public class PlayerController : MonoBehaviour
             currentHeldItem.transform.position = currentPlayer.cam.transform.position + currentPlayer.cam.transform.forward * heldItemArmLength;
         }
         
+    }
+    void ChangeVFXParent()
+    {
+        vfxParent.transform.parent = currentPlayer.handCam.transform;
+        vfxParent.transform.position = currentPlayer.handCam.transform.position;
+        vfxParent.transform.localRotation = Quaternion.identity;
     }
     void ChangeListenerPosition()
     {
