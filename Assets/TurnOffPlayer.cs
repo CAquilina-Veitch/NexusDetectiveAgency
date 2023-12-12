@@ -5,25 +5,41 @@ using UnityEngine;
 public class TurnOffPlayer: MonoBehaviour
 {
     PlayerController pC;
-    public GameObject[] obsOff;
+    public GameObject[] obsOffTake;
+    public GameObject[] obsOffActiv;
     public void StartAnim()
     {
         pC = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
         pC.activateCameras(false);
     }
 
-    IEnumerator onOnDelay(float d)
+    IEnumerator onOnDelayTake(float d)
     {
         yield return new WaitForSeconds(d);
         pC.activateCameras(true);
-        foreach(var c in obsOff)
+        foreach(var c in obsOffTake)
         {
             c.SetActive(false);
         }
     }
 
-    public void PlayerBackOn(float d)
+    IEnumerator onOnDelayActiv(float d)
     {
-        StartCoroutine(onOnDelay(d));
+        yield return new WaitForSeconds(d);
+        pC.activateCameras(true);
+        foreach (var c in obsOffActiv)
+        {
+            c.SetActive(false);
+        }
+    }
+
+    public void PlayerBackOnTake(float d)
+    {
+        StartCoroutine(onOnDelayTake(d));
+    }
+
+    public void PlayerBackOnActiv(float d)
+    {
+        StartCoroutine(onOnDelayActiv(d));
     }
 }
