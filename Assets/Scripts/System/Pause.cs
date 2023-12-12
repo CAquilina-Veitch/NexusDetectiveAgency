@@ -14,8 +14,8 @@ public class Pause : MonoBehaviour
     {
         Debug.LogWarning(111221);
         Time.timeScale = 1;
-        Cursor.lockState = mouseWasOn ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !mouseWasOn;
+        Cursor.lockState = mouseWasOn ? CursorLockMode.Locked : CursorLockMode.None;
         paused = false;
         Debug.Log(Time.timeScale);
     }
