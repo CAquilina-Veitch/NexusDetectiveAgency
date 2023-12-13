@@ -15,6 +15,10 @@ TagManager:
   - Swirl
   - Fadeblack
   - Swirler
+  - Concrete
+  - Metal
+  - Wood
+  - Dirt
   layers:
   - Default
   - TransparentFX

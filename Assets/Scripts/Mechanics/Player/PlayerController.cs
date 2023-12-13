@@ -8,7 +8,7 @@ using FMODUnity;
 
 public enum Dimension { Cyberpunk, Steampunk, Noir}
 
-public enum GroundType { normal, concrete, metal, wood, dirt}
+
 public class PlayerController : MonoBehaviour
 {
     GameObject lastInteracted;
@@ -102,8 +102,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField,Min(0.01f)] float speed = 8;
     [SerializeField, Min(0.01f)] float acceleration = 10;
 
-    public GroundType groundType;
-
 
 
     [Header("Visual Effects")]
@@ -118,20 +116,19 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-    bool isGrounded
+    public RaycastHit groundHit;
+    public bool isGrounded
     {
         get
         {
             Debug.DrawRay(currentPlayer.transform.position, Vector3.down * jumpCheckLength, Color.cyan, 5.0f);
-            if (Physics.Raycast(currentPlayer.transform.position,Vector3.down,jumpCheckLength, groundMask))
+            if (Physics.Raycast(currentPlayer.transform.position,Vector3.down, out groundHit,jumpCheckLength, groundMask))
             {
-                Debug.Log("EEE");
+                
                 return true;
             }
             else
             {
-                Debug.Log("DDD");
                 return false;
             }
         }

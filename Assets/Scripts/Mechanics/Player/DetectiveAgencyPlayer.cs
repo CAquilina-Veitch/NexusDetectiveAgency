@@ -102,20 +102,29 @@ public class DetectiveAgencyPlayer : MonoBehaviour
         }
     }
 
+    LoreObject last;
     public void ReadLore()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(camTransform.position, camTransform.forward*5, out hit, 5, isntPlayerMask))
+        if (loreInv.singleIsOpen)
         {
-            Debug.DrawRay(camTransform.position, camTransform.forward * hit.distance, Color.cyan, 5);
-            Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
-            if (hit.collider.TryGetComponent(out LoreObject lO))
+            EnableControls(!loreInv.InteractWithObject(last));
+        }
+        else
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 5, isntPlayerMask))
             {
-                EnableControls(!loreInv.InteractWithObject(lO));
+                Debug.DrawRay(camTransform.position, camTransform.forward * hit.distance, Color.cyan, 5);
+                Debug.Log($"Did Hit Lore {hit.collider.gameObject.name}");
+                if (hit.collider.TryGetComponent(out LoreObject lO))
+                {
+                    last = lO;
+                    EnableControls(!loreInv.InteractWithObject(lO));
+
+                }
             }
         }
     }
-
     public void EnableControls()
     {
         sensitivity = 1;
