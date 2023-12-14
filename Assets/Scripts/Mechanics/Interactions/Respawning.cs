@@ -6,7 +6,7 @@ public class Respawning : MonoBehaviour
 {
     Vector3 spawnPosition;
     Quaternion spawnRotation;
-    float deathHeight = -10f;
+    float deathHeight = -15f;
     private void Start()
     {
         spawnPosition = transform.position;

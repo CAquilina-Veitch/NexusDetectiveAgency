@@ -776,7 +776,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.R)||transform.position.y<-20)
+        if(Input.GetKeyDown(KeyCode.R)||transform.position.y<-10)
         {
             ResetPlayer();
         }

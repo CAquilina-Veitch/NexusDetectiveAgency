@@ -15,7 +15,7 @@ public class Pause : MonoBehaviour
         Debug.LogWarning(111221);
         Time.timeScale = 1;
         Cursor.visible = !mouseWasOn;
-        Cursor.lockState = mouseWasOn ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.lockState = mouseWasOn ? CursorLockMode.None : CursorLockMode.Locked;
         paused = false;
         Debug.Log(Time.timeScale);
     }
@@ -37,5 +37,6 @@ private void Update()
                 Debug.Log(Time.timeScale);
             }
         }
+        Debug.Log(mouseWasOn);
     }
 }
