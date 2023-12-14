@@ -821,90 +821,84 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(jumpKey))
+        if(mouseManualControlled)
         {
-            if (currentLedge == null)
+            if (Input.GetKeyDown(jumpKey))
             {
-                Jump();
-            }
-            else
-            {
-                if (!Vault())
+                if (currentLedge == null)
                 {
                     Jump();
                 }
-            }
-            
-        }
-        if(Input.GetKeyDown(grabHoldableKey))
-        {
+                else
+                {
+                    if (!Vault())
+                    {
+                        Jump();
+                    }
+                }
 
-            if(dronePlatformDrafting)
+            }
+            if (Input.GetKeyDown(grabHoldableKey))
             {
-                ConfirmDroneDraft();
+
+                if (dronePlatformDrafting)
+                {
+                    ConfirmDroneDraft();
+                }
+                else
+                {
+                    GrabHoldableItem();
+                }
             }
-            else
+            if (Input.GetKeyDown(readLoreKey))
             {
-                GrabHoldableItem();
+                ReadLore();
             }
-        }
-        if (Input.GetKeyDown(readLoreKey))
-        {
-            ReadLore();
-        }
-        
-        if(Input.GetKeyDown(buttonPressKey))
-        {
-            PressButton();
-            Repair();
-        }
 
-        if (currentPlayerDimension == Dimension.Cyberpunk)
-        {
-
-
-            if (Input.GetKeyDown(dimensionSwapKey))
+            if (Input.GetKeyDown(buttonPressKey))
             {
-                switchDimension(Dimension.Steampunk);
+                PressButton();
+                Repair();
             }
-            if (Input.GetKeyDown(abilityKey))
+
+            if (currentPlayerDimension == Dimension.Cyberpunk)
             {
-                soundMoveplat.Start();
-                ShowWheel();
+
+
+                if (Input.GetKeyDown(dimensionSwapKey))
+                {
+                    switchDimension(Dimension.Steampunk);
+                }
+                if (Input.GetKeyDown(abilityKey))
+                {
+                    soundMoveplat.Start();
+                    ShowWheel();
+                }
+
+
             }
-
-
-        }
-        else if (currentPlayerDimension == Dimension.Steampunk)
-        {
-
-            if (Input.GetKeyDown(dimensionSwapKey))
+            else if (currentPlayerDimension == Dimension.Steampunk)
             {
-                switchDimension(Dimension.Cyberpunk);
+
+                if (Input.GetKeyDown(dimensionSwapKey))
+                {
+                    switchDimension(Dimension.Cyberpunk);
+                }
+                if (Input.GetKeyDown(abilityKey))
+                {
+                    ToggleDroneDraft(false);
+                }
+                if (dronePlatformDrafting)
+                {
+                    float scrollInput = Input.mouseScrollDelta.y;
+                    currentDronePlatformDistance += scrollInput * droneScrollSpeed;
+                    currentDronePlatformDistance = Mathf.Clamp(currentDronePlatformDistance, droneDistanceClamps.x, droneDistanceClamps.y);
+                }
             }
-            if (Input.GetKeyDown(abilityKey))
+            if (Input.GetKeyDown(openInventoryKey))
             {
-                ToggleDroneDraft(false);
+                loreInv.openInvCanvas();
             }
-            if(dronePlatformDrafting)
-            {
-                float scrollInput = Input.mouseScrollDelta.y;
-                currentDronePlatformDistance += scrollInput * droneScrollSpeed;
-                currentDronePlatformDistance = Mathf.Clamp(currentDronePlatformDistance, droneDistanceClamps.x, droneDistanceClamps.y);
-            }
-        }
-        else
-        {
-
-        }
-        if (Input.GetKeyDown(openInventoryKey))
-        {
-            loreInv.openInvCanvas();
-        }
-
-        if(mouseManualControlled)
-        {
-
             mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * realSens;
             pitch += mouseInput.y;
             yaw += mouseInput.x;
@@ -914,6 +908,7 @@ public class PlayerController : MonoBehaviour
                 p.transform.rotation = Quaternion.Euler(0, yaw, 0);
                 p.camTransform.localRotation = Quaternion.Euler(pitch, 0, 0);
             }
+
 
         }
 
