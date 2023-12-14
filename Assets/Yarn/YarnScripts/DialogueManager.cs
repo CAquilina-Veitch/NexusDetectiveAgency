@@ -125,8 +125,6 @@ public class DialogueManager : MonoBehaviour
     [YarnCommand("loredocsfound")]
     public void LoreDocsFound()
     {
-        //documentsFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().collectedLore();
-        //variableStorage.SetValue("$documentsFound", documentsFound);
 
         mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
         variableStorage.SetValue("$FetchDocFound", mainDocFound);
@@ -153,5 +151,13 @@ public class DialogueManager : MonoBehaviour
     public void HologramOff()
     {
         Debug.Log("play hologram");
+        StartCoroutine(HologramAnim());
     }
+    IEnumerator HologramAnim()
+    {
+        yield return null;
+    }
+    public MeshRenderer melMR;
+
+
 }

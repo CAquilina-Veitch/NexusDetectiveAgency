@@ -7,7 +7,7 @@ public class SwitchFromPlayer : MonoBehaviour
     PlayerController pC;
     [SerializeField] Camera cam;
     [SerializeField] DialogueManager dM;
-
+    public GameObject hands;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.tag);
@@ -23,6 +23,9 @@ public class SwitchFromPlayer : MonoBehaviour
     {
         pC.activateCameras(to);
         cam.enabled = !to;
+
+        hands.SetActive(!to);
+
 
         Cursor.lockState = to ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !to;

@@ -21,4 +21,9 @@ public class Player : MonoBehaviour
         handCam.enabled = to;
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.LogError($"Collided with {collision.gameObject}");
+    }
+
 }
