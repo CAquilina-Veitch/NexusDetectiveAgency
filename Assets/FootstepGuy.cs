@@ -43,6 +43,7 @@ public class FootstepGuy : MonoBehaviour
             FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps/EventFootstepNormal");        // If they are, we create an FMOD event instance. We use the event path inside the 'FootstepsEventPath' variable to find the event we want to play.
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());     // Next that event instance is told to play at the location that our player is currently at.
             Footstep.setParameterByName("FloorType", (int)MaterialCheck());                                     // Before the event is played, we set the Material Parameter to match the value of the 'F_MaterialValue' variable.
+            Debug.Log($"starting sound {(int)MaterialCheck()} ");
             Footstep.start();                                                                                        // We then play a footstep!.
             Footstep.release();                                                                                      // We also set our event instance to release straight after we tell it to play, so that the instance is released once the event had finished playing.
         }
