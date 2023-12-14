@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
+  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16856,7 +16856,11 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 1003663052787141980, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2882513469416883330, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2765495491104490228}
   m_SourcePrefab: {fileID: 100100000, guid: 165a712fb9e297545a52d0ee5fbdbaf8, type: 3}
 --- !u!114 &2765495491104490223 stripped
 MonoBehaviour:
@@ -16882,6 +16886,39 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 2765495491104490222}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2765495491104490226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2882513469416883330, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2765495491104490222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2765495491104490227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 764292712164159145, guid: 165a712fb9e297545a52d0ee5fbdbaf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2765495491104490222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765495491104490226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bda58f7c2659e4781f50d0593f8bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2765495491104490228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765495491104490226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a2fb4010025d843b9937cc707452e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDetective: 0
+  pC: {fileID: 2765495491104490227}
+  StepDistance: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 3.8015103, g: 7.388032, b: 18.916979, a: 1}
+  m_IndirectSpecularColor: {r: 3.8015103, g: 7.388055, b: 18.917162, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3168,6 +3168,7 @@ GameObject:
   - component: {fileID: 752179205}
   - component: {fileID: 752179204}
   - component: {fileID: 752179203}
+  - component: {fileID: 752179209}
   m_Layer: 0
   m_Name: Max
   m_TagString: Player
@@ -3318,6 +3319,21 @@ Transform:
   - {fileID: 1347791488}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752179209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752179202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a2fb4010025d843b9937cc707452e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDetective: 1
+  pC: {fileID: 0}
+  StepDistance: 2
 --- !u!1 &767842283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5240244303232046808, guid: 9753bee8ed2ab824d975b62d095f4d7d,

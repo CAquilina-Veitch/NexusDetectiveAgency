@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FootstepGuy : MonoBehaviour
 {
-    public enum GroundType { normal, concrete, metal, wood, dirt }
+    public enum GroundType { normal, concrete, dirt, metal, wood }
 
     float StepRandom;
     Vector3 PrevPos;
@@ -93,7 +93,7 @@ public class FootstepGuy : MonoBehaviour
     }
 
     float TimeTakenSinceStep;
-    float StepDistance;
+    public float StepDistance;
     private void FixedUpdate()
     {
         TimeTakenSinceStep += Time.deltaTime;                                // This adds whatever value Time.deltaTime is at to the 'TimeTakenToStep' float. Essentially tunring 'TimeTakenToStep' into a running timer that starts at 0 seconds. Remeber that 'Time.deltaTime' counts how long in seconds the last frame lasted for. 
