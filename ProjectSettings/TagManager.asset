@@ -21,6 +21,7 @@ TagManager:
   - Dirt
   - Dialogue
   - MaxTyper
+  - LoadBarrier
   layers:
   - Default
   - TransparentFX

@@ -183,25 +183,6 @@ public class SceneSegmentManager : MonoBehaviour
         fader.camOff();
         StartCoroutine(gg(ids));
     }
-    
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            PlaytestDemoStart();
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Debug.Log(6);
-            StartCoroutine(gg(segmentSceneIds[0]));
-        }        
-        if(Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            Debug.Log(7);
-            //LoadNextSegmentA();
-        }
-    }
     IEnumerator gg(List<int> idString)
     {
         Debug.LogWarning("List");
@@ -246,7 +227,7 @@ public class SceneSegmentManager : MonoBehaviour
                     {
                         // we are loading the rest of the scene
                         //LoadingScreenUpdate(); //< Update your loading screen animation here
-                        Debug.Log(asyncOp.progress);
+                        
                         yield return null; //< We still wait until the scene load is finished
                                            //< Once everything is loaded, reactive this variable
                         asyncOp.allowSceneActivation = true;
@@ -255,10 +236,11 @@ public class SceneSegmentManager : MonoBehaviour
             }
             // We loaded the scene without any freezing!
             loadingScreen.alpha = 0;
+            DeleteLoadBarriers();
         }
         else
         {
-            Debug.LogWarning("meow" + id);
+
             var asyncOp = SceneManager.UnloadSceneAsync(-id); //< Load the scene asynchronously
             asyncOp.allowSceneActivation = false;
             if (asyncOp != null)
@@ -289,7 +271,16 @@ public class SceneSegmentManager : MonoBehaviour
         }
 
     }
+    public void DeleteLoadBarriers()
+    {
+        GameObject[] loadBarriers = GameObject.FindGameObjectsWithTag("LoadBarrier");
 
+        // Loop through each object
+        foreach (GameObject loadBarrier in loadBarriers)
+        {
+            Destroy(loadBarrier);
+        }
+    }
 
     IEnumerator gg(int id)
     {
@@ -329,6 +320,7 @@ public class SceneSegmentManager : MonoBehaviour
             }
         }
         // We loaded the scene without any freezing!
+        DeleteLoadBarriers();
     }
 
 }

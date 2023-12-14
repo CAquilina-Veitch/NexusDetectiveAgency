@@ -310,7 +310,7 @@ public class PlayerController : MonoBehaviour
         ToggleDroneDraft(false);
 
 
-        soundDimswap.Start();
+        soundDimswap.StartSound();
 
 
         portal.Play();
@@ -677,6 +677,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.07f);
         tinyPlatform.SetActive(true);
+        soundMoveplat.StartSound();
         hackedTrigger.Triggered();
         yield return new WaitForSeconds(0.99f);
         tinyPlatform.SetActive(false);
@@ -877,7 +878,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(abilityKey))
                 {
-                    soundMoveplat.StartSound();
+
                     ShowWheel();
                 }
 
