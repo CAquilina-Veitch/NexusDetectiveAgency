@@ -39,23 +39,20 @@ public class DialogueManager : MonoBehaviour
     {
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();              //Finds variables within Yarn
         //loreInventory = FindObjectOfType<LoreInventory>();
-        //dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
+        //dialogueRunner = FindObjectOfType<DialogueRunner>();                      //Finds Yarn's Dialogue Runner
         dialogueRunner = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<DialogueRunner>();
 
         //lineView = FindObjectOfType<LineView>();
         lineView = GameObject.FindGameObjectWithTag("Dialogue").transform.GetChild(0).GetChild(0).GetComponent<LineView>();
 
-        melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
-        maxVoice = RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
-
-
+        melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);             //Finds Melanie's lines
+        maxVoice = RuntimeManager.CreateInstance(maxVoicePath);                     //Finds Max's lines
     }
 
     private void Update()
     {
         RuntimeManager.AttachInstanceToGameObject(melanieVoice, melanieTran);
         RuntimeManager.AttachInstanceToGameObject(maxVoice, maxTran);
-
     }
 
      
@@ -66,20 +63,27 @@ public class DialogueManager : MonoBehaviour
         melSpin.Spin();
         StartCoroutine(DelayDialogueStart());
     }
+
     IEnumerator DelayDialogueStart()
     {
         yield return new WaitForSeconds(11.25f); //11.25
         dialogueRunner.StartDialogue("MelanieDialogue");
     }
 
+    IEnumerator GoNextDialogue()
+    {
+        yield return new WaitForSeconds(lineDuration);
+        lineView.GetComponent<LineView>().UserRequestedViewAdvancement();
+    }
+
+
+
     [YarnCommand("playvoicemel")]
     public void SetMelanieID()
     {
-        float voiceMelID;
-        variableStorage.TryGetValue("$audioMelanieNumber", out voiceMelID);
+        variableStorage.TryGetValue("$audioMelanieNumber", out float voiceMelID);
         variableStorage.TryGetValue("$AudioCutOut", out bool cut);
         variableStorage.TryGetValue("$LineDuration", out float duration);
-        lineDuration = duration;
 
         if (!cut)
         {
@@ -90,20 +94,22 @@ public class DialogueManager : MonoBehaviour
         {
             voiceMelID += 99;
         }
+
         melanieAnim.SetInteger("Dialogue Stage", (int)voiceMelID);
         melanieAnim.SetTrigger("Dialogue Trigger");
 
+        lineDuration = duration;
         StartCoroutine(GoNextDialogue());
     }
+
     [YarnCommand("playvoicemax")]
     public void SetMaxID()
     {
-        float voiceMaxID;
-        variableStorage.TryGetValue("$audioMaxNumber", out voiceMaxID);
-        maxVoice.setParameterByName("MaxToMel", voiceMaxID);
+
+        variableStorage.TryGetValue("$audioMaxNumber", out float voiceMaxID);
         variableStorage.TryGetValue("$LineDuration", out float duration);
-        variableStorage.TryGetValue("$MaxTyping", out bool maxTyping);
-        lineDuration = duration;
+        variableStorage.TryGetValue("$AudioCutOut", out bool maxTyping);
+        maxVoice.setParameterByName("MaxToMel", voiceMaxID);
 
         if(maxTyping == true)
         {
@@ -112,10 +118,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         maxVoice.start();
+        lineDuration = duration;
         StartCoroutine(GoNextDialogue());
     }
-
-
 
     [YarnCommand("loredocsfound")]
     public void LoreDocsFound()
@@ -126,6 +131,7 @@ public class DialogueManager : MonoBehaviour
         mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
         variableStorage.SetValue("$FetchDocFound", mainDocFound);
     }
+
     [YarnCommand("melaniestop")]
     public void MelanieStop()
     {
@@ -136,22 +142,16 @@ public class DialogueManager : MonoBehaviour
     {
         EndDialogue.Invoke();
     }
+
     [YarnCommand("autonext")]
     public void AutoNext()
     {
         StartCoroutine(GoNextDialogue());
     }
+
     [YarnCommand("holoeff")]
     public void HologramOff()
     {
         Debug.Log("play hologram");
     }
-
-
-    IEnumerator GoNextDialogue()
-    {
-        yield return new WaitForSeconds(lineDuration);
-        lineView.GetComponent<LineView>().UserRequestedViewAdvancement();
-    }
-
 }

@@ -10,7 +10,6 @@ position: -1013,-832
 <<declare $MealnieActive = true>>
 <<declare $AudioCutOut = false>>
 <<declare $LineDuration = 1>>
-<<declare $MaxTyping = false>>
 
 //DEBUG: How many documents has the player found?
 //->	Only a few.
@@ -20,7 +19,6 @@ position: -1013,-832
 //<<wait 1>>
 
 <<jump MelanieInteract>>
-
 //<<jump MelanieInteractRESET>>
 ===
 
@@ -238,6 +236,7 @@ position: -256,-93
 		<<set $LineDuration = 3>>
 		<<autonext DialogueManager>>
 		Max: I can help you fix this mess.
+		<<set $LineDuration = 4>>
 		<<playvoicemel DialogueManager>>
 		Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
 		<<jump MelaniePassTree>>
@@ -250,39 +249,62 @@ position: 7,-94
 
 ->	Max: Impossible?
 		<<set $audioMaxNumber = 10>>
+		<<set $LineDuration = 1.2>>
 		<<playvoicemax DialogueManager>>
 		Max: What do you mean by "Fixing it is impossible"?
+		<<set $LineDuration = 4>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Well. Ummm. We, ehh... lost... the schematics. A poor filing choice from an intern. #melanie10
 
 ->	Max: Who knows?
 		<<set $audioMaxNumber = 11>>
+		<<set $LineDuration = 3>>
 		<<playvoicemax DialogueManager>>
 		Max: Does no one know that it broke?
+		<<set $LineDuration = 2>>
 		<<playvoicemel DialogueManager>>
 		Melanie: We hid it, out of shame.
+		<<set $LineDuration = 2>>
+		<<playvoicemel DialogueManager>>
 		Melanie: No one knows besides the team that worked on it.
+		<<set $LineDuration = 3>>
+		<<playvoicemel DialogueManager>>
 		Melanie: We had to think about what would happen if someone did find out about it.
+		<<set $LineDuration = 4>>
+		<<playvoicemel DialogueManager>>
 		Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands. #melanie11
 
 ->	Max: Pure incompetence.
 		<<set $audioMaxNumber = 12>>
-		<<playvoicemax DialogueManager>>
+		<<set $LineDuration = 3>>
+		<<autonext DialogueManager>>
 		Max: More gross incompetence.
+		<<set $LineDuration = 3>>
+		<<autonext DialogueManager>>
 		Max: The sad thing is, the machine would have worked.
+		<<set $LineDuration = 3>>
+		<<autonext DialogueManager>>
 		Max: In a separate dimension, the machine worked to clean the air.
+		<<set $LineDuration = 3>>
+		<<autonext DialogueManager>>
 		Max: Greenery populates the world.
+		<<set $LineDuration = 3>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Jesus ... .You can travel dimensions?
-		<<wait  1>>
+		<<set $LineDuration = 2>>
+		<<playvoicemel DialogueManager>>
 		Melanie: I'm getting off track.
+		<<set $LineDuration = 4>>
+		<<playvoicemel DialogueManager>>
 		Melanie: I suppose it's comforting to know the machine was used for its correct purpose. That is what we designed the machine for.
+		<<set $LineDuration = 3>>
+		<<playvoicemel DialogueManager>>
 		Melanie: We are responsible for bringing doom upon ourselves by modifying the machine.
+		<<set $LineDuration = 3>>
+		<<playvoicemel DialogueManager>>
 		Melanie: We made the wrong choice and paid dearly for it.
-
-<<wait 1>>
-<<melaniesuccess DialogueManager>>
-<<jump MelanieExit>>
+		<<melaniesuccess DialogueManager>>
+		<<jump MelanieExit>>
 ===
 
 
