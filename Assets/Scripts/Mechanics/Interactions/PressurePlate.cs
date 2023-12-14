@@ -88,6 +88,4 @@ public class PressurePlate : MonoBehaviour
         updateWeight();
     }
 
-
-
 }

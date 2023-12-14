@@ -295,6 +295,14 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             players[i].SwitchTo(i == (int)currentPlayerDimension);
+            if(players[i].GetComponent<Weight>().currentPlate != null)
+            {
+                Weight w = players[i].GetComponent<Weight>();
+                if (w.currentPlate.weights.Contains(w))
+                {
+                    w.currentPlate.weights.Remove(w);
+                }
+            }
         }
         soundMusic.setParameterByName("WhatDimension", (int)to);
         ChangeGrabParent();
