@@ -72,11 +72,11 @@ public class DialogueManager : MonoBehaviour
         dialogueRunner.StartDialogue("MelanieDialogue");
     }
 
-    [YarnCommand("playvoicemel")]                                                   //Creates a custom Command in Yarn
-    public void SetMelanieID()                                                      //Begins when Yarn displays a line's subtitles
+    [YarnCommand("playvoicemel")]
+    public void SetMelanieID()
     {
         float voiceMelID;
-        variableStorage.TryGetValue("$audioMelanieNumber", out voiceMelID);            //Retrieves Yarn's written voice line as a number
+        variableStorage.TryGetValue("$audioMelanieNumber", out voiceMelID);
         variableStorage.TryGetValue("$AudioCutOut", out bool cut);
         variableStorage.TryGetValue("$LineDuration", out float duration);
         lineDuration = duration;
@@ -90,16 +90,10 @@ public class DialogueManager : MonoBehaviour
         {
             voiceMelID += 99;
         }
-        //if (hologramEffectActive == true)
-        //{
-        //    //Do hologram effect
-        //}
         melanieAnim.SetInteger("Dialogue Stage", (int)voiceMelID);
         melanieAnim.SetTrigger("Dialogue Trigger");
 
-
         StartCoroutine(GoNextDialogue());
-        //Debug.Log($"Melanie Animation: {voiceID}");                                 //Play animation here
     }
     [YarnCommand("playvoicemax")]
     public void SetMaxID()
@@ -108,20 +102,30 @@ public class DialogueManager : MonoBehaviour
         variableStorage.TryGetValue("$audioMaxNumber", out voiceMaxID);
         maxVoice.setParameterByName("MaxToMel", voiceMaxID);
         variableStorage.TryGetValue("$LineDuration", out float duration);
+        variableStorage.TryGetValue("$MaxTyping", out bool maxTyping);
         lineDuration = duration;
 
-        maxVoice.start();
+        if(maxTyping == true)
+        {
+            //maxAnim.SetInteger("Dialogue Stage", (int)voiceMaxID);                //Max Animated hand typing here
+            //maxAnim.SetTrigger("Dialogue Trigger");
+        }
 
+        maxVoice.start();
         StartCoroutine(GoNextDialogue());
     }
-    //[YarnCommand("loredocsfound")]
-    //public void LoreDocsFound()
-    //{
-    //    documentsFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent< LoreInventory>().collectedLore();
-    //    mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
-    //    variableStorage.SetValue("$documentsFound", documentsFound);
-    //    variableStorage.SetValue("$FetchDocFound", mainDocFound);
-    //}
+
+
+
+    [YarnCommand("loredocsfound")]
+    public void LoreDocsFound()
+    {
+        //documentsFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().collectedLore();
+        //variableStorage.SetValue("$documentsFound", documentsFound);
+
+        mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
+        variableStorage.SetValue("$FetchDocFound", mainDocFound);
+    }
     [YarnCommand("melaniestop")]
     public void MelanieStop()
     {

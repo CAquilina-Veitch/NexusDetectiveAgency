@@ -5,12 +5,12 @@ position: -1013,-832
 <<declare $animNumber = 0>>
 <<declare $audioMelanieNumber = 1>>
 <<declare $audioMaxNumber = 1>>
-<<declare $documentsFound = 0>>
 <<declare $firstInteraction = true>>
 <<declare $FetchDocFound = false>>
 <<declare $MealnieActive = true>>
 <<declare $AudioCutOut = false>>
 <<declare $LineDuration = 1>>
+<<declare $MaxTyping = false>>
 
 //DEBUG: How many documents has the player found?
 //->	Only a few.
@@ -29,7 +29,7 @@ title: MelanieInteract
 position: -258,-837
 ---
 //<<loredocsfound DialogueManager>>
-<<set $documentsFound = 10>>
+//<<set $documentsFound = 10>>
 <<if $firstInteraction == true>>
 	<<jump TalkingToMelanie1>>
 <<else>>
@@ -50,6 +50,7 @@ position: -822,-561
 Melanie: Who are you? How did you get in here? #melanie01
 ->	Could say the same.
 		<<set $audioMaxNumber = 1>>
+		<<set $LineDuration = 2>>
 		<<playvoicemax DialogueManager>>
 		Max: Could say the same thing about you. #max01
 		<<set $audioMelanieNumber = 2>>
@@ -58,6 +59,7 @@ Melanie: Who are you? How did you get in here? #melanie01
 		Melanie: Well I work here, I'm allowed to be here. #melanie02
 ->	I'm Detective Max.
 		<<set $audioMaxNumber = 2>>
+		<<set $LineDuration = 3.5>>
 		<<playvoicemax DialogueManager>>
 		Max: Well, my name's Max. I'm a detective. #max02
 		<<set $audioMelanieNumber = 3>>
@@ -73,19 +75,21 @@ position:
 position: -822,-286
 ---
 <<set $audioMelanieNumber = 4>>
+<<set $LineDuration = 4>>
 <<playvoicemel DialogueManager>>
 Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
 		<<set $audioMaxNumber = 3>>
+		<<set $LineDuration = 4>>
 		<<playvoicemax DialogueManager>>
 		Max: Not so fast. I need to see the device you've been working on. #max03
 		<<jump TalkingToMelanie3>>
 ->	Fine (Leave).
 		//<<set $AudioCutOut = true>>
 		<<set $audioMaxNumber = 4>>
+		<<set $LineDuration = 1>>
 		<<playvoicemax DialogueManager>>
-		<<autonext DialogueManager>>
 		Max: Well alright then. #max04
 		<<wait  1>>
 		<<melaniestop DialogueManager>>
@@ -97,15 +101,18 @@ title: TalkingToMelanie3
 position: -823,-92
 ---
 <<set $audioMelanieNumber = 5>>
+<<set $LineDuration = 12>>
 <<playvoicemel DialogueManager>>
 Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
 <<set $audioMaxNumber = 5>>
+<<set $LineDuration = 4.4>>
 <<playvoicemax DialogueManager>>
 Max: I know there's something else here. And I know it's affecting this world. #max05
 <<set $audioMelanieNumber = 6>>
+<<set $LineDuration = 2.5>>
 <<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
-<<if $documentsFound < 7 >>
+<<if $FetchDocFound == false >>
 		<<jump MelanieFail>>
 <<else>>
 		<<jump MelaniePass>>
@@ -129,9 +136,11 @@ position: -541,-286
 ---
 ->	I don't believe you.
 		<<set $audioMaxNumber = 6>>
+		<<set $LineDuration = 3>>
 		<<playvoicemax DialogueManager>>
 		Max: Well, I simply don't believe that. #max06
 		<<set $audioMelanieNumber = 7>>
+		<<set $LineDuration = 8.5>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little (Leave). #melanie07
 		<<melaniestop DialogueManager>>
@@ -162,12 +171,14 @@ position: 265,-442
 <<playvoicemel DialogueManager>>
 <<wait  14>>
 <<set $audioMaxNumber = 13>>
+<<set $LineDuration = 2.5>>
 <<playvoicemax DialogueManager>>
 Max: I found the file you were looking for.
 Melanie: About time. Any questions?
 
 ->	Max: What about a new part?
 		<<set $audioMaxNumber = 14>>
+		<<set $LineDuration = 4.5>>
 		<<playvoicemax DialogueManager>>
 		Max: So I can't create a new part?
 		<<playvoicemel DialogueManager>>
@@ -176,6 +187,7 @@ Melanie: About time. Any questions?
 
 ->	Max: But a new part will fix this?
 		<<set $audioMaxNumber = 15>>
+		<<set $LineDuration = 8.3>>
 		<<playvoicemax DialogueManager>>
 		Max: So you're saying that if I secure this CPU component, this machine could be reproduced?
 		<<playvoicemel DialogueManager>>
@@ -193,12 +205,15 @@ position: -256,-93
 ---
 ->	Stop bluffing.
 		<<set $audioMaxNumber = 7>>
+		<<set $LineDuration = 4>>
 		<<playvoicemax DialogueManager>>
 		Max: Stop bluffing, I know there is something behind that door. #max07
 		<<set $audioMaxNumber = 8>>
+		<<set $LineDuration = 2>>
 		<<playvoicemax DialogueManager>>
 		Max: The CPU broke. #max08
 		<<set $audioMelanieNumber = 8>>
+		<<set $LineDuration = 5.4>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Wait... What? How... could you possibly know that? #melanie08
 
@@ -208,17 +223,24 @@ position: -256,-93
 		<<playvoicemel DialogueManager>>
 		<<wait  14>>
 		<<set $audioMaxNumber = 9>>
+		<<set $LineDuration = 5>>
 		<<playvoicemax DialogueManager>>
 		Max: I know lots of things, like how you authorized the improper use of the machine.
+		<<set $LineDuration = 3.5>>
+		<<autonext DialogueManager>>
 		Max: How Bridger R&D wanted to abuse this device to make a profit of innocents.
+		<<set $LineDuration = 3.5>>
+		<<autonext DialogueManager>>
 		Max: Like how your guilt and shame mean more than your job.
-
+		<<set $LineDuration = 1.5>>
+		<<autonext DialogueManager>>
 		Melanie: ...
-
-Max: I can help you fix this mess.
-<<playvoicemel DialogueManager>>
-Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
-<<jump MelaniePassTree>>
+		<<set $LineDuration = 3>>
+		<<autonext DialogueManager>>
+		Max: I can help you fix this mess.
+		<<playvoicemel DialogueManager>>
+		Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
+		<<jump MelaniePassTree>>
 ===
 
 
