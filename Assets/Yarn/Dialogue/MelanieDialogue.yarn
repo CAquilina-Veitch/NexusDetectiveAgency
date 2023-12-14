@@ -75,6 +75,7 @@ position: -822,-286
 <<set $audioMelanieNumber = 4>>
 <<set $LineDuration = 4>>
 <<playvoicemel DialogueManager>>
+<<holoeff DialogueManager>>
 Melanie: You'll be leaving now. Before I call security. #melanie04
 
 ->	I can't do that.
