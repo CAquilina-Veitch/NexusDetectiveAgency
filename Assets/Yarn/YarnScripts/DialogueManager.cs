@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 using Yarn.Unity;
 
 public class DialogueManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public int documentsFound;
     public bool mainDocFound;
     public bool hologramEffectActive;
+    private float lineDuration;
 
     FMOD.Studio.EventInstance melanieVoice;            //FMOD instance of Melanie's audio
     FMOD.Studio.EventInstance maxVoice;                //FMOD instance of Max's audio
@@ -31,13 +33,18 @@ public class DialogueManager : MonoBehaviour
     public Transform maxTran;
 
     public Animator melanieAnim;
+    public Animator maxAnim;
     
-    private void Awake()
+    private void Start()
     {
         variableStorage = FindObjectOfType<InMemoryVariableStorage>();              //Finds variables within Yarn
         //loreInventory = FindObjectOfType<LoreInventory>();
-        dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
-        lineView = FindObjectOfType<LineView>();
+        //dialogueRunner = FindObjectOfType<DialogueRunner>();             //Finds Yarn's Dialogue Runner
+        dialogueRunner = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<DialogueRunner>();
+
+        //lineView = FindObjectOfType<LineView>();
+        lineView = GameObject.FindGameObjectWithTag("Dialogue").transform.GetChild(0).GetChild(0).GetComponent<LineView>();
+
         melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);   //Finds Melanie's lines
         maxVoice = RuntimeManager.CreateInstance(maxVoicePath);           //Finds Max's lines
 
@@ -71,6 +78,9 @@ public class DialogueManager : MonoBehaviour
         float voiceMelID;
         variableStorage.TryGetValue("$audioMelanieNumber", out voiceMelID);            //Retrieves Yarn's written voice line as a number
         variableStorage.TryGetValue("$AudioCutOut", out bool cut);
+        variableStorage.TryGetValue("$LineDuration", out float duration);
+        lineDuration = duration;
+
         if (!cut)
         {
             melanieVoice.setParameterByName("MelanieLine", voiceMelID);
@@ -97,6 +107,9 @@ public class DialogueManager : MonoBehaviour
         float voiceMaxID;
         variableStorage.TryGetValue("$audioMaxNumber", out voiceMaxID);
         maxVoice.setParameterByName("MaxToMel", voiceMaxID);
+        variableStorage.TryGetValue("$LineDuration", out float duration);
+        lineDuration = duration;
+
         maxVoice.start();
 
         StartCoroutine(GoNextDialogue());
@@ -124,11 +137,16 @@ public class DialogueManager : MonoBehaviour
     {
         StartCoroutine(GoNextDialogue());
     }
+    [YarnCommand("holoeff")]
+    public void HologramOff()
+    {
+        Debug.Log("play hologram");
+    }
 
 
     IEnumerator GoNextDialogue()
     {
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(lineDuration);
         lineView.GetComponent<LineView>().UserRequestedViewAdvancement();
     }
 
