@@ -877,7 +877,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(abilityKey))
                 {
-                    soundMoveplat.Start();
+                    soundMoveplat.StartSound();
                     ShowWheel();
                 }
 

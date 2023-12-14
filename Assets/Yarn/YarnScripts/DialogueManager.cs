@@ -120,8 +120,7 @@ public class DialogueManager : MonoBehaviour
 
         if(maxTyping == true)
         {
-            //maxAnim.SetInteger("Dialogue Stage", (int)voiceMaxID);                //Max Animated hand typing here
-            //maxAnim.SetTrigger("Dialogue Trigger");
+            maxAnim.SetTrigger("Typing");
         }
 
         maxVoice.start();
