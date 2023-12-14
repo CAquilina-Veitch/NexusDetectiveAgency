@@ -19,6 +19,7 @@ TagManager:
   - Metal
   - Wood
   - Dirt
+  - Dialogue
   layers:
   - Default
   - TransparentFX

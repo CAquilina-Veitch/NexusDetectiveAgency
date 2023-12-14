@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
+  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22019,7 +22019,7 @@ GameObject:
   - component: {fileID: 1461876928}
   - component: {fileID: 1461876927}
   m_Layer: 0
-  m_Name: Cody McGlew
+  m_Name: Kodei McGlew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22065,7 +22065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cody MCGlew
+  m_text: Kodei MCGlew
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f5301fad9594bf4199d20bb3f123e53, type: 2}
   m_sharedMaterial: {fileID: -6474702422716211880, guid: 1f5301fad9594bf4199d20bb3f123e53,
@@ -23701,7 +23701,7 @@ GameObject:
   - component: {fileID: 1541854380}
   - component: {fileID: 1541854379}
   m_Layer: 0
-  m_Name: 'Cody '
+  m_Name: Kodei
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23747,7 +23747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cody Mcglew
+  m_text: Kodei Mcglew
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f5301fad9594bf4199d20bb3f123e53, type: 2}
   m_sharedMaterial: {fileID: -6474702422716211880, guid: 1f5301fad9594bf4199d20bb3f123e53,
