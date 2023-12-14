@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    bool started = false;
     public void StartGameButton()
     {
-        GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().DetectiveAgency();
+        if (!started)
+        {
+            started = true;
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneSegmentManager>().DetectiveAgency();
+        }
     }
 
     public void ExitGameButton()

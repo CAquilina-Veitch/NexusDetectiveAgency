@@ -821,7 +821,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(mouseManualControlled)
+        if (Input.GetKeyDown(readLoreKey))
+        {
+            ReadLore();
+        }
+        if (mouseManualControlled)
         {
             if (Input.GetKeyDown(jumpKey))
             {
@@ -850,10 +854,7 @@ public class PlayerController : MonoBehaviour
                     GrabHoldableItem();
                 }
             }
-            if (Input.GetKeyDown(readLoreKey))
-            {
-                ReadLore();
-            }
+
 
             if (Input.GetKeyDown(buttonPressKey))
             {
