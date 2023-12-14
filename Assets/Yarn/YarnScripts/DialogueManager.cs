@@ -2,6 +2,7 @@ using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -47,12 +48,18 @@ public class DialogueManager : MonoBehaviour
 
         melanieVoice = RuntimeManager.CreateInstance(melanieVoicePath);             //Finds Melanie's lines
         maxVoice = RuntimeManager.CreateInstance(maxVoicePath);                     //Finds Max's lines
+
+        MelHologramOn(true);
     }
 
     private void Update()
     {
         RuntimeManager.AttachInstanceToGameObject(melanieVoice, melanieTran);
         RuntimeManager.AttachInstanceToGameObject(maxVoice, maxTran);
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            HologramOff();
+        }
     }
 
      
@@ -155,9 +162,45 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator HologramAnim()
     {
-        yield return null;
+        MelHologramOn(false);
+        yield return new WaitForSeconds(0.7f);
+        MelHologramOn(true);
+        yield return new WaitForSeconds(0.2f);
+        MelHologramOn(false);        
+        yield return new WaitForSeconds(0.1f);
+        MelHologramOn(true);
+        yield return new WaitForSeconds(0.3f);
+        MelHologramOn(false);        
+        yield return new WaitForSeconds(0.2f);
+        MelHologramOn(true);
+        yield return new WaitForSeconds(1.3f);
+        MelHologramOn(false);
+
+
     }
-    public MeshRenderer melMR;
+
+    public Material[] mats = new Material[2];
+    bool isHologram = false;
+    public void MelHologramOn(bool to)
+    {
+        if (isHologram == to)
+        {
+            return;
+        }
+        isHologram = to;
+
+        SkinnedMeshRenderer[] mRs = melanieTran.GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (SkinnedMeshRenderer mr in mRs)
+        {
+            if (mr.gameObject.activeInHierarchy)
+            {
+                if (mr.material == to ? mats[0] : mats[1])
+                {
+                    mr.material = to ? mats[1] : mats[0];
+                }
+            }
+        }
+    }
 
 
 }
