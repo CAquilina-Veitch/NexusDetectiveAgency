@@ -269,7 +269,6 @@ public class PlayerController : MonoBehaviour
 
             if (!Physics.CheckCapsule(otherPlayer.camTransform.position, otherPlayer.transform.position, 0.5f,groundMask))
             {
-                soundDimswap.Start();
                 StartCoroutine(dimensionSwitch(to));
             }
             else
@@ -305,6 +304,9 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Shompf");
         canSwitch = false;
         
+        
+        soundDimswap.Start();
+
 
         portal.Play();
         foreach(Player p in players)
