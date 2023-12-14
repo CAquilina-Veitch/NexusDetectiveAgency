@@ -29,12 +29,19 @@ public class SwitchFromPlayer : MonoBehaviour
 
         Cursor.lockState = to ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !to;
-
+        StartCoroutine(Fade());
         GetComponent<BoxCollider>().enabled = false;
         if (!to)
         {
             dM.StartMelConvo();
         }
+    }
+    IEnumerator Fade()
+    {
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().Fade(true, 0.1f);
+        yield return new WaitForSeconds(0.2f);
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().Fade(false, 0.1f);
+        GameObject.FindGameObjectWithTag("Fadeblack").GetComponent<Fadeblack>().camOff();
     }
 
     public void Deactivate()
@@ -48,10 +55,6 @@ public class SwitchFromPlayer : MonoBehaviour
     }
     public Animator anim;
 
-    public void MelFlashToReal()
-    {
-
-    }
 
 
 }
