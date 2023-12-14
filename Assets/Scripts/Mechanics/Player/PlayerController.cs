@@ -365,7 +365,7 @@ public class PlayerController : MonoBehaviour
 
 
     //Movement
-
+    public float jumpHeight = 2;
     bool Vault()
     {
         Vector3 playerLookDirection = currentPlayer.camTransform.forward;
@@ -385,7 +385,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 6, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
             soundJump.StartSound();
         }
     }

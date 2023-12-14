@@ -39,6 +39,16 @@ public class SwitchFromPlayer : MonoBehaviour
         cam.enabled = false;
     }
 
+    public void MaxType()
+    {
+        anim.SetTrigger("Typing");
+    }
+    public Animator anim;
+
+    public void MelFlashToReal()
+    {
+
+    }
 
 
 }
