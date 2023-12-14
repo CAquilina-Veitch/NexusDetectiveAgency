@@ -163,17 +163,17 @@ public class DialogueManager : MonoBehaviour
     IEnumerator HologramAnim()
     {
         MelHologramOn(false);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.7f/2);
         MelHologramOn(true);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f / 2);
         MelHologramOn(false);        
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f / 2);
         MelHologramOn(true);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f / 2);
         MelHologramOn(false);        
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f / 2);
         MelHologramOn(true);
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.3f / 2);
         MelHologramOn(false);
 
 

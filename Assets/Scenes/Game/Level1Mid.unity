@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
+  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1473,6 +1473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2160,6 +2165,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2437,6 +2447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2589,6 +2604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pallet Truck (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27f743ef78c2a5b47be07014acc9c293,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10803,6 +10823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -10907,6 +10932,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
@@ -11734,6 +11764,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -12354,6 +12389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}
@@ -14164,6 +14204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429629333870417787, guid: 8a1aa7ffad4945643bb6c44c5061821a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 9203070220556520897, guid: 8a1aa7ffad4945643bb6c44c5061821a,
         type: 3}

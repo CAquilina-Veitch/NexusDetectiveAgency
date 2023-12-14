@@ -1410,7 +1410,7 @@ GameObject:
   - component: {fileID: 70431007}
   m_Layer: 6
   m_Name: Floor (7)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1966,7 +1966,7 @@ GameObject:
   - component: {fileID: 134057084}
   m_Layer: 6
   m_Name: Floor (9)
-  m_TagString: Untagged
+  m_TagString: Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2288,7 +2288,7 @@ GameObject:
   - component: {fileID: 164781063}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,7 +2786,7 @@ GameObject:
   - component: {fileID: 191293848}
   m_Layer: 6
   m_Name: Floor (4)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10720,7 +10720,7 @@ GameObject:
   - component: {fileID: 703344334}
   m_Layer: 6
   m_Name: Floor (4)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14978,10 +14978,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1150919282}
     m_Modifications:
+    - target: {fileID: -9202774463431495258, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -8329901908540556944, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -8313829637929834108, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8307424576689944534, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
@@ -14993,6 +15003,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 47b22638ae1a056459670c105ef0fea8, type: 2}
+    - target: {fileID: -3781450685514551343, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -3000486138175298207, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
       propertyPath: m_Mesh
@@ -15083,6 +15098,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fountain (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 183584111942683532, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 213699222094219373, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 816562651510941001, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1974994721037184808, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15097,6 +15127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069107758447988508, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4424702710340379704, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
@@ -15113,6 +15148,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 524fc3739b949cb4ca8ae4adb2e692a0, type: 2}
+    - target: {fileID: 6415760036921838115, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6746329709883314555, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
       propertyPath: endTime
@@ -15133,6 +15173,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 524fc3739b949cb4ca8ae4adb2e692a0, type: 2}
+    - target: {fileID: 7470283764211089191, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627466401126513041, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022773925031071706, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -7731081474742953953, guid: bacfbf1595fbe17449557b727cc88534, type: 3}
@@ -15142,6 +15197,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 948737552}
+    - targetCorrespondingSourceObject: {fileID: 183584111942683532, guid: bacfbf1595fbe17449557b727cc88534,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 948737553}
     - targetCorrespondingSourceObject: {fileID: 4069107758447988508, guid: bacfbf1595fbe17449557b727cc88534,
         type: 3}
       insertIndex: -1
@@ -15246,6 +15305,29 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
+--- !u!136 &948737553
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948737549}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.78
+  m_Height: 9.195352
+  m_Direction: 1
+  m_Center: {x: 0, y: 4.097678, z: 0}
 --- !u!1001 &950318656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15343,7 +15425,7 @@ GameObject:
   - component: {fileID: 952958521}
   m_Layer: 6
   m_Name: Floor (5)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16498,6 +16580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a0c638706d66be4eb42d73141fa1654,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1164893554176091126, guid: 8a0c638706d66be4eb42d73141fa1654,
         type: 3}
@@ -18414,7 +18501,7 @@ GameObject:
   - component: {fileID: 1009334507}
   m_Layer: 6
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20191,7 +20278,7 @@ GameObject:
   - component: {fileID: 1201869173}
   m_Layer: 6
   m_Name: Floor (3)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22103,6 +22190,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a0c638706d66be4eb42d73141fa1654,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1164893554176091126, guid: 8a0c638706d66be4eb42d73141fa1654,
         type: 3}
@@ -26055,7 +26147,7 @@ GameObject:
   - component: {fileID: 1531255697}
   m_Layer: 6
   m_Name: Floor (2)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26160,7 +26252,7 @@ GameObject:
   - component: {fileID: 1532021484}
   m_Layer: 6
   m_Name: Floor (6)
-  m_TagString: Untagged
+  m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32805,6 +32897,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a0c638706d66be4eb42d73141fa1654,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1164893554176091126, guid: 8a0c638706d66be4eb42d73141fa1654,
         type: 3}
       propertyPath: m_Layer
@@ -33787,7 +33884,7 @@ GameObject:
   - component: {fileID: 1984746224}
   m_Layer: 6
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

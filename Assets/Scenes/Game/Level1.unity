@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.646786, g: 9.200097, b: 24.50887, a: 1}
+  m_IndirectSpecularColor: {r: 4.6468015, g: 9.200105, b: 24.508747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2923,7 +2923,7 @@ GameObject:
   - component: {fileID: 52548948}
   m_Layer: 6
   m_Name: Stairs (4)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13427,6 +13427,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 770e19b7706e8b7479994188a8766d30,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14114,7 +14119,7 @@ GameObject:
   - component: {fileID: 298671179}
   m_Layer: 6
   m_Name: Stairs (3)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17272,7 +17277,7 @@ GameObject:
   - component: {fileID: 389903467}
   m_Layer: 6
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20607,7 +20612,7 @@ GameObject:
   - component: {fileID: 463493347}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25092,6 +25097,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 770e19b7706e8b7479994188a8766d30,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28681,7 +28691,7 @@ GameObject:
   - component: {fileID: 634841142}
   m_Layer: 6
   m_Name: Stairs (9)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45721,7 +45731,7 @@ GameObject:
   - component: {fileID: 1030110844}
   m_Layer: 6
   m_Name: Stairs (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53662,7 +53672,7 @@ GameObject:
   - component: {fileID: 1211998239}
   m_Layer: 6
   m_Name: Stairs (6)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60524,7 +60534,7 @@ GameObject:
   - component: {fileID: 1337825516}
   m_Layer: 6
   m_Name: Stairs (2)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61998,6 +62008,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8405f07f960a2c54a893a4c21aa338f1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Concrete
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -63036,6 +63051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e7f7ecb28dc8774a99c3dff726b1ff0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1129496810705857465, guid: 9e7f7ecb28dc8774a99c3dff726b1ff0,
         type: 3}
@@ -69877,7 +69897,7 @@ GameObject:
   - component: {fileID: 1513645672}
   m_Layer: 6
   m_Name: Stairs (5)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70729,7 +70749,7 @@ GameObject:
   - component: {fileID: 1520763788}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77894,7 +77914,7 @@ GameObject:
   - component: {fileID: 1699376514}
   m_Layer: 6
   m_Name: Floor (3)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79090,7 +79110,7 @@ GameObject:
   - component: {fileID: 1716972828}
   m_Layer: 6
   m_Name: Stairs (8)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83015,7 +83035,7 @@ GameObject:
   - component: {fileID: 1792879016}
   m_Layer: 6
   m_Name: Floor (2)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86341,6 +86361,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 770e19b7706e8b7479994188a8766d30,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87438,7 +87463,7 @@ GameObject:
   - component: {fileID: 1886786890}
   m_Layer: 6
   m_Name: Floor (5)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91462,7 +91487,7 @@ GameObject:
   - component: {fileID: 1967668082}
   m_Layer: 6
   m_Name: Floor (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94288,7 +94313,7 @@ GameObject:
   - component: {fileID: 2050578469}
   m_Layer: 6
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97253,7 +97278,7 @@ GameObject:
   - component: {fileID: 2116940855}
   m_Layer: 6
   m_Name: Stairs (7)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

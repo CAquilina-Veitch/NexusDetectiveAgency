@@ -307,8 +307,9 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Shompf");
         canSwitch = false;
-        
-        
+        ToggleDroneDraft(false);
+
+
         soundDimswap.Start();
 
 
