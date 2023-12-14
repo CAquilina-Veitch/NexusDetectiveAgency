@@ -309,7 +309,7 @@ public class PlayerController : MonoBehaviour
         canSwitch = false;
         
         
-        soundDimswap.Start();
+        soundDimswap.StartSound();
 
 
         portal.Play();
@@ -876,7 +876,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKeyDown(abilityKey))
                 {
-                    soundMoveplat.Start();
+                    soundMoveplat.StartSound();
                     ShowWheel();
                 }
 
