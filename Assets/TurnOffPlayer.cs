@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class TurnOffPlayer: MonoBehaviour
 {
     PlayerController pC;
     public GameObject[] obsOffTake;
     public GameObject[] obsOffActiv;
+    [SerializeField] UnityEvent turnOnCanvas;
     public void StartAnim()
     {
         pC = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
@@ -17,6 +20,7 @@ public class TurnOffPlayer: MonoBehaviour
     {
         yield return new WaitForSeconds(d);
         pC.activateCameras(true);
+        turnOnCanvas.Invoke();
         foreach(var c in obsOffTake)
         {
             c.SetActive(false);
@@ -27,6 +31,7 @@ public class TurnOffPlayer: MonoBehaviour
     {
         yield return new WaitForSeconds(d);
         pC.activateCameras(true);
+        turnOnCanvas.Invoke();
         foreach (var c in obsOffActiv)
         {
             c.SetActive(false);
