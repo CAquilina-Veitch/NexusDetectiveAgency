@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.LogError($"Collided with {collision.gameObject}");
+        Debug.LogError($"{handCam}Collided with {collision.gameObject}");
     }
 
 }
