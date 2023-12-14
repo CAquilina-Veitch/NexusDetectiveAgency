@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FootstepGuy : MonoBehaviour
 {
-    [SerializeField] LayerMask groundMask;
     public enum GroundType { normal, concrete, metal, wood, dirt }
 
     float StepRandom;

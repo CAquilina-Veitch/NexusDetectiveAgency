@@ -7139,10 +7139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a2fb4010025d843b9937cc707452e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isDetective: 0
+  isDetective: 1
   pC: {fileID: 0}
 --- !u!1 &1615291906
 GameObject:
