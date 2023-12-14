@@ -5447,6 +5447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!64 &640289873
 MeshCollider:
@@ -15023,6 +15024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.92502
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.43
       objectReference: {fileID: 0}
@@ -15034,7 +15040,7 @@ PrefabInstance:
     - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.37
+      value: 79.217
       objectReference: {fileID: 0}
     - target: {fileID: 3291176029457839700, guid: c461be0ac8e266d4abc22f097f2113c4,
         type: 3}
@@ -19949,6 +19955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewTimer: 0.1
+  mR: {fileID: 0}
   outlineMat: {fileID: 2100000, guid: 042b5207bda214a459f9cb2839d7dcca, type: 2}
 --- !u!64 &7115196162104658612
 MeshCollider:
