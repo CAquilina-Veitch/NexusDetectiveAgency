@@ -279,6 +279,10 @@ public class PlayerController : MonoBehaviour
 
 
         }
+        else
+        {
+            StartCoroutine(ShowDimensionalUnavailability());
+        }
 
 
 
