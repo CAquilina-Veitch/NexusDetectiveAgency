@@ -11,6 +11,9 @@ position: -1013,-832
 <<declare $AudioCutOut = false>>
 <<declare $LineDuration = 1>>
 
+//Melanie type animation length 7.083
+//Max type animation length 
+
 //DEBUG: How many documents has the player found?
 //->	Only a few.
 //		<<set $documentsFound to 1>>
@@ -73,7 +76,7 @@ position:
 position: -822,-286
 ---
 <<set $audioMelanieNumber = 4>>
-<<set $LineDuration = 4>>
+<<set $LineDuration = 11>>
 <<playvoicemel DialogueManager>>
 <<holoeff DialogueManager>>
 Melanie: You'll be leaving now. Before I call security. #melanie04
@@ -99,16 +102,20 @@ Melanie: You'll be leaving now. Before I call security. #melanie04
 title: TalkingToMelanie3
 position: -823,-92
 ---
-<<set $audioMelanieNumber = 5>>
-<<set $LineDuration = 12>>
+//<<set $audioMelanieNumber = 5>>
+<<set $AudioCutOut = true>>
+<<set $LineDuration = 4>>
 <<playvoicemel DialogueManager>>
-Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years. Everything we had been working on is in our main displays in the lobby. #melanie05
+Melanie: Device? What device? We don't have anything down here. We haven't been working on anything for years.
+<<set $LineDuration = 4>>
+<<autonext DialogueManager>>
+Melanie: Everything we had been working on is in our main displays in the lobby. #melanie05
 <<set $audioMaxNumber = 5>>
 <<set $LineDuration = 4.4>>
 <<playvoicemax DialogueManager>>
 Max: I know there's something else here. And I know it's affecting this world. #max05
-<<set $audioMelanieNumber = 6>>
-<<set $LineDuration = 2.5>>
+//<<set $audioMelanieNumber = 6>>
+<<set $LineDuration = 7.2>>
 <<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
 <<if $FetchDocFound == false >>
@@ -138,10 +145,12 @@ position: -541,-286
 		<<set $LineDuration = 3>>
 		<<playvoicemax DialogueManager>>
 		Max: Well, I simply don't believe that. #max06
-		<<set $audioMelanieNumber = 7>>
-		<<set $LineDuration = 8.5>>
+		//<<set $audioMelanieNumber = 7>>
+		<<set $LineDuration = 7.2>>
 		<<playvoicemel DialogueManager>>
-		Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little (Leave). #melanie07
+		Melanie: Fine. If you desperately want to see what's behind here, get this file. It's going to catch you up to speed a little. #melanie07
+		<<autonext DialogueManager>>
+		(Find more documents to proceed).
 		<<melaniestop DialogueManager>>
 		<<jump MelanieExit>>
 ===
@@ -166,13 +175,12 @@ DEBUG: Did Max find the required documents?
 title: MelanieRepeat
 position: 265,-442
 ---
-<<set $AudioCutOut = true>>
-<<playvoicemel DialogueManager>>
-<<wait  14>>
 <<set $audioMaxNumber = 13>>
 <<set $LineDuration = 2.5>>
 <<playvoicemax DialogueManager>>
 Max: I found the file you were looking for.
+<<set $LineDuration = 7.2>>
+<<playvoicemel DialogueManager>>
 Melanie: About time. Any questions?
 
 ->	Max: What about a new part?
@@ -180,8 +188,10 @@ Melanie: About time. Any questions?
 		<<set $LineDuration = 4.5>>
 		<<playvoicemax DialogueManager>>
 		Max: So I can't create a new part?
+		<<set $LineDuration = 7.2>>
 		<<playvoicemel DialogueManager>>
 		Melanie: There was only a single unit ever created, due to the fact this project was purely experimental.
+		<<set $LineDuration = 3>>
 		Melanie:Because of the lost schematics, the only way to make the machine work was if there was another part somewhere.
 
 ->	Max: But a new part will fix this?
@@ -189,9 +199,14 @@ Melanie: About time. Any questions?
 		<<set $LineDuration = 8.3>>
 		<<playvoicemax DialogueManager>>
 		Max: So you're saying that if I secure this CPU component, this machine could be reproduced?
+		<<set $LineDuration = 7.2>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Yes, that would be the case.
+		<<set $LineDuration = 3>>
+		<<autonext DialogueManager>>
 		Melanie: We don't have much use for ours without it being repaired to its full capacity.
+		<<set $LineDuration = 2>>
+		<<autonext DialogueManager>>
 		Melanie: Maybe you could make use of it?
 
 <<melaniesuccess DialogueManager>>
@@ -211,24 +226,21 @@ position: -256,-93
 		<<set $LineDuration = 2>>
 		<<playvoicemax DialogueManager>>
 		Max: The CPU broke. #max08
-		<<set $audioMelanieNumber = 8>>
-		<<set $LineDuration = 5.4>>
+		//<<set $audioMelanieNumber = 8>>
+		<<set $LineDuration = 7.2>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Wait... What? How... could you possibly know that? #melanie08
 
 ->	Max: I know a lot more.
 		//Max mumbles: I... Know... All... #max09
-		<<set $AudioCutOut = true>>
-		<<playvoicemel DialogueManager>>
-		<<wait  14>>
 		<<set $audioMaxNumber = 9>>
-		<<set $LineDuration = 5>>
+		<<set $LineDuration = 4>>
 		<<playvoicemax DialogueManager>>
 		Max: I know lots of things, like how you authorized the improper use of the machine.
-		<<set $LineDuration = 3.5>>
+		<<set $LineDuration = 3>>
 		<<autonext DialogueManager>>
 		Max: How Bridger R&D wanted to abuse this device to make a profit of innocents.
-		<<set $LineDuration = 3.5>>
+		<<set $LineDuration = 3>>
 		<<autonext DialogueManager>>
 		Max: Like how your guilt and shame mean more than your job.
 		<<set $LineDuration = 1.5>>
@@ -237,7 +249,7 @@ position: -256,-93
 		<<set $LineDuration = 3>>
 		<<autonext DialogueManager>>
 		Max: I can help you fix this mess.
-		<<set $LineDuration = 4>>
+		<<set $audioMaxNumber = 7>>
 		<<playvoicemel DialogueManager>>
 		Melanie: You certainly are good at your job. But fixing this machine is impossible. #melanie09
 		<<jump MelaniePassTree>>
@@ -250,10 +262,10 @@ position: 7,-94
 
 ->	Max: Impossible?
 		<<set $audioMaxNumber = 10>>
-		<<set $LineDuration = 1.2>>
+		<<set $LineDuration = 3>>
 		<<playvoicemax DialogueManager>>
 		Max: What do you mean by "Fixing it is impossible"?
-		<<set $LineDuration = 4>>
+		<<set $LineDuration = 7>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Well. Ummm. We, ehh... lost... the schematics. A poor filing choice from an intern. #melanie10
 
@@ -262,23 +274,23 @@ position: 7,-94
 		<<set $LineDuration = 3>>
 		<<playvoicemax DialogueManager>>
 		Max: Does no one know that it broke?
-		<<set $LineDuration = 2>>
-		<<playvoicemel DialogueManager>>
-		Melanie: We hid it, out of shame.
-		<<set $LineDuration = 2>>
-		<<playvoicemel DialogueManager>>
-		Melanie: No one knows besides the team that worked on it.
-		<<set $LineDuration = 3>>
-		<<playvoicemel DialogueManager>>
-		Melanie: We had to think about what would happen if someone did find out about it.
 		<<set $LineDuration = 4>>
 		<<playvoicemel DialogueManager>>
+		Melanie: We hid it, out of shame.
+		<<set $LineDuration = 4>>
+		<<autonext DialogueManager>>
+		Melanie: No one knows besides the team that worked on it.
+		<<set $LineDuration = 4>>
+		<<playvoicemel DialogueManager>>
+		Melanie: We had to think about what would happen if someone did find out about it.
+		<<set $LineDuration = 5>>
+		<<autonext DialogueManager>>
 		Melanie: It also has other uses, some less... economical, and dangerous in the wrong hands. #melanie11
 
 ->	Max: Pure incompetence.
 		<<set $audioMaxNumber = 12>>
 		<<set $LineDuration = 3>>
-		<<autonext DialogueManager>>
+		<<playvoicemax DialogueManager>>
 		Max: More gross incompetence.
 		<<set $LineDuration = 3>>
 		<<autonext DialogueManager>>
@@ -289,20 +301,20 @@ position: 7,-94
 		<<set $LineDuration = 3>>
 		<<autonext DialogueManager>>
 		Max: Greenery populates the world.
-		<<set $LineDuration = 3>>
+		<<set $LineDuration = 6>>
 		<<playvoicemel DialogueManager>>
 		Melanie: Jesus ... .You can travel dimensions?
 		<<set $LineDuration = 2>>
-		<<playvoicemel DialogueManager>>
+		<<autonext DialogueManager>>
 		Melanie: I'm getting off track.
 		<<set $LineDuration = 4>>
 		<<playvoicemel DialogueManager>>
 		Melanie: I suppose it's comforting to know the machine was used for its correct purpose. That is what we designed the machine for.
 		<<set $LineDuration = 3>>
-		<<playvoicemel DialogueManager>>
+		<<autonext DialogueManager>>
 		Melanie: We are responsible for bringing doom upon ourselves by modifying the machine.
 		<<set $LineDuration = 3>>
-		<<playvoicemel DialogueManager>>
+		<<autonext DialogueManager>>
 		Melanie: We made the wrong choice and paid dearly for it.
 		<<melaniesuccess DialogueManager>>
 		<<jump MelanieExit>>
