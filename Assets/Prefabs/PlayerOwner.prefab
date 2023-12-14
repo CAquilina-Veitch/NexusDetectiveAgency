@@ -30107,7 +30107,6 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   speed: 8
   acceleration: 10
-  groundType: 0
   portal: {fileID: 7597670302878456599}
   vfxParent: {fileID: 8006552005243882413}
   jumpCheckLength: 1.2
