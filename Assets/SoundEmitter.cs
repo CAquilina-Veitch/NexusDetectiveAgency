@@ -27,6 +27,7 @@ public class SoundEmitter : MonoBehaviour
     private void Update()
     {
         RuntimeManager.AttachInstanceToGameObject(soundInst, transform);
+        RuntimeManager.AttachInstanceToGameObject(soundInst, GetComponent<Transform>(), GetComponent<Rigidbody>());
     }
 
     public void StartSound()
