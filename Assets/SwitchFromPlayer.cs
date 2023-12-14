@@ -16,8 +16,11 @@ public class SwitchFromPlayer : MonoBehaviour
             pC = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
             TogglePlayerCam(false);
             this.enabled = false;
+            
         }
     }
+
+    public GameObject boxTrigger2;
 
     public void TogglePlayerCam(bool to)
     {
@@ -31,6 +34,9 @@ public class SwitchFromPlayer : MonoBehaviour
         Cursor.visible = !to;
         StartCoroutine(Fade());
         GetComponent<BoxCollider>().enabled = false;
+
+        boxTrigger2.GetComponent<BoxCollider>().enabled = true;
+
         if (!to)
         {
             dM.StartMelConvo();
@@ -54,7 +60,6 @@ public class SwitchFromPlayer : MonoBehaviour
         anim.SetTrigger("Typing");
     }
     public Animator anim;
-
 
 
 }
