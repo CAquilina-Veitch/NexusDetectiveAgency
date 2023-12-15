@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class MelSpin : MonoBehaviour
 {
+    bool spun;
     public void Spin()
     {
-        StartCoroutine(spinOnDelay());
+
+        if(!spun )
+        {
+            spun = true;
+            StartCoroutine(spinOnDelay());
+        }
+
     }
     public GameObject[] toTurnOff;
     IEnumerator spinOnDelay()
