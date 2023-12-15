@@ -279,7 +279,7 @@ public class SceneSegmentManager : MonoBehaviour
         foreach (GameObject loadBarrier in loadBarriers)
         {
             Debug.LogWarning("destroying " +loadBarrier);
-            //Destroy(loadBarrier);
+            Destroy(loadBarrier);
         }
     }
 
