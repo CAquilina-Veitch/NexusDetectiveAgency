@@ -839,6 +839,11 @@ public class PlayerController : MonoBehaviour
         {
             ReadLore();
         }
+
+        if (Input.GetKeyDown(openInventoryKey))
+        {
+            loreInv.openInvCanvas();
+        }
         if (mouseManualControlled)
         {
             if (Input.GetKeyDown(jumpKey))
@@ -909,10 +914,6 @@ public class PlayerController : MonoBehaviour
                     currentDronePlatformDistance += scrollInput * droneScrollSpeed;
                     currentDronePlatformDistance = Mathf.Clamp(currentDronePlatformDistance, droneDistanceClamps.x, droneDistanceClamps.y);
                 }
-            }
-            if (Input.GetKeyDown(openInventoryKey))
-            {
-                loreInv.openInvCanvas();
             }
             mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * realSens;
             pitch += mouseInput.y;

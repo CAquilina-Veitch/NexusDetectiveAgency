@@ -129,10 +129,20 @@ public class LoreInventory : MonoBehaviour
 
 
     }
+    public void backFromDimension()
+    {
+        StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
+        StartCoroutine(OpenCanvasGroup(leatherCanvasGroup));
+    }
 
+    public void backFromLore()
+    {
+        StartCoroutine(CloseCanvasGroup(loreCanvasGroup));
+        closeCurrent();
+        StartCoroutine(OpenCanvasGroup(realityCanvasGroup));    
+    }
     public void ChooseReality(int d)
     {
-        Debug.LogWarning(d);
         openingDimension = (Dimension)d;
         changeTabTitles();
         StartCoroutine(CloseCanvasGroup(realityCanvasGroup));
