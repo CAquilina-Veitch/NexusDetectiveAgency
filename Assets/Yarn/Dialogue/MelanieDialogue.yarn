@@ -29,7 +29,7 @@ position: -1013,-832
 title: MelanieInteract
 position: -258,-837
 ---
-//<<loredocsfound DialogueManager>>
+<<loredocsfound DialogueManager>>
 //<<set $documentsFound = 10>>
 <<if $firstInteraction == true>>
 	<<jump TalkingToMelanie1>>
@@ -118,6 +118,7 @@ Max: I know there's something else here. And I know it's affecting this world. #
 <<set $LineDuration = 7.2>>
 <<playvoicemel DialogueManager>>
 Melanie: Well there simply isn't. #melanie06
+<<loredocsfound DialogueManager>>
 <<if $FetchDocFound == false >>
 		<<jump MelanieFail>>
 <<else>>
@@ -129,6 +130,7 @@ title: MelanieDocLoop
 position:
 position: -258,-561
 ---
+<<loredocsfound DialogueManager>>
 <<if $FetchDocFound == false>>
 	<<jump TalkingToMelanie2>>
 <<else>>
@@ -163,6 +165,7 @@ position: -262,-286
 DEBUG: Max leaves Melanie in search for her documents.
 <<wait  1>>
 DEBUG: Did Max find the required documents?
+<<loredocsfound DialogueManager>>
 ->	Yes.
 		<<set $FetchDocFound = true>>
 		<<jump MelanieExit>>

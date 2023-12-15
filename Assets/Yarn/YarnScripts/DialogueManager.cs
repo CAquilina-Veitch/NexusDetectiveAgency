@@ -133,6 +133,7 @@ public class DialogueManager : MonoBehaviour
     {
 
         mainDocFound = GameObject.FindGameObjectWithTag("LoreInventory").GetComponent<LoreInventory>().isEnough();
+        Debug.LogError(mainDocFound);
         variableStorage.SetValue("$FetchDocFound", mainDocFound);
     }
 
